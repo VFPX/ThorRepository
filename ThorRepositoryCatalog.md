@@ -410,7 +410,7 @@
 
 <td width="66" valign="top">2011/06/04</td>
 
-<td width="39" valign="top">[(1:56)](Videos\MRU.wmv)</td>
+<td width="39" valign="top"><a href="Videos\MRU.wmv" target="_blank">(1:56)</a></td>
 
 </tr>
 
@@ -422,7 +422,7 @@
 
 <td width="66" valign="top">2011/06/04</td>
 
-<td width="39" valign="top">[(1:56)](Videos\MRU.wmv)</td>
+<td width="39" valign="top"><a href="Videos\MRU.wmv" target="_blank">(1:56)</a></td>
 
 </tr>
 
