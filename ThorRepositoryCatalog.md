@@ -30,6 +30,8 @@
 
 <td width="66" valign="top">2011/06/09</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -39,6 +41,8 @@
 <td width="560" valign="top">Removes comment *!* from each line in the highlighted text. Works in those instances where native VFP uncomment does nothing.</td>
 
 <td width="66" valign="top">2011/10/22</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -50,6 +54,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -59,6 +65,8 @@
 <td width="560" valign="top">Wrap highlighted text with Try / Catch</td>
 
 <td width="66" valign="top">2011/10/22</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -70,6 +78,8 @@
 
 <td width="66" valign="top">2012/01/28</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -79,6 +89,8 @@
 <td width="560" valign="top">Change the IF / ENDIF in the highlighted text to a Do Case / Otherwise / EndCase</td>
 
 <td width="66" valign="top">2011/10/22</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -90,6 +102,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -100,6 +114,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -109,6 +125,8 @@
 <td width="560" valign="top">Extracts the currently highlighted block of code into a new variable.  See also ‘Extract to Method’ in IDE Tools.</td>
 
 <td width="66" valign="top">2011/10/22</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -130,6 +148,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -139,6 +159,8 @@
 <td width="560" valign="top">Highlights code between matching parenthesis.  Repeated usage highlights the next outer set of parentheses.</td>
 
 <td width="66" valign="top">2011/10/22</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -160,6 +182,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -169,6 +193,8 @@
 <td width="560" valign="top">Pops up menu of MRU classes; then pastes in NewObject() references to the selected class</td>
 
 <td width="66" valign="top">2011/10/22</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -180,6 +206,8 @@
 
 <td width="66" valign="top">2011/07/29</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -190,6 +218,8 @@
 
 <td width="66" valign="top">2011/07/29</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -199,6 +229,8 @@
 <td width="560" valign="top">Inserts a reference to the class that an object belongs to; This.Parent.Parent, etc.</td>
 
 <td width="66" valign="top">2011/07/29</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -220,6 +252,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -229,6 +263,8 @@
 <td width="560" valign="top">Removes MDots from all references to parameters, locals, and other variables.</td>
 
 <td width="66" valign="top">2011/10/22</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -250,6 +286,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -260,6 +298,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -269,6 +309,8 @@
 <td width="560" valign="top">Removes all blank lines from the current code window</td>
 
 <td width="66" valign="top">2012/01/28</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -290,6 +332,8 @@
 
 <td width="66" valign="top">2011/10/22</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -299,6 +343,8 @@
 <td width="560" valign="top">Opens a dialog with a filter box to quickly select a file (PRG, SCX, VCX, etc.) from the Active Project</td>
 
 <td width="66" valign="top">2011/10/22</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -310,6 +356,8 @@
 
 <td width="66" valign="top">2012/01/28</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -320,6 +368,8 @@
 
 <td width="66" valign="top">2011/06/03</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -329,6 +379,8 @@
 <td width="560" valign="top">Select the object which the code window belongs to.</td>
 
 <td width="66" valign="top">2011/07/29</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -350,6 +402,8 @@
 
 <td width="66" valign="top">2012/01/28</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -359,6 +413,8 @@
 <td width="560" valign="top">Display current class libraries in a dialog box, one per line.</td>
 
 <td width="66" valign="top">2011/06/03</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -370,6 +426,8 @@
 
 <td width="66" valign="top">2011/06/03</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -380,6 +438,8 @@
 
 <td width="66" valign="top">2011/06/03</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -389,6 +449,8 @@
 <td width="560" valign="top">Toggle colors for comments in edit windows (normal vs. subdued)</td>
 
 <td width="66" valign="top">2011/06/03</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -434,6 +496,8 @@
 
 <td width="66" valign="top">2011/07/29</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -454,6 +518,8 @@
 
 <td width="66" valign="top">2011/07/29</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -463,6 +529,8 @@
 <td width="560" valign="top">Sample of taking the highlighted text in an edit window, modifying it, and pasting back the replacement.</td>
 
 <td width="66" valign="top">2011/06/09</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -484,6 +552,8 @@
 
 <td width="66" valign="top">2011/06/03</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -493,6 +563,8 @@
 <td width="560" valign="top">Print/View the current table's schema</td>
 
 <td width="66" valign="top">2011/06/08</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -504,6 +576,8 @@
 
 <td width="66" valign="top">2012/01/28</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -513,6 +587,8 @@
 <td width="560" valign="top">LIST FIELDS replacement by White Light Computing.</td>
 
 <td width="66" valign="top">2011/06/03</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
@@ -534,7 +610,7 @@
 
 <td width="66" valign="top">2011/06/03</td>
 
-<td width="39" valign="top">[(3:33)](Videos\Windows.wmv)</td>
+<td width="39" valign="top"><a href="Videos\Windows.wmv" target="_blank">(3:33)</a></td>
 
 </tr>
 
@@ -546,7 +622,7 @@
 
 <td width="66" valign="top">2011/06/03</td>
 
-<td width="39" valign="top">[(3:33)](Videos\Windows.wmv)</td>
+<td width="39" valign="top"><a href="Videos\Windows.wmv" target="_blank">(3:33)</a></td>
 
 </tr>
 
@@ -558,7 +634,7 @@
 
 <td width="66" valign="top">2011/06/03</td>
 
-<td width="39" valign="top">[(3:33)](Videos\Windows.wmv)</td>
+<td width="39" valign="top"><a href="Videos\Windows.wmv" target="_blank">(3:33)</a></td>
 
 </tr>
 
@@ -580,6 +656,8 @@
 
 <td width="66" valign="top">2012/01/28</td>
 
+<td>&nbsp;</td>
+
 </tr>
 
 <tr>
@@ -589,6 +667,8 @@
 <td width="560" valign="top">Pops up form for creating calls to MessageBox</td>
 
 <td width="66" valign="top">2012/01/28</td>
+
+<td>&nbsp;</td>
 
 </tr>
 
