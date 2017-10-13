@@ -11,7 +11,7 @@ _Requires VFP9_
 
 _The **Thor Repository** is a collection of IDE tools, accessible thru Thor, that have been written by members of the FoxPro community._
 
-**Complete Catalog:** **[Catalog of all Thor Repository Tools](ThorRepostitoryCatalog.md)**
+**Complete Catalog:** **[Catalog of all Thor Repository Tools](ThorRepositoryCatalog.md)**
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
