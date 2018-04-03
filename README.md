@@ -1,27 +1,26 @@
-![](ThorRepository.png)
+![](documents/images/ThorRepository.png)
 
-<div style="text-align: right; margin-top: -55px;">
 
 Version 37 Released 2012-08-19   
 _Requires VFP9_
 
-</div>
+
 
 * * *
 
 _The **Thor Repository** is a collection of IDE tools, accessible thru Thor, that have been written by members of the FoxPro community._
 
-**Complete Catalog:** **[Catalog of all Thor Repository Tools](ThorRepositoryCatalog.md)**
+**Complete Catalog:** **[Catalog of all Thor Repository Tools](documents/ThorRepositoryCatalog.md)**
 
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
 **Home page for Thor:** [**Thor**](https://github.com/VFPX/Thor)
 
-* * *
+***
 
 ### Registering tools from the Thor Repository
 
-The latest version of the Thor Repository is automatically downloaded and registered with Thor when you use the ‘Check for Updates’ option in the Thor menu (in the FoxPro system menu).  See [One-Click Updates of Thor](OneClickUpdates.md).
+The latest version of the Thor Repository is automatically downloaded and registered with Thor when you use the ‘Check for Updates’ option in the Thor menu (in the FoxPro system menu).  See [One-Click Updates of Thor](documents/OneClickUpdates.md).
 
 If you choose to manually register these tools with Thor, download them and save them in Thor's Tools sub-folder.
 
@@ -29,7 +28,7 @@ You are encouraged to modify and enhance these tools.  To do so, find the tool 
 
 If your enhancements or corrections are significant, please re-submit them to be shared with the rest of the VFP community.
 
-NOTE: A majority of these tools require that PEM Editor 7 be installed and registered with Thor. However, they do <span style="text-decoration: underline;">not</span> require that the PEM Editor form be open.
+NOTE: A majority of these tools require that PEM Editor 7 be installed and registered with Thor. However, they do <u>not</u> require that the PEM Editor form be open.
 
 ### Submitting tools to be included in the Thor Repository
 
