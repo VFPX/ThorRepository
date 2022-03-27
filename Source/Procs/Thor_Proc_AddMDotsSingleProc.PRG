@@ -69,8 +69,10 @@ Endscan
 
 * Modified 18-May-2012 by TEG
 * Remove MDots from left-hand side of assignments.
-Local llMDotsWhereRequired
-llMDotsWhereRequired  = ExecScript(_Screen.cThorDispatcher, "Get Option=", 'MDots where required', 'MDots')
+Local llMDotsWhereRequired,llMDotsWhereRequired_At,llMDotsWhereRequired_Array
+llMDotsWhereRequired       = ExecScript(_Screen.cThorDispatcher, "Get Option=", 'MDots where required', 'MDots')
+llMDotsWhereRequired_At    = ExecScript(_Screen.cThorDispatcher, "Get Option=", 'No MDots after @', 'MDots')
+llMDotsWhereRequired_Array = ExecScript(_Screen.cThorDispatcher, "Get Option=", 'No MDots on Array', 'MDots')
 
 If llMDotsWhereRequired
 
@@ -117,6 +119,29 @@ If llMDotsWhereRequired
 		Endif
 
 	Endfor
+*SF 2021 / 04 / 05 eleminate m. on parameters. parameters must be variables
+
+	If llMDotsWhereRequired_At
+
+		loRegExp.Pattern = '[\(,][ \t]*(;[^\n\r]*[\n\r]{0,2})*[ \t]*@[ \t]*(;[^\n\r]*[\n\r]{0,2})*[ \t]*m\.'
+		loMatches		 = loRegExp.Execute (m.lcNewBlock)
+	
+		For lnJ = loMatches.Count - 1 To 0 STEP -1
+			lcNewBlock = STUFF(m.lcNewBlock,loMatches.Item (lnJ).FirstIndex + loMatches.Item (lnJ).Length-1,2,'')
+		Next lnJ
+		Endif
+*/SF 2021 / 04 / 05 eleminate m. on parameters. parameters must be variables
+*SF 2021 / 04 / 06 eleminate m. in front of Array, Method
+	If llMDotsWhereRequired_Array
+
+		loRegExp.Pattern = '\bm\.(([ \t]*[A-Z_][A-Z0-9_]*[ \t]*\.)*([ \t]*;[^\n\r]*[\n\r]{0,2})*)*([ \t]*[A-Z_][A-Z0-9_]*[ \t]*){1}([ \t]*;[^\n\r]*[\n\r]{0,2}[ \t]*)*[\(\[]'
+		loMatches		 = loRegExp.Execute (m.lcNewBlock)
+	
+		For lnJ = loMatches.Count - 1 To 0 STEP -1
+			lcNewBlock = STUFF(m.lcNewBlock,loMatches.Item (lnJ).FirstIndex + 1,2,'')
+		Next lnJ
+		Endif
+*/SF 2021 / 04 / 06 eleminate m. in front of Array, Method
 
 	lcCodeBlock = Substr(m.lcNewBlock, 2)
 

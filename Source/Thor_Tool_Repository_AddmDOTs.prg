@@ -15,17 +15,17 @@ If Pcount() = 1								;
 
 	With lxParam1
 
-		* Required
+* Required
 		.Prompt		 = 'Add MDots to variable names'
-		Text To .Description Noshow
+		TEXT To .Description Noshow
 Adds MDots to all references to parameters, locals, and other variables assigned values.
-		Endtext
-		* For public tools, such as PEM Editor, etc.
+		ENDTEXT
+* For public tools, such as PEM Editor, etc.
 		.Source			 = 'Thor Repository'
 		.Category		 = 'Code|MDots'
 		.Author			 = 'Jim Nelson'
 		.Link			 = 'http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object'
-		.OptionClasses	 = 'clsMDotsProperties, clsMDotsWhereRequired, clsMDotsinBeautifyX'
+		.OptionClasses	 = 'clsMDotsProperties, clsMDotsWhereRequired, clsMDotsWhereRequired_At, clsMDotsWhereRequired_Array, clsMDotsinBeautifyX'
 		.OptionTool		 = 'MDots'
 		.CanRunAtStartUp = .F.
 	Endwith
@@ -46,10 +46,10 @@ Procedure ToolCode
 
 	Local lcClipText, lcNewCliptext, lcOldClipText, lnMDotsUsage, lnSelEnd, lnSelStart, loEditorWin
 
-	* get the object which manages the editor window
-	* see	http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object
+* get the object which manages the editor window
+* see	http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object
 	loEditorWin = Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
-	* locate the active editor window; exit if none active
+* locate the active editor window; exit if none active
 	If loEditorWin.GetEnvironment(25) <= 0
 		Return
 	Endif
@@ -61,15 +61,15 @@ Procedure ToolCode
 		loEditorWin.Select(0, 1000000)
 	Endif
 
-	* copy highlighted text into clipboard
+* copy highlighted text into clipboard
 	loEditorWin.Copy()
 	lcClipText = _Cliptext
 
-	lnMDotsUsage  = ExecScript(_Screen.cThorDispatcher, "Get Option=", 'MDots Usage', 'MDots')
+	lnMDotsUsage  = Execscript(_Screen.cThorDispatcher, "Get Option=", 'MDots Usage', 'MDots')
 	lcNewCliptext = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_AddMDotsMultipleProcs', lcClipText, lnMDotsUsage = 3)
 
-	****************************************************************
-	* This final block of code pastes in the modification (in <lcNewCliptext>)
+****************************************************************
+* This final block of code pastes in the modification (in <lcNewCliptext>)
 	loEditorWin.Paste (lcNewCliptext)
 	_Cliptext = lcOldClipText
 	loEditorWin.Select (lnSelStart, lnSelStart)
@@ -81,12 +81,14 @@ Endproc
 
 ****************************************************************
 ****************************************************************
-#Define		ccContainerName			'clsMDots'
-#Define		ccToolName				'MDots'
+#Define		ccContainerName				'clsMDots'
+#Define		ccToolName					'MDots'
 
-#Define		ccKeyUsage				'MDots Usage'
-#Define		ccKeyWhereRequired		'MDots where required'
-#Define		ccKeyInBeautifyX		'MDots in BeautifyX'
+#Define		ccKeyUsage					'MDots Usage'
+#Define		ccKeyWhereRequired			'MDots where required'
+#Define		ccKeyWhereRequired_AT		'No MDots after @'
+#Define		ccKeyWhereRequired_Array	'No MDots on Array'
+#Define		ccKeyInBeautifyX			'MDots in BeautifyX'
 
 Define Class clsMDotsProperties As Custom
 
@@ -106,6 +108,26 @@ Define Class clsMDotsWhereRequired As Custom
 
 Enddefine
 
+********
+Define Class clsMDotsWhereRequired_At As Custom
+
+	Tool		  = ccToolName
+	Key			  = ccKeyWhereRequired_AT
+	Value		  = .F.
+	EditClassName = ccContainerName
+
+Enddefine
+
+Define Class clsMDotsWhereRequired_Array As Custom
+
+	Tool		  = ccToolName
+	Key			  = ccKeyWhereRequired_Array
+	Value		  = .F.
+	EditClassName = ccContainerName
+
+Enddefine
+
+********
 Define Class clsMDotsinBeautifyX As Custom
 
 	Tool		  = ccToolName
@@ -123,8 +145,8 @@ Define Class clsMDots As Container
 		Local loRenderEngine
 		loRenderEngine = Execscript(_Screen.cThorDispatcher, 'Class= OptionRenderEngine')
 
-		Text To loRenderEngine.cBodyMarkup Noshow Textmerge
-		
+		TEXT To loRenderEngine.cBodyMarkup Noshow Textmerge
+
 			.Name			  = 'optUsage'
 			.Class			  = 'optiongroup'
 			.cTool	  		  = ccToolName
@@ -139,10 +161,22 @@ Define Class clsMDots As Container
 			|
 			.Class	  = 'CheckBox'
 			.AutoSize = .T.
+			.Caption  = 'No MDots after @'
+			.cTool	  = ccToolName
+			.cKey	  = ccKeyWhereRequired_AT
+			|
+			.Class	  = 'CheckBox'
+			.AutoSize = .T.
+			.Caption  = 'No MDots before method or array'
+			.cTool	  = ccToolName
+			.cKey	  = ccKeyWhereRequired_ARRAY
+			|
+			.Class	  = 'CheckBox'
+			.AutoSize = .T.
 			.Caption  = 'Create MDots as part of BeautifyX'
 			.cTool	  = ccToolName
 			.cKey	  = ccKeyInBeautifyX
-		Endtext
+		ENDTEXT
 
 		loRenderEngine.Render(This, ccToolName)
 
