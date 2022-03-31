@@ -1,9 +1,8 @@
 ![](documents/images/ThorRepository.png)
 
 
-Version 37 Released 2012-08-19   
+Version 62.04 Released 2022-03-31   
 _Requires VFP9_
-
 
 
 * * *
@@ -46,3 +45,13 @@ Tools will be accepted into the Repository if they meet some minimum standards, 
 ### Community Forum for Thor and Thor Tools
 
 Please visit the community forum for Thor at [**http://groups.google.com/group/FoxProThor**](http://groups.google.com/group/FoxProThor) to make suggestions or comments, to report problems, and to see how others are using Thor and its related tools.
+
+## Changes
+### Version 64.03
+Added configuration for changes to [PEMEditor](https://github.com/VFPX/PEMEditor) 7.40.00
+
+----
+## Contribution
+See [contribution](./.github/CONTRIBUTING.md)
+
+Last changed: _2022/03/31_
