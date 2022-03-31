@@ -32,6 +32,7 @@ Please note, there are some tasks to set up a new version.
 Stuff is a bit scattered, so this is where to look up.
 1. Please create a fork at github
 1. Make whatever changes are necessary.
+3. Update _Source\Thor_Repository.zip_
 3. Alter version in _README.md_.
 4. Describe the changes in the _What's New_ section near the bottom.
 3. Update the version number in _Source\ThorRepositoryVersionFile.txt_
