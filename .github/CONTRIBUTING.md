@@ -47,4 +47,4 @@ Stuff is a bit scattered, so this is where to look up.
 Thanks
 
 ----
-Last changed: _2022/03/31_
+Last changed: _2022/04/01_ ![Picture](../docs/pictures/vfpxpoweredby_alternative.gif)
