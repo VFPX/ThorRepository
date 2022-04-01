@@ -47,10 +47,10 @@ Tools will be accepted into the Repository if they meet some minimum standards, 
 Please visit the community forum for Thor at [**http://groups.google.com/group/FoxProThor**](http://groups.google.com/group/FoxProThor) to make suggestions or comments, to report problems, and to see how others are using Thor and its related tools.
 
 ## Changes
-### Version 64.04
+### Version 64.06
 Added configuration for changes to [PEMEditor](https://github.com/VFPX/PEMEditor) 7.41.00
 
-### Version 64.06
+### Version 64.05
 Missing sources in the zip file
 
 ### Version 64.04
