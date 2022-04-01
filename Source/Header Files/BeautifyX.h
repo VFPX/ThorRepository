@@ -13,8 +13,8 @@
 #Define PF_CAP_PROPERTIES		'Properties'
 #Define PF_CAP_METHODS			'Methods'
 #Define PF_CAP_CUSTOM			'Custom'
-#Define PF_CAP_INHERITED		'Inherited'
-#Define PF_CAP_NATIVE			'Native'
+*#Define PF_CAP_INHERITED		'Inherited'
+*#Define PF_CAP_NATIVE			'Native'
 
 #Define PF_CAP_NONDefault		'Non-Default'
 #Define PF_CAP_FAVORITES		'Favorites'
@@ -716,6 +716,9 @@
 #Define ccLOC_Pref_CAP_AlignAS 			'Align AS keywords?'
 #Define ccLOC_Pref_Tip_AlignAS			'Causes AS keywords to be aligned to the same column' 
 
+#Define ccLOC_Pref_CAP_AlignASFieldBlocks	"Use blocks of AS phrases "
+#Define ccLOC_Pref_Tip_AlignASFieldBlocks	"AS phrases will be alligned in blocks." + 0h0D0A + "Each block contains of a related group of fields" + 0h0D0A + "or a related group of FROM and JOINS."
+
 #Define ccLOC_Pref_Cap_AlignBeforeAS	"Spacing before AS:"
 #Define ccLOC_Pref_Tip_AlignBeforeAS	"Spacing between each field expression and the AS that follows."
 
@@ -741,7 +744,7 @@
 #Define ccLOC_Pref_Tip_CharsAfterSelect	"The number of spaces after the initial SELECT, allowing alignment with following fields"
 
 #Define ccLOC_Pref_Cap_CharsAfterSET	"Indent after SET"
-#Define ccLOC_Pref_Tip_CharsAfterSET	"The number of spaces after UPDATE / SET, allowing alignment with following fields"
+#Define ccLOC_Pref_Tip_CharsAfterSET	"The number of spaces after UPDATE / SET keyword, allowing alignment with following fields"
 
 #Define ccLOC_Pref_Cap_FieldIndent		"Indent for each new field"
 #Define ccLOC_Pref_Tip_FieldIndent		"Indentation for each field that starts on a new line (meaning the previous line terminated with a comma)"
@@ -749,11 +752,40 @@
 #Define ccLOC_Pref_Cap_SingleFieldIndent	"Indent for continuation of a field"
 #Define ccLOC_Pref_Tip_SingleFieldIndent	"Additional indentation for continuation lines for a field (previous line did not terminate in a comma)"
 
+#Define ccLOC_Pref_Cap_CommaOnLineStart	"Position commas separating fields at beginning of line"
+#Define ccLOC_Pref_Tip_CommaOnLineStart	"Place comma on begin of line. Valid for ORDER BY, GROUP or FROM and items."
+
+**
+#Define ccLOC_Pref_Cap_SelectExpandJoin	"JOINs"
+#Define ccLOC_Pref_Tip_SelectExpandJoin	"Expand each JOIN to a new line."
+
+#Define ccLOC_Pref_Cap_SelectExpandOn	"ONs"
+#Define ccLOC_Pref_Tip_SelectExpandOn	"Expand each ON to a new line."
+
+#Define ccLOC_Pref_Cap_SelectExpandAndOr	"AND & ORs"
+#Define ccLOC_Pref_Tip_SelectExpandAndOr	"Expand each AND and OR to a new line."
+
+#Define ccLOC_Pref_Cap_SelectExpandFields	"Fields"
+#Define ccLOC_Pref_Tip_SelectExpandFields	"Expand each field to a new line, special see below."
+
+#Define ccLOC_Pref_Cap_SelectExpandSelectItem	"Select Items"
+#Define ccLOC_Pref_Tip_SelectExpandSelectItem	"Expand each field defining a Select Item to a new line."
+
+#Define ccLOC_Pref_Cap_SelectExpandFrom	"FROMs"
+#Define ccLOC_Pref_Tip_SelectExpandFrom	"Expand each table in FROM clause to a new line."
+
+#Define ccLOC_Pref_Cap_SelectExpandOrderBy	"ORDER BYs"
+#Define ccLOC_Pref_Tip_SelectExpandOrderBy	"Expand each field in ORDER BY to a new line."
+
+#Define ccLOC_Pref_Cap_SelectExpandGroupBy	"GROUP BYs"
+#Define ccLOC_Pref_Tip_SelectExpandGroupBy	"Expand each field in GROUP BY to a new line."
+
+**
 #Define ccLOC_Pref_Cap_ParenIndent		"Indent for each level of parentheses"
 #Define ccLOC_Pref_Tip_ParenIndent		"Additional indentation for each level of parenthesis nesting"
 
 #Define ccLOC_Pref_Cap_ASColumn			"Maximum column for 'AS' phrase"
-#Define ccLOC_Pref_Tip_ASColumn			"This is the maximum column where 'AS' phrases are placed (unless the line is too long).  Enter a very large value (say, 1,000) if you want the 'AS' phrases to be aligned regardless of the length of the longest line." + ccLoc_NotProportional
+#Define ccLOC_Pref_Tip_ASColumn			"This is the maximum column where 'AS' phrases are placed (unless the line is too long).  Enter 0, if you want the 'AS' phrases to be aligned regardless of the length of the longest line." + ccLoc_NotProportional
 
 #Define ccLOC_Pref_Cap_WITHColumn		"Preferred column for 'WITH'"
 #Define ccLOC_Pref_Tip_WITHColumn		"NOTE: Does not work for proportional fonts"
@@ -761,7 +793,11 @@
 #Define ccLOC_Pref_Cap_AfterWithColumn	"Preferred column for expression after 'WITH'"
 #Define ccLOC_Pref_Tip_AfterWithColumn	"NOTE: Does not work for proportional fonts"
 
-#Define ccLOC_Pref_Cap_KeyWordIndent	"Indent for SELECT / UPDATE key words"
+#Define ccLOC_Pref_CAP_SingleLineSQL	"Format single line SQL"
+#Define ccLOC_Pref_Tip_SingleLineSQL	"Format SQL commands that are noted on a sinlge line."
+
+#Define ccLOC_Pref_Cap_KeyWordIndent	"Indent for SELECT /" + 0h0D0A +;
+										"UPDATE key words "
 #Define ccLOC_Pref_Tip_KeyWordIndent	"Indentation for primary key words (WHERE, FROM, INTO, etc.)"
 
 #Define ccLOC_Pref_Cap_ReplaceKeyWords	"Indent for REPLACE key words"
@@ -770,16 +806,31 @@
 #Define ccLOC_Pref_Cap_JOINIndent		"Indent for JOIN key words"
 #Define ccLOC_Pref_Tip_JOINIndent		"Indentation for LEFT|RIGHT|INNER|OUTER|FULL JOINs"
 
-#Define ccLOC_Pref_Cap_UNIONIndent		"Indent for UNION"
-#Define ccLOC_Pref_Tip_UNIONIndent		"Indent for UNION"
-
+#Define ccLOC_Pref_Cap_UNIONIndent		"Indent for UNION "
+#Define ccLOC_Pref_Tip_UNIONIndent		"Indent for UNION keyword"
+ 
 #Define ccLOC_Pref_Cap_SETIndent		"Indent before SET"
+#Define ccLOC_Pref_Tip_SETIndent		"Indent before SET keyword on separeted line."
 
-#Define ccLOC_Pref_Cap_SELECTIndent		"Indent for SELECT after UNION"
-#Define ccLOC_Pref_Tip_SELECTIndent		"Indentation for key words (WHERE, FROM, INTO, etc.)"
+#Define ccLOC_Pref_Cap_SELECTIndent		"Indent for SELECT key word after UNION "
+#Define ccLOC_Pref_Tip_SELECTIndent		"Indentation for SELECT key word following UNION key word," + 0h0D0A +;
+										"not the whole SELECT statement. "
+*SF
+#Define ccLOC_Pref_Cap_SELECTIndent_01	"Indent all SELECT in UNION "
+#Define ccLOC_Pref_Tip_SELECTIndent_01	"On SQL SELECT combined with UNION, " + 0h0D0A +;
+										"indentation of SELECT statements. " + 0h0D0A0D0A +;
+										"Additional ident for anything except UNION. "
+*/SF
 
 #Define ccLOC_Pref_Cap_HangingIndent	"Addtional indent for continuation lines"
 #Define ccLOC_Pref_Tip_HangingIndent	"Indentation for continuation lines of key word phrases"
+
+#Define ccLOC_Pref_CAP_IndentON			"Indent ON like JOIN "
+#Define ccLOC_Pref_Tip_IndentON			"Move the indentation of the ON clause on the same level as the JOIN and FROM. "
+#Define ccLOC_Pref_CAP_UnionIndentAlter	"Optional UNION Indentation "
+#Define ccLOC_Pref_Tip_UnionIndentAlter	"Indent method for SELECT with UNIONS," + 0h0D0A +;
+										'if OFF, "Indent for SELECT key word after UNION" will indent a single line after each UNION,' + 0h0D0A +;
+										'if ON, "Indent all SELECT in UNION" will indent all SELECT statements except UNION.'
 
 ****************************************************************
 #Define ccLOC_Pref_Cap_ToolsMenu 		"Menu for PEM Editor Tools"
@@ -883,6 +934,21 @@
 #Define ccLOC_Pref_Cap_NOTEQUAL_4		' <>'
 #Define ccLOC_Pref_Cap_LeftParen_2		" Remove"
 #Define ccLOC_Pref_Cap_LeftParen_3		' Add'
+
+#Define ccLOC_Pref_Other_CAP_Locals		'Create LOCALs'
+#Define ccLOC_Pref_Other_Tip_Locals		'Run the "Create LOCALs" tool in BeautifyX. See there'
+
+#Define ccLOC_Pref_Other_CAP_MDots		'Add MDots'
+#Define ccLOC_Pref_Other_Tip_MDots		'Run the "MDots" tool in BeautifyX. See there'
+
+#Define ccLOC_Pref_Other_CAP_Returns	'Check for RETURNs between WITH/ENDWITH'
+#Define ccLOC_Pref_Other_Tip_Returns	'Run the "RETURNs between WITH/ENDWITH" tool in BeautifyX. See there'
+
+#Define ccLOC_Pref_Other_CAP_CustKey	'Apply Custom Keyword List'
+#Define ccLOC_Pref_Other_Tip_CustKey	'Run the "Custom Keyword List" tool in BeautifyX. See there'
+
+#Define ccLOC_Pref_Other_CAP_AddCustKey	'Add words to Custom Keyword List'
+#Define ccLOC_Pref_Other_Tip_AddCustKey	'Add to the "Custom Keyword List" in BeautifyX. See there'
 
 #Define ccLOC_Pref_CAP_WindowDims	    "Window Dimensions"
 #Define ccLOC_Pref_Tip_WindowDims  		"For moving / resizing the current window " + CR + "Left, Top, Width, Height - in pixels " + CR + "Omitted dimensions are ignored."
