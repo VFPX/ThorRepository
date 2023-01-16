@@ -1,0 +1,4 @@
+AppName   = VFPX Deployment
+AppID     = VFPXDeployment
+Version   = 62.06
+Component = No
