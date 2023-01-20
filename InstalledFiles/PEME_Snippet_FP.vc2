@@ -6,104 +6,106 @@
 *
 *
 DEFINE CLASS fp_form AS form 
- 	*< CLASSDATA: Baseclass="form" Timestamp="" Scale="Pixels" Uniqueid="" />
+ 	*< CLASSDATA: Baseclass="form" Timestamp="2023/01/12 18:01:11" Scale="Pixels" Uniqueid="" />
 
 	*-- OBJECTDATA items order determines ZOrder / El orden de los items OBJECTDATA determina el ZOrder 
-	*< OBJECTDATA: ObjPath="pgfFieldPicker" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkFrom" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdFixPrefix" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtPrefix" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtCursor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.edtReturn" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgtype" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdRemovePrefix" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgTarget" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblLocalAlias" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblInto" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtFrom" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblFrom" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkCloseAfter" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdcopytoclipboard" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.chknvl" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.opgCast" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.optLanguage" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.grdShowTable" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkreadonly" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkhideunselected" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblSort" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cboSort" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblFilter" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.txtFilter" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdModifyStructure" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdAppend" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdBottom" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdTop" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdEdit" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.opgFilter" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.opgCase" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.chkComma" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check3" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Container1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdBackColor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdForeColor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblbackcolor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblBackColorRGB" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColorRGB" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check4" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Command1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label5" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label4" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check5" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label3" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label4" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label5" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label6" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.edtIndex" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Check1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdSave" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdselectall" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdReverse" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmddeselectall" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdApply" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Label2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Command2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cboSelectAlias" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdHelp" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Label1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="chklEditFieldNames" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Label4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkFrom" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdFixPrefix" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtPrefix" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtCursor" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.edtReturn" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgtype" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdRemovePrefix" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgTarget" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblLocalAlias" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblInto" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtFrom" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblFrom" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkCloseAfter" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdcopytoclipboard" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.chknvl" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.opgCast" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.optLanguage" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.grdShowTable" UniqueID="" Timestamp="2022/12/17 05:33:02" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkreadonly" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkhideunselected" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblSort" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cboSort" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblFilter" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.txtFilter" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdModifyStructure" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdAppend" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdBottom" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdTop" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdEdit" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.opgFilter" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdHelp" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.opgCase" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.chkComma" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label2" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check2" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check3" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Container1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdBackColor" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdForeColor" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColor" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblbackcolor" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblBackColorRGB" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColorRGB" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check4" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Command1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label5" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label4" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check5" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label3" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label4" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label5" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner2" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label6" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.edtIndex" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Check1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="cmdSave" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="cmdselectall" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="cmdReverse" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="cmddeselectall" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="cmdApply" UniqueID="" Timestamp="2022/12/31 09:29:10" />
+	*< OBJECTDATA: ObjPath="Label2" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="Command2" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="cboSelectAlias" UniqueID="" Timestamp="2022/12/02 14:22:28" />
+	*< OBJECTDATA: ObjPath="lblRecountCount" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="chklEditFieldNames" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="Label4" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="cmdExit" UniqueID="" Timestamp="2023/01/02 11:00:13" />
+	*< OBJECTDATA: ObjPath="lblContextMenuHelp" UniqueID="" Timestamp="2023/01/12 18:01:12" />
 
 	*<DefinedPropArrayMethod>
 		*m: addcustomkeyword
@@ -126,11 +128,14 @@ DEFINE CLASS fp_form AS form
 		*m: createfieldcursor
 		*m: createindexcursor
 		*m: createindextext
+		*m: csettings_access
+		*m: custombindevents
 		*m: deletefile
 		*m: deselectuninterestingfields
 		*m: dockable_assign
 		*m: editsinglerecord
 		*m: fillindexcursor
+		*m: filterhelptext
 		*m: getdynamicform
 		*m: getemptyvalue
 		*m: getfilterforallcharacterfields
@@ -153,6 +158,7 @@ DEFINE CLASS fp_form AS form
 		*m: picture_access
 		*m: restoresettings
 		*m: savedata
+		*m: savesettings
 		*m: searchbyvalue
 		*m: selectall
 		*m: setalias
@@ -183,14 +189,17 @@ DEFINE CLASS fp_form AS form
 		*p: cprefix
 		*p: creturn
 		*p: csavefile
+		*p: csettings
 		*p: ctarget
 		*p: ctempfile
 		*p: lautosaveselections
+		*p: lcheckfornulls
 		*p: lcloseafter
 		*p: lcommafirst
 		*p: leditfieldnames
 		*p: lfilterbyvalueusesand
 		*p: lfrom
+		*p: lhandledblclick
 		*p: lhideunselected
 		*p: lneedrefresh
 		*p: lnondefaultbackcolor
@@ -240,18 +249,21 @@ DEFINE CLASS fp_form AS form
 	cprefix = 
 	creturn = 
 	csavefile = 
+	csettings = 
 	ctarget = 
 	ctempfile = 
 	Dockable = 0
 	DoCreate = .T.
 	Height = 421
 	lautosaveselections = .F.
+	lcheckfornulls = .F.
 	lcloseafter = .F.
 	lcommafirst = .F.
 	leditfieldnames = .F.
 	Left = 0
-	lfilterbyvalueusesand = .F.
+	lfilterbyvalueusesand = .T.
 	lfrom = .T.
+	lhandledblclick = .T.
 	lhideunselected = .F.
 	lneedrefresh = .F.
 	lnondefaultbackcolor = .F.
@@ -260,7 +272,7 @@ DEFINE CLASS fp_form AS form
 	lreordercolumns = .T.
 	lselectallatstartup = .F.
 	lsetfocustogrid = .T.
-	lstartwithgrid = .F.
+	lstartwithgrid = .T.
 	lsuperbrowse = .F.
 	ltoomanyfilterfields = .F.
 	lusenvl = .F.
@@ -340,6 +352,13 @@ DEFINE CLASS fp_form AS form
 		<memberdata name="nmemofieldwidth" display="nMemoFieldWidth"/>
 		<memberdata name="npopupformeditboxwidth" display="nPopupFormEditboxWidth"/>
 		<memberdata name="npopupformeditboxheight" display="nPopupFormEditboxHeight"/>
+		<memberdata name="csettings" display="cSettings"/>
+		<memberdata name="csettings_access" display="cSettings_Access"/>
+		<memberdata name="savesettings" display="SaveSettings"/>
+		<memberdata name="lcheckfornulls" display="lCheckForNulls"/>
+		<memberdata name="lhandledblclick" display="lHandleDblClick"/>
+		<memberdata name="filterhelptext" display="FilterHelpText"/>
+		<memberdata name="custombindevents" display="CustomBindEvents"/>
 		</VFPData>		&& XML Metadata for customizable properties
 
 	ADD OBJECT 'cboSelectAlias' AS combobox WITH ;
@@ -376,7 +395,7 @@ DEFINE CLASS fp_form AS form
 		Anchor = 8, ;
 		Caption = "Apply", ;
 		Height = 24, ;
-		Left = 812, ;
+		Left = 843, ;
 		Name = "cmdApply", ;
 		Top = 6, ;
 		Width = 51, ;
@@ -394,17 +413,18 @@ DEFINE CLASS fp_form AS form
 		Width = 83
 		*< END OBJECT: BaseClass="commandbutton" />
 
-	ADD OBJECT 'cmdHelp' AS commandbutton WITH ;
-		Anchor = 8, ;
-		Caption = "", ;
-		Height = 21, ;
-		Left = 873, ;
-		Name = "cmdHelp", ;
-		Picture = refhelp.bmp, ;
-		SpecialEffect = 2, ;
-		ToolTipText = "Help", ;
-		Top = 5, ;
-		Width = 20
+	ADD OBJECT 'cmdExit' AS commandbutton WITH ;
+		Anchor = 0, ;
+		AutoSize = .F., ;
+		Cancel = .T., ;
+		Caption = "Exit", ;
+		Height = 27, ;
+		Left = 216, ;
+		Name = "cmdExit", ;
+		ToolTipText = "Save the current list of fields selection from this table (for use next time).", ;
+		Top = 336, ;
+		Visible = .F., ;
+		Width = 66
 		*< END OBJECT: BaseClass="commandbutton" />
 
 	ADD OBJECT 'cmdReverse' AS commandbutton WITH ;
@@ -609,17 +629,6 @@ DEFINE CLASS fp_form AS form
 		Name = "Text1"
 		*< END OBJECT: BaseClass="textbox" />
 
-	ADD OBJECT 'Label1' AS label WITH ;
-		Anchor = 4, ;
-		BackStyle = 0, ;
-		Caption = "Record Count and Size:", ;
-		Height = 17, ;
-		Left = 26, ;
-		Name = "Label1", ;
-		Top = 363, ;
-		Width = 264
-		*< END OBJECT: BaseClass="label" />
-
 	ADD OBJECT 'Label2' AS label WITH ;
 		Alignment = 1, ;
 		Anchor = 4, ;
@@ -649,6 +658,29 @@ DEFINE CLASS fp_form AS form
 		Width = 51
 		*< END OBJECT: BaseClass="label" />
 
+	ADD OBJECT 'lblContextMenuHelp' AS label WITH ;
+		AutoSize = .T., ;
+		BackStyle = 0, ;
+		Caption = "See right-click context menu for rows in the grid.", ;
+		FontSize = 10, ;
+		Height = 18, ;
+		Left = 808, ;
+		Name = "lblContextMenuHelp", ;
+		Top = 14, ;
+		Width = 282
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'lblRecountCount' AS label WITH ;
+		Anchor = 4, ;
+		BackStyle = 0, ;
+		Caption = "Record Count and Size:", ;
+		Height = 17, ;
+		Left = 26, ;
+		Name = "lblRecountCount", ;
+		Top = 363, ;
+		Width = 276
+		*< END OBJECT: BaseClass="label" />
+
 	ADD OBJECT 'pgfFieldPicker' AS pageframe WITH ;
 		Anchor = 15, ;
 		ErasePage = .T., ;
@@ -661,10 +693,10 @@ DEFINE CLASS fp_form AS form
 		Width = 575, ;
 		Page1.Caption = "Pic\<ker", ;
 		Page1.Name = "Page1", ;
-		Page1.PageOrder = 1, ;
+		Page1.PageOrder = 2, ;
 		Page2.Caption = "\<Grid", ;
 		Page2.Name = "Page2", ;
-		Page2.PageOrder = 2, ;
+		Page2.PageOrder = 1, ;
 		Page3.Caption = "Settings", ;
 		Page3.Name = "PageSettings", ;
 		Page3.PageOrder = 4, ;
@@ -1127,6 +1159,19 @@ DEFINE CLASS fp_form AS form
 		Width = 21
 		*< END OBJECT: BaseClass="commandbutton" />
 
+	ADD OBJECT 'pgfFieldPicker.Page2.cmdHelp' AS commandbutton WITH ;
+		Anchor = 8, ;
+		Caption = "?", ;
+		FontBold = .T., ;
+		FontSize = 10, ;
+		Height = 21, ;
+		Left = 543, ;
+		Name = "cmdHelp", ;
+		ToolTipText = "Help", ;
+		Top = 5, ;
+		Width = 20
+		*< END OBJECT: BaseClass="commandbutton" />
+
 	ADD OBJECT 'pgfFieldPicker.Page2.cmdModifyStructure' AS commandbutton WITH ;
 		Anchor = 12, ;
 		AutoSize = .T., ;
@@ -1171,11 +1216,11 @@ DEFINE CLASS fp_form AS form
 		BackStyle = 0, ;
 		Caption = "\<Find Values:", ;
 		Height = 17, ;
-		Left = 155, ;
+		Left = 164, ;
 		Name = "lblFilter", ;
 		TabIndex = 3, ;
 		Top = 9, ;
-		Width = 105
+		Width = 69
 		*< END OBJECT: BaseClass="label" />
 
 	ADD OBJECT 'pgfFieldPicker.Page2.lblSort' AS label WITH ;
@@ -1195,7 +1240,7 @@ DEFINE CLASS fp_form AS form
 		ButtonCount = 2, ;
 		ControlSource = "thisform.nfilter", ;
 		Height = 27, ;
-		Left = 415, ;
+		Left = 389, ;
 		Name = "opgFilter", ;
 		TabIndex = 13, ;
 		Top = 3, ;
@@ -1228,7 +1273,7 @@ DEFINE CLASS fp_form AS form
 		Anchor = 11, ;
 		ControlSource = "thisform.cfilter", ;
 		Height = 23, ;
-		Left = 264, ;
+		Left = 238, ;
 		Name = "txtFilter", ;
 		TabIndex = 4, ;
 		Top = 5, ;
@@ -1716,11 +1761,15 @@ DEFINE CLASS fp_form AS form
 		
 		This.Resize()
 		
-		If Thisform.lSetFocusToGrid And This.pgfFieldPicker.ActivePage = 2
-			This.pgfFieldPicker.Page2.grdShowTable.SetFocus()
-		Else
-			This.grdPem_fieldpicker.SetFocus()
-		Endif
+		Do Case
+			Case Thisform.lSetFocusToGrid = .t. And This.pgfFieldPicker.ActivePage = 2
+				This.pgfFieldPicker.Page2.grdShowTable.SetFocus()
+			Case Thisform.lSetFocusToGrid = .f. And This.pgfFieldPicker.ActivePage = 2
+				Select(this.cAlias)
+				This.pgfFieldPicker.Page2.txtFilter.SetFocus()
+			Otherwise 
+				This.grdPem_fieldpicker.SetFocus()
+		Endcase
 		
 	ENDPROC
 
@@ -1847,15 +1896,29 @@ DEFINE CLASS fp_form AS form
 	ENDPROC
 
 	PROCEDURE browsegridheaderrightclick
-		Local laEvents[1], laTags[1], lcCurrentOrder, lcField, lcIndexFile, lcOrder, lnI, lnTags, loColumn
-		Local loThis
+		Local laEvents[1], laTags[1], lcCurrentOrder, lcDescending, lcField, lcIndexFile, lcOrder, lnI
+		Local lnTags, loColumn, loThis
 		
 		= Aevents (laEvents, 0)
-		loThis	 = laEvents[1]
-		loColumn = loThis.Parent
+		loThis	 = m.laEvents[1]
+		loColumn = m.loThis.Parent
 		
-		lcField = Justext('.' + loColumn.ControlSource)
+		lcField = m.loColumn.FieldName
 		Select (This.cAlias)
+		
+		*** JRN 2021-05-18 : Memo fields and fields that are too long
+		Do Case
+			Case 'C' = Vartype(&lcField)
+				lcField = 'Padr(' + lcField + ', 60)'
+			*** JRN 2022-10-19 : Logical fields show .T. first
+			Case 'L' = Vartype(&lcField)
+				lcField = '.NOT.' + lcField && this curiousity so that you can also sort descending
+			*** JRN 2022-11-13 : sort date and datetime descending
+			Case 'D' = Vartype(&lcField)
+				lcField = 'Date(2050,11,4)-Evl(' + lcField + ',Date(1970,1,1))'
+			Case 'T' = Vartype(&lcField)
+				lcField = 'DateTime(2050,11,4)-Evl(' + lcField + ',DateTime(1970,1,1))' 
+		Endcase
 		lcCurrentOrder = Upper(Order())
 		lnTags		   = Ataginfo(laTags)
 		
@@ -1869,13 +1932,14 @@ DEFINE CLASS fp_form AS form
 						Set Order To &lcOrder Ascending
 					Otherwise
 						Set Order To &lcOrder Descending
-				Endcase
+				EndCase
+				Goto Top 
 				This.Refresh()
 				Return
 			Endif
 		Endfor
 		
-		lcIndexFile = Sys(2023) + '\SP_Temp' + Sys(2015)
+		lcIndexFile = Sys(2023) + '\_SB_Temp' + Sys(2015)
 		Index On &lcField To (lcIndexFile)
 		This.Refresh()
 		
@@ -1883,7 +1947,15 @@ DEFINE CLASS fp_form AS form
 	ENDPROC
 
 	PROCEDURE browsegridrightclick
-		ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowseContextMenu')
+		Local lcAlias
+		
+		lcAlias = Alias()
+		If Recno(m.lcAlias) = 0
+			Return
+		Endif
+		
+		Execscript (_Screen.cThorDispatcher, 'SuperBrowseContextMenu_' + m.lcAlias)
+		
 	ENDPROC
 
 	PROCEDURE changeallmarked
@@ -2026,7 +2098,7 @@ DEFINE CLASS fp_form AS form
 		lnNext = 1
 		For lnI = 1 To lnCount
 			lcFile = Lower (laUsed[lnI, 1])
-			If Left(lcFile, 4) # '_fp_' and not lcFile == 'fp_save' 
+			If Left(lcFile, 4) # '_sb_' and not lcFile == 'fp_save' 
 				Dimension Thisform.Aused (lnNext)		
 				If Lower(lcFile) == Lower(this.cAlias)
 					lcFile = This.cAlias
@@ -2057,16 +2129,10 @@ DEFINE CLASS fp_form AS form
 			(marked l, Record N(3), field_name C(128), field_type C(1), field_len N(3), field_dec N(3), fieldtype C(7))
 		Index On Upper (Left(field_name,120)) Tag fieldname
 		Index On Iif (marked, 'A', 'B') Tag marked
-		Index On field_type + Transform (field_len, [@L 999]) Tag fieldtype
+		Index On Icase(Record = 1, '0', Upper(Field_Name) = 'PARTNO', '1', Field_Type $ 'C', '2', Field_Type $ 'M', '3', Field_Type $ 'BIN', '4', Field_Type $ 'D', '5', Field_Type $ 'T', '6', 'Z') + Field_Name Tag fieldtype
 		Index On Record Tag Record
 		
-		*	Thisform.addfieldcursorrecords (lcAlias)
 		
-		*!* ******************** Removed 10/17/2015 *****************
-		*!* Create Cursor (Thisform.ccurfilter) (Record i, recordhit l)
-		*!* Select (lcAlias)
-		
-		 
 	ENDPROC
 
 	PROCEDURE createindexcursor
@@ -2101,6 +2167,22 @@ DEFINE CLASS fp_form AS form
 		Thisform.cindextext = m.lcExpr
 		Thisform.pgfFieldPicker.PageIndexes.edtIndex.Value = m.lcExpr
 		Select (m.lcSelect)
+	ENDPROC
+
+	PROCEDURE csettings_access
+		Return [lSelectAllAtStartup, nCaseSelection, lFrom, lCommaFirst, lUseNVL, nReturnType,];
+		   + [ nCastType, nSelectedBackColor, nSelectedForeColor, lReadOnly, lhideunselected, lstartwithgrid, ];
+		   + [ nDockable, nFontSize, nFilter, nlanguage, lReadOnlyAtStartup, lAutoSaveSelections, lEditFieldNames, ];
+		   + [ lNonDefaultBackColor, nNonDefaultBackColor, lSetFocusToGrid, lFilterByValueUsesAnd, nMemoFieldWidth, ] ;
+		   + [ nPopupFormEditboxWidth, nPopupFormEditboxHeight, ] ;
+		
+		
+	ENDPROC
+
+	PROCEDURE custombindevents
+		Parameters loForm, loColumn, lcControlSource
+		
+		Execscript (_Screen.cThorDispatcher, 'SuperBrowseBindEvents_' + This.cAlias, m.loForm, m.loColumn, m.lcControlSource)
 	ENDPROC
 
 	PROCEDURE deletefile
@@ -2174,7 +2256,7 @@ DEFINE CLASS fp_form AS form
 
 	PROCEDURE Destroy
 		If thisform.lAutoSaveSelections 
-			Thisform.savedata()
+			Thisform.savedata(.T.)
 		EndIf 
 		
 		If Thisform.nfilter = 1
@@ -2182,11 +2264,15 @@ DEFINE CLASS fp_form AS form
 		Endif
 		
 		Thisform.nDockable = Thisform.Dockable
+		Thisform.SaveSettings()
 		Thisform.oSettings.Save(Thisform)
 		
 		This.CloseCursor(Thisform.ccursor)
 		This.CloseCursor(Thisform.ccurfilter)
 		This.CloseCursor(Thisform.ccurindex)
+		If This.lCloseAfter 
+			Use In (Select (This.cAlias))
+		EndIf 
 		
 		Thisform.oSettings	   = Null
 		Thisform.ogrdshowtable = Null
@@ -2204,14 +2290,19 @@ DEFINE CLASS fp_form AS form
 		#Define 	ccXTool  'Super Browse'
 		#Define		ccXKey	 'Use Dynamic Form'
 		
+		Lparameters llForceit
 		Local laEvents[1], lcAlias, lcFieldList, lcTitle, lcWindow, lnUseDynamicForm, loForm, loObject
+		
+		If m.llForceit = .f. and This.lHandleDblClick = .F.
+			Return
+		EndIf 
 		
 		Nodefault
 		lcTitle			 = [Edit record in ] + Proper(Thisform.cAlias)
 		lnUseDynamicForm = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccXKey, ccXTool)
 		lcAlias			 = Thisform.cAlias
 		
-		If m.lnUseDynamicForm = 2 && Added 2012-12-31 Dynamic Forms support By Matt Slay.
+		If Nvl(m.lnUseDynamicForm, 2) = 2 && Added 2012-12-31 Dynamic Forms support By Matt Slay.
 			loForm							   = This.GetDynamicForm()
 			loForm.oRenderEngine.nColumnHeight = _Screen.Height - Sysmetric(9) - 100
 		
@@ -2235,7 +2326,7 @@ DEFINE CLASS fp_form AS form
 		
 			Aevents(laEvents, 0)
 			loObject = m.laEvents[1]
-			If Pemstatus(m.loObject.Parent, 'Ismemo', 5) And m.loObject.Parent.IsMemo
+			If Vartype(loObject) = 'O' and Pemstatus(m.loObject.Parent, 'Ismemo', 5) And m.loObject.Parent.IsMemo
 				Text to lcFieldList NoShow TextMerge
 				<<m.loObject.Parent.FieldName>>
 				.Width	  = <<Thisform.nPopupFormEditboxWidth>>
@@ -2324,6 +2415,37 @@ DEFINE CLASS fp_form AS form
 		
 	ENDPROC
 
+	PROCEDURE filterhelptext
+		Local lcResult
+		
+		Text To m.lcResult Textmerge Noshow
+		Filter By Expression is for entry of a valid filter expression.
+		
+		Filter by Value is for entry of text string(s), separated by spaces or commas, to be found in character fields.  
+		
+		     You may select the fields to be searched (see grid at left), else all character fields are searched.
+		     
+		     Matching is not case-sensitive.
+		     
+		     Default case finds records that match any single text string.
+		     
+		Regardless of the radio button choice, you can always use one of these prefix values:
+		
+		     =  Filter by Expression        
+		                 = Quantity > 0
+		     *  Filter by Value using OR
+		                 * Active Project  ... finds records matching 'Active' OR 'Project'
+		     ^  Filter by Value using AND
+		                 ^ Active Project  ... finds records matching 'Active' AND 'Project'
+		     $  Find exact matches to the full text string    
+		                 $ Active Project  ... finds records matching 'Active Project'
+		     
+		Endtext
+		
+		Return m.lcResult
+		
+	ENDPROC
+
 	PROCEDURE getdynamicform
 		Local loForm
 		If Thisform.Dockable = 1
@@ -2357,6 +2479,8 @@ DEFINE CLASS fp_form AS form
 	ENDPROC
 
 	PROCEDURE getfilterforallcharacterfields
+		Lparameters llSelectAll
+		
 		#Define Tab Chr[9]
 		#Define crlf Chr(13)+Chr(10)
 		#Define illegalchar Chr(255)
@@ -2368,7 +2492,9 @@ DEFINE CLASS fp_form AS form
 		
 		Select  Field_Name					;
 			From (Thisform.cCursor)			;
-			Where Field_Type $ 'CM'			;
+			Where Field_Type $ 'CMV'		;
+				And (Marked					;
+				  Or m.llSelectAll)			;
 			Into Array laFieldsList
 		
 		Select(m.lnSelect)
@@ -2377,10 +2503,8 @@ DEFINE CLASS fp_form AS form
 		If _Tally # 0
 			For lnX = 1 To _Tally
 				lcFieldName	= Alltrim(m.laFieldsList[m.lnX, 1])
-				lcFilter	= m.lcFilter + [+Alltrim(Transform(] + m.lcFieldName + [))+'] + illegalchar + [']
+				lcFilter	= m.lcFilter + Iif(m.lnX = 1, '', [+]) + Iif(This.lCheckForNulls, 'NVL(' + m.lcFieldName + ',[])', m.lcFieldName)
 			Endfor
-		
-			lcFilter  = 'Upper(' + m.lcFilter + ')'
 		Endif
 		
 		Return m.lcFilter
@@ -2390,7 +2514,7 @@ DEFINE CLASS fp_form AS form
 	PROCEDURE getselectedfieldlist
 		Lparameters tcDelimiter, tlPreserveOrder, tlThorPlugIn
 		
-		Local lcAlias, lcExtra, lcFieldList, lcLastFieldType, llThorPlugIn, lnRecNo, lnSelect
+		Local lcAlias, lcExtra, lcFieldList, lcLastFieldType, llNoneMarked, llThorPlugIn, lnRecNo, lnSelect
 		
 		lcAlias			= Thisform.cAlias
 		lcFieldList		= []
@@ -2409,7 +2533,9 @@ DEFINE CLASS fp_form AS form
 			Select (Thisform.cCursor)
 			lnRecNo = Recno()
 		
-			Scan For Marked Or (m.tlPreserveOrder And Not Thisform.lHideUnselected)
+			Locate For Marked
+			llNoneMarked = Found() = .F.
+			Scan For Marked Or m.llNoneMarked
 				If m.llThorPlugIn
 					lcExtra		= Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowseEditOneRecord', Thisform.cAlias, FieldType, Field_Name, m.lcLastFieldType)
 					If Not Isnull(m.lcExtra)
@@ -2592,8 +2718,8 @@ DEFINE CLASS fp_form AS form
 		
 		This.MinWidth  = This.Width
 		This.MinHeight = This.Height
-		This.cAlias	   = tcAlias
-		This.Caption   = tcAlias
+		This.cAlias	   = Evl(tcAlias, Alias())
+		This.Caption   = This.cAlias
 		If Pcount() = 3
 			This.cprefix = Alltrim (tcPrefix)
 		EndIf
@@ -2609,11 +2735,6 @@ DEFINE CLASS fp_form AS form
 		
 		*	This.Caption = This.cAlias
 		Select (thisform.ccursor)
-		If This.lstartwithgrid
-			This.nStartPage = 2
-		Else
-			This.nStartPage = 1
-		EndIf
 		
 		Thisform.Refresh()
 		
@@ -2773,10 +2894,12 @@ DEFINE CLASS fp_form AS form
 			Case lcFilter = '='
 				Thisform.SetNormalFilter(Substr(lcFilter,2))
 			Case lcFilter = '*'
-				Thisform.SearchByValue(Substr(lcFilter,2)) 
-			Case Right(lcFilter,1) = '$'
-				Thisform.SearchByValue(Left(lcFilter, Len(lcfilter) - 1)) 
-			Case lnFilterType = 1
+				Thisform.SearchByValue(Substr(lcFilter,2), .F.) 
+			Case '^' $ lcFilter
+				Thisform.SearchByValue(Chrtran(lcFilter, '^', ' '), .T.) 
+			Case lcfilter = '$'
+				Thisform.SearchByValue(Substr(lcFilter,2), .F., .T.)
+			Case lnFilterType = 1 and (Len(lcFilter) = Len(Chrtran(lcFilter, '=<>$!#', ''))) and Atc('Empty(', lcFilter) = 0 
 				Thisform.SearchByValue(lcFilter)
 			Otherwise
 				Thisform.SetNormalFilter(lcFilter)
@@ -2793,7 +2916,7 @@ DEFINE CLASS fp_form AS form
 		Select (Thisform.ccursor)
 		
 		With This.oResultString
-			lcProperties = 'nReturnType, nLanguage, nCaseSelection,	nBeautifyCaseOption, lUseNVL, nCursor, cTarget, cAlias, cPrefix, nCastType, lCommaFirst, lCloseAfter, lFrom'
+			lcProperties = 'nReturnType, nLanguage, nCaseSelection,	nBeautifyCaseOption, lUseNVL, nCursor, cTarget, cAlias, cPrefix, nCastType, lCommaFirst, lFrom'
 			For lnI = 1 To Alines(laProperties, lcProperties, 5, ',')
 				lcProp	  = laProperties[lnI]
 				.&lcProp. = This.&lcProp.
@@ -2830,7 +2953,7 @@ DEFINE CLASS fp_form AS form
 		m.lcfilter = ''
 		For m.lnX = 1 To Min(This.oResultString.nFieldCount, FieldCountLimit)
 			lcFieldName = Alltrim(This.oResultString.aFieldsList[lnX, 3])
-			m.lcFilter = m.lcFilter + [+Alltrim(Transform(] + lcFieldName + [))+'] + illegalchar + [']
+			m.lcFilter = m.lcFilter + [+Trim(] + lcFieldName + [)+'] + illegalchar + [']
 		EndFor
 		
 		This.ltoomanyfilterfields =  This.oResultString.nFieldCount > FieldCountLimit
@@ -2932,19 +3055,15 @@ DEFINE CLASS fp_form AS form
 		loSettings = Execscript (_Screen.cThorDispatcher, [class= ThorFormSettings], tcSettingsFileName)
 		Thisform.AddProperty ([oSettings], loSettings)
 		loSettings.Restore (Thisform) && Restores .Top, .Left, .Height, .Width
-		loSettings.Restore (Thisform,;
-		   [lSelectAllAtStartup, nCaseSelection, lFrom, lCommaFirst, lUseNVL, nReturnType,];
-		   + [ nCastType, nSelectedBackColor, nSelectedForeColor, lReadOnly, lhideunselected, lstartwithgrid, ];
-		   + [ nDockable, nFontSize, nFilter, nlanguage, lReadOnlyAtStartup, lAutoSaveSelections, lEditFieldNames, ];
-		   + [ lNonDefaultBackColor, nNonDefaultBackColor, lSetFocusToGrid, lFilterByValueUsesAnd, nMemoFieldWidth, ] ;
-		   + [ nPopupFormEditboxWidth, nPopupFormEditboxHeight, ] ;
-		   + Evl(tcProperties, []) )
+		loSettings.Restore (Thisform, Thisform.cSettings + Evl(tcProperties, []) )
 		
 		
 	ENDPROC
 
 	PROCEDURE savedata
-		#Define crlf Chr(13)+Chr(10)
+		Lparameters llForceIt
+		
+		#Define CRLF Chr(13)+Chr(10)
 		Local lcFile As String
 		Local lcMarked As String
 		Local lnX As Number
@@ -2952,97 +3071,81 @@ DEFINE CLASS fp_form AS form
 		
 		If Used(Thisform.cCursor)
 			lcFile = This.cSavefile
-			If Adir(laDummy, lcFile) = 0
-				Create Table (lcFile) (File_name c(80), savedata m)
-			Endif
-			Select Field_Name From (Thisform.cCursor) Where marked Into Array laMarked
-			lcMarked = []
-			If _Tally > 0
-				For lnX = 1 To Alen(laMarked, 1)
-					lcMarked = lcMarked + laMarked(lnX) + crlf
-				Endfor
-				lcMarked = Left(lcMarked, Len(lcMarked) - 1)
-			Endif
-			Update (lcFile) Set savedata = lcMarked Where Lower(File_name) = Lower(Padr(Thisform.cAlias, 80))
-			If _Tally = 0
-				Insert Into (lcFile) (File_name, savedata) Values (This.cAlias, lcMarked)
+			If Adir(laDummy, m.lcFile) = 0
+				Create Table (m.lcFile) (File_name c(80), savedata m)
 			Endif
 		
-			Use In (Select(Juststem(lcFile)))
+			lcMarked = []
+			Select Field_Name From (Thisform.cCursor) Where Marked Into Array laMarked
+		
+			For lnX = 1 To _Tally
+				lcMarked = m.lcMarked + m.laMarked(m.lnX) + CRLF
+			Endfor
+			lcMarked = Left(m.lcMarked, Len(m.lcMarked) - 1)
+		
+			If m.llForceIt Or _Tally > 0
+				Update (m.lcFile) Set savedata = m.lcMarked Where Lower(File_name) = Lower(Padr(Thisform.cAlias, 80))
+				If _Tally = 0
+					Insert Into (m.lcFile) (File_name, savedata) Values (This.cAlias, m.lcMarked)
+				Endif
+			Endif
+		
+			Use In (Select(Juststem(m.lcFile)))
 		Endif
 	ENDPROC
 
+	PROCEDURE savesettings
+	ENDPROC
+
 	PROCEDURE searchbyvalue
-		Lparameters lcFilter
+		Lparameters lcFilter, llAnd, llExact
 		
-		Local lcFilterExpression, lcNew, lcNewFilter, lcWord, lnCount[1], lnI
+		Local lcFilterExpression, lcNew, lcNewFilter, lcSeparators, lcWord, lnCount[1], lnI, lnWordCount
+		
+		lcSeparators = Iif(m.llExact, '|', ' ,')
+		lnWordCount	 = Getwordcount(m.lcFilter, m.lcSeparators)
 		
 		lcFilter = Upper(Alltrim(m.lcFilter))
 		Set Filter To
-		Select Count(*) From (Thisform.cCursor) Where Marked Into Array lnCount
 		
-		If m.lnCount > 0
-			lcFilterExpression = This.cFilterExpression
-		Else
-			lcFilterExpression = This.GetFilterForAllCharacterFields()
-		Endif
+		Select  Count(*)					;
+			From (Thisform.cCursor)			;
+			Where Marked					;
+				And Field_Type $ 'CMV'		;
+			Into Array lnCount
+		
+		lcFilterExpression = This.GetFilterForAllCharacterFields(m.lnCount = 0)
 		
 		If Not Empty(m.lcFilterExpression)
 			Wait [Searching...] Window Nowait
-			*!* ** { JRN -- 10/17/2015 6:06:29 AM - Begin
-			*!* *!* ******************** Removed 6/19/2014 *****************
-			*!* *!* m.lcFilterprog = Thisform.cfilterprog
-		
-			*!* lcDeleted = Set('Deleted')
-			*!* Set Deleted Off  && so we get all records
-			*!* Select Cast(Recno() As i) As Record, Cast(.F. As l) As match, Cast(Evaluate(This.cFilterExpression) As m) As textdata From (Thisform.calias) Into Cursor (Thisform.ccurfilter) Readwrite
-			*!* Set Deleted &lcDeleted
-		
-			*!* For m.lnX = 1 To Getwordcount(m.lcFilter, ' ,')
-			*!* 	m.lcWord = Upper(Getwordnum(m.lcFilter, m.lnX, ' ,'))
-			*!* 	If m.lnX = 1
-			*!* 		Update (Thisform.ccurfilter) Set match = .T. Where m.lcWord $ textdata
-			*!* 	Else
-			*!* 		Update (Thisform.ccurfilter) Set match = .F. Where match And Not m.lcWord $ textdata
-			*!* 	Endif
-			*!* Endfor
-			*!* Select (Thisform.calias)
-			*!* * Thisform.nfilter = 2
-			*!* Set Relation To Recno() Into (Thisform.ccurfilter)
-			*!* Set Filter To Evaluate(Thisform.ccurfilter + [.match])
-			*!* ******************** Removed 6/19/2014 *****************
-			*!* m.lcFilterprog = Thisform.cfilterprog
-		
 			lcNewFilter = ''
-			For lnI = 1 To Getwordcount(m.lcFilter, ' ,')
-				lcWord = Upper(Getwordnum(m.lcFilter, m.lnI, ' ,'))
+			For lnI = 1 To m.lnWordCount
+				lcWord = Upper(Getwordnum(m.lcFilter, m.lnI, m.lcSeparators))
 				Do Case
 					Case Not ['] $ m.lcWord
-						lcNew = ['] + m.lcWord + [' $ ] + m.lcFilterExpression
+						lcNew = ['] + m.lcWord + [']
 					Case Not [''] $ m.lcWord
-						lcNew = ["] + m.lcWord + [" $ ] + m.lcFilterExpression
+						lcNew = ["] + m.lcWord + ["]
 					Otherwise
-						lcNew = '[' + m.lcWord + '] $ ' + m.lcFilterExpression
+						lcNew = '[' + m.lcWord + ']'
 				Endcase
+				lcNew = 'Atc(' + m.lcNew + ', ' + m.lcFilterExpression + ') # 0'
 				If m.lnI = 1
 					lcNewFilter = m.lcNew
 				Else
-					lcNewFilter = m.lcNewFilter + Iif(This.lFilterByValueUsesAnd, ' and ', ' or ') + m.lcNew
+					lcNewFilter = m.lcNewFilter + Iif(m.llAnd Or This.lFilterByValueUsesAnd, ' and ', ' or ') + m.lcNew
 				Endif
 			Endfor
 		
 			Select (Thisform.cAlias)
 			Set Filter To &lcNewFilter
-			*!* ** } JRN -- 10/17/2015 6:06:29 AM - End
+		
 			Locate
 			Wait Clear
 		Else
-			Messagebox ([No fields are selected!])
+			Messagebox ([No character fields are selected!])
 		Endif
 		
-		If this.Ltoomanyfilterfields 
-			Wait 'Filtering on first 38 fields' window at 20,30 nowait
-		EndIf 
 		
 	ENDPROC
 
@@ -3054,13 +3157,9 @@ DEFINE CLASS fp_form AS form
 	PROCEDURE setalias
 		Lparameters lcAlias
 		
-		Local lcDBF, lcRelative, lcSourceName, lnSourceType
+		Local lcDBF, lcFilter, lcRelative, lcSourceName, lnSourceType, loException
 		Thisform.lReorderColumns = .T.
 		Thisform.pgfFieldPicker.Page2.cboSort.Clear()
-		
-		Thisform.cAlias = m.lcAlias
-		Thisform.SetRecordSource (m.lcAlias)
-		Thisform.addfieldcursorrecords (m.lcAlias)
 		
 		lnSourceType = CursorGetProp('SourceType', m.lcAlias)
 		lcSourceName = CursorGetProp('SourceName', m.lcAlias)
@@ -3073,15 +3172,35 @@ DEFINE CLASS fp_form AS form
 		
 			Case m.lnSourceType = 3
 				lcDBF	   = Dbf (m.lcAlias)
+				*!* ******** JRN Removed 2022-05-20 ********
+				*!* lcDBF 	   = Strtran(m.lcDBF, '\\svr-foxpro2016\vfp\', 'Z:\', 1, 1, 1)
 				lcRelative = Sys(2014, m.lcDBF)
 				If Len (m.lcDBF) < Len (m.lcRelative) Or ':' $ m.lcRelative Or '..\..\..' $ m.lcRelative
 					Thisform.Caption = m.lcAlias + ' -- ' + m.lcDBF
 				Else
 					Thisform.Caption = m.lcAlias + ' -- ' + m.lcRelative
 				Endif
-				Thisform.Caption = Thisform.Caption + Iif(File(m.lcDBF), ' (' + ttoc(Fdate(m.lcDBF,1)) + ')', '')
+				Thisform.Caption = Thisform.Caption + Iif(File(m.lcDBF), ' (' + Ttoc(Fdate(m.lcDBF, 1)) + ')', '')
 		Endcase
 		
+		Thisform.cAlias = m.lcAlias
+		Thisform.SetRecordSource (m.lcAlias)
+		Thisform.addfieldcursorrecords (m.lcAlias)
+		
+		Try
+			lcFilter = Filter(Thisform.cAlias)
+		Catch To m.loException
+			lcFilter = ''
+		Endtry
+		
+		Do Case
+			Case Empty(m.lcFilter)
+		
+			Case Thisform.nfilter = 1
+				This.cFilter = '=' + m.lcFilter
+			Otherwise
+				This.cFilter = m.lcFilter
+		Endcase
 		
 	ENDPROC
 
@@ -3134,6 +3253,7 @@ DEFINE CLASS fp_form AS form
 		   Set Order To FIELDTYPE In (thisform.ccursor)
 		Endif    
 		thisform.lReorderColumns = .T.
+		thisform.grdPem_fieldpicker.Refresh()
 		Go Top In (thisform.ccursor)
 		thisform.grdPem_fieldpicker.Refresh()
 		
@@ -3187,14 +3307,22 @@ DEFINE CLASS fp_form AS form
 			Endtry
 			For lnI = 1 To .ColumnCount
 				loColumn = .Columns (m.lnI)
-		
+				loColumn.Name = 'Col' + Transform(lnI, '@L 999')
 				m.loColumn.AddProperty ('FieldNumber', m.lnI)
-				m.loColumn.AddProperty ('FieldName', m.laFields[m.lnI, 1])
+				m.loColumn.AddProperty ('FieldName', Trim(Upper(m.laFields[m.lnI, 1])))
 				m.loColumn.AddProperty ('IsMemo', m.laFields[m.lnI, 2] = 'M')
+				m.loColumn.AddProperty ('cHeaderCaption', Null)
+				m.loColumn.AddProperty ('lVisible', Null)
 		
-				Bindevent(m.loColumn.Header1, 'Click', This, 'BrowseGridHeaderClick')
-				Bindevent(m.loColumn.Header1, 'RightClick', This, 'BrowseGridHeaderRightClick')
-				Bindevent(m.loColumn.Text1, 'DblClick', Thisform, 'EditSingleRecord')
+				*!* ** { JRN -- 10/26/2020 05:22:32 PM - Begin
+				*!* Bindevent(m.loColumn.Header1, 'Click', This, 'BrowseGridHeaderClick')
+				*!* Bindevent(m.loColumn.Header1, 'RightClick', This, 'BrowseGridHeaderRightClick')
+				Bindevent(m.loColumn.Header1, 'RightClick', This, 'BrowseGridHeaderClick')
+				Bindevent(m.loColumn.Header1, 'Click', This, 'BrowseGridHeaderRightClick')
+				*!* ** } JRN -- 10/26/2020 05:22:32 PM - End
+				If This.lHandleDblClick
+					Bindevent(m.loColumn.Text1, 'DblClick', Thisform, 'EditSingleRecord')
+				Endif
 				Bindevent(m.loColumn.Text1, 'RightClick', Thisform, 'BrowseGridRightClick')
 				Bindevent(m.loColumn, 'Moved', This, 'BrowseGridHeaderMoved')
 		
@@ -3203,9 +3331,10 @@ DEFINE CLASS fp_form AS form
 					loColumn.Width = 5 * This.nMemoFieldWidth
 				Endif
 		
-				Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowseBindEvents', Thisform, m.loColumn, m.loColumn.ControlSource)
+				ThisForm.CustomBindEvents(Thisform, m.loColumn, m.loColumn.ControlSource)
 		
-			Endfor
+			EndFor
+			.AutoFit()
 		Endwith
 		
 	ENDPROC
@@ -3243,7 +3372,8 @@ DEFINE CLASS fp_form AS form
 		LPARAMETERS nStyle
 		
 		This.SetFormBackColor()
-		this.pgfFieldPicker.ActivePage=This.nStartPage
+		*!* ******** JRN Removed 2022-11-15 ********
+		*!* this.pgfFieldPicker.ActivePage=This.nStartPage
 		
 		If Thisform.lReadOnlyAtStartup
 			Thisform.lreadonly = .T.
@@ -3258,73 +3388,43 @@ DEFINE CLASS fp_form AS form
 		#Define 	ccTool  'Super Browse'
 		#Define		ccKey	'Show Filter Help'
 		
-		Local llShow, lnLeft, loForm
-		Private lcHelpText, llHide
+		Local llShow, loForm
+		Private lcHelpText
 		
-		llShow       = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccKey, ccTool)
+		lcHelpText = ThisForm.FilterHelpText()
 		
-		If Nvl(llShow, .T.)
+		* -------------------------------------------------------------------------------- 
+		loForm = Thisform.GetDynamicForm()
 		
-			llHide = Not llShow
+		With m.loForm
+			.Caption	 = 'Filter by Expression or Value'
+			.MinWidth	 = 550
+			.BorderStyle = 3
+		Endwith
 		
-			Text To lcHelpText Textmerge Noshow
-		Searching by Value allows you to search one or more fields for one or more values.
-		
-		First, select the fields to be searched (from the list of fields at the far left).
-		
-		Then, enter the word (or words) to be searched for. 
-		
-		The records displayed in the grid will be all those where each of the words is found in any of the selected fields (but they do not have to be all found in the SAME field, nor in any particular order).
-		
-		Notes: 
-		     Matching is not case-sensitive and finds sub-strings, not words. 
-		     Numeric fields can be searched, but are treated as strings.
-			Endtext
-		
-			* -------------------------------------------------------------------------------- 
-			loForm = ThisForm.GetDynamicForm()
-		
-			With loForm
-				.Caption			= 'Search by value'
-				.MinWidth			= 450
-				.MinButton			= .F.
-				.MaxButton			= .F.
-				.BorderStyle		= 2
-			Endwith
-		
-			Text To loForm.cBodyMarkup Noshow Textmerge
+		Text To m.loForm.cBodyMarkup Noshow Textmerge
 			lcHelpText	.class 				= 'EditBox'
 						.Enabled			= .F.
 						.caption 		    = ''
 						.Left				= 25
-						.Width				= 400
+						.Width				= 500
 						.BorderStyle		= 0
-						.Height				= 220
+						.Height				= 350
 						.DisabledForeColor  = (Rgb(0,0,0))
 						.ScrollBars			= 0
-			|
-			llHide	 	.class 				= 'CheckBox'
-						.caption			= 'Do not show this again'
-						.Width				= 200
-						.Left				= 70
-			Endtext
+						.Anchor 			= 15
+		Endtext
 		
-			loForm.Render()
+		m.loForm.Render()
 		
-			loForm.cntMain.cmdSave.Caption	 = 'OK'
-			loForm.cntMain.cmdSave.Left		 = 70
-			loForm.cntMain.cmdSave.Anchor	 = 4
+		loForm.cntMain.cmdSAVE.Caption = 'OK'
+		loForm.cntMain.cmdSAVE.Left	   = 70
+		loForm.cntMain.cmdSAVE.Anchor  = 4
 		
-			loForm.cntMain.cmdCancel.Visible = .F.
+		loForm.cntMain.CmdCancel.Visible = .F.
 		
-			loForm.Show(1, Thisform)
+		m.loForm.Show(1, Thisform)
 		
-			If 'O' = Vartype(loForm) And loForm.lSaveClicked
-				Execscript(_Screen.cThorDispatcher, 'Set Option=', ccKey, ccTool, Not llHide)
-			Endif
-		
-			* -------------------------------------------------------------------------------- 
-		Endif
 		
 		
 	ENDPROC
@@ -3442,11 +3542,8 @@ DEFINE CLASS fp_form AS form
 		
 	ENDPROC
 
-	PROCEDURE cmdHelp.Click
-		Local loLink, lcLink 
-		lcLink = [http://vfpx.codeplex.com/wikipage?title=Thor%20Super%20Browse]
-		loLink = Newobject ('_ShellExecute', Home() + 'FFC\_Environ.vcx')
-		loLink.ShellExecute (lcLink)
+	PROCEDURE cmdExit.Click
+		Thisform.Release()
 		
 	ENDPROC
 
@@ -3460,7 +3557,7 @@ DEFINE CLASS fp_form AS form
 	ENDPROC
 
 	PROCEDURE cmdSave.Click
-		Thisform.savedata()
+		Thisform.savedata(.T.)
 		Messagebox('Field selection is saved',0+64,'',2000)
 		Thisform.grdPem_fieldpicker.SetFocus()
 		
@@ -3619,7 +3716,30 @@ DEFINE CLASS fp_form AS form
 		
 	ENDPROC
 
-	PROCEDURE Label1.MouseEnter
+	PROCEDURE Label4.Click
+		Local loLink, lcLink 
+		lcLink = [http://vfpx.codeplex.com/wikipage?title=Thor%20Super%20Browse]
+		loLink = Newobject ('_ShellExecute', Home() + 'FFC\_Environ.vcx')
+		loLink.ShellExecute (lcLink)
+		
+	ENDPROC
+
+	PROCEDURE lblContextMenuHelp.Refresh
+		Local lcAlias, lcFileName
+		
+		This.Visible = .F.
+		
+		lcAlias = Thisform.cAlias
+		If Used(lcAlias)
+			lcFileName = Execscript(_Screen.cThorDispatcher, 'Full Path=SuperBrowseContextMenu_' + m.lcAlias)
+			If not Empty(m.lcFileName)
+				This.Visible = .T.
+			Endif
+		Endif
+		 
+	ENDPROC
+
+	PROCEDURE lblRecountCount.MouseEnter
 		Lparameters nButton, nShift, nXCoord, nYCoord
 		
 		Local lnCount, lnRecNo, lnSelect, loException
@@ -3642,7 +3762,7 @@ DEFINE CLASS fp_form AS form
 		
 	ENDPROC
 
-	PROCEDURE Label1.Refresh
+	PROCEDURE lblRecountCount.Refresh
 		If Used(Thisform.cAlias)
 			This.Visible = .T.
 			This.Caption =  + 'Reccount() = ' + Transform(Reccount(Thisform.cAlias)) + '     Record size = ' + Transform(Recsize(Thisform.cAlias))
@@ -3652,12 +3772,8 @@ DEFINE CLASS fp_form AS form
 		
 	ENDPROC
 
-	PROCEDURE Label4.Click
-		Local loLink, lcLink 
-		lcLink = [http://vfpx.codeplex.com/wikipage?title=Thor%20Super%20Browse]
-		loLink = Newobject ('_ShellExecute', Home() + 'FFC\_Environ.vcx')
-		loLink.ShellExecute (lcLink)
-		
+	PROCEDURE pgfFieldPicker.Page1.Activate
+		This.Refresh()
 	ENDPROC
 
 	PROCEDURE pgfFieldPicker.Page1.chkCloseAfter.Click
@@ -4165,11 +4281,17 @@ DEFINE CLASS fp_form AS form
 	ENDPROC
 
 	PROCEDURE pgfFieldPicker.Page2.cmdEdit.Click
-		ThisForm.EditSingleRecord()
+		ThisForm.EditSingleRecord(.T.)
 	ENDPROC
 
 	PROCEDURE pgfFieldPicker.Page2.cmdEdit.Refresh
 		This.enabled = !thisform.lreadonly
+	ENDPROC
+
+	PROCEDURE pgfFieldPicker.Page2.cmdHelp.Click
+		ThisForm.ShowHelpForSearchByValue()
+		
+		
 	ENDPROC
 
 	PROCEDURE pgfFieldPicker.Page2.cmdModifyStructure.Click
@@ -4285,10 +4407,10 @@ DEFINE CLASS fp_form AS form
 				If thisform.lReorderColumns
 					.ColumnOrder  = lnCounter
 				EndIf 
-				.Visible = Evaluate (Thisform.ccursor + '.marked') Or lnMarked = 0 Or Not Thisform.lHideUnselected
+				.Visible = Nvl(.lVisible, Evaluate (Thisform.ccursor + '.marked') Or lnMarked = 0 Or Not Thisform.lHideUnselected)
 				*!* ******************** Removed 12/26/2013 ********************
 				*!* .Header1.Caption = Thisform.changecaseoffieldname(.Header1.Caption)
-				.Header1.Caption = ' ' + Trim(field_name) + ' ' + Iif(field_type = 'M' and thisform.nMemoFieldWidth > 0, ' (Memo)', '')
+				.Header1.Caption = Nvl(.cHeaderCaption, ' ' + Trim(field_name) + ' ' + Iif(field_type = 'M' and thisform.nMemoFieldWidth > 0, ' (Memo)', ''))
 				.Header1.Alignment = IIF(field_type $ 'CM', 0, 1)		
 				Do case
 					Case field_type = 'L'
@@ -4306,15 +4428,11 @@ DEFINE CLASS fp_form AS form
 		Thisform.LockScreen = .F.
 	ENDPROC
 
-	PROCEDURE pgfFieldPicker.Page2.grdShowTable.RightClick
-		ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowseContextMenu')
-	ENDPROC
-
 	PROCEDURE pgfFieldPicker.Page2.lblFilter.Refresh
 		If thisform.nfilter = 1
 			This.Caption = '\<Find Values:'
 		Else
-			This.Caption = '\<Filter Expression:'
+			This.Caption = '\<Filter:'
 		EndIf 
 	ENDPROC
 
@@ -4328,27 +4446,17 @@ DEFINE CLASS fp_form AS form
 		
 	ENDPROC
 
-	PROCEDURE pgfFieldPicker.Page2.opgFilter.Option1.MouseEnter
-		Lparameters nButton, nShift, nXCoord, nYCoord
-		
-		This.ToolTipText = 'Click to show help'
-		If This.Parent.Value = 1
-			This.Tag	 = 'Show Help'
-		Else
-			This.Tag	 = ''
-		Endif
-		
-	ENDPROC
-
 	PROCEDURE pgfFieldPicker.Page2.opgFilter.Valid
 		This.Parent.Refresh()
 		
-		If This.Value = 1
-			ThisForm.ShowHelpForSearchByValue()
-		Endif
-		
 		Thisform.cFilter = ''
 		this.Parent.txtFilter.SetFocus()
+	ENDPROC
+
+	PROCEDURE pgfFieldPicker.Page2.txtFilter.MouseEnter
+		LPARAMETERS nButton, nShift, nXCoord, nYCoord
+		
+		This.ToolTipText = ThisForm.FilterHelpText()
 	ENDPROC
 
 	PROCEDURE pgfFieldPicker.Page2.txtFilter.Refresh
@@ -4568,7 +4676,7 @@ DEFINE CLASS fp_form AS form
 ENDDEFINE
 
 DEFINE CLASS fp_textbox AS textbox 
- 	*< CLASSDATA: Baseclass="textbox" Timestamp="" Scale="Pixels" Uniqueid="" />
+ 	*< CLASSDATA: Baseclass="textbox" Timestamp="2013/11/04 20:00:00" Scale="Pixels" Uniqueid="" />
 
 	Height = 23
 	Name = "fp_textbox"

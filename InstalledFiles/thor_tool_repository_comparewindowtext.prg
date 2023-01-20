@@ -65,7 +65,7 @@ Procedure ToolCode
 	If Pemstatus(_vfp, 'cCompareTwoWindowsText', 5) = .F. Or Empty(_vfp.cCompareTwoWindowsText)
 		AddProperty(_vfp, 'cCompareTwoWindowsText', m.lcContents)
 		AddProperty(_vfp, 'cCompareTwoWindowsTitle', m.lcTitle)
-		MessageBox('Text captured for comparison')
+		MessageBox('Text captured for comparison', 0, 'Captured', 2000)
 	Else
 		lcFile2 = Forceext(Addbs(Sys(2023)) + 'Second-' + m.lcTitle + Sys(2015), 'prg')
 		Strtofile(m.lcContents, m.lcFile2)

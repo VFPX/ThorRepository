@@ -19,7 +19,7 @@ If Pcount() = 1								;
 	With lxParam1
 
 		* Required
-		.Prompt	 = 'HackCX4 from MRU forms or classes' && used when tool appears in a menu
+		.Prompt	 = 'HackCX4 for MRU forms or classes' && used when tool appears in a menu
 		.Summary = 'HackCX: Pop-up menu to select form or class to be opened with HackCX4'
 		Text To .Description Noshow
 HackCX: Pop-up menu to select form or class to be opened with HackCX4.
@@ -130,13 +130,15 @@ Endproc
 
 Procedure AddItem(loTools, loContextMenu, lcFile)
 	Local lcDisplayName, lcFName
-	lcFile		  = loTools.DiskFileName(lcFile)
-	lcDisplayName = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_RelativePath', lcFile)
-	lcFName		  = Justfname (lcDisplayName)
-	If Not lcFName == lcDisplayName
-		lcDisplayName = lcFName + '    from  ' + Justpath (lcDisplayName)
+	lcFile		  = m.loTools.DiskFileName(m.lcFile)
+	If File(m.lcFile)
+		lcDisplayName = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_RelativePath', m.lcFile)
+		lcFName		  = Justfname (m.lcDisplayName)
+		If Not m.lcFName == m.lcDisplayName
+			lcDisplayName = m.lcFName + '    from  ' + Justpath (m.lcDisplayName)
+		Endif
+		m.loContextMenu.AddMenuItem (m.lcDisplayName, , , , m.lcFile)
 	Endif
-	loContextMenu.AddMenuItem (lcDisplayName, , , , lcFile)
 Endproc
 
 

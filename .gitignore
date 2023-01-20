@@ -23,8 +23,6 @@
 *.ORIG
 *.save
 *.SAVE
-*.zip
-*.ZIP
 *.lnk
 
 # code ref files

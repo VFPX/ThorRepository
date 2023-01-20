@@ -5,11 +5,11 @@ Lparameters lxParam1
 * Standard prefix for all tools for Thor, allowing this tool to
 *   tell Thor about itself.
 
-If Pcount() = 1						  ;
-		And 'O' = Vartype (lxParam1)  ;
-		And 'thorinfo' = Lower (lxParam1.Class)
+If Pcount() = 1								;
+		And 'O' = Vartype (m.lxParam1)		;
+		And 'thorinfo' = Lower (m.lxParam1.Class)
 
-	With lxParam1
+	With m.lxParam1
 
 		* Required
 		.Prompt		 = 'Move all windows to top' && used when tool appears in a menu
@@ -19,15 +19,15 @@ If Pcount() = 1						  ;
 
 		* For public tools, such as PEM Editor, etc.
 		.Source	  = 'Thor Repository'
-		.Category	 = 'Windows|Form/Class Designer Windows'
-		.Sort		 = 550
+		.Category = 'Windows|Form/Class Designer Windows'
+		.Sort	  = 550
 
-		.VideoLink   = 'http://vfpxrepository.com/dl/thorupdate/Videos/Repository.Windows.Management.wmv|3:33'
-		.Author	  = 'Jim Nelson'
+		.VideoLink		 = 'http://vfpxrepository.com/dl/thorupdate/Videos/Repository.Windows.Management.wmv|3:33'
+		.Author			 = 'Jim Nelson'
 		.CanRunAtStartUp = .F.
 	Endwith
 
-	Return lxParam1
+	Return m.lxParam1
 Endif
 
 
@@ -48,34 +48,34 @@ Procedure ToolCode
 
 	#Define cnMaxWidth 1200
 	lnWindowCount = 0
-	loWindows	  = loEditorWin.GetOpenWindows()
+	loWindows	  = m.loEditorWin.GetOpenWindows()
 
-	With loEditorWin
+	With m.loEditorWin
 		* create array, 5 elements per window: handle, top, left, height, width
-		For lnI = 1 To loWindows.Count
-			loWindow = loWindows (lnI)
-			If loWindow.NWHandleType = 0 And 'Designer -' $ loWindow.WindowName
-				lnWindowCount = lnWindowCount + 1
-				Dimension laHandlers (lnWindowCount, 5)
-				lnHandle = loWindows (lnI).nwhandle
+		For lnI = 1 To m.loWindows.Count
+			loWindow = m.loWindows (m.lnI)
+			If m.loWindow.NWHandleType = 0 And 'Designer -' $ m.loWindow.WindowName
+				lnWindowCount = m.lnWindowCount + 1
+				Dimension m.laHandlers (m.lnWindowCount, 5)
+				lnHandle = m.loWindows (m.lnI).nWHAndle
 
-				.SetHandle (lnHandle)
+				.SetHandle (m.lnHandle)
 
-				laHandlers (lnWindowCount, 1) = lnHandle
-				laHandlers (lnWindowCount, 2) = .GetTop()
-				laHandlers (lnWindowCount, 3) = .GetLeft()
-				laHandlers (lnWindowCount, 4) = .GetHeight()
-				laHandlers (lnWindowCount, 5) = .GetWidth()
+				laHandlers (m.lnWindowCount, 1)	= m.lnHandle
+				laHandlers (m.lnWindowCount, 2)	= .GetTop()
+				laHandlers (m.lnWindowCount, 3)	= .GetLeft()
+				laHandlers (m.lnWindowCount, 4)	= .GetHeight()
+				laHandlers (m.lnWindowCount, 5)	= .GetWidth()
 			Endif
 		Endfor && lnI = 1 to loWindows.Count
 
-		If lnWindowCount # 0
-			Asort (laHandlers, 3) && leftmost windows stay leftmost
-			For lnI = 1 To lnWindowCount)
-				.SetHandle (laHandlers (lnI, 1))
-				.MoveWindow (cnMaxWidth * (lnI - 1) / lnWindowCount, 0)
+		If m.lnWindowCount # 0
+			Asort (m.laHandlers, 2) && topmost windows stay topmost
+			For lnI = 1 To m.lnWindowCount
+				.SetHandle (m.laHandlers (m.lnI, 1))
+				.MoveWindow (50 + 50 * (m.lnWindowCount - m.lnI), 40 + 40 * (m.lnI - 1))
 			Endfor
 		Endif
 
 	Endwith
-EndProc
+Endproc

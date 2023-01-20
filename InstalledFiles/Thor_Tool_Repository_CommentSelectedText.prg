@@ -66,7 +66,7 @@ Procedure ToolCode
 	loCommentText	= Execscript(_Screen.cThorDispatcher, 'class= CommentText from Thor_Proc_CommentText.PRG')
 	lcCommentString	= Alltrim(loCommentText.cCommentString)
 
-	lcNewLineText = Textmerge(ExecScript(_Screen.cThorDispatcher, "Get Option=", 'Comment Highlighted text', 'Comment Highlighted text'))
+	lcNewLineText = Trim(Textmerge(ExecScript(_Screen.cThorDispatcher, "Get Option=", 'Comment Highlighted text', 'Comment Highlighted text')))
 
 	lcClipText = loHighlightedText.cHighLightedText
 

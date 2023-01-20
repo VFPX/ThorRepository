@@ -12,11 +12,11 @@ If Pcount() = 1								;
 	With m.lxParam1
 
 		* Required
-		.Prompt		   = 'Toggle tabs in pageframe' && used in menus
+		.Prompt		   = 'Toggle visibility of tabs in pageframe' && used in menus
 
 		* Optional
 		Text To .Description Noshow && a description for the tool
-Toggles display of tabs in the current pageframe.
+Toggles display of tabs in the currently selected pageframe.
 		Endtext
 		.StatusBarText	 = ''
 		.CanRunAtStartUp = .F.

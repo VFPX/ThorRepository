@@ -44,12 +44,23 @@ Return
 Procedure ToolCode
 	Lparameters lxParam1
 
+	Local llToggleISX
+
+	llToggleISX = Pemstatus(_Screen, 'lThorDebuggerOpen', 5) And _Screen.lThorDebuggerOpen
+
 	If Wexist('WATCH') Or Wexist('TRACE')						;
 			Or Wexist('CALL STACK') Or Wexist('LOCALS')			;
 			Or Wexist('DEBUG OUTPUT')
 		Close Debugger
+		If m.llToggleISX
+			Execscript(_Screen.cThorDispatcher, 'THOR_PROC_IntellisenseXTimer', 'Start')
+		Endif
 	Else
+		If m.llToggleISX
+			Execscript(_Screen.cThorDispatcher, 'THOR_PROC_IntellisenseXTimer', 'Stop')
+		Endif
 		Debug
+		Execscript(_Screen.cThorDispatcher, 'THOR_TOOL_FixDebuggerWindows')
 	Endif
 
 Endproc

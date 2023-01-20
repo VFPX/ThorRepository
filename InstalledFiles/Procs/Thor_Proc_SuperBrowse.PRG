@@ -1,4 +1,4 @@
-Lparameters tcAlias
+Lparameters tcAlias, tlCloseAfter, tlIgnoreDblClick
 
 Local llSuccess, lnSelect
 
@@ -6,7 +6,7 @@ llSuccess = .F.
 Do Case
 	Case Empty(m.tcAlias)
 		If Used(Alias())
-			SuperBrowse(Alias())
+			SuperBrowse(Alias(), m.tlCloseAfter, m.tlIgnoreDblClick)
 			llSuccess = .T.
 		Endif
 
@@ -15,7 +15,7 @@ Do Case
 		lnSelect = Select()
 		Select(m.tcAlias)
 
-		SuperBrowse(m.tcAlias)
+		SuperBrowse(m.tcAlias, m.tlCloseAfter, m.tlIgnoreDblClick)
 		Select(m.lnSelect)
 		llSuccess = .T.
 
@@ -30,10 +30,20 @@ Return
 
 *****************************************************
 
-Procedure SuperBrowse(tcAlias)
+Procedure SuperBrowse(tcAlias, tlCloseAfter, tlIgnoreDblClick)
 
-	Local lcVCXFileName, llDockable, lnI, lnLeft, lnTop, loFP_Form, loForm
+	Local lcDBF, lcVCXFileName, llDockable, lnI, lnLeft, lnTop, loFP_Form, loForm, loTools
 
+	* add to MRU list
+	If Used(m.tcAlias)
+		lcDBF = Dbf(m.tcAlias)
+		If 'DBF' = Upper(Justext(m.lcDBF))
+			loTools = Execscript (_Screen.cThorDispatcher, 'class= tools from pemeditor')
+			m.loTools.AddMRUFile(m.lcDBF)
+		Endif
+	Endif
+
+	* Already being SuperBrowsed?
 	For lnI = 1 To _Screen.FormCount
 		loForm = _Screen.Forms[m.lnI]
 		If 'fp_form' == Lower(m.loForm.Class)					;
@@ -56,6 +66,8 @@ Procedure SuperBrowse(tcAlias)
 		.RestoreSettings( 'PEME_Snippet_FP2.Settings', 'nDockable')
 
 		.SetAlias(.cAlias)
+		.lCloseAfter	 = m.tlCloseAfter
+		.lHandleDblClick = m.tlIgnoreDblClick = .F.
 
 		Do Case
 			Case Not m.llDockable
@@ -81,4 +93,4 @@ Procedure SuperBrowse(tcAlias)
 
 	Return
 
-
+Endproc

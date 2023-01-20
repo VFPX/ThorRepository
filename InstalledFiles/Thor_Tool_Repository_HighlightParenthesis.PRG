@@ -79,6 +79,10 @@ Procedure ToolCode
 				Endfor
 		Endcase
 	Endfor && lnBegin = lnStartPosition - 1 To 0
+	
+	If m.lnBegin <= 0
+		Return && none found
+	Endif
 
 	lnLastByte = loEditorWin.GetFileSize()
 	lnParens   = 0
