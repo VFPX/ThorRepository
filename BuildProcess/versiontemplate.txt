@@ -5,7 +5,7 @@ lcDate = '{VersionDate}'
 With m.toUpdateObject
 	.VersionNumber    = '{Version} - ' + lcDate
 
-	.AvailableVersion = '{AppName}-{Version}-{JULIAN}-' + lcDate
+	.AvailableVersion = '{AppName} - {Version} - {JULIAN}-' + lcDate
 	.Notes			  = GetReleaseNotes()
 	.InstallInTools	  = .T.
 endwith
