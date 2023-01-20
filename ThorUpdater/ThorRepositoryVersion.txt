@@ -6,7 +6,6 @@ With m.toUpdateObject
 	.VersionNumber    = '65 - ' + lcDate
 
 	.AvailableVersion = 'Thor Repository-65-08420-' + lcDate
-	.RegisterWithThor = GetRegisterWithThor(.ApplicationName)
 	.Notes			  = GetReleaseNotes()
 	.InstallInTools	  = .T.
 endwith
