@@ -6,7 +6,6 @@ With m.toUpdateObject
 	.VersionNumber    = '{Version} - ' + lcDate
 
 	.AvailableVersion = '{AppName}-{Version}-{JULIAN}-' + lcDate
-	.RegisterWithThor = GetRegisterWithThor(.ApplicationName)
 	.Notes			  = GetReleaseNotes()
 	.InstallInTools	  = .T.
 endwith
