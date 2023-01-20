@@ -56,4 +56,4 @@ Please visit the community forum for Thor at [**http://groups.google.com/group/F
 ## Helping with this project
 See [How to contribute to Thor Repository](.github/CONTRIBUTING.md) for details on how to help with this project.
 
-Last changed: _2023/01/19 ![Picture](docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/20_ ![Picture](docs/Images/vfpxpoweredby_alternative.gif)
