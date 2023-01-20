@@ -1,8 +1,9 @@
 ![](documents/images/ThorRepository.png)
 
 
-Version 62.06 Released 2022-04-01
-_Requires VFP9_
+Version 65 Released 2023-01-20
+
+[What's new in this release](Change%20Log.md)
 
 
 * * *
@@ -14,6 +15,8 @@ _The **Thor Repository** is a collection of IDE tools, accessible thru Thor, tha
 **Discussions:** [Post questions, bug reports, discussions in the Thor Discussion Group](http://groups.google.com/group/FoxProThor)
 
 **Home page for Thor:** [**Thor**](https://github.com/VFPX/Thor)
+
+_Requires VFP9_
 
 ***
 
@@ -46,18 +49,11 @@ Tools will be accepted into the Repository if they meet some minimum standards, 
 
 Please visit the community forum for Thor at [**http://groups.google.com/group/FoxProThor**](http://groups.google.com/group/FoxProThor) to make suggestions or comments, to report problems, and to see how others are using Thor and its related tools.
 
-## Changes
-### Version 64.06
-Added configuration for changes to [PEMEditor](https://github.com/VFPX/PEMEditor) 7.41.00
 
-### Version 64.05
-Missing sources in the zip file
-
-### Version 64.04
-Added configuration for changes to [PEMEditor](https://github.com/VFPX/PEMEditor) 7.40.00
+[What's new in this release](Change%20Log.md)
 
 ----
-## Contribution
-See [contribution](./.github/CONTRIBUTING.md)
+## Helping with this project
+See [How to contribute to Thor Repository](.github/CONTRIBUTING.md) for details on how to help with this project.
 
-Last changed: _2022/04/01_ ![Picture](./docs/pictures/vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/19 ![Picture](docs/Images/vfpxpoweredby_alternative.gif)
