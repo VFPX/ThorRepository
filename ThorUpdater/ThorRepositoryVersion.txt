@@ -5,7 +5,7 @@ lcDate = '20230120'
 With m.toUpdateObject
 	.VersionNumber    = '65 - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65 - 08420-' + lcDate
+	.AvailableVersion = 'Thor Repository - 65 - 08420- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
