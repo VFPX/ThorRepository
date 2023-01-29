@@ -1,7 +1,7 @@
 ![](documents/images/ThorRepository.png)
 
 
-Version 65 Released 2023-01-20
+Version 65.01 Released 2023-01-29
 
 [What's new in this release](Change%20Log.md)
 
@@ -56,4 +56,4 @@ Please visit the community forum for Thor at [**http://groups.google.com/group/F
 ## Helping with this project
 See [How to contribute to Thor Repository](.github/CONTRIBUTING.md) for details on how to help with this project.
 
-Last changed: _2023/01/20_ ![Picture](docs/Images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/29_ ![Picture](docs/Images/vfpxpoweredby_alternative.gif)
