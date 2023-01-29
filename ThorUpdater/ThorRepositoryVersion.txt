@@ -3,9 +3,9 @@ lparameters toUpdateObject
 lcDate = '20230129'
 
 With m.toUpdateObject
-	.VersionNumber    = '65 - ' + lcDate
+	.VersionNumber    = '65.01 - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65 - 08429- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.01 - 08429- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
