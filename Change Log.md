@@ -1,4 +1,8 @@
-### 2012-01-20, Version 65
+
+### 2013-01-29, Version 65.01
+Updates of some Procs; no visible effect on any Tools
+
+### 2013-01-20, Version 65
 New Tools:
 * **Execute Selected Text**
     * Extension of context menu option "Execute Selection" when editing code.
@@ -20,4 +24,4 @@ Added configuration for changes to [PEMEditor](https://github.com/VFPX/PEMEditor
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2023/01/19_ ![Picture](./docs/images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/01/29_ ![Picture](./docs/images/vfpxpoweredby_alternative.gif)
