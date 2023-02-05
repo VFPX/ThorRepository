@@ -43,7 +43,7 @@ Define Class HighlightedText As Session OlePublic
 		* get the object which manages the editor window
 		* see	http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object
 		* editorwin home page = http://vfpx.codeplex.com/wikipage?title=thor%20editorwindow%20object
-		This.oEditorWin = Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
+		This.oEditorWin = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_EditorWin')
 	
 		If This.oEditorWin.GetEnvironment(25) <= Iif (m.llCommandWindowOK, -1, 0)
 			This.cError = 'Not an edit window'
