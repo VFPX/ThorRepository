@@ -1,11 +1,11 @@
 lparameters toUpdateObject
 
-lcDate = '20230208'
+lcDate = '20230319'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.03 - ' + lcDate
+	.VersionNumber    = '65.04 - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.03 - 08439- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.04 - 08478- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,6 +14,9 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
+
+### 2023-03-19, Version 65.04
+Updates of some Procs; no visible effect on any Tools
 
 ### 2023-02-08, Version 65.03
 Updates of some Procs; no visible effect on any Tools
@@ -46,7 +49,7 @@ Added configuration for changes to [PEMEditor](https://github.com/VFPX/PEMEditor
 ## Contribution
 See [contribution](./.github/CONTRIBUTING.md)
 
-Last changed: _2023/02/05_ ![Picture](./docs/images/vfpxpoweredby_alternative.gif)
+Last changed: _2023/03/19_ ![Picture](./docs/images/vfpxpoweredby_alternative.gif)
 endtext
 return lcNotes
 
