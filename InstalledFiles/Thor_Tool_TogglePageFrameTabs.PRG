@@ -20,6 +20,7 @@ Toggles display of tabs in the currently selected pageframe.
 		Endtext
 		.StatusBarText	 = ''
 		.CanRunAtStartUp = .F.
+		.Link = 'https://github.com/VFPX/ThorRepository/blob/master/docs/TogglePageFrameTabs.md'
 
 		* These are used to group and sort tools when they are displayed in menus or the Thor form
 		.Category = 'Objects and PEMs' && creates categorization of tools; defaults to .Source if empty
