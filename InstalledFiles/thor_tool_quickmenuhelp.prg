@@ -61,9 +61,10 @@ Procedure ToolCode
 	AddMenuItems (m.loContextMenu, m.laMenuid)
 
 	If m.loContextMenu.Activate()
-		lcResult = m.loContextMenu.Parameters
+		lcResult   = m.loContextMenu.Parameters
 		loToolInfo = Execscript(_Screen.cThorDispatcher, 'ToolInfo=', m.lcResult)
-		lcLink	   = m.loToolInfo.Link
+		
+		lcLink	   = GetLink(m.loToolInfo.Link, m.lcResult)
 		If Not Empty(m.lcLink)
 			GoURL(m.lcLink)
 		Else
@@ -92,7 +93,8 @@ Procedure AddMenuItems(loContextMenu, lnMenuID)
 		From MenuTools																	;
 			Left Join MenuDefinitions													;
 				On SubMenuID = MenuDefinitions.Id										;
-		Where MenuID = m.lnMenuID	and Upper(prgname) # Upper('thor_tool_quickmenuhelp.prg')													;
+		Where MenuID = m.lnMenuID														;
+			And Upper(PRGName) # Upper('thor_tool_quickmenuhelp.prg')					;
 		Order By MenuTools.SortOrder													;
 		Into Array laMenuTools
 
@@ -132,3 +134,42 @@ Procedure AddMenuItems(loContextMenu, lnMenuID)
 	Endfor
 
 Endproc
+
+
+Procedure GetLink(lcLink, lcFileName)
+	Local lcURLFolder
+	
+	If Not Empty(m.lcLink)
+		If CheckLink(m.lcLink)
+			Return m.lcLink
+		Endif
+	Endif
+
+	lcURLFolder	= 'https://github.com/VFPX/ThorRepository/blob/master/docs/'
+	lcLink		= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.md'
+	If CheckLink(m.lcLink)
+		Return m.lcLink
+	Else
+		Return ''
+	Endif
+Endproc
+
+
+Procedure CheckLink(lcLink)
+	Local lcDownloaded, lcTemp, lcTitle, llSuccess
+
+	lcTemp	  = Addbs(Sys(2023)) + Sys(2015)
+	llSuccess = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', m.lcLink, m.lcTemp)
+	Wait Clear
+	If m.llSuccess
+		lcDownloaded = Filetostr(m.lcTemp)
+		Erase (m.lcTemp)
+		lcTitle = Strextract(m.lcDownloaded, '<title>', '</title>', 1, 1)
+		If Atc('page not found', m.lcDownloaded) # 0
+			llSuccess = .F.
+		Endif
+	Endif
+
+	Return m.llSuccess
+Endproc
+

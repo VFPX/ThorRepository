@@ -12,7 +12,7 @@ If Pcount() = 1								;
 	With m.lxParam1
 
 		* Required
-		.Prompt		   = 'Install Southwest Fox Demo Menus'
+		.Prompt		   = 'Install Thor Quick Menu'
 
 		Text To .Description Noshow
 Describe it!		
@@ -47,7 +47,7 @@ Procedure ToolCode
 
 	loThorUtils = Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
 	* when loCloseTempFiles goes out of scope, it closes any newly opened tables
-	*	loCloseTempFiles = m.loThorUtils.CloseTempFiles()
+	loCloseTempFiles = m.loThorUtils.CloseTempFiles()
 
 	m.loThorUtils.OpenThorTables()
 
@@ -62,9 +62,15 @@ Procedure ToolCode
 
 		UpdateHotKeyAssignments()
 
-		AssignStartingHotKey()
+		AssignAccessMethods()
+		
+		loCloseTempFiles = Null
+
+		m.loThorUtils.CleanUpThorTables()
 
 		RefreshThor()
+
+		Messagebox('Thor Quick Menu installed', 64, 'Quick Menu installed', 5000)
 
 	Endif
 
@@ -83,9 +89,9 @@ Procedure ReadyToInstall
 		Into Cursor NewMenuDefs Readwrite
 
 	If _Tally = 0
-		lcPrompt = 'Ready to install SWF Popup menu for Thor?'
+		lcPrompt = 'Ready to install Thor Quick Menu?'
 	Else
-		lcPrompt = 'SWF Popup menu for Thor has already been installed.' + ccCR + ccCR + 'Re-install it ?'
+		lcPrompt = 'Thor Quick Menu has already been installed.' + ccCR + ccCR + 'Re-install it?'
 	Endif
 
 	Return Messagebox(m.lcPrompt, 3 + 32) = 6
@@ -144,6 +150,23 @@ Endproc
 
 
 Procedure UpdateHotKeyAssignments
+
+	Local lcPrompt
+
+	Text To m.lcPrompt Noshow Textmerge
+Accept default Quick Menu hot key assignments?
+
+This will NOT affect any hot key assignments you already have in place!
+
+1) No tool that is already accessible by hot key will be changed.
+2) No hot key already in use will be re-assigned.
+
+	Endtext
+
+	If Messagebox(m.lcPrompt, 3 + 32) # 6
+		Return
+	Endif
+
 	Select  HotKeyID					;
 		From ToolHotKeyAssignments		;
 		Where HotKeyID # 0				;
@@ -154,14 +177,14 @@ Procedure UpdateHotKeyAssignments
 		Into Cursor HotKeysInUse
 
 	* pop up menus
-	Update  MenuDefinitions														;
-		Set MenuDefinitions.HotKeyID = SWFSessionMenuDefinitions.HotKeyID		;
-		From MenuDefinitions													;
-			Join SWFSessionMenuDefinitions										;
-				On MenuDefinitions.Id = SWFSessionMenuDefinitions.Id			;
-				And SWFSessionMenuDefinitions.HotKeyID # 0						;
-		Where Not SWFSessionMenuDefinitions.HotKeyID In (Select  HotKeyID		;
-															 From HotKeysInUse)
+	Update  MenuDefinitions											;
+		Set MenuDefinitions.HotKeyID = NewMenuDefs.HotKeyID			;
+		From MenuDefinitions										;
+			Join NewMenuDefs										;
+				On MenuDefinitions.Id = NewMenuDefs.NewMenuID		;
+				And NewMenuDefs.HotKeyID # 0						;
+		Where Not NewMenuDefs.HotKeyID In (Select  HotKeyID			;
+											   From HotKeysInUse)
 
 	* tools
 	Select  *												;
@@ -187,7 +210,28 @@ Procedure UpdateHotKeyAssignments
 Endproc
 
 
-Procedure AssignStartingHotKey()
+* ================================================================================
+* ================================================================================
+Procedure AssignAccessMethods
+	Text To m.lcPrompt Noshow Textmerge
+The Thor Quick Menu can be accessed in either (or both) of these ways:
+
+1) By assigning a hot key (creating a popup menu).
+2) By adding it to the VFP system menu.
+
+The prompts that follow will help you set this up.
+	Endtext
+
+	Messagebox(lcPrompt, 64)
+
+	AssignPopupHotKey()
+
+	AddToSystemMenu()
+
+Endproc
+
+
+Procedure AssignPopupHotKey
 
 	Local loForm As 'SetHotKeyForm' Of 'Thor_UI.vcx'
 	Local laHotKey[1], lcAlias, lcPrompt, lcThorAPP, lnDefaultHotKeyID, lnHotKeyID
@@ -202,20 +246,40 @@ Procedure AssignStartingHotKey()
 	lnHotKeyID = HotKeyID
 
 	If m.lnHotKeyID # 0
-		lcPrompt = 'New Popup Menu accessed by ' + GetHotKeyDesc(m.lnHotKeyID) + ccCR + ccCR + 'Use this hot key?'
+		lcPrompt = 'Thor Quick Menu accessed by ' + GetHotKeyDesc(m.lnHotKeyID)				;
+			+ Iif(m.lnDefaultHotKeyID = m.lnHotKeyID, ' (assigned by default)', '')			;
+			+ ccCR + ccCR + 'Use this hot key?'
 		If Messagebox(m.lcPrompt, 3 + 32) = 6
 			Return
 		Endif
 	Endif
 
-	lcPrompt = 'Default hot key (' + GetHotKeyDesc(m.lnDefaultHotKeyID) + ') already in use'	;
-		+ ccCR + ccCR + 'Assign hot key to access the new Popup Menu?'
+	lcPrompt = 'Assign hot key to access the Thor Quick Menu?'
 	If Messagebox(m.lcPrompt, 3 + 32) = 6
 		lcThorAPP	 = _Screen.cThorFolder + '..\Thor.app'
 		loForm		 = Newobject ('SetHotKeyForm',	'Thor_UI.vcx', 	m.lcThorAPP)
 		loForm.oThor = Newobject ('Thor_Engine',	'Thor.vcx', 	m.lcThorAPP, _Screen.cThorFolder)
 
 		m.loForm.ExecuteCommand (m.lcAlias, 'Set')
+	Endif
+
+Endproc
+
+
+Procedure AddToSystemMenu
+	Local lcAlias, lcPrompt, lnMax
+
+	lcAlias = 'MenuDefinitions'
+	Select (m.lcAlias)
+	Calculate Max(SortOrder) To m.lnMax For TopLevel
+
+	Locate For Popupname = 'SWF_Top'
+
+	lcPrompt = 'Add Thor Quick Menu to VFP system menu?'
+	If Messagebox(m.lcPrompt, 3 + 32) = 6
+		Replace TopLevel With .T., SortOrder With m.lnMax + 1
+	Else
+		Replace TopLevel With .F., SortOrder With 0
 	Endif
 
 Endproc
