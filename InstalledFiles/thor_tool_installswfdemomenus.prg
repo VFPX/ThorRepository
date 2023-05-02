@@ -66,7 +66,7 @@ Procedure ToolCode
 		
 		loCloseTempFiles = Null
 
-		m.loThorUtils.CleanUpThorTables()
+		*	m.loThorUtils.CleanUpThorTables()
 
 		RefreshThor()
 
