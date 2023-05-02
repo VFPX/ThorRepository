@@ -18,6 +18,7 @@ If Pcount() = 1								;
 
 		.Category = 'Code'
 		.Author	  = 'JRN'
+		* .Link = 'https://github.com/VFPX/ThorRepository/blob/master/docs/AddToProject.md'
 	Endwith
 
 	Return m.lxParam1
@@ -37,8 +38,8 @@ Return
 Procedure ToolCode
 	Lparameters lxParam1
 
-	Local laSelObj[1], lcFName, lcFullFileName, lcProjectName, lcPrompt, lnChoice, loEditorWin
-	Local loProject, loTop, loWindows
+	Local laSelObj[1], lcFName, lcFileName, lcFullFileName, lcProjectName, lcPrompt, lnChoice
+	Local loEditorWin, loProject
 
 	If _vfp.Projects.Count = 0
 		Messagebox('No project open')
@@ -47,19 +48,22 @@ Procedure ToolCode
 	loProject	  = _vfp.ActiveProject
 	lcProjectName = Justfname(m.loProject.Name)
 
-	If Aselobj(laSelObj, 3) # 0 && SCX or VCX
-		lcFullFileName = m.laSelObj[2]
-	Else && PRG
-		loEditorWin	= Execscript(_Screen.cThorDispatcher, 'Thor_Proc_EditorWin')
-		loWindows	= m.loEditorWin.GetOpenWindows()
-		loTop		= m.loWindows[1]
-		If m.loTop.NWHandleType = 1 And File(m.loTop.WindowName)
-			lcFullFileName = Fullpath(m.loTop.WindowName)
-		Else
-			Messagebox('File not found')
+	loEditorWin	= Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
+	Do Case
+		Case m.loEditorWin.GetEnvironment(25) = 10 && SCX or VCX
+			lcFullFileName = m.laSelObj[2]
+		Case m.loEditorWin.GetEnvironment(25) = 1 && PRG
+			lcFileName	= m.loEditorWin.GetTitle()
+			If File(m.lcFileName)
+				lcFullFileName = Fullpath(m.lcFileName)
+			Else
+				Messagebox('File "' + m.lcfilename + '" not found')
+				Return
+			Endif
+		Otherwise
+			Messagebox('Nothing to do')
 			Return
-		Endif
-	Endif && Aselobj(laSelObj, 3) # 0
+	Endcase
 
 	lcFName = Justfname(m.lcFullFileName)
 	If Type([loProject.Files.Item(lcFullFileName)]) # 'O'
@@ -72,7 +76,7 @@ Procedure ToolCode
 		Endif
 	Else
 		lcPrompt = ["] + m.lcFName + [" already in project "] + m.lcProjectName + ["]
-		lcPrompt = lcPrompt + CR + CR + [Remove it?]
+		lcPrompt = m.lcPrompt + CR + CR + [Remove it?]
 		lnChoice = Messagebox(m.lcPrompt, 3 + 32)
 		If m.lnChoice = 6
 			m.loProject.Files(m.lcFullFileName).Remove()
