@@ -26,6 +26,8 @@ Steps:
 		Endtext
 
 		.Author	  = 'JRN'
+		* .Link = 'https://github.com/VFPX/ThorRepository/blob/master/docs/GoFishCurrentSCX.md'
+		
 	Endwith
 
 	Return m.lxParam1

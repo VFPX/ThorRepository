@@ -25,9 +25,9 @@ Define Class EditorWin As Custom
 	*    1 – Program file (MODIFY COMMAND)
 	*    2 – Text Editor (MODIFY FILE)
 	*    8 – Menu code edit window
-	*     10 – Method code edit window of the Class or Form Designer
-	*     12 – Stored procedure in a DBC (MODIFY PROCEDURE)
-	*     -1 - Failed
+	*   10 – Method code edit window of the Class or Form Designer
+	*   12 – Stored procedure in a DBC (MODIFY PROCEDURE)
+	*   -1 - Failed
 
 	*================================================================================
 	*================================================================================
