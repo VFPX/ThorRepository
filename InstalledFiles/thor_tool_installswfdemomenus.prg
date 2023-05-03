@@ -102,7 +102,7 @@ Procedure ReadyToInstall
 
 	Do Case
 		Case m.lnResponse = 6
-			lcURL		= 'https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_togglepageframetabs.md'
+			lcURL		= 'https://github.com/VFPX/ThorRepository/blob/master/docs/quickmenu.md'
 			loThorUtils	= Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
 			m.loThorUtils.GoURL(m.lcURL)
 		Case m.lnResponse # 7
