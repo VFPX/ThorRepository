@@ -97,12 +97,12 @@ Procedure ReadyToInstall
 	Local lcPrompt, lcURL, lnResponse, loThorUtils
 
 	* ================================================================================ 
-	lcPrompt   = 'Review Thor Quick Menu documentation before installing?'
+	lcPrompt   = 'Review Thor Quick Menu before installing?'
 	lnResponse =  Messagebox(m.lcPrompt, 3 + 32)
 
 	Do Case
 		Case m.lnResponse = 6
-			lcURL		= 'https://github.com/VFPX/ThorRepository/blob/master/docs/quickmenu.md'
+			lcURL		= 'https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_togglepageframetabs.md'
 			loThorUtils	= Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
 			m.loThorUtils.GoURL(m.lcURL)
 		Case m.lnResponse # 7
