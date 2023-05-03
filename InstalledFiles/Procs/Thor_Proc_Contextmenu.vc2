@@ -121,9 +121,6 @@ DEFINE CLASS contextmenu AS custom
 			lcPrompt	 = Strtran(This.Prompt, '\<', '')
 			lcParameters = Trim(Transform(This.Parameters))
 		
-			SaveSessionLog(m.lcPrompt + ' == ' + m.lcParameters)
-			LogEvent('   Context menu selection: ' + m.lcPrompt + ' => ' + m.lcParameters)
-		
 			Return .T.
 		Else
 			Return .F.
