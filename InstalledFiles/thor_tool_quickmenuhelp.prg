@@ -137,21 +137,36 @@ Endproc
 
 
 Procedure GetLink(lcLink, lcFileName)
-	Local lcURLFolder
-	
+	Local lcTemp, lcURLFolder, lcURL, llSuccess
+
+	* Is there a link supplied?
 	If Not Empty(m.lcLink)
 		If CheckLink(m.lcLink)
 			Return m.lcLink
 		Endif
 	Endif
 
+	* Else is there a md file (with name of tool) in the docs folder for ThorRepository?
 	lcURLFolder	= 'https://github.com/VFPX/ThorRepository/blob/master/docs/'
 	lcLink		= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.md'
 	If CheckLink(m.lcLink)
 		Return m.lcLink
-	Else
-		Return ''
 	Endif
+
+	* Else is there a txt file containing a link?
+	lcURLFolder	= 'https://raw.githubusercontent.com/VFPX/ThorRepository/master/docs/'
+	lcLink		= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.txt'
+	lcTemp		= Addbs(Sys(2023)) + Sys(2015)
+	llSuccess	= Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', m.lcLink, m.lcTemp)
+
+	If m.llSuccess
+		lcURL = Alltrim(Getwordnum(Filetostr(m.lcTemp), 2, '='), ' ', Chr[13], Chr[10], Chr[9])
+		If Not Empty(m.lcURL)
+			Return m.lcURL
+		Endif
+	Endif
+	Return ''
+
 Endproc
 
 
