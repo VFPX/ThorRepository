@@ -12,7 +12,7 @@ If Pcount() = 1								;
 	With m.lxParam1
 
 		* Required
-		.Prompt		   = 'Install Thor Quick Menu'
+		.Prompt		   = 'Install Quick Access Menu'
 
 		Text To .Description Noshow
 Describe it!		
@@ -76,16 +76,16 @@ Procedure ToolCode
 
 
 		Text To m.lcPrompt Noshow Textmerge
-Thor Quick Menu installed.
+Quick Access Menu installed.
 
 It is accessible:
-    - From the system Menu ("Quick Menu")
+    - From the system Menu ("Quick Access Menu")
     - By using hot key <<m.lcHotKeyDesc>>.
     
-Note the "Documentation" menu item: it provides current documentation for all the tools found in the Quick Menu.
+Note the "Documentation" menu item: it provides current documentation for all the tools found in the Quick Access Menu.
 		EndText
 		
-		Messagebox(m.lcPrompt, 64, 'Quick Menu installed')
+		Messagebox(m.lcPrompt, 64, 'Quick Access Menu installed')
 
 	Endif
 
@@ -97,7 +97,7 @@ Procedure ReadyToInstall
 	Local lcPrompt, lcURL, lnResponse, loThorUtils
 
 	* ================================================================================ 
-	lcPrompt   = 'Review Thor Quick Menu before installing?'
+	lcPrompt   = 'Review Quick Access Menu documentation before installing?'
 	lnResponse =  Messagebox(m.lcPrompt, 3 + 32)
 
 	Do Case
@@ -119,9 +119,9 @@ Procedure ReadyToInstall
 		Into Cursor NewMenuDefs Readwrite
 
 	If _Tally = 0
-		lcPrompt = 'Ready to install Thor Quick Menu?'
+		lcPrompt = 'Ready to install Quick Access Menu?'
 	Else
-		lcPrompt = 'Thor Quick Menu has already been installed.' + ccCR + ccCR + 'Re-install it?'
+		lcPrompt = 'Quick Access Menu has already been installed.' + ccCR + ccCR + 'Re-install it?'
 	Endif
 
 	Return Messagebox(m.lcPrompt, 4 + 32) = 6
