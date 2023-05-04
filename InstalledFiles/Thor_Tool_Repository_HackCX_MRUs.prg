@@ -22,7 +22,7 @@ If Pcount() = 1								;
 		.Prompt	 = 'HackCX4 for MRU forms or classes' && used when tool appears in a menu
 		.Summary = 'HackCX: Pop-up menu to select form or class to be opened with HackCX4'
 		Text To .Description Noshow
-HackCX: Pop-up menu to select form or class to be opened with HackCX4.
+Pop-up menu to select form or class to be opened with HackCX4, using either GetFile or the MRU lists of forms and classes.
 
 Requires separate installation of HackCX4 from WhiteLightComputing.Com
 		Endtext

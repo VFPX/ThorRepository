@@ -39,15 +39,15 @@ Procedure ToolCode
 
 	#Define ccCRLF Chr[13] + Chr[10]
 
-	Local laMenuid[1], lcContextMenuFileName, lcLink, lcResult, loContextMenu, loThorUtils, loToolInfo
+	Local laMenuid[1], lcContextMenuFileName, loCloseTables, loContextMenu, loThorUtils
 
 	lcContextMenuFileName = Execscript(_Screen.cThorDispatcher, 'Full Path= Thor_Proc_Contextmenu.vcx')
 	loContextMenu		  = Newobject ('ContextMenu', m.lcContextMenuFileName)
 
 	* ================================================================================
 	* Open Thor tables
-	loThorUtils = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Utils')
-	m.loThorUtils.CloseTempFiles()
+	loThorUtils	  = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Utils')
+	loCloseTables = m.loThorUtils.CloseTempFiles()
 	m.loThorUtils.OpenThorTables()
 
 	Select  Id								;
@@ -61,16 +61,7 @@ Procedure ToolCode
 	AddMenuItems (m.loContextMenu, m.laMenuid)
 
 	If m.loContextMenu.Activate()
-		lcResult   = m.loContextMenu.Parameters
-		loToolInfo = Execscript(_Screen.cThorDispatcher, 'ToolInfo=', m.lcResult)
-		
-		lcLink	   = GetLink(m.loToolInfo.Link, m.lcResult)
-		If Not Empty(m.lcLink)
-			GoURL(m.lcLink)
-		Else
-			Messagebox(m.loToolInfo.Description, 0, m.loToolInfo.Prompt)
-		Endif
-
+		ExecScript(_Screen.cThorDispatcher, 'Thor_proc_showtoolhelp', m.loContextMenu.Parameters)
 	Endif
 
 Endproc
@@ -122,7 +113,7 @@ Procedure AddMenuItems(loContextMenu, lnMenuID)
 				AddMenuItems (m.loContextMenu, m.lnSubMenuID)
 				m.loContextMenu.EndSubMenu ()
 			Otherwise
-				If Indexseek (Upper (m.lcPRGName), .T., 'ToolHotKeyAssignments', 'PrgName') And ToolHotKeyAssignments.HotKeyID # 0
+				If .f. && Indexseek (Upper (m.lcPRGName), .T., 'ToolHotKeyAssignments', 'PrgName') And ToolHotKeyAssignments.HotKeyID # 0
 					Indexseek (ToolHotKeyAssignments.HotKeyID, .T., 'HotKeyDefinitions', 'ID')
 					lcKeyStroke = Alltrim (HotKeyDefinitions.Descript)
 				Else
@@ -133,58 +124,5 @@ Procedure AddMenuItems(loContextMenu, lnMenuID)
 		Endcase
 	Endfor
 
-Endproc
-
-
-Procedure GetLink(lcLink, lcFileName)
-	Local lcTemp, lcURLFolder, lcURL, llSuccess
-
-	* Is there a link supplied?
-	If Not Empty(m.lcLink)
-		If CheckLink(m.lcLink)
-			Return m.lcLink
-		Endif
-	Endif
-
-	* Else is there a md file (with name of tool) in the docs folder for ThorRepository?
-	lcURLFolder	= 'https://github.com/VFPX/ThorRepository/blob/master/docs/'
-	lcLink		= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.md'
-	If CheckLink(m.lcLink)
-		Return m.lcLink
-	Endif
-
-	* Else is there a txt file containing a link?
-	lcURLFolder	= 'https://raw.githubusercontent.com/VFPX/ThorRepository/master/docs/'
-	lcLink		= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.txt'
-	lcTemp		= Addbs(Sys(2023)) + Sys(2015)
-	llSuccess	= Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', m.lcLink, m.lcTemp)
-
-	If m.llSuccess
-		lcURL = Alltrim(Getwordnum(Filetostr(m.lcTemp), 2, '='), ' ', Chr[13], Chr[10], Chr[9])
-		If Not Empty(m.lcURL)
-			Return m.lcURL
-		Endif
-	Endif
-	Return ''
-
-Endproc
-
-
-Procedure CheckLink(lcLink)
-	Local lcDownloaded, lcTemp, lcTitle, llSuccess
-
-	lcTemp	  = Addbs(Sys(2023)) + Sys(2015)
-	llSuccess = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', m.lcLink, m.lcTemp)
-	Wait Clear
-	If m.llSuccess
-		lcDownloaded = Filetostr(m.lcTemp)
-		Erase (m.lcTemp)
-		lcTitle = Strextract(m.lcDownloaded, '<title>', '</title>', 1, 1)
-		If Atc('page not found', m.lcDownloaded) # 0
-			llSuccess = .F.
-		Endif
-	Endif
-
-	Return m.llSuccess
 Endproc
 
