@@ -22,7 +22,6 @@ The cursor may be anywhere in the statement.
 		.Source			 = 'Thor Repository'
 		.Category		 = 'Code|Highlighting text'
 		.Author			 = 'Jim Nelson'
-		.Link			 = 'https://github.com/VFPX/Thor/blob/master/Docs/NewsItems/Item_46.md'
 		.CanRunAtStartUp = .F.
 	Endwith
 
