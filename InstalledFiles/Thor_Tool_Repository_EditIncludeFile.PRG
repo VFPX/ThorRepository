@@ -16,7 +16,9 @@ If Pcount() = 1								;
 		.Summary = 'Edits the include file for the currently open form/class'
 
 		* Optional
-		.Description   = '' && a more complete description; may be lengthy, including CRs, etc
+		Text To .Description Noshow Textmerge
+Creates a popup menu for all #Include files that apply to the current code window.    
+		Endtext
 		.StatusBarText = ''
 
 		* These are used to group and sort tools when they are displayed in menus or the Thor form

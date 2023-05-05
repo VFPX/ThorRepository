@@ -16,7 +16,7 @@ If Pcount() = 1								;
 		.Category = 'Code|Highlighting text'
 		
 		Text To .Description Noshow Textmerge
-Highlights the current procedure (only applies to PRGS)    
+Highlights the current procedure (only applies to PRGs)    
 		Endtext
 
 		* Optional

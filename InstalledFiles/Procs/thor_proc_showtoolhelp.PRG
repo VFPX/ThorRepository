@@ -19,23 +19,24 @@ Endproc
 * ================================================================================
 
 Procedure GetLink(lcLink, lcFileName)
-	Local lcTemp, lcURLFolder, lcURL, llSuccess
+	Local lcTemp, lcURL, lcURLFile, lcURLFolder, llSuccess
+
 	Private glQuiet
-	
-	glQuiet = .t.
+
+	glQuiet = .T.
 
 	* Is there a md file (with name of tool) in the docs folder for ThorRepository?
 	lcURLFolder	= 'https://github.com/VFPX/ThorRepository/blob/master/docs/'
-	lcLink		= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.md'
-	If CheckLink(m.lcLink)
-		Return m.lcLink
+	lcURLFile	= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.md'
+	If CheckLink(m.lcURLFile)
+		Return m.lcURLFile
 	Endif
 
 	* Is there a txt file containing a link?
 	lcURLFolder	= 'https://raw.githubusercontent.com/VFPX/ThorRepository/master/docs/'
-	lcLink		= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.txt'
+	lcURLFile	= m.lcURLFolder + Lower(Juststem(m.lcFileName)) + '.txt'
 	lcTemp		= Addbs(Sys(2023)) + Sys(2015)
-	llSuccess	= Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', m.lcLink, m.lcTemp)
+	llSuccess	= Execscript (_Screen.cThorDispatcher, 'Thor_Proc_DownloadFileFromURL', m.lcURLFile, m.lcTemp)
 
 	If m.llSuccess
 		lcURL = Alltrim(Getwordnum(Filetostr(m.lcTemp), 2, '='), ' ', Chr[13], Chr[10], Chr[9])
