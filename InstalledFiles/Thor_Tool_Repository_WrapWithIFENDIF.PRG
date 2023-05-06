@@ -14,9 +14,12 @@ If Pcount() = 1						  ;
 		* Required
 		.Prompt		 = 'Wrap text with IF / ELSE / ENDIF'
 		Text to .Description NoShow
-Wraps highlighted lines of text with IF / ELSE / ENDIF
+Wraps highlighted statement(s) with IF / ELSE / ENDIF.
 
-The cursor is placed after the IF
+If nothing is highlighted, wraps the current statement.
+
+The cursor is placed after the IF.
+
 		EndText
 		* For public tools, such as PEM Editor, etc.
 		.Source		 = 'Thor Repository'
@@ -41,30 +44,26 @@ Procedure ToolCode
 
 	* get the object which manages the editor window
 	* see	http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object
-	Local lcClipText, lcOldClipText, lnCursorPosition, loEditorWin
-	loEditorWin = Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
-	* locate the active editor window; exit if none active
-	If loEditorWin.GetEnvironment(25) <= 0
-		Return
-	Endif
+	Local lcClipText, lnCursorPosition, loEditorWin, loHighlightedText
 
-	lcOldClipText = _Cliptext
-	* copy highlighted text into clipboard
-	loEditorWin.Copy()
-	lcClipText = _Cliptext
-	If Empty (lcClipText)
+	loEditorWin = Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
+
+	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Statement', .T.)
+	If Not Empty(m.loHighlightedText.cError)
+		Messagebox(m.loHighlightedText.cError, 16, 'Error', 0)
 		Return
 	Endif
+	lcClipText = m.loHighlightedText.cHighLightedText
 
 	lnCursorPosition = -1
-	ModifySelectedText (loEditorWin, @lcClipText, @lnCursorPosition)
+	ModifySelectedText (m.loEditorWin, @m.lcClipText, @m.lnCursorPosition)
 
 	****************************************************************
 	* This final block of code pastes in the modification (in <lcNewCliptext>)
-	loEditorWin.Paste (lcClipText)
+	m.loEditorWin.Paste (m.lcClipText)
 
-	If lnCursorPosition >= 0
-		loEditorWin.SetInsertionPoint (lnCursorPosition)
+	If m.lnCursorPosition >= 0
+		m.loEditorWin.SetInsertionPoint (m.lnCursorPosition)
 	Endif
 
 	Return
@@ -85,7 +84,7 @@ Procedure ModifySelectedText (loEditorWin, lcClipText, lnCursorPosition)
 	lcFirstLine	= laLines(1)
 	lcIndent	= Left (lcFirstLine, At (Getwordnum (lcFirstLine, 1), lcFirstLine) - 1)
 
-	lcNewClipText	 = lcIndent + 'If '
+	lcNewClipText	 = lcIndent + FixCommandCase('If ')
 	lnCursorPosition = loEditorWin.GetSelStart() + Len (lcNewClipText)
 	lcExtraIndent	 = GetNormalIndentation()
 	For lnI = 1 To lnLineCount
@@ -100,9 +99,9 @@ Procedure ModifySelectedText (loEditorWin, lcClipText, lnCursorPosition)
 		Endcase
 	Endfor && lnI = 1 To lnLineCount
 
-	lcNewClipText = lcNewClipText + ccCR + lcIndent + 'Else' + ccCR
+	lcNewClipText = lcNewClipText + ccCR + lcIndent + FixCommandCase('Else') + ccCR
 	lcNewClipText = lcNewClipText + ccCR
-	lcNewClipText = lcNewClipText + lcIndent + 'EndIf' + ccCR
+	lcNewClipText = lcNewClipText + lcIndent + FixCommandCase('EndIf') + ccCR
 
 	lcClipText    = lcNewClipText
 
@@ -119,3 +118,7 @@ Procedure GetNormalIndentation
 	Endif
 Endproc
 
+
+Procedure FixCommandCase(lcCommand)
+	Return Execscript(_Screen.cThorDispatcher, 'Thor_Proc_FixCommandCase', m.lcCommand)
+Endproc

@@ -14,15 +14,16 @@ If Pcount() = 1								;
 		* Required
 		.Prompt		 = 'Duplicate line(s) and wrap with IF/ELSE/ENDIF'
 		Text To .Description Noshow
-Duplicates the current line(s) and wraps with IF / ELSE / ENDIF
+Duplicates the highlighted statement(s) and wraps with IF / ELSE / ENDIF.
 
-The cursor is placed after the IF
+If nothing is highlighted, wraps the current statement.
+
+The cursor is placed after the IF.
 		Endtext
 		* For public tools, such as PEM Editor, etc.
 		.Source	  = 'Thor Repository'
 		.Category = 'Code|Highlighted text|Wrap text'
 		.Author	  = 'Jim Nelson'
-		.Link	  = 'http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object'
 		.CanRunAtStartUp = .F.
 	Endwith
 
@@ -41,35 +42,43 @@ Procedure ToolCode
 
 	* get the object which manages the editor window
 	* see	http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object
-	Local lcClipText, lcOldClipText, lnCursorPosition, loEditorWin
+	Local lcTextOfLine, lnCurrentLineStart, lnCursorPosition, lnFollowingLineStart, lnSelEnd, lnSelStart
+	Local loEditorWin, loHighlightedText
+
+	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Statement', .T.)
+	If Not Empty(m.loHighlightedText.cError)
+		Messagebox(m.loHighlightedText.cError, 16, 'Error', 0)
+		Return
+	Endif
+
 	loEditorWin = Execscript(_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
 	* locate the active editor window; exit if none active
-	If loEditorWin.GetEnvironment(25) <= 0
+	If m.loEditorWin.GetEnvironment(25) <= 0
 		Return
 	Endif
 
 	* current cursor position
-	lnSelStart = loEditorWin.GetSelStart()
-	lnSelEnd   = loEditorWin.GetSelEnd()
+	lnSelStart = m.loEditorWin.GetSelStart()
+	lnSelEnd   = m.loEditorWin.GetSelEnd()
 	* find the start of the current line
-	lnCurrentLineStart = loEditorWin.SkipLine(lnSelStart, 0)
+	lnCurrentLineStart = m.loEditorWin.SkipLine(m.lnSelStart, 0)
 	* and of the following line
-	lnFollowingLineStart = loEditorWin.SkipLine(lnSelEnd, 0)
-	If lnFollowingLineStart < lnSelEnd  or lnCurrentLineStart = lnFollowingLineStart
-		lnFollowingLineStart = loEditorWin.SkipLine(lnSelEnd, 1)
-	EndIf 
+	lnFollowingLineStart = m.loEditorWin.SkipLine(m.lnSelEnd, 0)
+	If m.lnFollowingLineStart < m.lnSelEnd  Or m.lnCurrentLineStart = m.lnFollowingLineStart
+		lnFollowingLineStart = m.loEditorWin.SkipLine(m.lnSelEnd, 1)
+	Endif
 	* Get the desired text
-	lcTextOfLine = loEditorWin.GetString(lnCurrentLineStart, lnFollowingLineStart - 1)
+	lcTextOfLine = m.loEditorWin.GetString(m.lnCurrentLineStart, m.lnFollowingLineStart - 1)
 	* Modify the text to be inserted (wrapping, indenting)
 	lnCursorPosition = -1
-	ModifySelectedText(loEditorWin, @lcTextOfLine, @lnCursorPosition, lnCurrentLineStart)
+	ModifySelectedText(m.loEditorWin, @m.lcTextOfLine, @m.lnCursorPosition, m.lnCurrentLineStart)
 	* Select the current line
-	loEditorWin.Select(lnCurrentLineStart, lnFollowingLineStart)
+	m.loEditorWin.Select(m.lnCurrentLineStart, m.lnFollowingLineStart)
 	* Paste in the line
-	loEditorWin.Paste(lcTextOfLine)
+	m.loEditorWin.Paste(m.lcTextOfLine)
 	* Move the cursor
-	If lnCursorPosition >= 0
-		loEditorWin.SetInsertionPoint(lnCursorPosition)
+	If m.lnCursorPosition >= 0
+		m.loEditorWin.SetInsertionPoint(m.lnCursorPosition)
 	Endif
 
 	Return

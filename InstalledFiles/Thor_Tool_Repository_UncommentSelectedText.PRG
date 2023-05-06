@@ -14,7 +14,7 @@ If Pcount() = 1						  ;
 		* Required
 		.Prompt		 = 'Un-comment highlighted lines'
 		Text To .Description Noshow
-An enhanced version of the 'UnComment' menu item (in the default VFP right-click context menu in a code window) which removes comments from a block of highlighted text. 
+An enhanced version of the 'UnComment' menu item (in the default VFP right-click context menu in a code window) which removes comments from a block of highlighted text (or, if nothing highlighted, the current line).  
 
 It corrects the default behavior where comments are not removed if there are any leading tabs.
 		Endtext
@@ -43,7 +43,7 @@ Procedure ToolCode
 	Local lcClipText, lcNewLineText, lcNewText, lcOldClipText, lnCursorPosition, loCommentText
 	Local loEditorWin, loHighlightedTex
 
-	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Whole Line')
+	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Statement', .T.)
 	If Not Empty(loHighlightedText.cError)
 		Messagebox(loHighlightedText.cError, 16, 'Error', 0)
 		Return

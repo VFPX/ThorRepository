@@ -17,12 +17,13 @@ If Pcount() = 1						  ;
 Highlights text between matching parentheses (including the parentheses).
 
 Repeated usage highlights the next outer set of parentheses.
+
+Note that this does not work if the cursor is within a character constant (i.e,. within quotes)
 		EndText
 		* For public tools, such as PEM Editor, etc.
 		.Source	  = 'Thor Repository'
 		.Category = 'Code|Highlighting text'
 		.Author	  = 'Jim Nelson'
-		.Link	  = 'http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object'
 		.CanRunAtStartUp = .F.
 	Endwith
 

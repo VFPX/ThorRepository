@@ -22,15 +22,12 @@ If Pcount() = 1								;
 		Text To .Description Noshow
 Extracts the currently highlighted code segment into a new constant (#Define).
 
-You are first prompted for the name of the new constant.
+You are prompted for the name of the new constant as well as where the constant is to be created:
+     - atop the current procedure.
+     - in one of the #Include files
 
-If you are editing a PRG, a #Define statement is inserted at the beginning of the PRG. 
+Then the original highlighted code is replaced with the just-created constant. 
 
-If you are editing method code, you will be provided the opportunity to indicate whether to insert the new constant into the Include file for the form or class or at the beginning of the method.
-
-Then the original reference is replaced with the just-created constant. 
-
-Note: To replace ALL references to the highlighted text, precede the variable name with an exclamation point (!).	
 		Endtext
 		* For public tools, such as PEM Editor, etc.
 		.Source			 = 'Thor Repository'

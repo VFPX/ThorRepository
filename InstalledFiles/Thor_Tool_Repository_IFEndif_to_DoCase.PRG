@@ -17,7 +17,7 @@ If Pcount() = 1                       ;
 		* Required
 		.Prompt      = 'Change IF/ENDIF in highlighted text to DO CASE'
 		Text to .Description NoShow
-Change the IF / ENDIF in the highlighted lines of text to a DO CASE.
+Replaces an IF / ENDIF structure with DO CASE.
 
 The lines between IF /ELSE go within the first CASE statement, those between ELSE / ENDIF go after OtherWise.  The cursor is placed after the second CASE statement.
 		EndText
@@ -47,6 +47,12 @@ Procedure ToolCode
 	* get the object which manages the editor window
 	* see	http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object
 	Local lcClipText, lcOldClipText, lnCursorPosition, loEditorWin
+	
+	If	Execscript(_Screen.cThorDispatcher, 'thor_proc_highlightifendif') = .f.
+		Return
+	endif
+
+
 	loEditorWin = Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
 	* locate the active editor window; exit if none active
 	If loEditorWin.GetEnvironment(25) <= 0
@@ -98,8 +104,8 @@ Procedure ModifySelectedText (loEditorWin, lcClipText, lnCursorPosition)
 		Do Case
 			Case lnIFCount = 0
 				If lcFirstWord == 'IF'
-					lcNewCliptext = lcNewCliptext + lcIndent + 'Do Case' + ccCR  ;
-						+ ccTab + Strtran (lcLine, 'IF', 'Case', 1, 1, 1) + ccCR
+					lcNewCliptext = lcNewCliptext + lcIndent + FixCommandCase('Do Case') + ccCR  ;
+						+ ccTab + Strtran (lcLine, 'IF', FixCommandCase('Case'), 1, 1, 1) + ccCR
 					lnIFCount = 1
 					llElse    = .F.
 				Else
@@ -113,16 +119,16 @@ Procedure ModifySelectedText (loEditorWin, lcClipText, lnCursorPosition)
 						lcNewCliptext = lcNewCliptext + ccTab + lcLine + ccCR
 					Case lcFirstWord == 'ELSE'
 						llElse           = .T.
-						lcNewCliptext    = lcNewCliptext + ccTab + lcIndent + 'Case '
+						lcNewCliptext    = lcNewCliptext + ccTab + lcIndent + FixCommandCase('Case ')
 						lnCursorPosition = loEditorWin.GetSelStart() + Len (lcNewCliptext)
-						lcNewCliptext    = lcNewCliptext + ccCR + ccTab + lcIndent + 'Otherwise ' + ccCR
+						lcNewCliptext    = lcNewCliptext + ccCR + ccTab + lcIndent + FixCommandCase('Otherwise ') + ccCR
 					Case lcFirstWord == 'ENDIF'
 						If Not llElse
-							lcNewCliptext    = lcNewCliptext + ccTab + lcIndent + 'Case '
+							lcNewCliptext    = lcNewCliptext + ccTab + lcIndent + FixCommandCase('Case ')
 							lnCursorPosition = loEditorWin.GetSelStart() + Len (lcNewCliptext)
-							lcNewCliptext    = lcNewCliptext + ccCR + ccTab + lcIndent + 'Otherwise ' + ccCR
+							lcNewCliptext    = lcNewCliptext + ccCR + ccTab + lcIndent + FixCommandCase('Otherwise ') + ccCR
 						Endif Not llElse
-						lcNewCliptext = lcNewCliptext + lcIndent + 'Endcase' + ccCR
+						lcNewCliptext = lcNewCliptext + lcIndent + FixCommandCase('Endcase') + ccCR
 					Otherwise
 						lcNewCliptext = lcNewCliptext + ccTab + lcLine + ccCR
 				Endcase
@@ -146,3 +152,7 @@ Procedure ModifySelectedText (loEditorWin, lcClipText, lnCursorPosition)
 
 Endproc
 
+
+Procedure FixCommandCase(lcCommand)
+	Return Execscript(_Screen.cThorDispatcher, 'Thor_Proc_FixCommandCase', m.lcCommand)
+Endproc

@@ -5,28 +5,30 @@ Lparameters lxParam1
 * Standard prefix for all tools for Thor, allowing this tool to
 *   tell Thor about itself.
 
-If Pcount() = 1						  ;
-		And 'O' = Vartype (lxParam1)  ;
-		And 'thorinfo' = Lower (lxParam1.Class)
+If Pcount() = 1								;
+		And 'O' = Vartype (m.lxParam1)		;
+		And 'thorinfo' = Lower (m.lxParam1.Class)
 
-	With lxParam1
+	With m.lxParam1
 
 		* Required
 		.Prompt		 = 'Wrap text with Try / Catch'
-		Text to .Description NoShow
-Wraps highlighted lines of text with Try / Catch / EndTry
+		Text To .Description Noshow
+Wraps highlighted statement(s) with TRY / CATCH / ENDTRY.
+
+If nothing is highlighted, wraps the current statement.
 
 The cursor is placed on the line after Catch.
-		EndText
+		Endtext
 		* For public tools, such as PEM Editor, etc.
-		.Source		 = 'Thor Repository'
-		.Category	 = 'Code|Highlighted text|Wrap text'
-		.Author		 = 'Jim Nelson'
-		.Link		 = 'http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object'
+		.Source			 = 'Thor Repository'
+		.Category		 = 'Code|Highlighted text|Wrap text'
+		.Author			 = 'Jim Nelson'
+		.Link			 = 'http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object'
 		.CanRunAtStartUp = .F.
 	Endwith
 
-	Return lxParam1
+	Return m.lxParam1
 Endif
 
 Do ToolCode
@@ -41,30 +43,26 @@ Procedure ToolCode
 
 	* get the object which manages the editor window
 	* see	http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object
-	Local lcClipText, lcOldClipText, lnCursorPosition, loEditorWin
-	loEditorWin = Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
-	* locate the active editor window; exit if none active
-	If loEditorWin.GetEnvironment(25) <= 0
-		Return
-	Endif
+	Local lcClipText, lnCursorPosition, loEditorWin, loHighlightedText
 
-	lcOldClipText = _Cliptext
-	* copy highlighted text into clipboard
-	loEditorWin.Copy()
-	lcClipText = _Cliptext
-	If Empty (lcClipText)
+	loEditorWin = Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
+
+	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Statement', .T.)
+	If Not Empty(m.loHighlightedText.cError)
+		Messagebox(m.loHighlightedText.cError, 16, 'Error', 0)
 		Return
 	Endif
+	lcClipText = m.loHighlightedText.cHighLightedText
 
 	lnCursorPosition = -1
-	ModifySelectedText (loEditorWin, @lcClipText, @lnCursorPosition)
+	ModifySelectedText (m.loEditorWin, @m.lcClipText, @m.lnCursorPosition)
 
 	****************************************************************
 	* This final block of code pastes in the modification (in <lcNewCliptext>)
-	loEditorWin.Paste (lcClipText)
+	m.loEditorWin.Paste (m.lcClipText)
 
-	If lnCursorPosition >= 0
-		loEditorWin.SetInsertionPoint (lnCursorPosition)
+	If m.lnCursorPosition >= 0
+		m.loEditorWin.SetInsertionPoint (m.lnCursorPosition)
 	Endif
 
 	Return
@@ -79,33 +77,33 @@ Procedure ModifySelectedText (loEditorWin, lcClipText, lnCursorPosition)
 	#Define ccTab  		Chr(9)
 	#Define ccCR		Chr(13)
 
-	Local laLines[1], lcExtraIndent, lcFirstLine, lcIndent, lcLine, lcNewClipText, lnI, lnLineCount
+	Local laLines[1], lcExtraIndent, lcFirstLine, lcIndent, lcLine, lcNewCliptext, lnI, lnLineCount
 
-	lnLineCount	= Alines (laLines, lcClipText)
-	lcFirstLine	= laLines(1)
-	lcIndent	= Left (lcFirstLine, At (Getwordnum (lcFirstLine, 1), lcFirstLine) - 1)
+	lnLineCount	= Alines (laLines, m.lcClipText)
+	lcFirstLine	= m.laLines(1)
+	lcIndent	= Left (m.lcFirstLine, At (Getwordnum (m.lcFirstLine, 1), m.lcFirstLine) - 1)
 
-	lcNewClipText	 = lcIndent + 'Try '
-	lcExtraIndent	 = GetNormalIndentation()
-	For lnI = 1 To lnLineCount
-		lcLine = laLines (lnI)
+	lcNewCliptext = m.lcIndent + FixCommandCase('Try ')
+	lcExtraIndent = GetNormalIndentation()
+	For lnI = 1 To m.lnLineCount
+		lcLine = m.laLines (m.lnI)
 		Do Case
-			Case Empty (lcLine)
-				lcNewClipText = lcNewClipText + ccCR
-			Case lcLine = lcIndent
-				lcNewClipText = lcNewClipText + ccCR + lcIndent + lcExtraIndent + Substr (lcLine, 1 + Len (lcIndent))
+			Case Empty (m.lcLine)
+				lcNewCliptext = m.lcNewCliptext + ccCR
+			Case m.lcLine = m.lcIndent
+				lcNewCliptext = m.lcNewCliptext + ccCR + m.lcIndent + m.lcExtraIndent + Substr (m.lcLine, 1 + Len (m.lcIndent))
 			Otherwise
-				lcNewClipText = lcNewClipText + ccCR + lcLine
+				lcNewCliptext = m.lcNewCliptext + ccCR + m.lcLine
 		Endcase
 	Endfor && lnI = 1 To lnLineCount
 
-	lcNewClipText = lcNewClipText + ccCR + lcIndent + 'Catch to loException' 
-	lcNewClipText = lcNewClipText + ccCR + lcIndent + lcExtraIndent	
-	lnCursorPosition = loEditorWin.GetSelStart() + Len (lcNewClipText)
-	lcNewClipText = lcNewClipText + ccCR
-	lcNewClipText = lcNewClipText + lcIndent + 'EndTry' + ccCR
+	lcNewCliptext	 = m.lcNewCliptext + ccCR + m.lcIndent + FixCommandCase('Catch to ') + 'loException'
+	lcNewCliptext	 = m.lcNewCliptext + ccCR + m.lcIndent + m.lcExtraIndent
+	lnCursorPosition = m.loEditorWin.GetSelStart() + Len (m.lcNewCliptext)
+	lcNewCliptext	 = m.lcNewCliptext + ccCR
+	lcNewCliptext	 = m.lcNewCliptext + m.lcIndent + FixCommandCase('EndTry') + ccCR
 
-	lcClipText    = lcNewClipText
+	lcClipText    = m.lcNewCliptext
 
 	Return
 
@@ -120,3 +118,7 @@ Procedure GetNormalIndentation
 	Endif
 Endproc
 
+
+Procedure FixCommandCase(lcCommand)
+	Return Execscript(_Screen.cThorDispatcher, 'Thor_Proc_FixCommandCase', m.lcCommand)
+Endproc

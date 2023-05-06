@@ -23,11 +23,11 @@ If Pcount() = 1								;
 		* Required
 		.Prompt		 = 'Comment highlighted lines'
 		Text To .Description Noshow
-An enhanced version of the 'Comment' menu item (in the default VFP right-click context menu in a code window) which comments a block of highlighted text.  
+An enhanced version of the 'Comment' menu item (in the default VFP right-click context menu in a code window) which comments a block of highlighted statements (or, if nothing highlighted, the current statement).  
 
 This tool handles indentation differently in that the commented code is kept aligned with the original code, instead of at the left margin.  
 
-Optionally, it also inserts another comment line before the block of highlighted text and leaves the cursor at that position for additional comment		
+An "Options" setting allows you to insert another comment line before the block of highlighted text and leaves the cursor at that position for additional comment.
 		Endtext
 
 		* For public tools, such as PEM Editor, etc.
@@ -57,7 +57,7 @@ Procedure ToolCode
 	Local lcClipText, lcCommentString, lcNewLineText, lcNewText, lcOldClipText, lnCursorPosition
 	Local loCommentText, loEditorWin, loHighlightedText
 
-	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Whole Line')
+	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Statement', .T.)
 	If Not Empty(loHighlightedText.cError)
 		Messagebox(loHighlightedText.cError, 16, 'Error', 0)
 		Return
