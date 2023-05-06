@@ -23,7 +23,7 @@ You can start the dropdown any of these three distinct ways:
 #### Filtering
 As noted, the list is progressively filtered as you type.  All records in the list that match your entry anywhere (just not at the beginning) are shown, and the first that does match at the beginning is highlighted.
 
-![](images/DropDownFilteringExample.png)
+![](Images/DropDownFilteringExample.png)
 
 You can continue typing (including the use of backspace or left arrow to delete unwanted characters) until your desired match is found, where you can click on it.
 
