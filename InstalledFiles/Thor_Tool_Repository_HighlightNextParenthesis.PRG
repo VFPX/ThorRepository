@@ -24,7 +24,9 @@ Highlights text between matching parentheses (including the parentheses), starti
 
 Repeated usage highlights the next set of parentheses.
 
-Optionally, start with next right parenthesis.
+Note that this does not work if the cursor is within a character constant (i.e,. within quotes)
+
+An "Options" setting allows you to start with next right parenthesis.
 		Endtext
 		* For public tools, such as PEM Editor, etc.
 		.Source		   = 'Thor Repository'

@@ -23,7 +23,8 @@ You are first prompted for the name of the new variable.
 
 A line is inserted before the current line with the assignment of the variable, and the original reference is replaced with the just-created variable. 
 
-Note: To replace ALL references to the highlighted text, precede the variable name with an exclamation point (!).
+The form that prompts for the name of the new variable allows you to replace all references and also add the new variable into a LOCAL statement.
+
 		Endtext
 
 		* For public tools, such as PEM Editor, etc.

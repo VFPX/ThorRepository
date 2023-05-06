@@ -23,9 +23,9 @@ If Pcount() = 1								;
 		* Required
 		.Prompt		 = 'Duplicate and comment highlighted lines'
 		Text To .Description Noshow
-Duplicates a block of highlighted text and comments the original text.
+Duplicates a block of highlighted statements and makes commented.
 
-Optionally, it also inserts comment lines before the block of newly commented text and after the last line of duplicated text.
+An "Options" setting allows you to insert comment lines before the block of newly commented text and after the last line of duplicated text.
 		Endtext
 
 		* For public tools, such as PEM Editor, etc.
@@ -55,7 +55,7 @@ Procedure ToolCode
 	Local lcBeginningText, lcClipText, lcCommentString, lcEndingText, lcNewText, lnCursorPosition
 	Local loCommentText, loHighlightedText
 
-	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Whole Line')
+	loHighlightedText = Execscript(_Screen.cThorDispatcher, 'class= HighlightedText from Thor_Proc_HighlightedText.PRG', 'Statement')
 	If Not Empty(loHighlightedText.cError)
 		Messagebox(loHighlightedText.cError, 16, 'Error', 0)
 		Return

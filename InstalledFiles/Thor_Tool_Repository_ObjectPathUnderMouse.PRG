@@ -21,13 +21,14 @@ If Pcount() = 1								;
 		* Required
 		.Prompt		 = 'Insert full name of object under mouse'
 		Text To .Description Noshow
-Pastes the full path name of the object under the mouse into the code window.
+Pastes into the current code window the relative path of the object under the mouse.
 
-This tool is used when you want to insert a reference to an object into a code window.  Hover the mouse over the object you want to refer to and then use this tool; a relative reference to the object is inserted into the code window.
+First, position the cursor in the code window where you want the object reference to be inserted.
 
-Can only be used by hot key.
+Then, hover the mouse over the object you want to refer to and use this tool; a relative reference to the object is inserted.
 
-See also tool "Inspect properties of object under mouse".
+Note that this tool can ONLY BE USED BY HOT KEY (think about it)
+
 		Endtext
 		* For public tools, such as PEM Editor, etc.
 		.Source			 = 'Thor Repository'

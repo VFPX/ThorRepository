@@ -16,7 +16,9 @@ If Pcount() = 1						  ;
 		Text to .Description NoShow
 Highlights a single parameter in a method or function call.
 
-Position the cursor anywhere within a parameter to a method or function, and the entire parameter is highlighted (to the left, up to but not including a comma or left parenthesis; to the right, up to but not including a comma or right parenthesis)
+Position the cursor anywhere within a parameter to a method or function, and the entire parameter is highlighted.
+
+Note that this does not work if the cursor is within a character constant (i.e,. within quotes)
 		EndText
 
 		* For public tools, such as PEM Editor, etc.

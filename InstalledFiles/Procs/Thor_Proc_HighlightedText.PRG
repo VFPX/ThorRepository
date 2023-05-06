@@ -35,8 +35,8 @@ Define Class HighlightedText As Session OlePublic
 		Lparameters lcIfNothingHighlighted, llCommandWindowOK
 	
 		Local lcChar, lcHighLightedText, lcNextText, lcPreviousText, lnBegin, lnCurrentLineStart, lnEnd
-		Local lnFollowingLineStart, lnNextLineStart, lnPosition, lnPreviousLineStart, lnSelEnd, lnSelStart
-		Local lnStartPosition
+		Local lnEndPosition, lnFollowingLineStart, lnNextLineStart, lnPosition, lnPreviousLineStart
+		Local lnSelEnd, lnSelStart, lnStartPosition
 	
 		This.cError = ''
 	
@@ -121,7 +121,8 @@ Define Class HighlightedText As Session OlePublic
 				This.oEditorWin.Copy()
 				This.cHighLightedText = _Cliptext
 	
-			Case m.lcIfNothingHighlighted = 'Statement' And Empty (This.cHighLightedText)
+			Case m.lcIfNothingHighlighted = 'Statement'
+				* ================================================================================ 
 				lnStartPosition	   = This.oEditorWin.GetSelStart()
 				lnCurrentLineStart = This.oEditorWin.GetLineStart(m.lnStartPosition, 0)
 				*  Assert Date() > Date(2023, 1, 15) + 2 Message 'JRN - '
@@ -140,21 +141,26 @@ Define Class HighlightedText As Session OlePublic
 					lnBegin = m.lnBegin + 1
 				Enddo
 	
-				lnCurrentLineStart = This.oEditorWin.GetLineStart(m.lnStartPosition, 0)
-				* and following continuation lines
-				Do While m.lnCurrentLineStart < This.oEditorWin.GetFileSize()
-					lnNextLineStart	   = This.oEditorWin.GetLineStart(m.lnCurrentLineStart, 1)
-					lcNextText		   = This.oEditorWin.GetString(m.lnNextLineStart, m.lnCurrentLineStart - 1)
-					lnCurrentLineStart = m.lnNextLineStart
-					If Not This.IsContinuationLine(m.lcNextText)
-						Exit
-					Endif
-				Enddo
+				* ================================================================================ 
+				lnEndPosition	   = This.oEditorWin.GetSelEnd()
+				lnCurrentLineStart = This.oEditorWin.GetLineStart(m.lnEndPosition, 0)
+				If lnEndPosition > lnCurrentLineStart 
+					* and following continuation lines
+					Do While m.lnCurrentLineStart < This.oEditorWin.GetFileSize()
+						lnNextLineStart	   = This.oEditorWin.GetLineStart(m.lnCurrentLineStart, 1)
+						lcNextText		   = This.oEditorWin.GetString(m.lnNextLineStart, m.lnCurrentLineStart - 1)
+						lnCurrentLineStart = m.lnNextLineStart
+						If Not This.IsContinuationLine(m.lcNextText)
+							Exit
+						Endif
+					Enddo
+				Endif
 				lnEnd = m.lnCurrentLineStart && - 1
 				Do While This.oEditorWin.GetCharacter(m.lnEnd) $ CRLF
 					lnEnd = m.lnEnd - 1
 				Enddo
 	
+				* ================================================================================ 
 				This.oEditorWin.Select (m.lnBegin - 1, m.lnEnd + 1)
 				This.oEditorWin.Copy()
 				This.cHighLightedText = _Cliptext
@@ -163,7 +169,7 @@ Define Class HighlightedText As Session OlePublic
 	
 			Case Empty (m.lcIfNothingHighlighted)
 				This.cError = 'Nothing highlighted'
-				
+	
 			Otherwise
 				Error 'Parameter error'
 	
@@ -172,7 +178,7 @@ Define Class HighlightedText As Session OlePublic
 	
 		Return Empty (This.cError)
 	Endproc
-				
+					
 	
 	Procedure PasteText
 			Lparameters tcPasteText

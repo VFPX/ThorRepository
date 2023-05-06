@@ -17,13 +17,15 @@ If Pcount() = 1								;
 		* Required
 		.Prompt		 = ccTool && used when tool appears in a menu
 		Text To .Description Noshow
-- Select one text window
-- Execute this tool (hot key is recommended)
-- Select a second text window
-- Execute this tool again 
+Compares the text in two windows.  Steps are:		
+  1. Select one text window
+  2. Execute this tool (hot key is recommended)
+  3. Select a second text window
+  4. Execute this tool again 
+  
     -- and the contents of the two windows will be compared
     
-Required!  Click Plug-Ins link (below) to identify the comparison tool (such as Beyond Compare) to be used.
+While this tool will try to use Beyond Compare, it might not look for it in the right place.  Use Plug-Ins to identify the comparison tool to be used.
 		
 		Endtext
 
