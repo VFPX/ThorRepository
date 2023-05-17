@@ -152,64 +152,89 @@ Define Class ThorUtilities As Custom
 				Replace SortOrder With m.lnCounter
 			Endscan
 		Endfor
+	EndProc
+	
+	
+	Procedure BackupThorTables
+		* when loCloseTempFiles goes out of scope, it closes any newly opened tables
+		Local lcDestFolder, lcFileName, lcTableFolder, loCloseTempFiles
+	
+		loCloseTempFiles = This.CloseTempFiles()
+		* open all the tables in the Thor folder
+		This.OpenThorTables()
+	
+		lcTableFolder = _Screen.cThorFolder + 'Tables\'
+		lcDateTime = Ttoc(Datetime(), 1)
+		lcDestFolder  = m.lcTableFolder + 'Backup.' + Left(m.lcDateTime, 8) + '.' + Right(m.lcDateTime, 6)
+		MakeDir(m.lcDestFolder)
+	
+		This.ADirCursor(m.lcTableFolder + '*.dbf', 'ThorFiles')
+		Scan
+			lcFileName = Trim(FileName)
+			Select (m.lcFileName)
+			Copy To (m.lcDestFolder + '\' + m.lcFileName) CDX
+		Endscan
+	
 	Endproc
-			
-****************************************************
-Function GoURL
-	******************
-	***    Author: Rick Strahl
-	***            (c) West Wind Technologies, 1996
-	***   Contact: rstrahl@west-wind.com
-	***  Modified: 03/14/96
-	***  Function: Starts associated Web Browser
-	***            and goes to the specified URL.
-	***            If Browser is already open it
-	***            reloads the page.
-	***    Assume: Works only on Win95 and NT 4.0
-	***      Pass: tcUrl  - The URL of the site or
-	***                     HTML page to bring up
-	***                     in the Browser
-	***    Return: 2  - Bad Association (invalid URL)
-	***            31 - No application association
-	***            29 - Failure to load application
-	***            30 - Application is busy 
-	***
-	***            Values over 32 indicate success
-	***            and return an instance handle for
-	***            the application started (the browser) 
+		
+				
 	****************************************************
-	Lparameters tcUrl, tcAction, tcDirectory, tcParms
+	Function GoURL
+		******************
+		***    Author: Rick Strahl
+		***            (c) West Wind Technologies, 1996
+		***   Contact: rstrahl@west-wind.com
+		***  Modified: 03/14/96
+		***  Function: Starts associated Web Browser
+		***            and goes to the specified URL.
+		***            If Browser is already open it
+		***            reloads the page.
+		***    Assume: Works only on Win95 and NT 4.0
+		***      Pass: tcUrl  - The URL of the site or
+		***                     HTML page to bring up
+		***                     in the Browser
+		***    Return: 2  - Bad Association (invalid URL)
+		***            31 - No application association
+		***            29 - Failure to load application
+		***            30 - Application is busy 
+		***
+		***            Values over 32 indicate success
+		***            and return an instance handle for
+		***            the application started (the browser) 
+		****************************************************
+		Lparameters tcUrl, tcAction, tcDirectory, tcParms
 
-	If Empty(m.tcUrl)
-		Return - 1
-	Endif
-	If Empty(m.tcAction)
-		tcAction = 'OPEN'
-	Endif
-	If Empty(m.tcDirectory)
-		tcDirectory = Sys(2023)
-	Endif
+		If Empty(m.tcUrl)
+			Return - 1
+		Endif
+		If Empty(m.tcAction)
+			tcAction = 'OPEN'
+		Endif
+		If Empty(m.tcDirectory)
+			tcDirectory = Sys(2023)
+		Endif
 
-	Declare Integer ShellExecute		;
-		In SHELL32.Dll					;
-		Integer nWinHandle,				;
-		String cOperation,				;
-		String cFileName,				;
-		String cParameters,				;
-		String cDirectory,				;
-		Integer nShowWindow
-	If Empty(m.tcParms)
-		tcParms = ''
-	Endif
+		Declare Integer ShellExecute		;
+			In SHELL32.Dll					;
+			Integer nWinHandle,				;
+			String cOperation,				;
+			String cFileName,				;
+			String cParameters,				;
+			String cDirectory,				;
+			Integer nShowWindow
+		If Empty(m.tcParms)
+			tcParms = ''
+		Endif
 
-	Declare Integer FindWindow		;
-		In WIN32API					;
-		String cNull, String cWinName
+		Declare Integer FindWindow		;
+			In WIN32API					;
+			String cNull, String cWinName
 
-	Return ShellExecute(0,			;
-		  m.tcAction, m.tcUrl,		;
-		  m.tcParms, m.tcDirectory, 1)
-Endfunc
+		Return ShellExecute(0,			;
+			  m.tcAction, m.tcUrl,		;
+			  m.tcParms, m.tcDirectory, 1)
+	Endfunc
+
 Enddefine
 
 
@@ -241,3 +266,4 @@ Define Class CloseTemps As Custom
 	Endproc
 
 Enddefine
+ 

@@ -56,6 +56,8 @@ Procedure ToolCode
 
 	If ReadyToInstall()
 
+		m.loThorUtils.BackupThorTables()
+
 		UpdateMenuDefinitions()
 
 		UpdateMenuTools()
@@ -79,10 +81,13 @@ Procedure ToolCode
 Quick Access Menu installed.
 
 It is accessible:
-    - From the system Menu ("Quick Access Menu")
-    - By using hot key <<m.lcHotKeyDesc>>.
+    - From the System Menu ("Quick Access")
+    - Or by using hot key   <<Evl(m.lcHotKeyDesc, 'Not assigned')>>.
     
-Note the "Documentation" menu item: it provides current documentation for all the tools found in the Quick Access Menu.
+Note the "Documentation / Settings" menu item: it provides current documentation for all the tools found in the Quick Access menu.
+
+Backup of modified Thor tables saved in
+     _Screen.cThorFolder + 'Tables'
 		EndText
 		
 		Messagebox(m.lcPrompt, 64, 'Quick Access Menu installed')
