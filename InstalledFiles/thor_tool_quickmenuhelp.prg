@@ -61,7 +61,7 @@ Procedure ToolCode
 	AddMenuItems (m.loContextMenu, m.laMenuid)
 
 	If m.loContextMenu.Activate()
-		ExecScript(_Screen.cThorDispatcher, 'Thor_proc_showtoolhelp', m.loContextMenu.Parameters)
+		ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', m.loContextMenu.Parameters, .T.)
 	Endif
 
 Endproc
@@ -73,7 +73,7 @@ Endproc
 Procedure AddMenuItems(loContextMenu, lnMenuID)
 
 	Local laMenuTools[1], lcKeyStroke, lcMenuStatusBar, lcPRGName, lcPrompt, lcStatusBar, llSeparator
-	Local lnI, lnSubMenuID
+	Local lnI, lnCount, lnSubMenuID
 
 	Select  MenuTools.Prompt,															;
 			Separator,																	;
@@ -89,7 +89,8 @@ Procedure AddMenuItems(loContextMenu, lnMenuID)
 		Order By MenuTools.SortOrder													;
 		Into Array laMenuTools
 
-	For lnI = 1 To _Tally
+	lnCount = _Tally
+	For lnI = 1 To lnCount
 		lcPrompt		= Alltrim (m.laMenuTools (m.lnI, 1))
 		llSeparator		= m.laMenuTools (m.lnI, 2)
 		lnSubMenuID		= m.laMenuTools (m.lnI, 3)
@@ -98,8 +99,11 @@ Procedure AddMenuItems(loContextMenu, lnMenuID)
 		lcMenuStatusBar	= Strtran (Left (Alltrim (m.laMenuTools (m.lnI, 6)), 250), ccCRLF, ' ')
 
 		Do Case
+			Case m.llSeparator and lnI = lnCount
+
 			Case m.llSeparator
 				m.loContextMenu.AddMenuItem ()
+
 			Case m.lnSubMenuID # 0
 				If Indexseek (m.lnSubMenuID, .T., 'MenuDefinitions', 'ID')		;
 						And MenuDefinitions.HotKeyID # 0

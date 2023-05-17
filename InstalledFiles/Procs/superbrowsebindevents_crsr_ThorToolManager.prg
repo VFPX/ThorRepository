@@ -28,6 +28,8 @@ Do Case
 		m.loColumn.cHeaderCaption = 'Hot Key'
 	Case lcControlSource == Upper('HotKeySort')
 		m.loColumn.cHeaderCaption = 'Hot Key Sort'
+	Case lcControlSource == Upper('HasPlugIns')
+		m.loColumn.cHeaderCaption = 'Has Plug Ins'
 	Case lcControlSource == Upper('Date')
 		m.loColumn.cHeaderCaption = 'Modified'
 Endcase
