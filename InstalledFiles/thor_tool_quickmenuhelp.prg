@@ -61,7 +61,7 @@ Procedure ToolCode
 	AddMenuItems (m.loContextMenu, m.laMenuid)
 
 	If m.loContextMenu.Activate()
-		ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', m.loContextMenu.Parameters, .T.)
+		Execscript(_Screen.cThorDispatcher, 'Thor_Proc_ProcessContextMenuItem', m.loContextMenu.Parameters, .T.)
 	Endif
 
 Endproc
@@ -72,34 +72,38 @@ Endproc
 
 Procedure AddMenuItems(loContextMenu, lnMenuID)
 
-	Local laMenuTools[1], lcKeyStroke, lcMenuStatusBar, lcPRGName, lcPrompt, lcStatusBar, llSeparator
-	Local lnI, lnCount, lnSubMenuID
+	Local laMenuTools[1], lcKeyStroke, lcMenuStatusBar, lcPRGName, lcPrompt, lcStatusBar, llFavorite
+	Local llSeparator, lnCount, lnI, lnSubMenuID
 
 	Select  MenuTools.Prompt,															;
 			Separator,																	;
 			SubMenuID,																	;
-			PRGName,																	;
+			MenuTools.PRGName,															;
 			MenuTools.StatusBar,														;
-			Cast (Nvl (MenuDefinitions.StatusBar, '') As M)   As  MenuStatusBar			;
+			Cast (Nvl (MenuDefinitions.StatusBar, '') As M)   As  MenuStatusBar,		;
+			Nvl(Favorites.StartUp, .F.)                       As  Favorite				;
 		From MenuTools																	;
 			Left Join MenuDefinitions													;
 				On SubMenuID = MenuDefinitions.Id										;
+			Left Join Favorites															;
+				On Lower(MenuTools.PRGName) = Lower(Favorites.PRGName)					;
 		Where MenuID = m.lnMenuID														;
-			And Upper(PRGName) # Upper('thor_tool_quickmenuhelp.prg')					;
+			And Upper(MenuTools.PRGName) # Upper('thor_tool_quickmenuhelp.prg')			;
 		Order By MenuTools.SortOrder													;
 		Into Array laMenuTools
 
 	lnCount = _Tally
-	For lnI = 1 To lnCount
+	For lnI = 1 To m.lnCount
 		lcPrompt		= Alltrim (m.laMenuTools (m.lnI, 1))
 		llSeparator		= m.laMenuTools (m.lnI, 2)
 		lnSubMenuID		= m.laMenuTools (m.lnI, 3)
 		lcPRGName		= Alltrim (m.laMenuTools (m.lnI, 4))
 		lcStatusBar		= Strtran (Left (Alltrim (m.laMenuTools (m.lnI, 5)), 250), ccCRLF, ' ')
 		lcMenuStatusBar	= Strtran (Left (Alltrim (m.laMenuTools (m.lnI, 6)), 250), ccCRLF, ' ')
+		llFavorite		= m.laMenuTools (m.lnI, 7)
 
 		Do Case
-			Case m.llSeparator and lnI = lnCount
+			Case m.llSeparator And m.lnI = m.lnCount
 
 			Case m.llSeparator
 				m.loContextMenu.AddMenuItem ()
@@ -117,14 +121,16 @@ Procedure AddMenuItems(loContextMenu, lnMenuID)
 				AddMenuItems (m.loContextMenu, m.lnSubMenuID)
 				m.loContextMenu.EndSubMenu ()
 			Otherwise
-				If .f. && Indexseek (Upper (m.lcPRGName), .T., 'ToolHotKeyAssignments', 'PrgName') And ToolHotKeyAssignments.HotKeyID # 0
-					Indexseek (ToolHotKeyAssignments.HotKeyID, .T., 'HotKeyDefinitions', 'ID')
-					lcKeyStroke = Alltrim (HotKeyDefinitions.Descript)
-				Else
+				*!* ******** JRN Removed 2023-05-19 ********
+				*!* If Indexseek (Upper (m.lcPRGName), .T., 'ToolHotKeyAssignments', 'PrgName') And ToolHotKeyAssignments.HotKeyID # 0
+				*!* 	Indexseek (ToolHotKeyAssignments.HotKeyID, .T., 'HotKeyDefinitions', 'ID')
+				*!* 	lcKeyStroke = Alltrim (HotKeyDefinitions.Descript)
+				*!* Else
 					lcKeyStroke = ''
-				Endif
+				*!* ******** JRN Removed 2023-05-19 ********
+				*!* Endif
 
-				m.loContextMenu.AddMenuItem (m.lcPrompt, , m.lcStatusBar, m.lcKeyStroke, , m.lcPRGName, , 'I')
+				m.loContextMenu.AddMenuItem (m.lcPrompt, , m.lcStatusBar, m.lcKeyStroke, , m.lcPRGName, , Iif(m.llFavorite, 'B', ''))
 		Endcase
 	Endfor
 
