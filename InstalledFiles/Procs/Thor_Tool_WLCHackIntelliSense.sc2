@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="2" />
 
-	DataSource = .NULL.
-	Height = 387
-	Left = 993
-	Name = "Dataenvironment"
-	Top = 363
-	Width = 520
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 387
+		Left = 993
+		Name = "Dataenvironment"
+		Top = 363
+		Width = 520
+	*</PropValue>
 
 ENDDEFINE
 
@@ -134,67 +136,69 @@ DEFINE CLASS frmintellisenseeditor AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .T.
-	Caption = "WLC Hack IntelliSense"
-	ceditorfilename = __HackIntelliSense.prg		&& This property is the name of the program file used to edit program code from the base table.
-	cexportcriteria = "white light computing" $ LOWER(user) OR "rick borup" $ LOWER(user) OR "wiki" $ LOWER(user)		&& This property is the code for filtering records from FoxCode during export
-	cexportfilename = PracticalIntelliSenseExamples.dbf		&& This property is the file name of the free table exported with the records from base table
-	choldfoxcodepath = .F.		&& Hold the path to where the FoxCode table is.
-	csearchfilter = 
-	csignature = 
-	csortorder = Type and Abbreviation		&& This property is the order the foxcode table is set to.
-	ctypefilter = ?
-	cversion = v1.5.3		&& This property is the version number of this tool.
-	cversionfull = November 24, 2014		&& This property is the full version of this tool.
-	DataSession = 2
-	DoCreate = .T.
-	Height = 594
-	lintellisensetableopen = .T.		&& This property indicates if the Intellisense table is open or not.
-	lshowdeletedrows = .T.		&& This property determines if the deleted rows in FoxCode are displayed.
-	MinHeight = 590
-	MinWidth = 950
-	Name = "frmIntellisenseEditor"
-	osettings = 
-	ShowTips = .T.
-	Width = 950
-	_memberdata = <VFPData>
-		<memberdata name="lintellisensetableopen" type="property" display="lIntellisenseTableOpen"/>
-		<memberdata name="atypes" type="property" display="aTypes"/>
-		<memberdata name="addrow" display="AddRow"/>
-		<memberdata name="duplicaterow" display="DuplicateRow"/>
-		<memberdata name="removerow" display="RemoveRow"/>
-		<memberdata name="reverttable" display="RevertTable"/>
-		<memberdata name="savetable" display="SaveTable"/>
-		<memberdata name="backupintellisense" display="BackupIntelliSense"/>
-		<memberdata name="zzabout" display="zzAbout"/>
-		<memberdata name="acases" type="property" display="aCases"/>
-		<memberdata name="changerow" display="ChangeRow"/>
-		<memberdata name="lookupdefaultcase" display="LookupDefaultCase"/>
-		<memberdata name="browsetable" display="BrowseTable"/>
-		<memberdata name="texteditdata" display="TextEditData"/>
-		<memberdata name="ceditorfilename" type="property" display="cEditorFileName"/>
-		<memberdata name="browse2ndcopytable" display="Browse2ndCopyTable"/>
-		<memberdata name="cexportcriteria" type="property" display="cExportCriteria"/>
-		<memberdata name="cexportfilename" type="property" display="cExportFileName"/>
-		<memberdata name="cexportfilename_assign" type="property" display="cExportFileName_Assign"/>
-		<memberdata name="exportrecords" display="ExportRecords"/>
-		<memberdata name="ctypefilter" display="cTypeFilter"/>
-		<memberdata name="setfilter" display="SetFilter"/>
-		<memberdata name="csearchfilter" display="cSearchFilter"/>
-		<memberdata name="isthorinstalled" display="IsThorInstalled"/>
-		<memberdata name="osettings" display="oSettings"/>
-		<memberdata name="atags[1]" display="aTags[1]"/>
-		<memberdata name="csortorder" type="property" display="cSortOrder"/>
-		<memberdata name="csortorder_assign" type="property" display="cSortOrder_Assign"/>
-		<memberdata name="atags" type="property" display="aTags"/>
-		<memberdata name="cversion" type="property" display="cVersion"/>
-		<memberdata name="cversionfull" type="property" display="cVersionFull"/>
-		<memberdata name="lshowdeletedrows" type="property" display="lShowDeletedRows"/>
-		<memberdata name="lshowdeletedrows_assign" type="property" display="lShowDeletedRows_Assign"/>
-		<memberdata name="csignature" display="cSignature"/>
-		<memberdata name="restorepersistentproperties" display="RestorePersistentProperties"/>
-		<memberdata name="lbuildtmpfoxcode" display="lBuildTmpFoxCode"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AutoCenter = .T.
+		Caption = "WLC Hack IntelliSense"
+		ceditorfilename = __HackIntelliSense.prg
+		cexportcriteria = "white light computing" $ LOWER(user) OR "rick borup" $ LOWER(user) OR "wiki" $ LOWER(user)
+		cexportfilename = PracticalIntelliSenseExamples.dbf
+		choldfoxcodepath = .F.
+		csearchfilter = 
+		csignature = 
+		csortorder = Type and Abbreviation
+		ctypefilter = ?
+		cversion = v1.5.3
+		cversionfull = November 24, 2014
+		DataSession = 2
+		DoCreate = .T.
+		Height = 594
+		lintellisensetableopen = .T.
+		lshowdeletedrows = .T.
+		MinHeight = 590
+		MinWidth = 950
+		Name = "frmIntellisenseEditor"
+		osettings = 
+		ShowTips = .T.
+		Width = 950
+		_memberdata = <VFPData>
+			<memberdata name="lintellisensetableopen" type="property" display="lIntellisenseTableOpen"/>
+			<memberdata name="atypes" type="property" display="aTypes"/>
+			<memberdata name="addrow" display="AddRow"/>
+			<memberdata name="duplicaterow" display="DuplicateRow"/>
+			<memberdata name="removerow" display="RemoveRow"/>
+			<memberdata name="reverttable" display="RevertTable"/>
+			<memberdata name="savetable" display="SaveTable"/>
+			<memberdata name="backupintellisense" display="BackupIntelliSense"/>
+			<memberdata name="zzabout" display="zzAbout"/>
+			<memberdata name="acases" type="property" display="aCases"/>
+			<memberdata name="changerow" display="ChangeRow"/>
+			<memberdata name="lookupdefaultcase" display="LookupDefaultCase"/>
+			<memberdata name="browsetable" display="BrowseTable"/>
+			<memberdata name="texteditdata" display="TextEditData"/>
+			<memberdata name="ceditorfilename" type="property" display="cEditorFileName"/>
+			<memberdata name="browse2ndcopytable" display="Browse2ndCopyTable"/>
+			<memberdata name="cexportcriteria" type="property" display="cExportCriteria"/>
+			<memberdata name="cexportfilename" type="property" display="cExportFileName"/>
+			<memberdata name="cexportfilename_assign" type="property" display="cExportFileName_Assign"/>
+			<memberdata name="exportrecords" display="ExportRecords"/>
+			<memberdata name="ctypefilter" display="cTypeFilter"/>
+			<memberdata name="setfilter" display="SetFilter"/>
+			<memberdata name="csearchfilter" display="cSearchFilter"/>
+			<memberdata name="isthorinstalled" display="IsThorInstalled"/>
+			<memberdata name="osettings" display="oSettings"/>
+			<memberdata name="atags[1]" display="aTags[1]"/>
+			<memberdata name="csortorder" type="property" display="cSortOrder"/>
+			<memberdata name="csortorder_assign" type="property" display="cSortOrder_Assign"/>
+			<memberdata name="atags" type="property" display="aTags"/>
+			<memberdata name="cversion" type="property" display="cVersion"/>
+			<memberdata name="cversionfull" type="property" display="cVersionFull"/>
+			<memberdata name="lshowdeletedrows" type="property" display="lShowDeletedRows"/>
+			<memberdata name="lshowdeletedrows_assign" type="property" display="lShowDeletedRows_Assign"/>
+			<memberdata name="csignature" display="cSignature"/>
+			<memberdata name="restorepersistentproperties" display="RestorePersistentProperties"/>
+			<memberdata name="lbuildtmpfoxcode" display="lBuildTmpFoxCode"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cboSortOrder' AS combobox WITH ;
 		Anchor = 3, ;

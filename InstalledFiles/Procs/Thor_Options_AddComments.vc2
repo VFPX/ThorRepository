@@ -22,16 +22,18 @@ DEFINE CLASS clsaddcomments AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	cthortool = 
-	Height = 260
-	Name = "clsaddcomments"
-	othor = .NULL.
-	Width = 345
-	_memberdata = <VFPData>
-		<memberdata name="othor" display="oThor"/>
-		<memberdata name="cthortool" display="cThorTool"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 15
+		cthortool = 
+		Height = 260
+		Name = "clsaddcomments"
+		othor = .NULL.
+		Width = 345
+		_memberdata = <VFPData>
+			<memberdata name="othor" display="oThor"/>
+			<memberdata name="cthortool" display="cThorTool"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Basecheckbox1' AS checkbox WITH ;
 		Alignment = 0, ;

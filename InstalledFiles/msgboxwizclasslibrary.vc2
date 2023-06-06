@@ -8,45 +8,55 @@
 DEFINE CLASS ocheckbox AS checkbox 
  	*< CLASSDATA: Baseclass="checkbox" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Caption = "CheckBox"
-	Height = 17
-	Name = "ocheckbox"
-	Width = 73
+	*<PropValue>
+		Caption = "CheckBox"
+		Height = 17
+		Name = "ocheckbox"
+		Width = 73
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS ocommandbutton AS commandbutton 
  	*< CLASSDATA: Baseclass="commandbutton" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Caption = "Command"
-	Height = 27
-	Name = "ocommandbutton"
-	Width = 77
+	*<PropValue>
+		Caption = "Command"
+		Height = 27
+		Name = "ocommandbutton"
+		Width = 77
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS ocustom AS custom 
  	*< CLASSDATA: Baseclass="custom" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Name = "ocustom"
+	*<PropValue>
+		Name = "ocustom"
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS odropdownlist AS combobox 
  	*< CLASSDATA: Baseclass="combobox" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Name = "odropdownlistbox"
-	Style = 2
-	Width = 100
+	*<PropValue>
+		Name = "odropdownlistbox"
+		Style = 2
+		Width = 100
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS oeditbox AS editbox 
  	*< CLASSDATA: Baseclass="editbox" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Height = 53
-	Name = "oeditbox"
-	Width = 100
+	*<PropValue>
+		Height = 53
+		Name = "oeditbox"
+		Width = 100
+	*</PropValue>
 
 ENDDEFINE
 
@@ -60,9 +70,11 @@ DEFINE CLASS oform AS form
 		*a: aerrormsg[3,0]
 	*</DefinedPropArrayMethod>
 
-	Caption = "oForm"
-	DoCreate = .T.
-	Name = "oform"
+	*<PropValue>
+		Caption = "oForm"
+		DoCreate = .T.
+		Name = "oform"
+	*</PropValue>
 	
 	PROCEDURE Activate
 		 ACTIVATE MENU _MSYSMENU NOWAIT
@@ -141,55 +153,67 @@ ENDDEFINE
 DEFINE CLASS oimage AS image 
  	*< CLASSDATA: Baseclass="image" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Height = 68
-	Name = "oimage"
-	Width = 68
+	*<PropValue>
+		Height = 68
+		Name = "oimage"
+		Width = 68
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS olabel AS label 
  	*< CLASSDATA: Baseclass="label" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	AutoSize = .T.
-	Caption = "Label"
-	Height = 17
-	Name = "olabel"
-	Width = 33
+	*<PropValue>
+		AutoSize = .T.
+		Caption = "Label"
+		Height = 17
+		Name = "olabel"
+		Width = 33
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS oshape AS shape 
  	*< CLASSDATA: Baseclass="shape" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Height = 68
-	Name = "oshape"
-	Width = 68
+	*<PropValue>
+		Height = 68
+		Name = "oshape"
+		Width = 68
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS ospinner AS spinner 
  	*< CLASSDATA: Baseclass="spinner" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Height = 23
-	Name = "ospinner"
-	Width = 71
+	*<PropValue>
+		Height = 23
+		Name = "ospinner"
+		Width = 71
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS otextbox AS textbox 
  	*< CLASSDATA: Baseclass="textbox" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Height = 23
-	Name = "otextbox"
-	Width = 100
+	*<PropValue>
+		Height = 23
+		Name = "otextbox"
+		Width = 100
+	*</PropValue>
 
 ENDDEFINE
 
 DEFINE CLASS otimer AS timer 
  	*< CLASSDATA: Baseclass="timer" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Height = 23
-	Name = "otimer"
-	Width = 23
+	*<PropValue>
+		Height = 23
+		Name = "otimer"
+		Width = 23
+	*</PropValue>
 
 ENDDEFINE

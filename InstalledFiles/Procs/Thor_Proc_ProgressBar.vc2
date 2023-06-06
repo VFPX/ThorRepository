@@ -17,19 +17,21 @@ DEFINE CLASS _gofish AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cappname = 
-	capppath = 
-	cbuilddate = 
-	cversion = 
-	Name = "_gofish"
-	oresultsform = .NULL.
-	_memberdata = <VFPData>
-		<memberdata name="cappname" display="cAppName"/>
-		<memberdata name="capppath" display="cAppPath"/>
-		<memberdata name="cversion" display="cVersion"/>
-		<memberdata name="oresultsform" display="oResultsForm"/>
-		<memberdata name="cbuilddate" display="cBuildDate"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cappname = 
+		capppath = 
+		cbuilddate = 
+		cversion = 
+		Name = "_gofish"
+		oresultsform = .NULL.
+		_memberdata = <VFPData>
+			<memberdata name="cappname" display="cAppName"/>
+			<memberdata name="capppath" display="cAppPath"/>
+			<memberdata name="cversion" display="cVersion"/>
+			<memberdata name="oresultsform" display="oResultsForm"/>
+			<memberdata name="cbuilddate" display="cBuildDate"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE Destroy
 		This.oResultsForm = .null.
@@ -52,29 +54,31 @@ DEFINE CLASS gf_baseform AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Caption = "GoFish"
-	cuisettingsfile = 
-	Desktop = .T.
-	DoCreate = .T.
-	Height = 325
-	Left = 0
-	Name = "gf_baseform"
-	oform = .NULL.
-	omy = .NULL.
-	osearchengine = .NULL.
-	osearchoptions = .NULL.
-	Top = 0
-	Width = 662
-	_memberdata = <VFPData>
-		<memberdata name="loadformsettings" display="LoadFormSettings"/>
-		<memberdata name="cuisettingsfile" display="cUISettingsFile"/>
-		<memberdata name="saveformsettings" display="SaveFormSettings"/>
-		<memberdata name="oform" display="oForm"/>
-		<memberdata name="osearchengine" display="oSearchEngine"/>
-		<memberdata name="osearchoptions" display="oSearchOptions"/>
-		<memberdata name="omy" display="oMy"/>
-		<memberdata name="copyobjectproperties" display="CopyObjectProperties"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Caption = "GoFish"
+		cuisettingsfile = 
+		Desktop = .T.
+		DoCreate = .T.
+		Height = 325
+		Left = 0
+		Name = "gf_baseform"
+		oform = .NULL.
+		omy = .NULL.
+		osearchengine = .NULL.
+		osearchoptions = .NULL.
+		Top = 0
+		Width = 662
+		_memberdata = <VFPData>
+			<memberdata name="loadformsettings" display="LoadFormSettings"/>
+			<memberdata name="cuisettingsfile" display="cUISettingsFile"/>
+			<memberdata name="saveformsettings" display="SaveFormSettings"/>
+			<memberdata name="oform" display="oForm"/>
+			<memberdata name="osearchengine" display="oSearchEngine"/>
+			<memberdata name="osearchoptions" display="oSearchOptions"/>
+			<memberdata name="omy" display="oMy"/>
+			<memberdata name="copyobjectproperties" display="CopyObjectProperties"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE Activate
 		Set Talk Off && Just in case user has turn this on somehow or accidentally
@@ -213,22 +217,24 @@ DEFINE CLASS gf_combosearchexpressionhistory AS combobox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 10
-	ctable = 
-	Height = 24
-	Name = "gf_combosearchexpressionhistory"
-	nexpressionstostore = 15
-	nmaxmru = 7
-	Visible = .F.
-	Width = 100
-	_memberdata = <VFPData>
-		<memberdata name="nexpressionstostore" display="nExpressionsToStore"/>
-		<memberdata name="opentable" display="OpenTable"/>
-		<memberdata name="loadrows" display="LoadRows"/>
-		<memberdata name="ctable" display="cTable"/>
-		<memberdata name="savesearchexpression" display="SaveSearchExpression"/>
-		<memberdata name="nmaxmru" display="nMaxMRU"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 10
+		ctable = 
+		Height = 24
+		Name = "gf_combosearchexpressionhistory"
+		nexpressionstostore = 15
+		nmaxmru = 7
+		Visible = .F.
+		Width = 100
+		_memberdata = <VFPData>
+			<memberdata name="nexpressionstostore" display="nExpressionsToStore"/>
+			<memberdata name="opentable" display="OpenTable"/>
+			<memberdata name="loadrows" display="LoadRows"/>
+			<memberdata name="ctable" display="cTable"/>
+			<memberdata name="savesearchexpression" display="SaveSearchExpression"/>
+			<memberdata name="nmaxmru" display="nMaxMRU"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE Click
 		This.Visible = .F.
@@ -437,24 +443,26 @@ DEFINE CLASS gf_combosearchscope AS combobox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 10
-	ctable = 
-	Height = 24
-	Name = "gf_combosearchscope"
-	nexpressionstostore = 15
-	nmaxmru = 7
-	Width = 365
-	_memberdata = <VFPData>
-		<memberdata name="opentable" display="OpenTable"/>
-		<memberdata name="nexpressionstostore" display="nExpressionsToStore"/>
-		<memberdata name="savesearchscope" display="SaveSearchScope"/>
-		<memberdata name="loadrows" display="LoadRows"/>
-		<memberdata name="loadprojects" display="LoadProjects"/>
-		<memberdata name="ctable" display="cTable"/>
-		<memberdata name="addrow" display="AddRow"/>
-		<memberdata name="updateimageicon" display="UpdateImageIcon"/>
-		<memberdata name="nmaxmru" display="nMaxMRU"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 10
+		ctable = 
+		Height = 24
+		Name = "gf_combosearchscope"
+		nexpressionstostore = 15
+		nmaxmru = 7
+		Width = 365
+		_memberdata = <VFPData>
+			<memberdata name="opentable" display="OpenTable"/>
+			<memberdata name="nexpressionstostore" display="nExpressionsToStore"/>
+			<memberdata name="savesearchscope" display="SaveSearchScope"/>
+			<memberdata name="loadrows" display="LoadRows"/>
+			<memberdata name="loadprojects" display="LoadProjects"/>
+			<memberdata name="ctable" display="cTable"/>
+			<memberdata name="addrow" display="AddRow"/>
+			<memberdata name="updateimageicon" display="UpdateImageIcon"/>
+			<memberdata name="nmaxmru" display="nMaxMRU"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE addrow
 		Lparameters tcScope
@@ -760,20 +768,22 @@ DEFINE CLASS gf_filtercheckbox AS checkbox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Alignment = 0
-	AutoSize = .T.
-	BackStyle = 0
-	Caption = "<Caption>"
-	FontName = "Tahoma"
-	FontSize = 8
-	Height = 15
-	Name = "gf_filtercheckbox"
-	TabIndex = 1
-	Value = .T.
-	Width = 71
-	_memberdata = <VFPData>
-		<memberdata name="caption" display="Caption"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Alignment = 0
+		AutoSize = .T.
+		BackStyle = 0
+		Caption = "<Caption>"
+		FontName = "Tahoma"
+		FontSize = 8
+		Height = 15
+		Name = "gf_filtercheckbox"
+		TabIndex = 1
+		Value = .T.
+		Width = 71
+		_memberdata = <VFPData>
+			<memberdata name="caption" display="Caption"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE Click
 		*By the time we get here, the value has already been toggled by VFP.
@@ -819,21 +829,23 @@ DEFINE CLASS gf_filtercheckboxcontainer AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BorderColor = 150,150,150
-	cfilter = 
-	Height = 390
-	Name = "filtercheckboxcontainer"
-	ncheckboxcount = 0
-	Width = 218
-	_memberdata = <VFPData>
-		<memberdata name="setallcheckboxes" display="SetAllCheckBoxes"/>
-		<memberdata name="cfilter" display="cFilter"/>
-		<memberdata name="ncheckboxcount" display="nCheckBoxCount"/>
-		<memberdata name="bordercolor" display="BorderColor"/>
-		<memberdata name="clear" display="Clear"/>
-		<memberdata name="decorate" display="Decorate"/>
-		<memberdata name="cleardecoration" display="ClearDecoration"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BorderColor = 150,150,150
+		cfilter = 
+		Height = 390
+		Name = "filtercheckboxcontainer"
+		ncheckboxcount = 0
+		Width = 218
+		_memberdata = <VFPData>
+			<memberdata name="setallcheckboxes" display="SetAllCheckBoxes"/>
+			<memberdata name="cfilter" display="cFilter"/>
+			<memberdata name="ncheckboxcount" display="nCheckBoxCount"/>
+			<memberdata name="bordercolor" display="BorderColor"/>
+			<memberdata name="clear" display="Clear"/>
+			<memberdata name="decorate" display="Decorate"/>
+			<memberdata name="cleardecoration" display="ClearDecoration"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Command1' AS commandbutton WITH ;
 		Anchor = 4, ;
@@ -991,13 +1003,15 @@ DEFINE CLASS gf_grid AS grid
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Height = 200
-	Name = "gf_grid"
-	Width = 320
-	_memberdata = <VFPData>
-		<memberdata name="arrangecolumns" display="ArrangeColumns"/>
-		<memberdata name="findcolumn" display="FindColumn"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Height = 200
+		Name = "gf_grid"
+		Width = 320
+		_memberdata = <VFPData>
+			<memberdata name="arrangecolumns" display="ArrangeColumns"/>
+			<memberdata name="findcolumn" display="FindColumn"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE arrangecolumns
 		Local laColumns[1], lnColumnCount, lnI, loColumn
@@ -1063,23 +1077,25 @@ DEFINE CLASS gf_progressbar AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BorderColor = 0,0,0
-	csetcursor = 
-	Height = 102
-	Name = "gf_progressbar"
-	nmaxvalue = 0
-	nvalue = 0
-	Width = 485
-	_memberdata = <VFPData>
-		<memberdata name="reset" display="Reset"/>
-		<memberdata name="update" display="Update"/>
-		<memberdata name="nvalue" display="nValue"/>
-		<memberdata name="nmaxvalue" display="nMaxValue"/>
-		<memberdata name="nvalue_assign" display="nValue_Assign"/>
-		<memberdata name="start" display="Start"/>
-		<memberdata name="csetcursor" display="cSetCursor"/>
-		<memberdata name="stop" display="Stop"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BorderColor = 0,0,0
+		csetcursor = 
+		Height = 102
+		Name = "gf_progressbar"
+		nmaxvalue = 0
+		nvalue = 0
+		Width = 485
+		_memberdata = <VFPData>
+			<memberdata name="reset" display="Reset"/>
+			<memberdata name="update" display="Update"/>
+			<memberdata name="nvalue" display="nValue"/>
+			<memberdata name="nmaxvalue" display="nMaxValue"/>
+			<memberdata name="nvalue_assign" display="nValue_Assign"/>
+			<memberdata name="start" display="Start"/>
+			<memberdata name="csetcursor" display="cSetCursor"/>
+			<memberdata name="stop" display="Stop"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'bar' AS container WITH ;
 		BackColor = 0,64,128, ;
@@ -1215,24 +1231,26 @@ DEFINE CLASS gf_textboxcontainer AS gf_filtercheckboxcontainer OF "gofishui.vcx"
 	*-- OBJECTDATA items order determines ZOrder / El orden de los items OBJECTDATA determina el ZOrder 
 	*< OBJECTDATA: ObjPath="txt1" UniqueID="" Timestamp="" />
 
-	Height = 390
-	Name = "gf_textboxcontainer"
-	_memberdata = <VFPData>
-		<memberdata name="clear" display="Clear"/>
+	*<PropValue>
+		Height = 390
+		Name = "gf_textboxcontainer"
+		_memberdata = <VFPData>
+			<memberdata name="clear" display="Clear"/>
 		</VFPData>
-	Label1.Name = "Label1"
-	Command1.Caption = "Clear"
-	Command1.Height = 21
-	Command1.Left = 10
-	Command1.Name = "Command1"
-	Command1.Top = 366
-	Command1.Width = 43
-	Command2.Left = 65
-	Command2.Name = "Command2"
-	Command2.Top = 366
-	Command2.Visible = .F.
-	LINE1.Name = "LINE1"
-	LINE2.Name = "LINE2"
+		Label1.Name = "Label1"
+		Command1.Caption = "Clear"
+		Command1.Height = 21
+		Command1.Left = 10
+		Command1.Name = "Command1"
+		Command1.Top = 366
+		Command1.Width = 43
+		Command2.Left = 65
+		Command2.Name = "Command2"
+		Command2.Top = 366
+		Command2.Visible = .F.
+		LINE1.Name = "LINE1"
+		LINE2.Name = "LINE2"
+	*</PropValue>
 
 	ADD OBJECT 'txt1' AS textbox WITH ;
 		Anchor = 10, ;
@@ -1299,27 +1317,29 @@ DEFINE CLASS gf_timestampcontainer AS gf_filtercheckboxcontainer OF "gofishui.vc
 	*< OBJECTDATA: ObjPath="txtTimeStampFrom" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="txtTimeStampTo" UniqueID="" Timestamp="" />
 
-	Height = 111
-	Name = "timestampcontainer"
-	Width = 206
-	Label1.Height = 16
-	Label1.Left = 137
-	Label1.Name = "Label1"
-	Label1.Top = 2
-	Label1.Visible = .F.
-	Label1.Width = 60
-	Command1.Name = "Command1"
-	Command1.Top = 88
-	Command1.Visible = .F.
-	Command2.Name = "Command2"
-	Command2.Top = 88
-	Command2.Visible = .F.
-	LINE1.Name = "LINE1"
-	LINE1.Width = 195
-	LINE2.Name = "LINE2"
-	LINE2.Top = 83
-	LINE2.Visible = .F.
-	LINE2.Width = 194
+	*<PropValue>
+		Height = 111
+		Name = "timestampcontainer"
+		Width = 206
+		Label1.Height = 16
+		Label1.Left = 137
+		Label1.Name = "Label1"
+		Label1.Top = 2
+		Label1.Visible = .F.
+		Label1.Width = 60
+		Command1.Name = "Command1"
+		Command1.Top = 88
+		Command1.Visible = .F.
+		Command2.Name = "Command2"
+		Command2.Top = 88
+		Command2.Visible = .F.
+		LINE1.Name = "LINE1"
+		LINE1.Width = 195
+		LINE2.Name = "LINE2"
+		LINE2.Top = 83
+		LINE2.Visible = .F.
+		LINE2.Width = 194
+	*</PropValue>
 
 	ADD OBJECT 'chkTimeStamp' AS checkbox WITH ;
 		Alignment = 0, ;
@@ -1444,22 +1464,24 @@ ENDDEFINE
 DEFINE CLASS gf_versionlabel AS label 
  	*< CLASSDATA: Baseclass="label" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Alignment = 1
-	Anchor = 8
-	BackColor = 0,128,0
-	BackStyle = 0
-	Caption = "Version"
-	FontBold = .F.
-	FontItalic = .F.
-	FontName = "Tahoma"
-	FontSize = 8
-	ForeColor = 0,0,0
-	Height = 13
-	Left = 177
-	Name = "lblVersion"
-	TabIndex = 12
-	Top = 9
-	Width = 228
+	*<PropValue>
+		Alignment = 1
+		Anchor = 8
+		BackColor = 0,128,0
+		BackStyle = 0
+		Caption = "Version"
+		FontBold = .F.
+		FontItalic = .F.
+		FontName = "Tahoma"
+		FontSize = 8
+		ForeColor = 0,0,0
+		Height = 13
+		Left = 177
+		Name = "lblVersion"
+		TabIndex = 12
+		Top = 9
+		Width = 228
+	*</PropValue>
 	
 	PROCEDURE Refresh
 		Local lcAppName, lcVersion
@@ -1485,17 +1507,19 @@ DEFINE CLASS progressform AS form
 	*-- OBJECTDATA items order determines ZOrder / El orden de los items OBJECTDATA determina el ZOrder 
 	*< OBJECTDATA: ObjPath="cntProgressBar" UniqueID="" Timestamp="" />
 
-	AllowOutput = .F.
-	AlwaysOnTop = .T.
-	AutoCenter = .T.
-	Caption = "Form1"
-	DataSession = 1
-	DoCreate = .T.
-	Height = 102
-	Name = "progressform"
-	TitleBar = 0
-	Visible = .T.
-	Width = 485
+	*<PropValue>
+		AllowOutput = .F.
+		AlwaysOnTop = .T.
+		AutoCenter = .T.
+		Caption = "Form1"
+		DataSession = 1
+		DoCreate = .T.
+		Height = 102
+		Name = "progressform"
+		TitleBar = 0
+		Visible = .T.
+		Width = 485
+	*</PropValue>
 
 	ADD OBJECT 'cntProgressBar' AS gf_progressbar WITH ;
 		Name = "cntProgressBar", ;

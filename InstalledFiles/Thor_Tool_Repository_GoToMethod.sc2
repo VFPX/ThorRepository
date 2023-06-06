@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -34,30 +36,32 @@ DEFINE CLASS gotomethod AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .F.
-	BindControls = .F.
-	Caption = "GoToMethod"
-	cmethodname = 
-	csearchstring = 
-	DoCreate = .T.
-	Height = 281
-	KeyPreview = .T.
-	Left = 0
-	lescapepress = .F.
-	MaxButton = .F.
-	MinButton = .F.
-	Name = "gotomethod"
-	nobjecttype = 1
-	Top = 1
-	Width = 218
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="cmethodname" display="cMethodName"/>
-		<memberdata name="lescapepress" display="lEscapePress"/>
-		<memberdata name="textchanged" display="TextChanged"/>
-		<memberdata name="csearchstring" display="cSearchString"/>
-		<memberdata name="nobjecttype" display="nObjectType"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AutoCenter = .F.
+		BindControls = .F.
+		Caption = "GoToMethod"
+		cmethodname = 
+		csearchstring = 
+		DoCreate = .T.
+		Height = 281
+		KeyPreview = .T.
+		Left = 0
+		lescapepress = .F.
+		MaxButton = .F.
+		MinButton = .F.
+		Name = "gotomethod"
+		nobjecttype = 1
+		Top = 1
+		Width = 218
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="cmethodname" display="cMethodName"/>
+			<memberdata name="lescapepress" display="lEscapePress"/>
+			<memberdata name="textchanged" display="TextChanged"/>
+			<memberdata name="csearchstring" display="cSearchString"/>
+			<memberdata name="nobjecttype" display="nObjectType"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'List1' AS listbox WITH ;
 		Anchor = 15, ;

@@ -34,23 +34,25 @@ DEFINE CLASS clsresizewindow AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	cheight = 
-	cleft = (Space(5))
-	ctop = 
-	cwidth = 
-	Height = 260
-	lanychanges = .F.
-	Name = "clsresizewindow"
-	Width = 345
-	_memberdata = <VFPData>
-		<memberdata name="ctop" display="cTop"/>
-		<memberdata name="cleft" display="cLeft"/>
-		<memberdata name="cheight" display="cHeight"/>
-		<memberdata name="cwidth" display="cWidth"/>
-		<memberdata name="savevalues" display="SaveValues"/>
-		<memberdata name="lanychanges" display="lAnyChanges"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 15
+		cheight = 
+		cleft = (Space(5))
+		ctop = 
+		cwidth = 
+		Height = 260
+		lanychanges = .F.
+		Name = "clsresizewindow"
+		Width = 345
+		_memberdata = <VFPData>
+			<memberdata name="ctop" display="cTop"/>
+			<memberdata name="cleft" display="cLeft"/>
+			<memberdata name="cheight" display="cHeight"/>
+			<memberdata name="cwidth" display="cWidth"/>
+			<memberdata name="savevalues" display="SaveValues"/>
+			<memberdata name="lanychanges" display="lAnyChanges"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS label WITH ;
 		Alignment = 2, ;

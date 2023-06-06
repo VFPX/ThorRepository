@@ -61,58 +61,60 @@ DEFINE CLASS __mboxwiz AS oform OF "msgboxwizclasslibrary.vcx"
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AlwaysOnTop = .T.
-	AutoCenter = .T.
-	Caption = "Message Box Wizard"
-	cbuttons = Ok
-	cdefaultbutton = Ok
-	cifvalue = 
-	Closable = .T.
-	cmessage = 
-	ControlBox = .T.
-	crowsource = Ok
-	ctitle = 
-	DoCreate = .T.
-	Height = 263
-	idreturn = ""
-	inreturn = 0
-	ldefines = .F.
-	ldocase = .F.
-	lif = .F.
-	MaxButton = .F.
-	MaxHeight = 263
-	MaxLeft = 0
-	MaxTop = 0
-	MaxWidth = 370
-	mbbuttons = ""
-	mbdefbutton = ""
-	mbicon = ""
-	MinButton = .F.
-	MinHeight = 263
-	MinWidth = 370
-	Name = "__MBOXWIZ"
-	nbbuttons = 0
-	nbdefbutton = 0
-	nbicon = 0
-	osettings = .NULL.
-	ShowTips = .T.
-	Width = 370
-	WindowState = 0
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="finish" display="Finish"/>
-		<memberdata name="ctitle" display="cTitle"/>
-		<memberdata name="cmessage" display="cMessage"/>
-		<memberdata name="cbuttons" display="cButtons"/>
-		<memberdata name="cdefaultbutton" display="cDefaultButton"/>
-		<memberdata name="ldocase" display="lDoCase"/>
-		<memberdata name="lif" display="lIF"/>
-		<memberdata name="ldefines" display="lDefines"/>
-		<memberdata name="cifvalue" display="cIFValue"/>
-		<memberdata name="createrowsource" display="CreateRowSource"/>
-		<memberdata name="crowsource" display="cRowSource"/>
-		<memberdata name="getreturnid" display="GetReturnID"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AlwaysOnTop = .T.
+		AutoCenter = .T.
+		Caption = "Message Box Wizard"
+		cbuttons = Ok
+		cdefaultbutton = Ok
+		cifvalue = 
+		Closable = .T.
+		cmessage = 
+		ControlBox = .T.
+		crowsource = Ok
+		ctitle = 
+		DoCreate = .T.
+		Height = 263
+		idreturn = ""
+		inreturn = 0
+		ldefines = .F.
+		ldocase = .F.
+		lif = .F.
+		MaxButton = .F.
+		MaxHeight = 263
+		MaxLeft = 0
+		MaxTop = 0
+		MaxWidth = 370
+		mbbuttons = ""
+		mbdefbutton = ""
+		mbicon = ""
+		MinButton = .F.
+		MinHeight = 263
+		MinWidth = 370
+		Name = "__MBOXWIZ"
+		nbbuttons = 0
+		nbdefbutton = 0
+		nbicon = 0
+		osettings = .NULL.
+		ShowTips = .T.
+		Width = 370
+		WindowState = 0
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="finish" display="Finish"/>
+			<memberdata name="ctitle" display="cTitle"/>
+			<memberdata name="cmessage" display="cMessage"/>
+			<memberdata name="cbuttons" display="cButtons"/>
+			<memberdata name="cdefaultbutton" display="cDefaultButton"/>
+			<memberdata name="ldocase" display="lDoCase"/>
+			<memberdata name="lif" display="lIF"/>
+			<memberdata name="ldefines" display="lDefines"/>
+			<memberdata name="cifvalue" display="cIFValue"/>
+			<memberdata name="createrowsource" display="CreateRowSource"/>
+			<memberdata name="crowsource" display="cRowSource"/>
+			<memberdata name="getreturnid" display="GetReturnID"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cbDefines' AS ocheckbox WITH ;
 		Alignment = 0, ;
@@ -400,8 +402,8 @@ DEFINE CLASS __mboxwiz AS oform OF "msgboxwizclasslibrary.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 277, ;
 		Name = "Ospinner1", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		Top = 235
 		*< END OBJECT: ClassLib="msgboxwizclasslibrary.vcx" BaseClass="spinner" />
 
@@ -874,11 +876,13 @@ ENDDEFINE
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE

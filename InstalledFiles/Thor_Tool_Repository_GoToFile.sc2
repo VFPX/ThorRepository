@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -41,38 +43,40 @@ DEFINE CLASS gotofile AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .F.
-	BindControls = .F.
-	Caption = "GoToFile"
-	cfilepath = 
-	csearchstring = 
-	DoCreate = .T.
-	Height = 310
-	KeyPreview = .T.
-	Left = 0
-	lescapepress = .F.
-	MaxButton = .F.
-	MinButton = .F.
-	Name = "GoToFile"
-	nfilesource = 1
-	nfilter = 1
-	ofilescollection = .NULL.
-	Top = 1
-	Width = 237
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="lescapepress" display="lEscapePress"/>
-		<memberdata name="textchanged" display="TextChanged"/>
-		<memberdata name="csearchstring" display="cSearchString"/>
-		<memberdata name="cfilepath" display="cFilePath"/>
-		<memberdata name="createprojectfilescursor" display="CreateProjectFilesCursor"/>
-		<memberdata name="createcurdircursor" display="CreateCurDirCursor"/>
-		<memberdata name="ofilescollection" display="oFilesCollection"/>
-		<memberdata name="requerylistbox" display="RequeryListBox"/>
-		<memberdata name="updaterowsource" display="UpdateRowSource"/>
-		<memberdata name="nfilter" display="nFilter"/>
-		<memberdata name="nfilesource" display="nFileSource"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AutoCenter = .F.
+		BindControls = .F.
+		Caption = "GoToFile"
+		cfilepath = 
+		csearchstring = 
+		DoCreate = .T.
+		Height = 310
+		KeyPreview = .T.
+		Left = 0
+		lescapepress = .F.
+		MaxButton = .F.
+		MinButton = .F.
+		Name = "GoToFile"
+		nfilesource = 1
+		nfilter = 1
+		ofilescollection = .NULL.
+		Top = 1
+		Width = 237
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="lescapepress" display="lEscapePress"/>
+			<memberdata name="textchanged" display="TextChanged"/>
+			<memberdata name="csearchstring" display="cSearchString"/>
+			<memberdata name="cfilepath" display="cFilePath"/>
+			<memberdata name="createprojectfilescursor" display="CreateProjectFilesCursor"/>
+			<memberdata name="createcurdircursor" display="CreateCurDirCursor"/>
+			<memberdata name="ofilescollection" display="oFilesCollection"/>
+			<memberdata name="requerylistbox" display="RequeryListBox"/>
+			<memberdata name="updaterowsource" display="UpdateRowSource"/>
+			<memberdata name="nfilter" display="nFilter"/>
+			<memberdata name="nfilesource" display="nFileSource"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'List1' AS listbox WITH ;
 		Anchor = 15, ;

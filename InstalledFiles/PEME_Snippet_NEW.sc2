@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -54,20 +56,22 @@ DEFINE CLASS formsnippetgenerator AS form
 		*p: ncursorposition
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .T.
-	Caption = "Dynamic Snippet Generator"
-	cdelimiter_char = ,
-	cmax_parameters = ('1')
-	cmin_parameters = ('0')
-	cprocessfunction = 
-	csnippet_keyword = 
-	DoCreate = .T.
-	Height = 461
-	Name = "formSnippetGenerator"
-	ncursorposition = 0
-	ShowTips = .T.
-	Visible = .T.
-	Width = 553
+	*<PropValue>
+		AutoCenter = .T.
+		Caption = "Dynamic Snippet Generator"
+		cdelimiter_char = ,
+		cmax_parameters = ('1')
+		cmin_parameters = ('0')
+		cprocessfunction = 
+		csnippet_keyword = 
+		DoCreate = .T.
+		Height = 461
+		Name = "formSnippetGenerator"
+		ncursorposition = 0
+		ShowTips = .T.
+		Visible = .T.
+		Width = 553
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS label WITH ;
 		Caption = "Snippet Keyword", ;

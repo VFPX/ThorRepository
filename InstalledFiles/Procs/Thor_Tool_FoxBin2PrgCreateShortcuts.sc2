@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -65,19 +67,21 @@ DEFINE CLASS frmfoxbin2prgcreateshortcuts AS form
 		*p: oshortcutengine		&& Stores a reference to the FoxBin2Prg shortcut engine.
 	*</DefinedPropArrayMethod>
 
-	BindControls = .F.
-	Caption = "Create/Edit FoxBin2Prg Shortcuts"
-	DoCreate = .T.
-	Height = 481
-	Left = 0
-	lloadshortcutsonactive = .F.		&& Indicates whether shortcut information should be reloaded when the user activates the form.
-	Name = "frmFoxBin2PrgCreateShortcuts"
-	ohiddenform = .NULL.		&& Stores a reference to a temporary form created to make it easy to deactivate this one.
-	osettings = .NULL.		&& Stores the Thor settings object used to save and restore form settings.
-	oshortcutengine = .NULL.		&& Stores a reference to the FoxBin2Prg shortcut engine.
-	ShowTips = .T.
-	Top = 0
-	Width = 390
+	*<PropValue>
+		BindControls = .F.
+		Caption = "Create/Edit FoxBin2Prg Shortcuts"
+		DoCreate = .T.
+		Height = 481
+		Left = 0
+		lloadshortcutsonactive = .F.
+		Name = "frmFoxBin2PrgCreateShortcuts"
+		ohiddenform = .NULL.
+		osettings = .NULL.
+		oshortcutengine = .NULL.
+		ShowTips = .T.
+		Top = 0
+		Width = 390
+	*</PropValue>
 
 	ADD OBJECT 'chkBinToTextShowResults' AS checkbox WITH ;
 		Alignment = 0, ;

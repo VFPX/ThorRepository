@@ -18,14 +18,16 @@ DEFINE CLASS clssourcecontrol AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	Height = 260
-	lanychanges = .F.
-	Name = "clssourcecontrol"
-	Width = 345
-	_memberdata = <VFPData>
-		<memberdata name="lanychanges" display="lAnyChanges"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 15
+		Height = 260
+		lanychanges = .F.
+		Name = "clssourcecontrol"
+		Width = 345
+		_memberdata = <VFPData>
+			<memberdata name="lanychanges" display="lAnyChanges"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Basecheckbox1' AS checkbox WITH ;
 		Alignment = 0, ;

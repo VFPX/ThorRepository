@@ -13,15 +13,17 @@ DEFINE CLASS basecheckbox AS checkbox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Alignment = 0
-	Caption = "Check1"
-	ccontrolsource = 
-	Height = 17
-	Name = "basecheckbox"
-	Width = 60
-	_memberdata = <VFPData>
-		<memberdata name="ccontrolsource" display="cControlSource"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Alignment = 0
+		Caption = "Check1"
+		ccontrolsource = 
+		Height = 17
+		Name = "basecheckbox"
+		Width = 60
+		_memberdata = <VFPData>
+			<memberdata name="ccontrolsource" display="cControlSource"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE InteractiveChange
 		Local lcControlSource
@@ -46,13 +48,15 @@ DEFINE CLASS basecombobox AS combobox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	ccontrolsource = 
-	Height = 24
-	Name = "basecombobox"
-	Width = 100
-	_memberdata = <VFPData>
-		<memberdata name="ccontrolsource" display="cControlSource"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		ccontrolsource = 
+		Height = 24
+		Name = "basecombobox"
+		Width = 100
+		_memberdata = <VFPData>
+			<memberdata name="ccontrolsource" display="cControlSource"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE InteractiveChange
 		Local lcControlSource
@@ -72,10 +76,12 @@ ENDDEFINE
 DEFINE CLASS baselabel AS label 
  	*< CLASSDATA: Baseclass="label" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Caption = "Label1"
-	Height = 17
-	Name = "baselabel"
-	Width = 40
+	*<PropValue>
+		Caption = "Label1"
+		Height = 17
+		Name = "baselabel"
+		Width = 40
+	*</PropValue>
 
 ENDDEFINE
 
@@ -87,13 +93,15 @@ DEFINE CLASS basetextbox AS textbox
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	ccontrolsource = 
-	Height = 23
-	Name = "basetextbox"
-	Width = 100
-	_memberdata = <VFPData>
-		<memberdata name="ccontrolsource" display="cControlSource"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		ccontrolsource = 
+		Height = 23
+		Name = "basetextbox"
+		Width = 100
+		_memberdata = <VFPData>
+			<memberdata name="ccontrolsource" display="cControlSource"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE InteractiveChange
 		Local lcControlSource
@@ -138,14 +146,16 @@ DEFINE CLASS clscreatelocals AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	Height = 340
-	lanychanges = .F.
-	Name = "clscreatelocals"
-	Width = 345
-	_memberdata = <VFPData>
-		<memberdata name="lanychanges" display="lAnyChanges"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 15
+		Height = 340
+		lanychanges = .F.
+		Name = "clscreatelocals"
+		Width = 345
+		_memberdata = <VFPData>
+			<memberdata name="lanychanges" display="lAnyChanges"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Basecheckbox3' AS basecheckbox WITH ;
 		Alignment = 1, ;

@@ -24,14 +24,16 @@ DEFINE CLASS clsthornews AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	Height = 260
-	Name = "clsthornews"
-	Width = 345
-	_memberdata = <VFPData>
-		<memberdata name="getoption" display="GetOption"/>
-		<memberdata name="setoption" display="SetOption"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 15
+		Height = 260
+		Name = "clsthornews"
+		Width = 345
+		_memberdata = <VFPData>
+			<memberdata name="getoption" display="GetOption"/>
+			<memberdata name="setoption" display="SetOption"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS label WITH ;
 		Alignment = 2, ;
@@ -117,8 +119,8 @@ DEFINE CLASS clsthornews AS container
 		KeyboardLowValue = 1, ;
 		Left = 245, ;
 		Name = "Spinner1", ;
-		SpinnerHighValue = 30.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  30.00, ;
+		SpinnerLowValue =   1.00, ;
 		Top = 126, ;
 		Width = 45
 		*< END OBJECT: BaseClass="spinner" />

@@ -44,7 +44,7 @@ Define Class HighlightedText As Session OlePublic
 		* see	http://vfpx.codeplex.com/wikipage?title=Thor%20EditorWindow%20Object
 		* editorwin home page = http://vfpx.codeplex.com/wikipage?title=thor%20editorwindow%20object
 		This.oEditorWin = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_EditorWin')
-	
+		
 		If This.oEditorWin.GetEnvironment(25) <= Iif (m.llCommandWindowOK, -1, 0)
 			This.cError = 'Not an edit window'
 			Return
@@ -55,6 +55,7 @@ Define Class HighlightedText As Session OlePublic
 		This.oEditorWin.Copy()
 		This.nSelStart		  = This.oEditorWin.GetSelStart()
 		This.cHighLightedText = _Cliptext
+		lcIfNothingHighlighted = Evl(lcIfNothingHighlighted, '?')
 	
 		Do Case
 			Case m.lcIfNothingHighlighted = 'Whole Line'

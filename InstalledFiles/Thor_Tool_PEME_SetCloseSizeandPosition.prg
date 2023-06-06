@@ -13,18 +13,18 @@ If Pcount() = 1								;
 	With m.lxParam1
 
 		* Required
-		.Prompt             = 'Set Object Size and Position' && used when tool appears in a menu
+		.Prompt             = 'Set Object Position and Size' && used when tool appears in a menu
 		Text To .Description Noshow
-Opens the 'Size and Position' form for changing the size and position of objects.
+Opens the 'Position and Size' form for changing the Position and Size of objects.
 		Endtext
 		.PRGName            = 'Thor_Tool_PEME_SetCloseSizeandPosition' && a unique name for the tool; note the required prefix
 
 		* Optional
 		Text To .StatusBarText Noshow
-Opens the 'Size and Position' form for changing the size and position of objects.
+Opens the 'Position and Size' form for changing the Position and Size of objects.
 		Endtext
 		Text To .Summary Noshow && if empty, first line of .Description is used
-Opens the 'Size and Position' form for changing the size and position of objects.
+Opens the 'Position and Size' form for changing the position and size of objects.
 		Endtext
 
 		* For public tools, such as PEM Editor, etc.

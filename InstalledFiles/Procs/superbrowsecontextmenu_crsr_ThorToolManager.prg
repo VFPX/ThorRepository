@@ -27,6 +27,10 @@ With m.loContextMenu
 
 		.AddMenuItem('\<Help', , , , 'URL')
 
+		If Not Empty(m.loThisTable.FolderName)
+			.AddMenuItem('\<Installation Folder', , , , 'FolderName')
+		Endif
+
 		If Not Empty(m.loThisTable.VideoLink + m.loThisTable.OptionTool + m.loThisTable.PlugIns)
 			.AddMenuItem()
 			If Not Empty(m.loThisTable.VideoLink)
@@ -118,6 +122,9 @@ With m.loContextMenu
 
 			Case m.lcKeyWord == 'URL'
 				Execscript(_Screen.cThorDispatcher, 'Thor_proc_showtoolhelp', m.loThisTable.PrgName)
+
+			Case m.lcKeyWord == 'FolderName'
+				ExecScript(_Screen.cThorDispatcher, 'Thor_Proc_OpenFolder', Alltrim(m.loThisTable.FolderName)) 
 
 			Case m.lcKeyWord == 'Video'
 				GoURL(m.loThisTable.VideoLink)

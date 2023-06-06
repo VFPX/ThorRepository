@@ -13,10 +13,12 @@ DEFINE CLASS clshighlightnext AS container
 	*< OBJECTDATA: ObjPath="Line1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Check1" UniqueID="" Timestamp="" />
 
-	Anchor = 15
-	Height = 260
-	Name = "clshighlightnext"
-	Width = 345
+	*<PropValue>
+		Anchor = 15
+		Height = 260
+		Name = "clshighlightnext"
+		Width = 345
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS label WITH ;
 		Alignment = 2, ;

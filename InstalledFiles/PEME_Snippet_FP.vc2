@@ -6,106 +6,106 @@
 *
 *
 DEFINE CLASS fp_form AS form 
- 	*< CLASSDATA: Baseclass="form" Timestamp="2023/01/12 18:01:11" Scale="Pixels" Uniqueid="" />
+ 	*< CLASSDATA: Baseclass="form" Timestamp="" Scale="Pixels" Uniqueid="" />
 
 	*-- OBJECTDATA items order determines ZOrder / El orden de los items OBJECTDATA determina el ZOrder 
-	*< OBJECTDATA: ObjPath="pgfFieldPicker" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkFrom" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdFixPrefix" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtPrefix" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtCursor" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.edtReturn" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgtype" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdRemovePrefix" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgTarget" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblLocalAlias" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblInto" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtFrom" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblFrom" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkCloseAfter" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdcopytoclipboard" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.chknvl" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.opgCast" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.optLanguage" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.grdShowTable" UniqueID="" Timestamp="2022/12/17 05:33:02" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkreadonly" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkhideunselected" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblSort" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cboSort" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblFilter" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.txtFilter" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdModifyStructure" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdAppend" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdBottom" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdTop" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdEdit" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.opgFilter" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdHelp" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.opgCase" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.chkComma" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label2" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check2" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check3" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Container1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdBackColor" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdForeColor" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColor" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblbackcolor" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblBackColorRGB" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColorRGB" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check4" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Command1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label5" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label4" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check5" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label3" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label4" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label5" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner2" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label6" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.edtIndex" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Check1" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Header1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Text1" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
-	*< OBJECTDATA: ObjPath="cmdSave" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="cmdselectall" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="cmdReverse" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="cmddeselectall" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="cmdApply" UniqueID="" Timestamp="2022/12/31 09:29:10" />
-	*< OBJECTDATA: ObjPath="Label2" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="Command2" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="cboSelectAlias" UniqueID="" Timestamp="2022/12/02 14:22:28" />
-	*< OBJECTDATA: ObjPath="lblRecountCount" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="chklEditFieldNames" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="Label4" UniqueID="" Timestamp="2023/01/12 18:01:12" />
-	*< OBJECTDATA: ObjPath="cmdExit" UniqueID="" Timestamp="2023/01/02 11:00:13" />
-	*< OBJECTDATA: ObjPath="lblContextMenuHelp" UniqueID="" Timestamp="2023/01/12 18:01:12" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkFrom" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdFixPrefix" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtPrefix" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtCursor" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.edtReturn" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgtype" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdRemovePrefix" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgTarget" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblLocalAlias" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblInto" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtFrom" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblFrom" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkCloseAfter" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdcopytoclipboard" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.chknvl" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.opgCast" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.optLanguage" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.grdShowTable" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkreadonly" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkhideunselected" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblSort" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cboSort" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblFilter" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.txtFilter" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdModifyStructure" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdAppend" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdBottom" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdTop" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdEdit" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.opgFilter" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdHelp" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.opgCase" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.chkComma" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check3" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Container1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdBackColor" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdForeColor" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColor" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblbackcolor" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblBackColorRGB" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColorRGB" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Command1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label5" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check5" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label3" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label5" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label6" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.edtIndex" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Check1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Header1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Text1" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="cmdSave" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="cmdselectall" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="cmdReverse" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="cmddeselectall" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="cmdApply" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Command2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="cboSelectAlias" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="lblRecountCount" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="chklEditFieldNames" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="cmdExit" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="lblContextMenuHelp" UniqueID="" Timestamp="" />
 
 	*<DefinedPropArrayMethod>
 		*m: addcustomkeyword
@@ -235,131 +235,133 @@ DEFINE CLASS fp_form AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AllowOutput = .F.
-	calias = 
-	Caption = "Form1"
-	ccurfilter = 
-	ccurindex = 
-	ccursor = 
-	cfilter = 
-	cfilterexpression = 
-	cfilterfields = 
-	cfilterprog = 
-	cindextext = 
-	cprefix = 
-	creturn = 
-	csavefile = 
-	csettings = 
-	ctarget = 
-	ctempfile = 
-	Dockable = 0
-	DoCreate = .T.
-	Height = 421
-	lautosaveselections = .F.
-	lcheckfornulls = .F.
-	lcloseafter = .F.
-	lcommafirst = .F.
-	leditfieldnames = .F.
-	Left = 0
-	lfilterbyvalueusesand = .T.
-	lfrom = .T.
-	lhandledblclick = .T.
-	lhideunselected = .F.
-	lneedrefresh = .F.
-	lnondefaultbackcolor = .F.
-	lreadonly = .T.
-	lreadonlyatstartup = .T.
-	lreordercolumns = .T.
-	lselectallatstartup = .F.
-	lsetfocustogrid = .T.
-	lstartwithgrid = .T.
-	lsuperbrowse = .F.
-	ltoomanyfilterfields = .F.
-	lusenvl = .F.
-	MinHeight = 300
-	MinWidth = 480
-	Name = "fp_form"
-	nbeautifycaseoption = 1
-	ncaseselection = 1
-	ncasttype = 1
-	ncursor = 1
-	ndockable = 1
-	nfilter = 2
-	nfontsize = 9
-	nlanguage = 1
-	nmemofieldwidth = 0
-	nnondefaultbackcolor = ( Thisform.BackColor)
-	npopupformeditboxheight = 400
-	npopupformeditboxwidth = 800
-	nreturntype = 1
-	nselectedbackcolor = 12648384
-	nselectedforecolor = 0
-	nstartpage = 1
-	obeautifyoptions = 
-	ogrdshowtable = .NULL.
-	oresultstring = .NULL.
-	ShowTips = .T.
-	Top = 0
-	Visible = .F.
-	Width = 900
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="nfontsize_assign" display="nfontsize_Assign"/>
-		<memberdata name="restoresettings" display="RestoreSettings"/>
-		<memberdata name="lreadonlyatstartup" display="lReadOnlyAtStartup"/>
-		<memberdata name="lcloseafter" display="lCloseAfter"/>
-		<memberdata name="setalias" display="SetAlias"/>
-		<memberdata name="aused" display="aUsed"/>
-		<memberdata name="lsuperbrowse" display="lSuperBrowse"/>
-		<memberdata name="csavefile" display="cSavefile"/>
-		<memberdata name="lautosaveselections" display="lAutoSaveSelections"/>
-		<memberdata name="lnondefaultbackcolor" display="lNonDefaultBackColor"/>
-		<memberdata name="nnondefaultbackcolor" display="nNonDefaultBackColor"/>
-		<memberdata name="setformbackcolor" display="SetFormBackColor"/>
-		<memberdata name="ndockable" display="nDockable"/>
-		<memberdata name="dockable" display="Dockable"/>
-		<memberdata name="dockable_assign" display="Dockable_Assign"/>
-		<memberdata name="showhelpforsearchbyvalue" display="ShowHelpForSearchByValue"/>
-		<memberdata name="setnormalfilter" display="SetNormalFilter"/>
-		<memberdata name="searchbyvalue" display="SearchByValue"/>
-		<memberdata name="editsinglerecord" display="EditSingleRecord"/>
-		<memberdata name="getdynamicform" display="GetDynamicForm"/>
-		<memberdata name="getselectedfieldlist" display="GetSelectedFieldList"/>
-		<memberdata name="isctrldown" display="IsCtrlDown"/>
-		<memberdata name="appendblank" display="AppendBlank"/>
-		<memberdata name="zapme" display="ZapMe"/>
-		<memberdata name="browsegridheaderclick" display="BrowseGridHeaderClick"/>
-		<memberdata name="browsegridheaderrightclick" display="BrowseGridHeaderRightClick"/>
-		<memberdata name="oresultstring" display="oResultString"/>
-		<memberdata name="obeautifyoptions" display="oBeautifyOptions"/>
-		<memberdata name="addcustomkeyword" display="AddCustomKeyword"/>
-		<memberdata name="leditfieldnames" display="lEditFieldNames"/>
-		<memberdata name="leditfieldnames_assign" display="lEditFieldNames_Assign"/>
-		<memberdata name="goto" display="GoTo"/>
-		<memberdata name="cfilterexpression" display="cFilterExpression"/>
-		<memberdata name="closecursor" display="CloseCursor"/>
-		<memberdata name="lreordercolumns" display="lReorderColumns"/>
-		<memberdata name="browsegridheadermoved" display="BrowseGridHeaderMoved"/>
-		<memberdata name="setsortorder" display="SetSortOrder"/>
-		<memberdata name="oresultstring_access" display="oResultString_Access"/>
-		<memberdata name="pickercontextmenu" display="PickerContextMenu"/>
-		<memberdata name="deselectuninterestingfields" display="DeSelectUninterestingFields"/>
-		<memberdata name="changeallmarked" display="ChangeAllMarked"/>
-		<memberdata name="lsetfocustogrid" display="lSetFocusToGrid"/>
-		<memberdata name="browsegridrightclick" display="BrowseGridRightClick"/>
-		<memberdata name="lfilterbyvalueusesand" display="lFilterByValueUsesAnd"/>
-		<memberdata name="getfilterforallcharacterfields" display="GetFilterForAllCharacterFields"/>
-		<memberdata name="nmemofieldwidth" display="nMemoFieldWidth"/>
-		<memberdata name="npopupformeditboxwidth" display="nPopupFormEditboxWidth"/>
-		<memberdata name="npopupformeditboxheight" display="nPopupFormEditboxHeight"/>
-		<memberdata name="csettings" display="cSettings"/>
-		<memberdata name="csettings_access" display="cSettings_Access"/>
-		<memberdata name="savesettings" display="SaveSettings"/>
-		<memberdata name="lcheckfornulls" display="lCheckForNulls"/>
-		<memberdata name="lhandledblclick" display="lHandleDblClick"/>
-		<memberdata name="filterhelptext" display="FilterHelpText"/>
-		<memberdata name="custombindevents" display="CustomBindEvents"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AllowOutput = .F.
+		calias = 
+		Caption = "Form1"
+		ccurfilter = 
+		ccurindex = 
+		ccursor = 
+		cfilter = 
+		cfilterexpression = 
+		cfilterfields = 
+		cfilterprog = 
+		cindextext = 
+		cprefix = 
+		creturn = 
+		csavefile = 
+		csettings = 
+		ctarget = 
+		ctempfile = 
+		Dockable = 0
+		DoCreate = .T.
+		Height = 421
+		lautosaveselections = .F.
+		lcheckfornulls = .F.
+		lcloseafter = .F.
+		lcommafirst = .F.
+		leditfieldnames = .F.
+		Left = 0
+		lfilterbyvalueusesand = .T.
+		lfrom = .T.
+		lhandledblclick = .T.
+		lhideunselected = .F.
+		lneedrefresh = .F.
+		lnondefaultbackcolor = .F.
+		lreadonly = .T.
+		lreadonlyatstartup = .T.
+		lreordercolumns = .T.
+		lselectallatstartup = .F.
+		lsetfocustogrid = .T.
+		lstartwithgrid = .T.
+		lsuperbrowse = .F.
+		ltoomanyfilterfields = .F.
+		lusenvl = .F.
+		MinHeight = 300
+		MinWidth = 480
+		Name = "fp_form"
+		nbeautifycaseoption = 1
+		ncaseselection = 1
+		ncasttype = 1
+		ncursor = 1
+		ndockable = 1
+		nfilter = 2
+		nfontsize = 9
+		nlanguage = 1
+		nmemofieldwidth = 0
+		nnondefaultbackcolor = ( Thisform.BackColor)
+		npopupformeditboxheight = 400
+		npopupformeditboxwidth = 800
+		nreturntype = 1
+		nselectedbackcolor = 12648384
+		nselectedforecolor = 0
+		nstartpage = 1
+		obeautifyoptions = 
+		ogrdshowtable = .NULL.
+		oresultstring = .NULL.
+		ShowTips = .T.
+		Top = 0
+		Visible = .F.
+		Width = 900
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="nfontsize_assign" display="nfontsize_Assign"/>
+			<memberdata name="restoresettings" display="RestoreSettings"/>
+			<memberdata name="lreadonlyatstartup" display="lReadOnlyAtStartup"/>
+			<memberdata name="lcloseafter" display="lCloseAfter"/>
+			<memberdata name="setalias" display="SetAlias"/>
+			<memberdata name="aused" display="aUsed"/>
+			<memberdata name="lsuperbrowse" display="lSuperBrowse"/>
+			<memberdata name="csavefile" display="cSavefile"/>
+			<memberdata name="lautosaveselections" display="lAutoSaveSelections"/>
+			<memberdata name="lnondefaultbackcolor" display="lNonDefaultBackColor"/>
+			<memberdata name="nnondefaultbackcolor" display="nNonDefaultBackColor"/>
+			<memberdata name="setformbackcolor" display="SetFormBackColor"/>
+			<memberdata name="ndockable" display="nDockable"/>
+			<memberdata name="dockable" display="Dockable"/>
+			<memberdata name="dockable_assign" display="Dockable_Assign"/>
+			<memberdata name="showhelpforsearchbyvalue" display="ShowHelpForSearchByValue"/>
+			<memberdata name="setnormalfilter" display="SetNormalFilter"/>
+			<memberdata name="searchbyvalue" display="SearchByValue"/>
+			<memberdata name="editsinglerecord" display="EditSingleRecord"/>
+			<memberdata name="getdynamicform" display="GetDynamicForm"/>
+			<memberdata name="getselectedfieldlist" display="GetSelectedFieldList"/>
+			<memberdata name="isctrldown" display="IsCtrlDown"/>
+			<memberdata name="appendblank" display="AppendBlank"/>
+			<memberdata name="zapme" display="ZapMe"/>
+			<memberdata name="browsegridheaderclick" display="BrowseGridHeaderClick"/>
+			<memberdata name="browsegridheaderrightclick" display="BrowseGridHeaderRightClick"/>
+			<memberdata name="oresultstring" display="oResultString"/>
+			<memberdata name="obeautifyoptions" display="oBeautifyOptions"/>
+			<memberdata name="addcustomkeyword" display="AddCustomKeyword"/>
+			<memberdata name="leditfieldnames" display="lEditFieldNames"/>
+			<memberdata name="leditfieldnames_assign" display="lEditFieldNames_Assign"/>
+			<memberdata name="goto" display="GoTo"/>
+			<memberdata name="cfilterexpression" display="cFilterExpression"/>
+			<memberdata name="closecursor" display="CloseCursor"/>
+			<memberdata name="lreordercolumns" display="lReorderColumns"/>
+			<memberdata name="browsegridheadermoved" display="BrowseGridHeaderMoved"/>
+			<memberdata name="setsortorder" display="SetSortOrder"/>
+			<memberdata name="oresultstring_access" display="oResultString_Access"/>
+			<memberdata name="pickercontextmenu" display="PickerContextMenu"/>
+			<memberdata name="deselectuninterestingfields" display="DeSelectUninterestingFields"/>
+			<memberdata name="changeallmarked" display="ChangeAllMarked"/>
+			<memberdata name="lsetfocustogrid" display="lSetFocusToGrid"/>
+			<memberdata name="browsegridrightclick" display="BrowseGridRightClick"/>
+			<memberdata name="lfilterbyvalueusesand" display="lFilterByValueUsesAnd"/>
+			<memberdata name="getfilterforallcharacterfields" display="GetFilterForAllCharacterFields"/>
+			<memberdata name="nmemofieldwidth" display="nMemoFieldWidth"/>
+			<memberdata name="npopupformeditboxwidth" display="nPopupFormEditboxWidth"/>
+			<memberdata name="npopupformeditboxheight" display="nPopupFormEditboxHeight"/>
+			<memberdata name="csettings" display="cSettings"/>
+			<memberdata name="csettings_access" display="cSettings_Access"/>
+			<memberdata name="savesettings" display="SaveSettings"/>
+			<memberdata name="lcheckfornulls" display="lCheckForNulls"/>
+			<memberdata name="lhandledblclick" display="lHandleDblClick"/>
+			<memberdata name="filterhelptext" display="FilterHelpText"/>
+			<memberdata name="custombindevents" display="CustomBindEvents"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cboSelectAlias' AS combobox WITH ;
 		Anchor = 0, ;
@@ -1720,8 +1722,8 @@ DEFINE CLASS fp_form AS form
 		KeyboardLowValue = 7, ;
 		Left = 159, ;
 		Name = "Spinner1", ;
-		SpinnerHighValue = 12.00, ;
-		SpinnerLowValue = 7.00, ;
+		SpinnerHighValue =  12.00, ;
+		SpinnerLowValue =   7.00, ;
 		Top = 177, ;
 		Width = 46
 		*< END OBJECT: BaseClass="spinner" />
@@ -1734,7 +1736,7 @@ DEFINE CLASS fp_form AS form
 		Left = 388, ;
 		Name = "Spinner2", ;
 		SpinnerHighValue = 250.00, ;
-		SpinnerLowValue = 0.00, ;
+		SpinnerLowValue =   0.00, ;
 		Top = 177, ;
 		Width = 50
 		*< END OBJECT: BaseClass="spinner" />
@@ -2119,9 +2121,9 @@ DEFINE CLASS fp_form AS form
 		lcAlias			 = Alias()
 		lcSys2015 = Sys(2015)
 		This.ctempfile	 = Sys(2023) + [\PEM_fieldpickertemp] + lcSys2015
-		This.ccursor	 = '_sb_fields' + lcSys2015
-		This.ccurfilter	 = '_sb_filter' + lcSys2015
-		This.ccurindex	 = '_sb_tags' + lcSys2015
+		This.ccursor	 = '_sb_' + lcAlias + '_fields' + lcSys2015
+		This.ccurfilter	 = '_sb_' + lcAlias + '_filter' + lcSys2015
+		This.ccurindex	 = '_sb_' + lcAlias + '_tags' + lcSys2015
 		*!* ******************** Removed 6/19/2014 *****************
 		*!* This.cfilterprog = [_sb_filter] + lcSys2015 + '.prg'
 		
@@ -4676,10 +4678,12 @@ DEFINE CLASS fp_form AS form
 ENDDEFINE
 
 DEFINE CLASS fp_textbox AS textbox 
- 	*< CLASSDATA: Baseclass="textbox" Timestamp="2013/11/04 20:00:00" Scale="Pixels" Uniqueid="" />
+ 	*< CLASSDATA: Baseclass="textbox" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Height = 23
-	Name = "fp_textbox"
-	Width = 100
+	*<PropValue>
+		Height = 23
+		Name = "fp_textbox"
+		Width = 100
+	*</PropValue>
 
 ENDDEFINE
