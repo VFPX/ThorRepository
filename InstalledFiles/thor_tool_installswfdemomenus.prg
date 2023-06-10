@@ -1,3 +1,4 @@
+#Define ccHelpURL 'https://github.com/VFPX/ThorRepository/blob/master/docs/quickmenu.md'
 Lparameters lxParam1
 
 ****************************************************************
@@ -14,9 +15,8 @@ If Pcount() = 1								;
 		* Required
 		.Prompt		   = 'Install Quick Access Menu'
 
-		Text To .Description Noshow
-Describe it!		
-		Endtext
+		.Description =  'See ' + ccHelpURL
+
 		.Category = 'JRN'
 		.Author	  = 'JRN'
 	Endwith
@@ -107,7 +107,7 @@ Procedure ReadyToInstall
 
 	Do Case
 		Case m.lnResponse = 6
-			lcURL		= 'https://github.com/VFPX/ThorRepository/blob/master/docs/quickmenu.md'
+			lcURL		= ccHelpURL
 			loThorUtils	= Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
 			m.loThorUtils.GoURL(m.lcURL)
 		Case m.lnResponse # 7

@@ -1,4 +1,7 @@
 
+### 2023-06-10, Version 65.06
+Mainly updated documentation for a few tools; a bug fix or two
+
 ### 2023-05-20, Version 65.05
 Updates of some Procs; no visible effect on any Tools
 

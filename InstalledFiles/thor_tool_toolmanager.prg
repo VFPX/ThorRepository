@@ -88,7 +88,8 @@ Procedure ToolCode
 				OptionTool,									;
 				PlugIns,									;
 				ToolPrompt,									;
-				ToolDescription								;
+				ToolDescription,							;
+				FolderName									;
 			From (m.lcSourceAlias)							;
 			Into Cursor (m.lcAlias) Readwrite
 			

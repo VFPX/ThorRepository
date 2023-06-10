@@ -14,10 +14,12 @@ DEFINE CLASS clsbreak AS container
 	*< OBJECTDATA: ObjPath="Check1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Label3" UniqueID="" Timestamp="" />
 
-	Anchor = 15
-	Height = 260
-	Name = "clsbreak"
-	Width = 345
+	*<PropValue>
+		Anchor = 15
+		Height = 260
+		Name = "clsbreak"
+		Width = 345
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS label WITH ;
 		Alignment = 2, ;

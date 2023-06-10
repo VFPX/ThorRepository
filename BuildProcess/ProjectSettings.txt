@@ -1,6 +1,8 @@
 AppName   = Thor Repository
 AppID     = ThorRepository
-Version   = 65.05
+Version   = 65.06
 Component = Yes
-ChangeLog = Change Log.MD
+
+ChangeLog 	   = Change Log.MD
+Bin2PRGFolder  = InstalledFiles
 

@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 200
-	Left = 865
-	Name = "Dataenvironment"
-	Top = 243
-	Width = 520
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 200
+		Left = 865
+		Name = "Dataenvironment"
+		Top = 243
+		Width = 520
+	*</PropValue>
 
 ENDDEFINE
 
@@ -107,45 +109,47 @@ DEFINE CLASS form1 AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .T.
-	Caption = "Code Mechanic"
-	cbackupdir = 		&& Placeholder for backup-directory
-	cdirectory = 		&& Placeholder for selected directory
-	cfilename = 		&& placeholder for selected filename
-	cfiletype = prg		&& placeholder for selected filetype
-	cnfiletype = 		&& placeholder for selectefiletype ID
-	cnsource = 		&& placeholder for selected source type ID
-	csource = 		&& placeholder for selected sourcetype
-	DoCreate = .T.
-	Height = 432
-	laddlocals = .F.
-	lbeautifyx = .F.
-	lerasefxp = .F.
-	lgetfileordir = .F.
-	lproject = .F.
-	MinHeight = 229
-	MinWidth = 900
-	Name = "Form1"
-	nchecked = 0
-	nerror = 0
-	nfileordir = 1		&& Placeholder for Boolean FileOrDir
-	nmdots = 1		&& placeholder for option mDots selection
-	nreadonlyforecolor = (rgb(150,150,150))
-	nselectedbackcolor = (rgb(200,255,200))
-	nselectedforecolor = 0
-	otools = .NULL.
-	runningmode = .F.		&& Wether the form is in runningmode ( set internally )
-	version = 01March2013-16:52 CET ->KP
-	Width = 921
-	_memberdata = <VFPData>
-		<memberdata name="lbeautifyx" display="lBeautifyX"/>
-		<memberdata name="laddlocals" display="lAddLocals"/>
-		<memberdata name="nmdots" display="nMDots"/>
-		<memberdata name="otools" display="oTools"/>
-		<memberdata name="restoresettings" display="RestoreSettings"/>
-		<memberdata name="zapme" display="ZapMe"/>
-		<memberdata name="getbackcolor" display="GetBackcolor"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AutoCenter = .T.
+		Caption = "Code Mechanic"
+		cbackupdir = 
+		cdirectory = 
+		cfilename = 
+		cfiletype = prg
+		cnfiletype = 
+		cnsource = 
+		csource = 
+		DoCreate = .T.
+		Height = 432
+		laddlocals = .F.
+		lbeautifyx = .F.
+		lerasefxp = .F.
+		lgetfileordir = .F.
+		lproject = .F.
+		MinHeight = 229
+		MinWidth = 900
+		Name = "Form1"
+		nchecked = 0
+		nerror = 0
+		nfileordir = 1
+		nmdots = 1
+		nreadonlyforecolor = (rgb(150,150,150))
+		nselectedbackcolor = (rgb(200,255,200))
+		nselectedforecolor = 0
+		otools = .NULL.
+		runningmode = .F.
+		version = 01March2013-16:52 CET ->KP
+		Width = 921
+		_memberdata = <VFPData>
+			<memberdata name="lbeautifyx" display="lBeautifyX"/>
+			<memberdata name="laddlocals" display="lAddLocals"/>
+			<memberdata name="nmdots" display="nMDots"/>
+			<memberdata name="otools" display="oTools"/>
+			<memberdata name="restoresettings" display="RestoreSettings"/>
+			<memberdata name="zapme" display="ZapMe"/>
+			<memberdata name="getbackcolor" display="GetBackcolor"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cboFiletype' AS combobox WITH ;
 		Anchor = 3, ;

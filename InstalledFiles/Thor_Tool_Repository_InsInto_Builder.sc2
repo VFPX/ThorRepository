@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -68,36 +70,38 @@ DEFINE CLASS insinto AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .T.
-	caliasobject = 
-	Caption = "INSERT INTO builder"
-	DoCreate = .T.
-	Height = 600
-	laddcast = .F.
-	laddnvl = .F.
-	laddprefix = .F.
-	lcommname = .F.
-	lcommtype = .F.
-	lcreatelocals = .F.
-	MinHeight = 600
-	MinWidth = 790
-	Name = "insinto"
-	ncommand = 1
-	nlanguage = 1
-	nselect = 0		&& selected area
-	nvaluefrom = 1
-	Width = 790
-	_memberdata = <VFPData>
-		<memberdata name="nselect" display="nSelect"/>
-		<memberdata name="nvaluefrom" display="nValueFrom"/>
-		<memberdata name="caliasobject" display="cAliasObject"/>
-		<memberdata name="nlanguage" display="nLanguage"/>
-		<memberdata name="lcommname" display="lCommName"/>
-		<memberdata name="lcommtype" display="lCommType"/>
-		<memberdata name="sqltype" display="sqlType"/>
-		<memberdata name="laddprefix" display="lAddPrefix"/>
-		<memberdata name="laddnvl" display="lAddNvl"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AutoCenter = .T.
+		caliasobject =  
+		Caption = "INSERT INTO builder"
+		DoCreate = .T.
+		Height = 600
+		laddcast = .F.
+		laddnvl = .F.
+		laddprefix = .F.
+		lcommname = .F.
+		lcommtype = .F.
+		lcreatelocals = .F.
+		MinHeight = 600
+		MinWidth = 790
+		Name = "insinto"
+		ncommand = 1
+		nlanguage = 1
+		nselect = 0
+		nvaluefrom = 1
+		Width = 790
+		_memberdata = <VFPData>
+			<memberdata name="nselect" display="nSelect"/>
+			<memberdata name="nvaluefrom" display="nValueFrom"/>
+			<memberdata name="caliasobject" display="cAliasObject"/>
+			<memberdata name="nlanguage" display="nLanguage"/>
+			<memberdata name="lcommname" display="lCommName"/>
+			<memberdata name="lcommtype" display="lCommType"/>
+			<memberdata name="sqltype" display="sqlType"/>
+			<memberdata name="laddprefix" display="lAddPrefix"/>
+			<memberdata name="laddnvl" display="lAddNvl"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'CbTabs' AS combobox WITH ;
 		Height = 25, ;

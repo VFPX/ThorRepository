@@ -508,7 +508,7 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 
 	*<PropValue>
 		BorderStyle = 3
-		Caption = "Size / Position"
+		Caption = "Modify Position and Size of selected object(s)"
 		Dockable = 2
 		DoCreate = .T.
 		Height = 154
@@ -1561,10 +1561,14 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 	
 	PROCEDURE Activate
 		Local laObjects[1]
+		
 		DoDefault()
 		
 		With This
 			.nSelectedObjects = Aselobj (laObjects)
+			If .nSelectedObjects = 0
+				.nSelectedObjects = Aselobj (laObjects, 1)
+			Endif
 			.oFormat.EmptyUndoBuffer()
 			.Refresh()
 		Endwith

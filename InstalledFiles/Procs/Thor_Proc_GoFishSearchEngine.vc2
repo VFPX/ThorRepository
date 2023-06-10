@@ -146,178 +146,180 @@ DEFINE CLASS gofishsearchengine_thor AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cbackupprg = GoFishBackup.prg
-	cfilestoskip = 
-	cfilestoskipfile = ( Home(7) + 'GF_Files_To_Skip.txt')		&& This files contains a list of files to be skipped during the search. One filname on each line. This list is only slipped is lSkipFiles is .t.
-	cgraphicsextensions = PNG ICO JPG JPEG TIF TIFF GIF BMP MSK CUR ANI
-	cinitialdefaultdir = 
-	cprojects = 		&& A text list of projects that matches oProjects. Makes looking for existing projects fast than analyzing the oProjects collection. This property is only to be used by the class. Please don't touch it.
-	creplacedetailtable = ( Home(7) + 'GF_Replace_Detail.dbf')		&& A detail record is stored here for every single match line that is replaced.
-	creplacehistorytable = ( Home(7) + 'GF_Replace_History.dbf')		&& A single header record is stored here for each time the ReplaceFromMarkedRows() method is called.
-	creplaceudfcode = 		&& Holds the code for a UDF to be used on Replace operations if nReplaceMode is the Advanced Replace mode
-	csearchoptionsclass = GoFishSearchOptions_Thor		&& The default Search Options class to be used. Can be overriden by passing a string to the Init(I method.
-	csearchresultsalias = GFSE_SearchResults		&& This is the name of the cursor where the results rows ill be stored.
-	ctableextensions = SCX VCX FRX MNX LBX DBC PJX DBF		&& These are the filetypes that will be handled by the SearchInTable() method. All other filetypes are assumed to be plain text files and will be handled by the SearchInTextFile() method.
-	cversion = 
-	Height = 46
-	lescpress = .F.		&& Indicates if the ESC key was pressed by the user during on of the lower processing loops of a Search.
-	lfilehasbeenedited = .F.		&& This flag is set any time a MODIFY operation is launched from the grid. We asume they made changes to the file, requiring a new search before they can do a Replace. This prevents the REPLACE button from being available until the search is run again.
-	lfilenotfound = .F.		&& Will indicate if there were any files in a ProcessProject() or ProcessPath() that were not found. You can check this flag after a search call.
-	lreadytoreplace = .F.
-	lresultslimitreached = .F.		&& Indicates if the max search results limit was reach during a search. See nMaxResults property on the Search Options class.
-	lsearchoncepervcx = .F.
-	ltimestampdataprovided = .F.
-	Name = "gofishsearchengine_thor"
-	nfilecount = 0		&& This values indicates how many files were found to have matches in them.
-	nfilesprocessed = 0		&& This values indicates the total number of files processed that matched the file filter, whether they had matches or not.
-	nmatchlines = 0		&& How many matched lines found in the last search. Note: this counts lines that had a match, note each match. It's possible that one line could have multiple matches.
-	nreplacecount = 0
-	nreplacefilecount = 0
-	nreplacehistoryid = 0		&& Store the current ID number of the Replace History record.
-	nreplacemode = 1		&& 1= Regular replace, 2 = Advanced Replace (UDF Replace)
-	nsearchtime = 0		&& Tells how long the last search took. It is only reset by SearchInPath() or SerachInProject() took, and not by the lower level search like SearchInFile, or SearchInTextFile, or SearchInTable.
-	ocustomprocessor = .NULL.
-	odirectories = .NULL.		&& Internally used by the SearcthInPath() to build a collection of directories to be searched.
-	ofrxcursor = .NULL.		&& An FFC class used to generate a TimeStamp so the TimeStamp field can be updated when replacing code in a table based file.
-	ofso = .NULL.
-	oprogressbar = .NULL.
-	oprojects = .NULL.		&& Internally created to show a collection of recently used Projects, or projects found in the current path folder. This is built so the GoFish Advanced form can allow user to choose a Project.
-	oregexforprocedurestartpositions = .NULL.
-	oregexforsearch = .NULL.
-	oreplaceerrors = .NULL.
-	oresults = .NULL.		&& This is a collection of match objects from the last search. Must set lCreateResultsCollection if you want this collection to be built
-	osearcherrors = .NULL.		&& A collection of any errors that happened during the last search.
-	osearchoptions = .NULL.		&& A object instance of the Search Options class that holds properties to controll how the search is performed.
-	Width = 176
-	_memberdata = <VFPData>
-		<memberdata name="istextfile" display="IsTextFile"/>
-		<memberdata name="isfiletypeincluded" display="IsFileTypeIncluded"/>
-		<memberdata name="findprocedureformatch" display="FindProcedureForMatch"/>
-		<memberdata name="getprocedurestartpositions" display="GetProcedureStartPositions"/>
-		<memberdata name="csearchresultsalias" display="cSearchResultsAlias"/>
-		<memberdata name="filestoskip" display="FilesToSkip"/>
-		<memberdata name="width" display="Width"/>
-		<memberdata name="height" display="Height"/>
-		<memberdata name="clearreplacesettings" display="ClearReplaceSettings"/>
-		<memberdata name="editfromcurrentrow" display="EditFromCurrentRow"/>
-		<memberdata name="lreadytoreplace" display="lReadyToReplace"/>
-		<memberdata name="lfilehasbeenedited" display="lFileHasBeenEdited"/>
-		<memberdata name="replaceintextfile" display="ReplaceInTextFile"/>
-		<memberdata name="escapesearchexpression" display="EscapeSearchExpression"/>
-		<memberdata name="prepareregexforsearch" display="PrepareRegExForSearch"/>
-		<memberdata name="oregexforsearch" display="oRegExForSearch"/>
-		<memberdata name="oregexforprocedurestartpositions" display="oRegExForProcedureStartPositions"/>
-		<memberdata name="getregexforprocedurestartpositions" display="GetRegExForProcedureStartPositions"/>
-		<memberdata name="getregexforsearch" display="GetRegExForSearch"/>
-		<memberdata name="starttimer" display="StartTimer"/>
-		<memberdata name="endtimer" display="EndTimer"/>
-		<memberdata name="lescpress" display="lEscPress"/>
-		<memberdata name="prepareforsearch" display="PrepareForSearch"/>
-		<memberdata name="lfilenotfound" display="lFileNotFound"/>
-		<memberdata name="replaceincode" display="ReplaceInCode"/>
-		<memberdata name="searchinpath" display="SearchInPath"/>
-		<memberdata name="searchinproject" display="SearchInProject"/>
-		<memberdata name="searchinfile" display="SearchInFile"/>
-		<memberdata name="searchintable" display="SearchInTable"/>
-		<memberdata name="searchincode" display="SearchInCode"/>
-		<memberdata name="nfilecount" display="nFileCount"/>
-		<memberdata name="prepareregexforreplace" display="PrepareRegExForReplace"/>
-		<memberdata name="opentableforreplace" display="OpenTableForReplace"/>
-		<memberdata name="showerror" display="ShowError"/>
-		<memberdata name="clearreplaceerrormessage" display="ClearReplaceErrorMessage"/>
-		<memberdata name="oresults" display="oResults"/>
-		<memberdata name="clearresultscollection" display="ClearResultsCollection"/>
-		<memberdata name="searchintextfile" display="SearchInTextFile"/>
-		<memberdata name="osearchoptions" display="oSearchOptions"/>
-		<memberdata name="csearchoptionsclass" display="cSearchOptionsClass"/>
-		<memberdata name="ctableextensions" display="cTableExtensions"/>
-		<memberdata name="clearresultscursor" display="ClearResultsCursor"/>
-		<memberdata name="createresultsrow" display="CreateResultsRow"/>
-		<memberdata name="getfiledatetime" display="GetFileDateTime"/>
-		<memberdata name="ofrxcursor" display="oFrxCursor"/>
-		<memberdata name="nsearchtime" display="nSearchTime"/>
-		<memberdata name="loadoptions" display="LoadOptions"/>
-		<memberdata name="saveoptions" display="SaveOptions"/>
-		<memberdata name="lresultslimitreached" display="lResultsLimitReached"/>
-		<memberdata name="nmatchlines" display="nMatchLines"/>
-		<memberdata name="setproject" display="SetProject"/>
-		<memberdata name="cinitialdefaultdir" display="cInitialDefaultDir"/>
-		<memberdata name="restoredefaultdir" display="RestoreDefaultDir"/>
-		<memberdata name="storeinitialdefaultdir" display="StoreInitialDefaultDir"/>
-		<memberdata name="lreadytoreplace_access" display="lReadyToReplace_Access"/>
-		<memberdata name="oprojects" display="oProjects"/>
-		<memberdata name="ltimestampdataprovided" display="lTimeStampDataProvided"/>
-		<memberdata name="ltimestampdataprovided_access" display="lTimeStampDataProvided_Access"/>
-		<memberdata name="buildprojectscollection" display="BuildProjectsCollection"/>
-		<memberdata name="odirectories" display="oDirectories"/>
-		<memberdata name="builddirectoriescollection" display="BuildDirectoriesCollection"/>
-		<memberdata name="getdirectories" display="GetDirectories"/>
-		<memberdata name="showwaitmessage" display="ShowWaitMessage"/>
-		<memberdata name="timestamptodate" display="TimeStampToDate"/>
-		<memberdata name="htmlencode" display="HtmlEncode"/>
-		<memberdata name="regexreplace" display="RegExReplace"/>
-		<memberdata name="changecurrentdir" display="ChangeCurrentDir"/>
-		<memberdata name="addproject" display="AddProject"/>
-		<memberdata name="generatehtmlcode" display="GenerateHTMLCode"/>
-		<memberdata name="searchinfilename" display="SearchInFileName"/>
-		<memberdata name="getactiveproject" display="GetActiveProject"/>
-		<memberdata name="getcurrentdirectory" display="GetCurrentDirectory"/>
-		<memberdata name="extractobjectname" display="ExtractObjectName"/>
-		<memberdata name="extractmethodname" display="ExtractMethodName"/>
-		<memberdata name="cprojects" display="cProjects"/>
-		<memberdata name="assignmatchtypeforscxvcx" display="AssignMatchTypeForScxVcx"/>
-		<memberdata name="assignmatchtypeforprg" display="AssignMatchTypeForPrg"/>
-		<memberdata name="assignmatchtype" display="AssignMatchType"/>
-		<memberdata name="createresult" display="CreateResult"/>
-		<memberdata name="getfrxobjecttype" display="GetFrxObjectType"/>
-		<memberdata name="checkfilenametemplate" display="CheckFilenameTemplate"/>
-		<memberdata name="checkfileexttemplate" display="CheckFileExtTemplate"/>
-		<memberdata name="matchtemplate" display="MatchTemplate"/>
-		<memberdata name="iscomment" display="IsComment"/>
-		<memberdata name="isfulllinecomment" display="IsFullLineComment"/>
-		<memberdata name="processinlinecomments" display="ProcessInlineComments"/>
-		<memberdata name="osearcherrors" display="oSearchErrors"/>
-		<memberdata name="oreplaceerrors" display="oReplaceErrors"/>
-		<memberdata name="setreplaceerror" display="SetReplaceError"/>
-		<memberdata name="setsearcherror" display="SetSearchError"/>
-		<memberdata name="nreplacecount" display="nReplaceCount"/>
-		<memberdata name="nreplacefilecount" display="nReplaceFileCount"/>
-		<memberdata name="getreplaceresultobject" display="GetReplaceResultObject"/>
-		<memberdata name="trimwhitespace" display="TrimWhiteSpace"/>
-		<memberdata name="processsearchresult" display="ProcessSearchResult"/>
-		<memberdata name="replacemarkedrows" display="ReplaceMarkedRows"/>
-		<memberdata name="getreplacerisklevel" display="GetReplaceRiskLevel"/>
-		<memberdata name="replacefromcurrentrow" display="ReplaceFromCurrentRow"/>
-		<memberdata name="creplacehistorytable" display="cReplaceHistoryTable"/>
-		<memberdata name="createreplacehistoryrecord" display="CreateReplaceHistoryRecord"/>
-		<memberdata name="createreplacedetailrecord" display="CreateReplaceDetailRecord"/>
-		<memberdata name="creplacedetailtable" display="cReplaceDetailTable"/>
-		<memberdata name="nreplacehistoryid" display="nReplaceHistoryId"/>
-		<memberdata name="backupfile" display="BackupFile"/>
-		<memberdata name="cbackupprg" display="cBackupPRG"/>
-		<memberdata name="updatecursorafterreplace" display="UpdateCursorAfterReplace"/>
-		<memberdata name="oprogressbar" display="oProgressBar"/>
-		<memberdata name="updateprogressbar" display="UpdateProgressBar"/>
-		<memberdata name="incrementprogressbar" display="IncrementProgressBar"/>
-		<memberdata name="stopprogressbar" display="StopProgressBar"/>
-		<memberdata name="startprogressbar" display="StartProgressBar"/>
-		<memberdata name="searchfinished" display="SearchFinished"/>
-		<memberdata name="replaceintable" display="ReplaceInTable"/>
-		<memberdata name="updatereplacehistoryrecord" display="UpdateReplaceHistoryRecord"/>
-		<memberdata name="replaceline" display="ReplaceLine"/>
-		<memberdata name="nfilesprocessed" display="nFilesProcessed"/>
-		<memberdata name="reduceprogressbarmaxvalue" display="ReduceProgressBarMaxValue"/>
-		<memberdata name="compile" display="Compile"/>
-		<memberdata name="cleanupbinarystring" display="CleanUpBinaryString"/>
-		<memberdata name="cversion" display="cVersion"/>
-		<memberdata name="ofso" display="oFSO"/>
-		<memberdata name="creplaceudfcode" display="cReplaceUDFCode"/>
-		<memberdata name="nreplacemode" display="nReplaceMode"/>
-		<memberdata name="replacelinewithudf" display="ReplaceLineWithUDF"/>
-		<memberdata name="cfilestoskip" display="cFilesToSkip"/>
-		<memberdata name="setfilestoskip" display="SetFilesToSkip"/>
-		<memberdata name="ocustomprocessor" display="oCustomProcessor"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cbackupprg = GoFishBackup.prg
+		cfilestoskip = 
+		cfilestoskipfile = ( Home(7) + 'GF_Files_To_Skip.txt')
+		cgraphicsextensions = PNG ICO JPG JPEG TIF TIFF GIF BMP MSK CUR ANI
+		cinitialdefaultdir = 
+		cprojects = 
+		creplacedetailtable = ( Home(7) + 'GF_Replace_Detail.dbf')
+		creplacehistorytable = ( Home(7) + 'GF_Replace_History.dbf')
+		creplaceudfcode = 
+		csearchoptionsclass = GoFishSearchOptions_Thor
+		csearchresultsalias = GFSE_SearchResults
+		ctableextensions = SCX VCX FRX MNX LBX DBC PJX DBF
+		cversion = 
+		Height = 46
+		lescpress = .F.
+		lfilehasbeenedited = .F.
+		lfilenotfound = .F.
+		lreadytoreplace = .F.
+		lresultslimitreached = .F.
+		lsearchoncepervcx = .F.
+		ltimestampdataprovided = .F.
+		Name = "gofishsearchengine_thor"
+		nfilecount = 0
+		nfilesprocessed = 0
+		nmatchlines = 0
+		nreplacecount = 0
+		nreplacefilecount = 0
+		nreplacehistoryid = 0
+		nreplacemode = 1
+		nsearchtime = 0
+		ocustomprocessor = .NULL.
+		odirectories = .NULL.
+		ofrxcursor = .NULL.
+		ofso = .NULL.
+		oprogressbar = .NULL.
+		oprojects = .NULL.
+		oregexforprocedurestartpositions = .NULL.
+		oregexforsearch = .NULL.
+		oreplaceerrors = .NULL.
+		oresults = .NULL.
+		osearcherrors = .NULL.
+		osearchoptions = .NULL.
+		Width = 176
+		_memberdata = <VFPData>
+			<memberdata name="istextfile" display="IsTextFile"/>
+			<memberdata name="isfiletypeincluded" display="IsFileTypeIncluded"/>
+			<memberdata name="findprocedureformatch" display="FindProcedureForMatch"/>
+			<memberdata name="getprocedurestartpositions" display="GetProcedureStartPositions"/>
+			<memberdata name="csearchresultsalias" display="cSearchResultsAlias"/>
+			<memberdata name="filestoskip" display="FilesToSkip"/>
+			<memberdata name="width" display="Width"/>
+			<memberdata name="height" display="Height"/>
+			<memberdata name="clearreplacesettings" display="ClearReplaceSettings"/>
+			<memberdata name="editfromcurrentrow" display="EditFromCurrentRow"/>
+			<memberdata name="lreadytoreplace" display="lReadyToReplace"/>
+			<memberdata name="lfilehasbeenedited" display="lFileHasBeenEdited"/>
+			<memberdata name="replaceintextfile" display="ReplaceInTextFile"/>
+			<memberdata name="escapesearchexpression" display="EscapeSearchExpression"/>
+			<memberdata name="prepareregexforsearch" display="PrepareRegExForSearch"/>
+			<memberdata name="oregexforsearch" display="oRegExForSearch"/>
+			<memberdata name="oregexforprocedurestartpositions" display="oRegExForProcedureStartPositions"/>
+			<memberdata name="getregexforprocedurestartpositions" display="GetRegExForProcedureStartPositions"/>
+			<memberdata name="getregexforsearch" display="GetRegExForSearch"/>
+			<memberdata name="starttimer" display="StartTimer"/>
+			<memberdata name="endtimer" display="EndTimer"/>
+			<memberdata name="lescpress" display="lEscPress"/>
+			<memberdata name="prepareforsearch" display="PrepareForSearch"/>
+			<memberdata name="lfilenotfound" display="lFileNotFound"/>
+			<memberdata name="replaceincode" display="ReplaceInCode"/>
+			<memberdata name="searchinpath" display="SearchInPath"/>
+			<memberdata name="searchinproject" display="SearchInProject"/>
+			<memberdata name="searchinfile" display="SearchInFile"/>
+			<memberdata name="searchintable" display="SearchInTable"/>
+			<memberdata name="searchincode" display="SearchInCode"/>
+			<memberdata name="nfilecount" display="nFileCount"/>
+			<memberdata name="prepareregexforreplace" display="PrepareRegExForReplace"/>
+			<memberdata name="opentableforreplace" display="OpenTableForReplace"/>
+			<memberdata name="showerror" display="ShowError"/>
+			<memberdata name="clearreplaceerrormessage" display="ClearReplaceErrorMessage"/>
+			<memberdata name="oresults" display="oResults"/>
+			<memberdata name="clearresultscollection" display="ClearResultsCollection"/>
+			<memberdata name="searchintextfile" display="SearchInTextFile"/>
+			<memberdata name="osearchoptions" display="oSearchOptions"/>
+			<memberdata name="csearchoptionsclass" display="cSearchOptionsClass"/>
+			<memberdata name="ctableextensions" display="cTableExtensions"/>
+			<memberdata name="clearresultscursor" display="ClearResultsCursor"/>
+			<memberdata name="createresultsrow" display="CreateResultsRow"/>
+			<memberdata name="getfiledatetime" display="GetFileDateTime"/>
+			<memberdata name="ofrxcursor" display="oFrxCursor"/>
+			<memberdata name="nsearchtime" display="nSearchTime"/>
+			<memberdata name="loadoptions" display="LoadOptions"/>
+			<memberdata name="saveoptions" display="SaveOptions"/>
+			<memberdata name="lresultslimitreached" display="lResultsLimitReached"/>
+			<memberdata name="nmatchlines" display="nMatchLines"/>
+			<memberdata name="setproject" display="SetProject"/>
+			<memberdata name="cinitialdefaultdir" display="cInitialDefaultDir"/>
+			<memberdata name="restoredefaultdir" display="RestoreDefaultDir"/>
+			<memberdata name="storeinitialdefaultdir" display="StoreInitialDefaultDir"/>
+			<memberdata name="lreadytoreplace_access" display="lReadyToReplace_Access"/>
+			<memberdata name="oprojects" display="oProjects"/>
+			<memberdata name="ltimestampdataprovided" display="lTimeStampDataProvided"/>
+			<memberdata name="ltimestampdataprovided_access" display="lTimeStampDataProvided_Access"/>
+			<memberdata name="buildprojectscollection" display="BuildProjectsCollection"/>
+			<memberdata name="odirectories" display="oDirectories"/>
+			<memberdata name="builddirectoriescollection" display="BuildDirectoriesCollection"/>
+			<memberdata name="getdirectories" display="GetDirectories"/>
+			<memberdata name="showwaitmessage" display="ShowWaitMessage"/>
+			<memberdata name="timestamptodate" display="TimeStampToDate"/>
+			<memberdata name="htmlencode" display="HtmlEncode"/>
+			<memberdata name="regexreplace" display="RegExReplace"/>
+			<memberdata name="changecurrentdir" display="ChangeCurrentDir"/>
+			<memberdata name="addproject" display="AddProject"/>
+			<memberdata name="generatehtmlcode" display="GenerateHTMLCode"/>
+			<memberdata name="searchinfilename" display="SearchInFileName"/>
+			<memberdata name="getactiveproject" display="GetActiveProject"/>
+			<memberdata name="getcurrentdirectory" display="GetCurrentDirectory"/>
+			<memberdata name="extractobjectname" display="ExtractObjectName"/>
+			<memberdata name="extractmethodname" display="ExtractMethodName"/>
+			<memberdata name="cprojects" display="cProjects"/>
+			<memberdata name="assignmatchtypeforscxvcx" display="AssignMatchTypeForScxVcx"/>
+			<memberdata name="assignmatchtypeforprg" display="AssignMatchTypeForPrg"/>
+			<memberdata name="assignmatchtype" display="AssignMatchType"/>
+			<memberdata name="createresult" display="CreateResult"/>
+			<memberdata name="getfrxobjecttype" display="GetFrxObjectType"/>
+			<memberdata name="checkfilenametemplate" display="CheckFilenameTemplate"/>
+			<memberdata name="checkfileexttemplate" display="CheckFileExtTemplate"/>
+			<memberdata name="matchtemplate" display="MatchTemplate"/>
+			<memberdata name="iscomment" display="IsComment"/>
+			<memberdata name="isfulllinecomment" display="IsFullLineComment"/>
+			<memberdata name="processinlinecomments" display="ProcessInlineComments"/>
+			<memberdata name="osearcherrors" display="oSearchErrors"/>
+			<memberdata name="oreplaceerrors" display="oReplaceErrors"/>
+			<memberdata name="setreplaceerror" display="SetReplaceError"/>
+			<memberdata name="setsearcherror" display="SetSearchError"/>
+			<memberdata name="nreplacecount" display="nReplaceCount"/>
+			<memberdata name="nreplacefilecount" display="nReplaceFileCount"/>
+			<memberdata name="getreplaceresultobject" display="GetReplaceResultObject"/>
+			<memberdata name="trimwhitespace" display="TrimWhiteSpace"/>
+			<memberdata name="processsearchresult" display="ProcessSearchResult"/>
+			<memberdata name="replacemarkedrows" display="ReplaceMarkedRows"/>
+			<memberdata name="getreplacerisklevel" display="GetReplaceRiskLevel"/>
+			<memberdata name="replacefromcurrentrow" display="ReplaceFromCurrentRow"/>
+			<memberdata name="creplacehistorytable" display="cReplaceHistoryTable"/>
+			<memberdata name="createreplacehistoryrecord" display="CreateReplaceHistoryRecord"/>
+			<memberdata name="createreplacedetailrecord" display="CreateReplaceDetailRecord"/>
+			<memberdata name="creplacedetailtable" display="cReplaceDetailTable"/>
+			<memberdata name="nreplacehistoryid" display="nReplaceHistoryId"/>
+			<memberdata name="backupfile" display="BackupFile"/>
+			<memberdata name="cbackupprg" display="cBackupPRG"/>
+			<memberdata name="updatecursorafterreplace" display="UpdateCursorAfterReplace"/>
+			<memberdata name="oprogressbar" display="oProgressBar"/>
+			<memberdata name="updateprogressbar" display="UpdateProgressBar"/>
+			<memberdata name="incrementprogressbar" display="IncrementProgressBar"/>
+			<memberdata name="stopprogressbar" display="StopProgressBar"/>
+			<memberdata name="startprogressbar" display="StartProgressBar"/>
+			<memberdata name="searchfinished" display="SearchFinished"/>
+			<memberdata name="replaceintable" display="ReplaceInTable"/>
+			<memberdata name="updatereplacehistoryrecord" display="UpdateReplaceHistoryRecord"/>
+			<memberdata name="replaceline" display="ReplaceLine"/>
+			<memberdata name="nfilesprocessed" display="nFilesProcessed"/>
+			<memberdata name="reduceprogressbarmaxvalue" display="ReduceProgressBarMaxValue"/>
+			<memberdata name="compile" display="Compile"/>
+			<memberdata name="cleanupbinarystring" display="CleanUpBinaryString"/>
+			<memberdata name="cversion" display="cVersion"/>
+			<memberdata name="ofso" display="oFSO"/>
+			<memberdata name="creplaceudfcode" display="cReplaceUDFCode"/>
+			<memberdata name="nreplacemode" display="nReplaceMode"/>
+			<memberdata name="replacelinewithudf" display="ReplaceLineWithUDF"/>
+			<memberdata name="cfilestoskip" display="cFilesToSkip"/>
+			<memberdata name="setfilestoskip" display="SetFilesToSkip"/>
+			<memberdata name="ocustomprocessor" display="oCustomProcessor"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE addcolumn		&& Adds a Column object to a Grid control.
 		Lparameters tcTable, tcColumnName, tcColumnDetails
@@ -4313,124 +4315,126 @@ DEFINE CLASS gofishsearchoptions_thor AS custom
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cescapedsearchexpression = 		&& This is the escaped version of the cSearchExpression that is used for the actual Reg Ex search. The class maintains this, so the class user should never touch this.
-	cfiletemplate = 		&& A file mask template, like Job*, or *Job, or *job*, or Job*.scx, or *.scx, etc.
-	cindexstring = 
-	cotherincludes = 		&& An additional list of file extensions to be included in the search. Just separate each extension by a space. No dot is needed. Case does not matter.
-	cpath = 		&& This property can be used to store the name of a Path on the object.
-	cproject = 		&& This property can be used to store the name of a Project on the object.
-	crecentscope = 
-	creplaceexpression = 
-	csearchexpression = 		&& Search expression to be sought. Can be a regex. Set lRegularExpression to .t. if it is.
-	dtimestampfrom = {}
-	dtimestampto = {}
-	Height = 18
-	lallowblankreplace = .F.		&& This flag must be set in order to do a replace operation where the replacement string is a blank string.
-	lbackup = .T.
-	lcolorizevfpcode = .F.
-	lcreateresultscollection = .F.		&& Indicates if you want to store each match result object into the oResults colleciton on the Search Engine class.
-	lcreateresultscursor = .T.		&& Inidcates if you want to store each search result in a local cursor. See cSearchResultsAlias propertyy on the Search Class for the namee of the Cursor.
-	ldonotshowreplacewarning = .F.		&& This will supress the warning dialog that pops up every time you perform a replace.
-	lenablereplacemode = .F.
-	lincludeallfiletypes = .F.		&& Not used.
-	lincludeasp = .T.
-	lincludedbc = .F.
-	lincludefrx = .T.
-	lincludeh = .T.
-	lincludehtml = .T.
-	lincludeini = .T.
-	lincludejava = .T.
-	lincludejsp = .T.
-	lincludelbx = .T.
-	lincludemnx = .T.
-	lincludempr = .T.
-	lincludepjx = .F.
-	lincludeprg = .T.
-	lincludescx = .T.
-	lincludespr = .T.
-	lincludesubdirectories = .T.
-	lincludetxt = .T.
-	lincludevcx = .T.
-	lincludexml = .T.
-	llimittoprojectfolder = .F.		&& When searching a PJX file, this flag will skip over searches on any files in the project which are not located in or below the Project's home path.
-	lmatchcase = .F.
-	lmatchwholeword = .F.
-	lpreviewreplace = .T.
-	lregularexpression = .F.		&& Indicates if the cSearchExpression is intended to be used as a Regular Expression.
-	lsearchincomments = .T.
-	lshowadvancedformonstartup = .F.
-	lshowerrormessages = .T.		&& Determines if a messagebox will pop up any time there is an error on the Search or Replace family of methods.
-	lshownomatchesmessage = .T.		&& Display a MessageBox at the end of a search if there were no matches found.
-	lshowwaitmessages = .F.		&& Will display the name of each file in a wait window as they are being processed. Caution: using this feature slows down the search a good bit.
-	lskipfiles = .F.		&& A flag to indicate if the user wants to process the files in cFilesToSkipFile files to skip over certain files during the search.
-	lstorecode = .F.		&& Indicates if you want a copy of the code block stored on each search reesult record (for ResultsCursor) or collection node (for ResultsCollection).
-	ltimestamp = .F.		&& Indicates if the search will be limited to filedates and object TimeStamps that fall on or between the dTimeStampForm and dTimeStampTo values.
-	lwarnwhenunabletoopenfilesduringsearch = .T.
-	Name = "gofishsearchoptions_thor"
-	nhtmlmatchlinecolor = 8454143
-	nmaxresults = 10000		&& Limits the amx number of results created. Search will stop at this limit. Collection restutls over 50,000 with lStoreCode = .t. could lead to memory problems.
-	nsearchmode = 1		&& Indicates which search mode to use: Plain, LIKE, or RegEx. See GoFish.h constants file for values.
-	nsearchscope = 1		&& 1 = Active Project, 2=Browse Project, 3 = Current Dir, 4= Browse Directory
-	Width = 160
-	_memberdata = <VFPData>
-		<memberdata name="lincludescx" display="lIncludeSCX"/>
-		<memberdata name="lincludevcx" display="lIncludeVCX"/>
-		<memberdata name="lincludedbc" display="lIncludeDBC"/>
-		<memberdata name="lincludemnx" display="lIncludeMNX"/>
-		<memberdata name="lincludelbx" display="lIncludeLBX"/>
-		<memberdata name="lincludefrx" display="lIncludeFRX"/>
-		<memberdata name="lincludepjx" display="lIncludePJX"/>
-		<memberdata name="lincludeprg" display="lIncludePRG"/>
-		<memberdata name="lincludespr" display="lIncludeSPR"/>
-		<memberdata name="lincludempr" display="lIncludeMPR"/>
-		<memberdata name="lincludehtml" display="lIncludeHTML"/>
-		<memberdata name="lincludeh" display="lIncludeH"/>
-		<memberdata name="lincludeasp" display="lIncludeASP"/>
-		<memberdata name="lincludeini" display="lIncludeINI"/>
-		<memberdata name="lincludejava" display="lIncludeJAVA"/>
-		<memberdata name="lincludejsp" display="lIncludeJSP"/>
-		<memberdata name="lincludexml" display="lIncludeXML"/>
-		<memberdata name="lincludetxt" display="lIncludeTXT"/>
-		<memberdata name="cotherincludes" display="cOtherIncludes"/>
-		<memberdata name="lsearchincomments" display="lSearchInComments"/>
-		<memberdata name="ltimestamp" display="lTimeStamp"/>
-		<memberdata name="dtimestampfrom" display="dTimeStampFrom"/>
-		<memberdata name="dtimestampto" display="dTimeStampTo"/>
-		<memberdata name="cescapedsearchexpression" display="cEscapedSearchExpression"/>
-		<memberdata name="cpath" display="cPath"/>
-		<memberdata name="cproject" display="cProject"/>
-		<memberdata name="creplaceexpression" display="cReplaceExpression"/>
-		<memberdata name="csearchexpression" display="cSearchExpression"/>
-		<memberdata name="lallowblankreplace" display="lAllowBlankReplace"/>
-		<memberdata name="lcreateresultscollection" display="lCreateResultsCollection"/>
-		<memberdata name="lcreateresultscursor" display="lCreateResultsCursor"/>
-		<memberdata name="lincludesubdirectories" display="lIncludeSubdirectories"/>
-		<memberdata name="lmatchcase" display="lMatchCase"/>
-		<memberdata name="lmatchwholeword" display="lMatchWholeWord"/>
-		<memberdata name="lregularexpression" display="lRegularExpression"/>
-		<memberdata name="lshowerrormessages" display="lShowErrorMessages"/>
-		<memberdata name="lstorecode" display="lStoreCode"/>
-		<memberdata name="nmaxresults" display="nMaxResults"/>
-		<memberdata name="lshowwaitmessages" display="lShowWaitMessages"/>
-		<memberdata name="lcolorizevfpcode" display="lColorizeVFPCode"/>
-		<memberdata name="llimittoprojectfolder" display="lLimitToProjectFolder"/>
-		<memberdata name="cindexstring" display="cIndexString"/>
-		<memberdata name="lwarnwhenunabletoopenfilesduringsearch" display="lWarnWhenUnableToOpenFilesDuringSearch"/>
-		<memberdata name="nhtmlmatchlinecolor" display="nHtmlMatchLineColor"/>
-		<memberdata name="nsearchscope" display="nSearchScope"/>
-		<memberdata name="lshownomatchesmessage" display="lShowNoMatchesMessage"/>
-		<memberdata name="lincludeallfiletypes" display="lIncludeAllFileTypes"/>
-		<memberdata name="cfiletemplate" display="cFileTemplate"/>
-		<memberdata name="lpreviewreplace" display="lPreviewReplace"/>
-		<memberdata name="lbackup" display="lBackup"/>
-		<memberdata name="lenablereplacemode" display="lEnableReplaceMode"/>
-		<memberdata name="crecentscope" display="cRecentScope"/>
-		<memberdata name="lshowadvancedformonstartup" display="lShowAdvancedFormOnStartup"/>
-		<memberdata name="ldonotshowreplacewarning" display="lDoNotShowReplaceWarning"/>
-		<memberdata name="lskipfiles" display="lSKipFiles"/>
-		<memberdata name="lregularexpression_access" display="lRegularExpression_Access"/>
-		<memberdata name="nsearchmode" display="nSearchMode"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cescapedsearchexpression = 
+		cfiletemplate = 
+		cindexstring = 
+		cotherincludes = 
+		cpath = 
+		cproject = 
+		crecentscope = 
+		creplaceexpression = 
+		csearchexpression = 
+		dtimestampfrom = {}
+		dtimestampto = {}
+		Height = 18
+		lallowblankreplace = .F.
+		lbackup = .T.
+		lcolorizevfpcode = .F.
+		lcreateresultscollection = .F.
+		lcreateresultscursor = .T.
+		ldonotshowreplacewarning = .F.
+		lenablereplacemode = .F.
+		lincludeallfiletypes = .F.
+		lincludeasp = .T.
+		lincludedbc = .F.
+		lincludefrx = .T.
+		lincludeh = .T.
+		lincludehtml = .T.
+		lincludeini = .T.
+		lincludejava = .T.
+		lincludejsp = .T.
+		lincludelbx = .T.
+		lincludemnx = .T.
+		lincludempr = .T.
+		lincludepjx = .F.
+		lincludeprg = .T.
+		lincludescx = .T.
+		lincludespr = .T.
+		lincludesubdirectories = .T.
+		lincludetxt = .T.
+		lincludevcx = .T.
+		lincludexml = .T.
+		llimittoprojectfolder = .F.
+		lmatchcase = .F.
+		lmatchwholeword = .F.
+		lpreviewreplace = .T.
+		lregularexpression = .F.
+		lsearchincomments = .T.
+		lshowadvancedformonstartup = .F.
+		lshowerrormessages = .T.
+		lshownomatchesmessage = .T.
+		lshowwaitmessages = .F.
+		lskipfiles = .F.
+		lstorecode = .F.
+		ltimestamp = .F.
+		lwarnwhenunabletoopenfilesduringsearch = .T.
+		Name = "gofishsearchoptions_thor"
+		nhtmlmatchlinecolor = 8454143
+		nmaxresults = 10000
+		nsearchmode = 1
+		nsearchscope = 1
+		Width = 160
+		_memberdata = <VFPData>
+			<memberdata name="lincludescx" display="lIncludeSCX"/>
+			<memberdata name="lincludevcx" display="lIncludeVCX"/>
+			<memberdata name="lincludedbc" display="lIncludeDBC"/>
+			<memberdata name="lincludemnx" display="lIncludeMNX"/>
+			<memberdata name="lincludelbx" display="lIncludeLBX"/>
+			<memberdata name="lincludefrx" display="lIncludeFRX"/>
+			<memberdata name="lincludepjx" display="lIncludePJX"/>
+			<memberdata name="lincludeprg" display="lIncludePRG"/>
+			<memberdata name="lincludespr" display="lIncludeSPR"/>
+			<memberdata name="lincludempr" display="lIncludeMPR"/>
+			<memberdata name="lincludehtml" display="lIncludeHTML"/>
+			<memberdata name="lincludeh" display="lIncludeH"/>
+			<memberdata name="lincludeasp" display="lIncludeASP"/>
+			<memberdata name="lincludeini" display="lIncludeINI"/>
+			<memberdata name="lincludejava" display="lIncludeJAVA"/>
+			<memberdata name="lincludejsp" display="lIncludeJSP"/>
+			<memberdata name="lincludexml" display="lIncludeXML"/>
+			<memberdata name="lincludetxt" display="lIncludeTXT"/>
+			<memberdata name="cotherincludes" display="cOtherIncludes"/>
+			<memberdata name="lsearchincomments" display="lSearchInComments"/>
+			<memberdata name="ltimestamp" display="lTimeStamp"/>
+			<memberdata name="dtimestampfrom" display="dTimeStampFrom"/>
+			<memberdata name="dtimestampto" display="dTimeStampTo"/>
+			<memberdata name="cescapedsearchexpression" display="cEscapedSearchExpression"/>
+			<memberdata name="cpath" display="cPath"/>
+			<memberdata name="cproject" display="cProject"/>
+			<memberdata name="creplaceexpression" display="cReplaceExpression"/>
+			<memberdata name="csearchexpression" display="cSearchExpression"/>
+			<memberdata name="lallowblankreplace" display="lAllowBlankReplace"/>
+			<memberdata name="lcreateresultscollection" display="lCreateResultsCollection"/>
+			<memberdata name="lcreateresultscursor" display="lCreateResultsCursor"/>
+			<memberdata name="lincludesubdirectories" display="lIncludeSubdirectories"/>
+			<memberdata name="lmatchcase" display="lMatchCase"/>
+			<memberdata name="lmatchwholeword" display="lMatchWholeWord"/>
+			<memberdata name="lregularexpression" display="lRegularExpression"/>
+			<memberdata name="lshowerrormessages" display="lShowErrorMessages"/>
+			<memberdata name="lstorecode" display="lStoreCode"/>
+			<memberdata name="nmaxresults" display="nMaxResults"/>
+			<memberdata name="lshowwaitmessages" display="lShowWaitMessages"/>
+			<memberdata name="lcolorizevfpcode" display="lColorizeVFPCode"/>
+			<memberdata name="llimittoprojectfolder" display="lLimitToProjectFolder"/>
+			<memberdata name="cindexstring" display="cIndexString"/>
+			<memberdata name="lwarnwhenunabletoopenfilesduringsearch" display="lWarnWhenUnableToOpenFilesDuringSearch"/>
+			<memberdata name="nhtmlmatchlinecolor" display="nHtmlMatchLineColor"/>
+			<memberdata name="nsearchscope" display="nSearchScope"/>
+			<memberdata name="lshownomatchesmessage" display="lShowNoMatchesMessage"/>
+			<memberdata name="lincludeallfiletypes" display="lIncludeAllFileTypes"/>
+			<memberdata name="cfiletemplate" display="cFileTemplate"/>
+			<memberdata name="lpreviewreplace" display="lPreviewReplace"/>
+			<memberdata name="lbackup" display="lBackup"/>
+			<memberdata name="lenablereplacemode" display="lEnableReplaceMode"/>
+			<memberdata name="crecentscope" display="cRecentScope"/>
+			<memberdata name="lshowadvancedformonstartup" display="lShowAdvancedFormOnStartup"/>
+			<memberdata name="ldonotshowreplacewarning" display="lDoNotShowReplaceWarning"/>
+			<memberdata name="lskipfiles" display="lSKipFiles"/>
+			<memberdata name="lregularexpression_access" display="lRegularExpression_Access"/>
+			<memberdata name="nsearchmode" display="nSearchMode"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE lregularexpression_access
 		Return (This.nSearchMode = GF_SEARCH_MODE_REGEX)

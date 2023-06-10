@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -53,14 +55,16 @@ DEFINE CLASS form1 AS form
 		*p: ocoloreditormgr		&& Will hold an object that helps manage colors
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .T.
-	Caption = "VFP Editor Enhancer"
-	DoCreate = .T.
-	Height = 445
-	Icon = ..\..\..\..\customer discrepancies\
-	Name = "Form1"
-	ocoloreditormgr = .F.		&& Will hold an object that helps manage colors
-	Width = 525
+	*<PropValue>
+		AutoCenter = .T.
+		Caption = "VFP Editor Enhancer"
+		DoCreate = .T.
+		Height = 445
+		Icon = ..\..\..\..\customer discrepancies\
+		Name = "Form1"
+		ocoloreditormgr = .F.
+		Width = 525
+	*</PropValue>
 
 	ADD OBJECT 'Command1' AS commandbutton WITH ;
 		Caption = "Foreground", ;
