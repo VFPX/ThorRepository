@@ -160,13 +160,14 @@ Define Class ThorUtilities As Custom
 		Local lcDestFolder, lcFileName, lcTableFolder, loCloseTempFiles
 	
 		loCloseTempFiles = This.CloseTempFiles()
+		
 		* open all the tables in the Thor folder
 		This.OpenThorTables()
 	
 		lcTableFolder = _Screen.cThorFolder + 'Tables\'
 		lcDateTime = Ttoc(Datetime(), 1)
 		lcDestFolder  = m.lcTableFolder + 'Backup.' + Left(m.lcDateTime, 8) + '.' + Right(m.lcDateTime, 6)
-		MkDir(m.lcDestFolder)
+		MkDir(m.lcDestFolder) 
 	
 		This.ADirCursor(m.lcTableFolder + '*.dbf', 'ThorFiles')
 		Scan
