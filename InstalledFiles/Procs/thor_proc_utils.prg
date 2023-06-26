@@ -166,7 +166,7 @@ Define Class ThorUtilities As Custom
 		lcTableFolder = _Screen.cThorFolder + 'Tables\'
 		lcDateTime = Ttoc(Datetime(), 1)
 		lcDestFolder  = m.lcTableFolder + 'Backup.' + Left(m.lcDateTime, 8) + '.' + Right(m.lcDateTime, 6)
-		MakeDir(m.lcDestFolder)
+		MkDir(m.lcDestFolder)
 	
 		This.ADirCursor(m.lcTableFolder + '*.dbf', 'ThorFiles')
 		Scan
