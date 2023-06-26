@@ -1,4 +1,7 @@
 
+### 2023-06-26, Version 65.07
+Bug fix; no visible effect on any Tools
+
 ### 2023-06-10, Version 65.06
 Mainly updated documentation for a few tools; a bug fix or two
 

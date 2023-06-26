@@ -1763,15 +1763,18 @@ DEFINE CLASS fp_form AS form
 		
 		This.Resize()
 		
-		Do Case
-			Case Thisform.lSetFocusToGrid = .t. And This.pgfFieldPicker.ActivePage = 2
-				This.pgfFieldPicker.Page2.grdShowTable.SetFocus()
-			Case Thisform.lSetFocusToGrid = .f. And This.pgfFieldPicker.ActivePage = 2
-				Select(this.cAlias)
-				This.pgfFieldPicker.Page2.txtFilter.SetFocus()
-			Otherwise 
-				This.grdPem_fieldpicker.SetFocus()
-		Endcase
+		*!* ******** JRN Removed 2023-06-13 ********
+		*!* Do Case
+		*!* 	Case Thisform.lSetFocusToGrid = .t. And This.pgfFieldPicker.ActivePage = 2
+		*!* 		This.pgfFieldPicker.Page2.grdShowTable.SetFocus()
+		*!* 	Case Thisform.lSetFocusToGrid = .f. And This.pgfFieldPicker.ActivePage = 2
+		*!* 		Select(this.cAlias)
+		*!* 		This.pgfFieldPicker.Page2.txtFilter.SetFocus()
+		*!* 	Otherwise 
+		*!* 		This.grdPem_fieldpicker.SetFocus()
+		*!* Endcase
+		
+		This.pgfFieldPicker.Page2.txtFilter.SetFocus()
 		
 	ENDPROC
 
