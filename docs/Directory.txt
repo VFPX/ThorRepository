@@ -1,0 +1,34 @@
+THOR_TOOL_ADDTOPROJECT	MD
+THOR_TOOL_BOOKMARKS	MD
+THOR_TOOL_DROPDOWNS	MD
+THOR_TOOL_GOFISH_THISFILE	MD
+THOR_TOOL_INSTALLSWFDEMOMENUS	MD
+THOR_TOOL_PEME_MOVERESIZEWINDOW	MD
+THOR_TOOL_PEME_SETCLOSESIZEANDPOSITION	MD
+THOR_TOOL_REPOSITORY_CYCLEDESIGNERWINDOWS	MD
+THOR_TOOL_REPOSITORY_ISXTABLEALIASES	MD
+THOR_TOOL_TOGGLEPAGEFRAMETABS	MD
+THOR_TOOL_ALLFORMNAMES	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_dropdowns.md
+THOR_TOOL_ALLREPORTNAMES	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_dropdowns.md
+THOR_TOOL_BOOKMARKDEFINITION	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_bookmarks.md
+THOR_TOOL_CYCLEBOOKMARKS	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_bookmarks.md
+THOR_TOOL_PEME_BEAUTIFYX	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_beautifyx.md
+THOR_TOOL_PEME_COMPAREWITHCOPIEDOBJECT	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_paste_properties.md
+THOR_TOOL_PEME_COMPAREWITHPARENTCLASS	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_compare_with_parent_class.md
+THOR_TOOL_PEME_COPYFORCOMPARINGANDPASTING	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_copy.md
+THOR_TOOL_PEME_CREATELOCALS	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_create_locals.md
+THOR_TOOL_PEME_CROSSREFTHISMETHOD	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_cross_references.md
+THOR_TOOL_PEME_EDITPARENTCLASS	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_edit_parent_class.md
+THOR_TOOL_PEME_ENDCONTROLSTRUCTURE	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_close_control_structure.md
+THOR_TOOL_PEME_EXTRACTTOMETHOD	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_extract_to_method.md
+THOR_TOOL_PEME_FINDOBJECTS	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_find_objects.md
+THOR_TOOL_PEME_HIGHLIGHTCONTROLSTRUCTURE	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_highlight_control_structure.md
+THOR_TOOL_PEME_LAUNCHPEMEDITOR	TXT	https://github.com/VFPX/PEMEditor
+THOR_TOOL_PEME_OPENMRUS	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_mrus.md
+THOR_TOOL_PEME_PASTEPROPERTIESANDMETHODCODE	TXT	https://github.com/VFPX/PEMEditor/blob/master/Documentation/pemeditor_tools_paste_properties.md
+THOR_TOOL_REPOSITORY_ISX_ALIASNAMES	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_dropdowns.md
+THOR_TOOL_REPOSITORY_ISX_ALLNAMES	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_dropdowns.md
+THOR_TOOL_REPOSITORY_ISX_CONSTANTNAMES	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_dropdowns.md
+THOR_TOOL_REPOSITORY_ISX_INTELLISENSE	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_dropdowns.md
+THOR_TOOL_REPOSITORY_ISX_PROCEDURENAMES	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_dropdowns.md
+THOR_TOOL_REPOSITORY_SHOWTABLES	TXT	https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_dropdowns.md
