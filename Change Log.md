@@ -1,4 +1,7 @@
 
+### 2023-07-19, Version 65.08
+Bug fix in SuperBrowse when editing a record using DynamicForm
+
 ### 2023-06-26, Version 65.07
 Bug fix; no visible effect on any Tools
 
