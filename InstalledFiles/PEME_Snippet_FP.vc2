@@ -2295,12 +2295,13 @@ DEFINE CLASS fp_form AS form
 		#Define 	ccXTool  'Super Browse'
 		#Define		ccXKey	 'Use Dynamic Form'
 		
-		Lparameters llForceit
-		Local laEvents[1], lcAlias, lcFieldList, lcTitle, lcWindow, lnUseDynamicForm, loForm, loObject
+		Lparameters llForceIt
+		Local laEvents[1], lcAlias, lcFieldList, lcSave, lcTitle, lcWindow, lnUseDynamicForm, loException
+		Local loForm, loObject
 		
-		If m.llForceit = .f. and This.lHandleDblClick = .F.
+		If m.llForceIt = .F. And This.lHandleDblClick = .F.
 			Return
-		EndIf 
+		Endif
 		
 		Nodefault
 		lcTitle			 = [Edit record in ] + Proper(Thisform.cAlias)
@@ -2329,16 +2330,19 @@ DEFINE CLASS fp_form AS form
 				Endwith
 			Endwith && loForm
 		
+			Private poData
+			Scatter Name m.poData Memo
+		
 			Aevents(laEvents, 0)
 			loObject = m.laEvents[1]
-			If Vartype(loObject) = 'O' and Pemstatus(m.loObject.Parent, 'Ismemo', 5) And m.loObject.Parent.IsMemo
-				Text to lcFieldList NoShow TextMerge
+			If Vartype(m.loObject) = 'O' And Pemstatus(m.loObject.Parent, 'Ismemo', 5) And m.loObject.Parent.IsMemo
+				Text To m.lcFieldList Noshow Textmerge
 				<<m.loObject.Parent.FieldName>>
 				.Width	  = <<Thisform.nPopupFormEditboxWidth>>
 				.Height   = <<Thisform.nPopupFormEditboxHeight>>
-				EndText
+				Endtext
 			Else
-				lcFieldList	= Thisform.GetSelectedFieldList('|', .T., .T.)
+				lcFieldList	= Thisform.GetSelectedFieldList('|', .T., .T., 'poData.')
 				If Empty(m.lcFieldList)
 					loForm.oRenderEngine.cAlias	= m.loForm.cAlias
 					lcFieldList					= m.loForm.oRenderEngine.GetBodyMarkupForAll()
@@ -2378,6 +2382,18 @@ DEFINE CLASS fp_form AS form
 			Endif
 		
 			m.loForm.Show(1, Thisform)
+		
+			If Vartype(m.loForm) = 'O' And m.loForm.lSaveClicked = .T.
+				lcSave = Set('AutoIncError')
+				Set Autoincerror Off
+				Try
+					Gather Name m.poData Memo
+				Catch To m.loException
+					Messagebox(m.loException.Message, 16)
+				Endtry
+				Set Autoincerror &lcSave
+			Endif
+		
 		
 		Else
 			lcFieldList	= Thisform.GetSelectedFieldList()
@@ -2517,7 +2533,7 @@ DEFINE CLASS fp_form AS form
 	ENDPROC
 
 	PROCEDURE getselectedfieldlist
-		Lparameters tcDelimiter, tlPreserveOrder, tlThorPlugIn
+		Lparameters tcDelimiter, tlPreserveOrder, tlThorPlugIn, lcPrefix
 		
 		Local lcAlias, lcExtra, lcFieldList, lcLastFieldType, llNoneMarked, llThorPlugIn, lnRecNo, lnSelect
 		
@@ -2544,7 +2560,7 @@ DEFINE CLASS fp_form AS form
 				If m.llThorPlugIn
 					lcExtra		= Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowseEditOneRecord', Thisform.cAlias, FieldType, Field_Name, m.lcLastFieldType)
 					If Not Isnull(m.lcExtra)
-						lcFieldList		= m.lcFieldList + Iif(Empty(m.lcFieldList), [], Evl(m.tcDelimiter, [,])) + Alltrim(Field_Name)
+						lcFieldList		= m.lcFieldList + Iif(Empty(m.lcFieldList), [], Evl(m.tcDelimiter, [,])) + Evl(lcPrefix, '') + Alltrim(Field_Name)
 						lcFieldList		= m.lcFieldList + Nvl(m.lcExtra, '')
 						lcLastFieldType	= FieldType
 					Endif

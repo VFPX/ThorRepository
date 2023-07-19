@@ -1,11 +1,11 @@
 lparameters toUpdateObject
 
-lcDate = '20230626'
+lcDate = '20230719'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.07 - ' + lcDate
+	.VersionNumber    = '65.08 - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.07 - 08577- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.08 - 08600- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,6 +14,9 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
+
+### 2023-07-19, Version 65.08
+Bug fix in SuperBrowse when editing a record using DynamicForm
 
 ### 2023-06-26, Version 65.07
 Bug fix; no visible effect on any Tools
