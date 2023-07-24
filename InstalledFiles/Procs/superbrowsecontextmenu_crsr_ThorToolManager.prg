@@ -64,11 +64,11 @@ With m.loContextMenu
 			.AddMenuItem('\<Menu caption', , , , 'Menu')
 		Endif
 
-		.AddMenuItem('\<Toolbar', , , , 'ToolBar', , GetStatus('ToolBarTools', 'Enabled', m.loThisTable.PRGName))
-
 		.AddMenuItem('\<Favorite', , , , 'Favorite', , GetStatus('Favorites', 'StartUp', m.loThisTable.PRGName))
 
 		.AddMenuItem('Start \<Up', , , , 'Start Up', , GetStatus('StartupTools', 'StartUp', m.loThisTable.PRGName))
+
+		.AddMenuItem('\<Toolbar', , , , 'ToolBar', , GetStatus('ToolBarTools', 'Enabled', m.loThisTable.PRGName))
 
 	Endif && not Empty(m.loThisTable.PRGName)
 
@@ -76,9 +76,9 @@ With m.loContextMenu
 	Do Case
 		Case m.loThisTable.Type = 'Custom'
 			.AddMenuItem('Edit Custom Version', , , , 'Edit')
+			.AddMenuItem('Delete Custom Version', , , , 'DeleteTool')
 			.AddMenuItem('View Published Version (Read-Only)', , , , 'Original')
 			.AddMenuItem('Compare Versions', , , , 'CompareTools')
-			.AddMenuItem('Delete Custom Version', , , , 'DeleteTool')
 		Case m.loThisTable.Type = 'Private'
 			.AddMenuItem('Edit Private Version', , , , 'Edit')
 			.AddMenuItem('Delete Private Version', , , , 'DeleteTool')
@@ -86,8 +86,8 @@ With m.loContextMenu
 			.AddMenuItem('Create Custom Version', , , , 'CreateCustom')
 			.AddMenuItem('Edit Published Version', , , , 'Edit')
 		Otherwise
-			.AddMenuItem('Create Custom Version', , , , 'CreateCustom')
 			.AddMenuItem('View Published Version (Read-Only)', , , , 'Original')
+			.AddMenuItem('Create Custom Version', , , , 'CreateCustom')
 	Endcase
 
 	.AddMenuItem()
