@@ -98,14 +98,15 @@ DEFINE CLASS fp_form AS form
 	*< OBJECTDATA: ObjPath="cmdReverse" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmddeselectall" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdApply" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Label2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="lblVersion" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Command2" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cboSelectAlias" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="lblRecountCount" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="chklEditFieldNames" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Label4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="lblURL" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="cmdExit" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="lblContextMenuHelp" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="lblTable" UniqueID="" Timestamp="" />
 
 	*<DefinedPropArrayMethod>
 		*m: addcustomkeyword
@@ -192,6 +193,8 @@ DEFINE CLASS fp_form AS form
 		*p: csettings
 		*p: ctarget
 		*p: ctempfile
+		*p: curl
+		*p: cversion
 		*p: lautosaveselections
 		*p: lcheckfornulls
 		*p: lcloseafter
@@ -253,6 +256,8 @@ DEFINE CLASS fp_form AS form
 		csettings = 
 		ctarget = 
 		ctempfile = 
+		curl = 
+		cversion = 1.5.0                                                
 		Dockable = 0
 		DoCreate = .T.
 		Height = 421
@@ -360,6 +365,8 @@ DEFINE CLASS fp_form AS form
 			<memberdata name="lhandledblclick" display="lHandleDblClick"/>
 			<memberdata name="filterhelptext" display="FilterHelpText"/>
 			<memberdata name="custombindevents" display="CustomBindEvents"/>
+			<memberdata name="cversion" display="cVersion"/>
+			<memberdata name="curl" display="cURL"/>
 		</VFPData>
 	*</PropValue>
 
@@ -368,10 +375,11 @@ DEFINE CLASS fp_form AS form
 		ControlSource = "", ;
 		DisplayCount = 20, ;
 		Height = 24, ;
-		Left = 570, ;
+		Left = 573, ;
 		Name = "cboSelectAlias", ;
 		RowSource = "Thisform.aUsed", ;
 		RowSourceType = 5, ;
+		TabIndex = 12, ;
 		Top = 6, ;
 		Width = 229
 		*< END OBJECT: BaseClass="combobox" />
@@ -386,7 +394,7 @@ DEFINE CLASS fp_form AS form
 		Height = 17, ;
 		Left = 28, ;
 		Name = "chklEditFieldNames", ;
-		TabIndex = 2, ;
+		TabIndex = 4, ;
 		ToolTipText = 'This is NOT the same as Modify Structure. This allows you to change the case of the field name ("BasePrice" instead of "Baseprice", .e.g.) for use in Super Browse and IntellisenseX.', ;
 		Top = 345, ;
 		Value = .F., ;
@@ -399,6 +407,7 @@ DEFINE CLASS fp_form AS form
 		Height = 24, ;
 		Left = 843, ;
 		Name = "cmdApply", ;
+		TabIndex = 8, ;
 		Top = 6, ;
 		Width = 51, ;
 		WordWrap = .T.
@@ -410,6 +419,7 @@ DEFINE CLASS fp_form AS form
 		Height = 27, ;
 		Left = 109, ;
 		Name = "cmddeselectall", ;
+		TabIndex = 7, ;
 		TabStop = .F., ;
 		Top = 6, ;
 		Width = 83
@@ -423,6 +433,7 @@ DEFINE CLASS fp_form AS form
 		Height = 27, ;
 		Left = 216, ;
 		Name = "cmdExit", ;
+		TabIndex = 15, ;
 		ToolTipText = "Save the current list of fields selection from this table (for use next time).", ;
 		Top = 336, ;
 		Visible = .F., ;
@@ -435,6 +446,7 @@ DEFINE CLASS fp_form AS form
 		Height = 27, ;
 		Left = 218, ;
 		Name = "cmdReverse", ;
+		TabIndex = 6, ;
 		TabStop = .F., ;
 		Top = 6, ;
 		Width = 81, ;
@@ -448,6 +460,7 @@ DEFINE CLASS fp_form AS form
 		Height = 27, ;
 		Left = 24, ;
 		Name = "cmdSave", ;
+		TabIndex = 3, ;
 		ToolTipText = "Save the current list of fields selection from this table (for use next time).", ;
 		Top = 381, ;
 		Width = 120
@@ -459,6 +472,7 @@ DEFINE CLASS fp_form AS form
 		Height = 27, ;
 		Left = 17, ;
 		Name = "cmdselectall", ;
+		TabIndex = 5, ;
 		TabStop = .F., ;
 		Top = 6, ;
 		Width = 68
@@ -471,6 +485,7 @@ DEFINE CLASS fp_form AS form
 		Height = 27, ;
 		Left = 162, ;
 		Name = "Command2", ;
+		TabIndex = 10, ;
 		ToolTipText = "", ;
 		Top = 381, ;
 		Width = 120
@@ -490,7 +505,7 @@ DEFINE CLASS fp_form AS form
 		Panel = 1, ;
 		RecordSourceType = 1, ;
 		ScrollBars = 2, ;
-		TabIndex = 1, ;
+		TabIndex = 2, ;
 		TabStop = .T., ;
 		Top = 33, ;
 		Width = 304, ;
@@ -631,35 +646,6 @@ DEFINE CLASS fp_form AS form
 		Name = "Text1"
 		*< END OBJECT: BaseClass="textbox" />
 
-	ADD OBJECT 'Label2' AS label WITH ;
-		Alignment = 1, ;
-		Anchor = 4, ;
-		AutoSize = .T., ;
-		BackStyle = 0, ;
-		Caption = "Super Browse 1.4.2 (Tore Bleken)", ;
-		FontSize = 7, ;
-		Height = 14, ;
-		Left = 42, ;
-		Name = "Label2", ;
-		Top = 408, ;
-		Width = 141
-		*< END OBJECT: BaseClass="label" />
-
-	ADD OBJECT 'Label4' AS label WITH ;
-		Anchor = 4, ;
-		AutoSize = .T., ;
-		BackStyle = 0, ;
-		Caption = "Home Page", ;
-		FontSize = 7, ;
-		FontUnderline = .T., ;
-		ForeColor = 0,0,255, ;
-		Height = 14, ;
-		Left = 198, ;
-		Name = "Label4", ;
-		Top = 408, ;
-		Width = 51
-		*< END OBJECT: BaseClass="label" />
-
 	ADD OBJECT 'lblContextMenuHelp' AS label WITH ;
 		AutoSize = .T., ;
 		BackStyle = 0, ;
@@ -668,6 +654,7 @@ DEFINE CLASS fp_form AS form
 		Height = 18, ;
 		Left = 808, ;
 		Name = "lblContextMenuHelp", ;
+		TabIndex = 16, ;
 		Top = 14, ;
 		Width = 282
 		*< END OBJECT: BaseClass="label" />
@@ -679,8 +666,50 @@ DEFINE CLASS fp_form AS form
 		Height = 17, ;
 		Left = 26, ;
 		Name = "lblRecountCount", ;
+		TabIndex = 13, ;
 		Top = 363, ;
 		Width = 276
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'lblTable' AS label WITH ;
+		Caption = "Sour\<ce:", ;
+		Height = 17, ;
+		Left = 529, ;
+		Name = "lblTable", ;
+		TabIndex = 11, ;
+		Top = 11, ;
+		Width = 44
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'lblURL' AS label WITH ;
+		Anchor = 4, ;
+		AutoSize = .T., ;
+		BackStyle = 0, ;
+		Caption = "Home Page", ;
+		FontSize = 7, ;
+		FontUnderline = .T., ;
+		ForeColor = 0,0,255, ;
+		Height = 14, ;
+		Left = 207, ;
+		Name = "lblURL", ;
+		TabIndex = 14, ;
+		Top = 408, ;
+		Width = 51
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'lblVersion' AS label WITH ;
+		Alignment = 1, ;
+		Anchor = 4, ;
+		AutoSize = .T., ;
+		BackStyle = 0, ;
+		Caption = "Super Browse -version- (Tore Bleken)", ;
+		FontSize = 7, ;
+		Height = 14, ;
+		Left = 42, ;
+		Name = "lblVersion", ;
+		TabIndex = 9, ;
+		Top = 408, ;
+		Width = 157
 		*< END OBJECT: BaseClass="label" />
 
 	ADD OBJECT 'pgfFieldPicker' AS pageframe WITH ;
@@ -690,6 +719,7 @@ DEFINE CLASS fp_form AS form
 		Left = 322, ;
 		Name = "pgfFieldPicker", ;
 		PageCount = 4, ;
+		TabIndex = 1, ;
 		TabStyle = 1, ;
 		Top = 7, ;
 		Width = 575, ;
@@ -1216,7 +1246,7 @@ DEFINE CLASS fp_form AS form
 	ADD OBJECT 'pgfFieldPicker.Page2.lblFilter' AS label WITH ;
 		Alignment = 1, ;
 		BackStyle = 0, ;
-		Caption = "\<Find Values:", ;
+		Caption = "Find Va\<lues:", ;
 		Height = 17, ;
 		Left = 164, ;
 		Name = "lblFilter", ;
@@ -2131,7 +2161,7 @@ DEFINE CLASS fp_form AS form
 		*!* This.cfilterprog = [_sb_filter] + lcSys2015 + '.prg'
 		
 		Create Cursor (Thisform.ccursor)  ;
-			(marked l, Record N(3), field_name C(128), field_type C(1), field_len N(3), field_dec N(3), fieldtype C(7))
+			(marked l, Record N(3), field_name C(128), field_type C(1), field_len N(3), field_dec N(3), fieldtype C(7), field_null L)
 		Index On Upper (Left(field_name,120)) Tag fieldname
 		Index On Iif (marked, 'A', 'B') Tag marked
 		Index On Icase(Record = 1, '0', Upper(Field_Name) = 'PARTNO', '1', Field_Type $ 'C', '2', Field_Type $ 'M', '3', Field_Type $ 'BIN', '4', Field_Type $ 'D', '5', Field_Type $ 'T', '6', 'Z') + Field_Name Tag fieldtype
@@ -2440,22 +2470,24 @@ DEFINE CLASS fp_form AS form
 		Local lcResult
 		
 		Text To m.lcResult Textmerge Noshow
-		Filter By Expression is for entry of a valid filter expression.
+		Filter By Expression is for entry of a valid filter expression (SET FILTER TO).
 		
 		Filter by Value is for entry of text string(s), separated by spaces or commas, to be found in character fields.  
 		
-		     You may select the fields to be searched (see grid at left), else all character fields are searched.
+		     You may select the fields to be searched (see grid at left), otherwise all character fields are searched.
 		     
 		     Matching is not case-sensitive.
 		     
-		     Default case finds records that match any single text string.
+		     Default case finds records with matches to all text strings.  
+		     
+		     Using | as a delimiter or as initial character will find records with matches to any text string.
 		     
 		Regardless of the radio button choice, you can always use one of these prefix values:
 		
-		     =  Filter by Expression        
+		     =  Filter by Expression
 		                 = Quantity > 0
-		     *  Filter by Value using OR
-		                 * Active Project  ... finds records matching 'Active' OR 'Project'
+		     |  Filter by Value using OR
+		                 | Active Project  ... finds records matching 'Active' OR 'Project'
 		     ^  Filter by Value using AND
 		                 ^ Active Project  ... finds records matching 'Active' AND 'Project'
 		     $  Find exact matches to the full text string    
@@ -2511,7 +2543,7 @@ DEFINE CLASS fp_form AS form
 		lnSelect = Select()
 		Select (Thisform.cCursor)
 		
-		Select  Field_Name					;
+		Select  Field_Name, Field_Null		;
 			From (Thisform.cCursor)			;
 			Where Field_Type $ 'CMV'		;
 				And (Marked					;
@@ -2524,7 +2556,7 @@ DEFINE CLASS fp_form AS form
 		If _Tally # 0
 			For lnX = 1 To _Tally
 				lcFieldName	= Alltrim(m.laFieldsList[m.lnX, 1])
-				lcFilter	= m.lcFilter + Iif(m.lnX = 1, '', [+]) + Iif(This.lCheckForNulls, 'NVL(' + m.lcFieldName + ',[])', m.lcFieldName)
+				lcFilter	= m.lcFilter + Iif(m.lnX = 1, '', [+]) + Iif(m.laFieldsList[m.lnX, 2], 'NVL(' + m.lcFieldName + ',[])', m.lcFieldName)
 			Endfor
 		Endif
 		
@@ -2664,7 +2696,7 @@ DEFINE CLASS fp_form AS form
 		            Thisform.lFrom = !Thisform.lFrom
 		            llMakestring = .T.
 		         Case lcKey = [G]
-		            Thisform.pgfFieldPicker.ActivePage = 2
+		            Thisform.pgfFieldPicker.ActivePage = 1
 		            Thisform.pgfFieldPicker.page2.grdShowTable.SetFocus()
 		         Case lcKey = [H]
 		            Thisform.lhideunselected = !Thisform.lhideunselected
@@ -2672,7 +2704,7 @@ DEFINE CLASS fp_form AS form
 		            Thisform.nReturnType = 4
 		            llMakestring = .T.
 		         Case lcKey = [K]
-		            Thisform.pgfFieldPicker.ActivePage = 1
+		            Thisform.pgfFieldPicker.ActivePage = 2
 		            This.grdPem_fieldpicker.SetFocus()
 		         Case lcKey = [L]
 		            Thisform.lUseNVL  = !Thisform.lUseNVL
@@ -2739,23 +2771,25 @@ DEFINE CLASS fp_form AS form
 		
 		This.MinWidth  = This.Width
 		This.MinHeight = This.Height
-		This.cAlias	   = Evl(tcAlias, Alias())
+		This.cAlias	   = Evl(m.tcAlias, Alias())
 		This.Caption   = This.cAlias
 		If Pcount() = 3
-			This.cprefix = Alltrim (tcPrefix)
-		EndIf
+			This.cprefix = Alltrim (m.tcPrefix)
+		Endif
 		
 		If Pcount() > 1
-			This.ctarget = Alltrim (tcTarget)
+			This.ctarget = Alltrim (m.tcTarget)
 			Thisform.RestoreSettings (ccSettingsFileName)
 		Else
 			Thisform.RestoreSettings (ccSettingsFileName, [ctarget])
 		Endif
-		
+		This.cVersion = [1.5.0]
+		This.cURL  = [https://github.com/VFPX/Thor/blob/master/Docs/Thor_superbrowse.md]
+		This.lblVersion.Caption = [Super Browse ] + This.cVersion + [ (Tore Bleken)]
 		Thisform.SetAlias (This.cAlias)
 		
 		*	This.Caption = This.cAlias
-		Select (thisform.ccursor)
+		Select (Thisform.cCursor)
 		
 		Thisform.Refresh()
 		
@@ -2905,25 +2939,49 @@ DEFINE CLASS fp_form AS form
 	ENDPROC
 
 	PROCEDURE makefilter
-		Local lcFilter, lnFilterType
-		Select (Thisform.calias)
-		lcFilter	 = Alltrim(Thisform.cfilter)
+		Local lcFilter, lcFilterSub2, lnFilterType
+		
+		Select (Thisform.cAlias)
+		lcFilter	 = Alltrim(Thisform.cFilter)
+		lcFilterSub2 = Substr(m.lcFilter, 2)
 		lnFilterType = Thisform.nfilter
+		
 		Do Case
-			Case Empty(lcFilter)
+		
+			Case Empty(m.lcFilter)
 				Thisform.SetNormalFilter('')
-			Case lcFilter = '='
-				Thisform.SetNormalFilter(Substr(lcFilter,2))
-			Case lcFilter = '*'
-				Thisform.SearchByValue(Substr(lcFilter,2), .F.) 
-			Case '^' $ lcFilter
-				Thisform.SearchByValue(Chrtran(lcFilter, '^', ' '), .T.) 
-			Case lcfilter = '$'
-				Thisform.SearchByValue(Substr(lcFilter,2), .F., .T.)
-			Case lnFilterType = 1 and (Len(lcFilter) = Len(Chrtran(lcFilter, '=<>$!#', ''))) and Atc('Empty(', lcFilter) = 0 
-				Thisform.SearchByValue(lcFilter)
+		
+			* ================================================================================
+			* Overrides based on first character
+			Case m.lcFilter = '='
+				Thisform.SetNormalFilter(m.lcFilterSub2)
+		
+			Case m.lcFilter = '|'
+				Thisform.SearchByValue(Chrtran(m.lcFilterSub2, '|', ' '), .F.)
+		
+			Case m.lcFilter = '^'
+				Thisform.SearchByValue(Chrtran(m.lcFilterSub2, '|', '^'), .T.)
+		
+			Case m.lcFilter = '$'
+				Thisform.SearchByValue(m.lcFilterSub2, .T., .T.)
+		
+			* ================================================================================
+			* Using the selected FilterType (from the option group)
+			Case m.lnFilterType = 2
+				Thisform.SetNormalFilter(m.lcFilter)
+		
+			* If any of these characters found, assume NOT searching by value, but by expression
+			Case Len(m.lcFilter) # Len(Chrtran(m.lcFilter, '=<>$!#*()[]', '')) 
+				Thisform.SetNormalFilter(m.lcFilter)
+		
+			* If 'EMPTY' found, assume NOT searching by value, but by expression
+			Case Atc('Empty(', m.lcFilter) # 0
+				Thisform.SetNormalFilter(m.lcFilter)
+		
+			* finally, the default case for search by value.
 			Otherwise
-				Thisform.SetNormalFilter(lcFilter)
+				Thisform.SearchByValue(m.lcFilter, .T.)
+		
 		Endcase
 		
 	ENDPROC
@@ -3252,6 +3310,7 @@ DEFINE CLASS fp_form AS form
 			Return .F.
 		Endif
 		
+		
 	ENDPROC
 
 	PROCEDURE setorderfieldname
@@ -3497,6 +3556,10 @@ DEFINE CLASS fp_form AS form
 		
 	ENDPROC
 
+	PROCEDURE cboSelectAlias.GotFocus
+		Keyboard '{ALT+DNARROW}' plain
+	ENDPROC
+
 	PROCEDURE cboSelectAlias.Init
 		This.Requery()
 		DoDefault()
@@ -3737,14 +3800,6 @@ DEFINE CLASS fp_form AS form
 		
 	ENDPROC
 
-	PROCEDURE Label4.Click
-		Local loLink, lcLink 
-		lcLink = [http://vfpx.codeplex.com/wikipage?title=Thor%20Super%20Browse]
-		loLink = Newobject ('_ShellExecute', Home() + 'FFC\_Environ.vcx')
-		loLink.ShellExecute (lcLink)
-		
-	ENDPROC
-
 	PROCEDURE lblContextMenuHelp.Refresh
 		Local lcAlias, lcFileName
 		
@@ -3790,6 +3845,13 @@ DEFINE CLASS fp_form AS form
 		Else
 			This.Visible = .F.
 		Endif
+		
+	ENDPROC
+
+	PROCEDURE lblURL.Click
+		Local loLink
+		m.loLink = Newobject ([_ShellExecute], Home() + [FFC\_Environ.vcx])
+		m.loLink.ShellExecute (Thisform.cURL )
 		
 	ENDPROC
 
@@ -4376,7 +4438,7 @@ DEFINE CLASS fp_form AS form
 		   lcKey = Upper(Chr(nKeyCode))
 		Else
 		   lcKey = []
-		Endif
+		EndIf
 		Do Case
 		   Case Inlist(nKeyCode, 13)
 		      Thisform.lneedrefresh = .T.
@@ -4451,9 +4513,9 @@ DEFINE CLASS fp_form AS form
 
 	PROCEDURE pgfFieldPicker.Page2.lblFilter.Refresh
 		If thisform.nfilter = 1
-			This.Caption = '\<Find Values:'
+			This.Caption = 'Find Va\<lues:'
 		Else
-			This.Caption = '\<Filter:'
+			This.Caption = 'Fi\<lter:'
 		EndIf 
 	ENDPROC
 

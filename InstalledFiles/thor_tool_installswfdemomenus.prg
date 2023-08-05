@@ -1,4 +1,4 @@
-#Define ccHelpURL 'https://github.com/VFPX/ThorRepository/blob/master/docs/quickmenu.md'
+#Define ccHelpURL 'https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_installswfdemomenus.md'
 Lparameters lxParam1
 
 ****************************************************************
@@ -17,7 +17,8 @@ If Pcount() = 1								;
 
 		.Description =  'See ' + ccHelpURL
 
-		.Category = 'JRN'
+		.Category = 'Miscellaneous'
+		
 		.Author	  = 'JRN'
 	Endwith
 
