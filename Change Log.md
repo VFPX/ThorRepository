@@ -1,4 +1,8 @@
 
+### 2023-08-05, Version 65.10
+* Various updates to SuperBrowse, including documentation update
+* Correct "Category" property for a few tools
+
 ### 2023-07-23, Version 65.09
 Bug fix; remove extraenous files from Zip
 
