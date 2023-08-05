@@ -17,7 +17,7 @@ If Pcount() = 1								;
 		Text To .Description Noshow
 Use and Select highlighted table
 		Endtext
-		.Category = 'JRN'
+		.Category = 'Tables'
 		.Author	  = 'JRN'
 		.PlugIns   = 'Open Table'
 

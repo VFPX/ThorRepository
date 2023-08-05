@@ -19,7 +19,7 @@ Makes the current window visible by moving it to 0, 0.
 
 Applies to almost all windows (but not the debugger)
 		Endtext
-		.Category = 'Kong'
+		.Category = 'Windows'
 		.Author	  = 'JRN'
 	Endwith
 

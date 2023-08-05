@@ -17,7 +17,8 @@ If Pcount() = 1								;
 
 		.Description =  'See ' + ccHelpURL
 
-		.Category = 'JRN'
+		.Category = 'Miscellaneous'
+		
 		.Author	  = 'JRN'
 	Endwith
 
