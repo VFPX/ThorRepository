@@ -1,58 +1,40 @@
 Lparameters loForm, loColumn, lcControlSource
 
-Local lcControlSource))
-
 loColumn.DynamicBackColor = [ICase(Deleted(), Rgb(212, 208, 200), Favorite, Rgb(255, 255, 160), Rgb(255, 255, 255))]
 
 AddObjectToForm(m.loForm)
 
-*!* ******** JRN Removed 2023-01-18 ********
-*!* Bindevent(m.loColumn.Text1, 'DblClick', m.loForm.oCustomBindEvents, 'RunTool')
-
-lcControlSource = loColumn.FieldName
-
-* hide some columns
-If ' ' + lcControlSource + ' ' $ Upper(' ID Link VideoLink OptionTool PlugIns ToolPrompt ToolDescription ')
-	m.loColumn.lVisible = .F.
-Endif
+lcControlSource = m.loColumn.FieldName
 
 * fix some header captions
 Do Case
-	Case lcControlSource == Upper('ToolName')
-		m.loColumn.cHeaderCaption = 'Tool Name / Menu Caption'
-		m.loForm.Caption = 'Thor Tool Manager'
-		m.loForm.cboSelectAlias.Visible = .F.
-	Case lcControlSource == Upper('MenuHotKey')
-		m.loColumn.cHeaderCaption = 'Menu Hot Key'
-	Case lcControlSource == Upper('HotKey')
-		m.loColumn.cHeaderCaption = 'Hot Key'
-	Case lcControlSource == Upper('HotKeySort')
-		m.loColumn.cHeaderCaption = 'Hot Key Sort'
-	Case lcControlSource == Upper('HasPlugIns')
-		m.loColumn.cHeaderCaption = 'Has Plug Ins'
-	Case lcControlSource == Upper('Date')
-		m.loColumn.cHeaderCaption = 'Modified'
+	Case m.lcControlSource == Upper('ToolName')
+		ModifyFormProperties(m.loForm)
+		loColumn.cHeaderCaption	= 'Tool Name / Menu Caption'
+		loColumn.ControlSource	= 'Trim(' + m.loColumn.ControlSource + ')'
+	Case m.lcControlSource == Upper('MenuHotKey')
+		loColumn.cHeaderCaption = 'Menu Hot Key'
+	Case m.lcControlSource == Upper('HotKey')
+		loColumn.cHeaderCaption = 'Hot Key'
+	Case m.lcControlSource == Upper('HotKeySort')
+		loColumn.cHeaderCaption = 'Hot Key Sort'
+	Case m.lcControlSource == Upper('HasPlugIns')
+		loColumn.cHeaderCaption = 'Has Plug Ins'
+	Case m.lcControlSource == Upper('Date')
+		loColumn.cHeaderCaption = 'Modified'
+		
+		* hide some columns
+	Case ' ' + m.lcControlSource + ' ' $ Upper(' ID Link VideoLink OptionTool PlugIns ToolPrompt ToolDescription ')
+		loColumn.lVisible = .F.
+
+	*!* ******** JRN Removed 2023-08-07 ******** No longer needed, since grid is read-only
+	*!* *** JRN 2023-08-07 : following
+	*!* Case m.lcControlSource == Upper('Favorite')
+	*!* 	Bindevent(m.loColumn.Text1, 'LostFocus', m.loForm.oCustomBindEvents, 'Favorite_LostFocus')
+	*!* Case m.lcControlSource == Upper('Startup')
+	*!* 	Bindevent(m.loColumn.Text1, 'LostFocus', m.loForm.oCustomBindEvents, 'StartUp_LostFocus')
+
 Endcase
-
-* link on column one
-If lcControlSource == Upper('ToolName')
-	m.loColumn.ControlSource = 'Trim(' + m.loColumn.ControlSource + ')'
-	*!* ******** JRN Removed 2023-05-04 ********
-	*!* m.loColumn.DynamicFontUnderline = 'not Empty(Link)'
-	*!* m.loColumn.DynamicFontBold = 'not Empty(Link)'
-	*!* m.loColumn.DynamicForeColor = 'IIF(not Empty(Link), Rgb(0,0,255), 0)'
-	*!* Bindevent(m.loColumn.Text1, 'Click', m.loForm.oCustomBindEvents, 'GoURL')
-Endif
-
-
-* maybe these no longer necessary as they are now context menu options
-If lcControlSource == Upper('Favorite')
-	Bindevent(m.loColumn.Text1, 'LostFocus', m.loForm.oCustomBindEvents, 'Favorite_LostFocus')
-Endif
-
-If lcControlSource == Upper('Startup')
-	Bindevent(m.loColumn.Text1, 'LostFocus', m.loForm.oCustomBindEvents, 'StartUp_LostFocus')
-Endif
 
 
 * ================================================================================
@@ -65,6 +47,46 @@ Procedure AddObjectToForm(loForm)
 
 Endproc
 
+* ================================================================================
+Procedure ModifyFormProperties(loForm)
+	Local lnAnchor, lnI, lnWidthChange, loControl
+
+	loForm.Caption	 = 'Thor Tool Manager'
+
+	loForm.lblTable.Visible		  = .F.
+	loForm.cboSelectAlias.Visible = .F.
+
+	lnWidthChange = m.loForm.pgfFieldPicker.Left - 2
+	If m.lnWidthChange > 0
+		For lnI = 1 To m.loForm.ControlCount
+			loControl = m.loForm.Controls[m.lnI]
+			If Pemstatus(m.loControl, 'Left', 5)
+				With m.loControl
+					lnAnchor = .Anchor
+					.Anchor	 = 0
+					.Left	 = .Left - m.lnWidthChange
+					.Anchor	 = m.lnAnchor
+				Endwith
+			Endif
+			loControl = Null
+		Endfor
+
+		With m.loForm.pgfFieldPicker
+			lnAnchor = .Anchor
+			.Anchor	 = 0
+			.Top	 = 35
+			.Tabs	 = .F.
+
+			.Width	= m.loForm.Width - 4
+			.Height	= m.loForm.Height - .Top - 4
+			.Anchor	= m.lnAnchor
+
+			.Page2.chkReadOnly.Visible = .F.
+		Endwith
+
+	Endif
+
+Endproc
 
 * ================================================================================
 * ================================================================================
@@ -73,15 +95,15 @@ Define Class CustomBindEvents As Custom
 
 	Procedure RunTool(loThisTable)
 		Local lcPRGName, loForm
-	
+
 		lcPRGName = Trim(PRGName)
-	
+
 		loForm = _Screen.ActiveForm
 		m.loForm.Hide()
 		Execscript(_Screen.cThorDispatcher, m.lcPRGName)
 		m.loForm.Release()
 	Endproc
-		
+
 
 	Procedure Favorite_LostFocus
 		Local lcAlias, lcPRGName, loData
@@ -116,10 +138,10 @@ Define Class CustomBindEvents As Custom
 		If Not Used(m.lcAlias)
 			Use (_Screen.cThorFolder + 'Tables\StartupTools') Again In 0 Alias (m.lcAlias)
 		Endif
-		Update  StartUpTools							;
-			Set StartUp = m.loData.StartUp			;
-			From (m.lcAlias)    As  StartUpTools		;
-			Where Upper(StartUpTools.PRGName) = Upper(m.lcPRGName)
+		Update  StartupTools							;
+			Set StartUp = m.loData.StartUp				;
+			From (m.lcAlias)    As  StartupTools		;
+			Where Upper(StartupTools.PRGName) = Upper(m.lcPRGName)
 		If _Tally = 0 And m.loData.StartUp = .T.
 			Insert Into (m.lcAlias) (PRGName, StartUp) Values (m.lcPRGName, .T.)
 		Endif
@@ -131,9 +153,9 @@ Define Class CustomBindEvents As Custom
 
 	Procedure GoURL
 		Local lcURL, loData
-	
+
 		Scatter Name m.loData
-	
+
 		lcURL = Trim(m.loData.Link)
 		If Not Empty(m.lcURL)
 			Declare Integer ShellExecute		;
@@ -144,12 +166,12 @@ Define Class CustomBindEvents As Custom
 				String cParameters,				;
 				String cDirectory,				;
 				Integer nShowWindow
-	
-			ShellExecute(0,		;
+
+			ShellExecute(0,				;
 				  'OPEN', m.lcURL,		;
 				  '', Sys(2023), 1)
 		Endif && not Empty(lcLink)
 	Endproc
-			
 
-Enddefine  
+
+Enddefine

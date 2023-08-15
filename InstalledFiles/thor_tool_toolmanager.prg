@@ -78,7 +78,9 @@ Procedure ToolCode
 				StartUp,									;
 				Iif(Empty(OptionTool), ' ', 'Y') as Options,;
 				Iif(Empty(PlugIns), ' ', 'Y') as HasPlugIns,	;
+				Project,									;
 				Ttod(Timestamp)    As  Date,				;
+				FolderName,									;
 				PRGName,									;
 				(100 * Evl(nKeyCode, 999)					;
 					+ NShifts)     As  HotKeySort,			;
@@ -88,8 +90,7 @@ Procedure ToolCode
 				OptionTool,									;
 				PlugIns,									;
 				ToolPrompt,									;
-				ToolDescription,							;
-				FolderName									;
+				ToolDescription							;
 			From (m.lcSourceAlias)							;
 			Into Cursor (m.lcAlias) Readwrite
 			

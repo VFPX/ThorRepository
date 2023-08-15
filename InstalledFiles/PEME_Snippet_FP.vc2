@@ -6,107 +6,107 @@
 *
 *
 DEFINE CLASS fp_form AS form 
- 	*< CLASSDATA: Baseclass="form" Timestamp="" Scale="Pixels" Uniqueid="" />
+ 	*< CLASSDATA: Baseclass="form" Timestamp="2023/08/13 08:02:26" Scale="Pixels" Uniqueid="" />
 
 	*-- OBJECTDATA items order determines ZOrder / El orden de los items OBJECTDATA determina el ZOrder 
-	*< OBJECTDATA: ObjPath="pgfFieldPicker" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkFrom" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdFixPrefix" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtPrefix" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtCursor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.edtReturn" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgtype" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdRemovePrefix" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgTarget" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblLocalAlias" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblInto" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtFrom" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblFrom" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkCloseAfter" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdcopytoclipboard" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.chknvl" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.opgCast" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.optLanguage" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.grdShowTable" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkreadonly" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkhideunselected" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblSort" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cboSort" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblFilter" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.txtFilter" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdModifyStructure" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdAppend" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdBottom" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdTop" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdEdit" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.opgFilter" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdHelp" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.opgCase" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.chkComma" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check3" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Container1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdBackColor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdForeColor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblbackcolor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblBackColorRGB" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColorRGB" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check4" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Command1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label5" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label4" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check5" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label3" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label4" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label5" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label6" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.edtIndex" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Check1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Header1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Text1" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdSave" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdselectall" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdReverse" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmddeselectall" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdApply" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="lblVersion" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="Command2" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cboSelectAlias" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="lblRecountCount" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="chklEditFieldNames" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="lblURL" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="cmdExit" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="lblContextMenuHelp" UniqueID="" Timestamp="" />
-	*< OBJECTDATA: ObjPath="lblTable" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkFrom" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdFixPrefix" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtPrefix" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtCursor" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.edtReturn" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgtype" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdRemovePrefix" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.opgTarget" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblLocalAlias" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblInto" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.txtFrom" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.lblFrom" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.chkCloseAfter" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.cmdcopytoclipboard" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.chknvl" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.opgCast" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page1.Container1.optLanguage" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.grdShowTable" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkreadonly" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.chkhideunselected" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblSort" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cboSort" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.lblFilter" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.txtFilter" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdModifyStructure" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdAppend" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdBottom" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdTop" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdEdit" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.opgFilter" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.Page2.cmdHelp" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check1" UniqueID="" Timestamp="2023/08/13 08:02:26" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.opgCase" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.chkComma" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label1" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label2" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check2" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check3" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Container1" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdBackColor" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cmdForeColor" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColor" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblbackcolor" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblBackColorRGB" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.lblForeColorRGB" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check4" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Command1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label5" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.cntFormBackColor.Label4" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Check5" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label3" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label4" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label5" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Spinner2" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageSettings.Label6" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column1.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column2.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column3.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.grdCurindex.Column4.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="pgfFieldPicker.PageIndexes.edtIndex" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column1.Check1" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column2.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column3.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column4.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column5.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column6.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Header1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="grdPem_fieldpicker.Column7.Text1" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="cmdSave" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="cmdselectall" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="cmdReverse" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="cmddeselectall" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="cmdApply" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="lblVersion" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="Command2" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="cboSelectAlias" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="lblRecountCount" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="chklEditFieldNames" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="lblURL" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="cmdExit" UniqueID="" Timestamp="2013/11/04 20:00:00" />
+	*< OBJECTDATA: ObjPath="lblContextMenuHelp" UniqueID="" Timestamp="2023/08/13 08:02:27" />
+	*< OBJECTDATA: ObjPath="lblTable" UniqueID="" Timestamp="2023/08/13 08:02:27" />
 
 	*<DefinedPropArrayMethod>
 		*m: addcustomkeyword
@@ -649,14 +649,14 @@ DEFINE CLASS fp_form AS form
 	ADD OBJECT 'lblContextMenuHelp' AS label WITH ;
 		AutoSize = .T., ;
 		BackStyle = 0, ;
-		Caption = "See right-click context menu for rows in the grid.", ;
+		Caption = "Use right-click context menu in the grid.", ;
 		FontSize = 10, ;
 		Height = 18, ;
 		Left = 808, ;
 		Name = "lblContextMenuHelp", ;
 		TabIndex = 16, ;
 		Top = 14, ;
-		Width = 282
+		Width = 233
 		*< END OBJECT: BaseClass="label" />
 
 	ADD OBJECT 'lblRecountCount' AS label WITH ;
@@ -2367,7 +2367,7 @@ DEFINE CLASS fp_form AS form
 			loObject = m.laEvents[1]
 			If Vartype(m.loObject) = 'O' And Pemstatus(m.loObject.Parent, 'Ismemo', 5) And m.loObject.Parent.IsMemo
 				Text To m.lcFieldList Noshow Textmerge
-				<<m.loObject.Parent.FieldName>>
+				podata.<<m.loObject.Parent.FieldName>>
 				.Width	  = <<Thisform.nPopupFormEditboxWidth>>
 				.Height   = <<Thisform.nPopupFormEditboxHeight>>
 				Endtext
@@ -2594,6 +2594,9 @@ DEFINE CLASS fp_form AS form
 					If Not Isnull(m.lcExtra)
 						lcFieldList		= m.lcFieldList + Iif(Empty(m.lcFieldList), [], Evl(m.tcDelimiter, [,])) + Evl(lcPrefix, '') + Alltrim(Field_Name)
 						lcFieldList		= m.lcFieldList + Nvl(m.lcExtra, '')
+						If FieldType = 'M'
+							lcfieldlist = lcfieldlist + ' .Enabled = .F. ' 
+						EndIf 
 						lcLastFieldType	= FieldType
 					Endif
 				Else
@@ -4725,7 +4728,7 @@ DEFINE CLASS fp_form AS form
 
 	PROCEDURE pgfFieldPicker.PageSettings.Label4.Click
 		Local loLink, lcLink 
-		lcLink = [http://vfpx.codeplex.com/wikipage?title=Thor%20Super%20Browse]
+		lcLink = Thisform.cURL
 		loLink = Newobject ('_ShellExecute', Home() + 'FFC\_Environ.vcx')
 		loLink.ShellExecute (lcLink)
 		
@@ -4759,7 +4762,7 @@ DEFINE CLASS fp_form AS form
 ENDDEFINE
 
 DEFINE CLASS fp_textbox AS textbox 
- 	*< CLASSDATA: Baseclass="textbox" Timestamp="" Scale="Pixels" Uniqueid="" />
+ 	*< CLASSDATA: Baseclass="textbox" Timestamp="2013/11/04 20:00:00" Scale="Pixels" Uniqueid="" />
 
 	*<PropValue>
 		Height = 23

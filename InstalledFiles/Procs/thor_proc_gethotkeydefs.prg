@@ -86,6 +86,7 @@ Define Class ThorTools As Custom
 			  PlugIns		M,					;
 			  ToolPrompt	M,					;
 			  ToolDescription M,				;
+			  Project		C(30),				;
 			  FolderName	M)
 	Endproc
 
@@ -348,7 +349,10 @@ Define Class ThorTools As Custom
 		For Each m.loTool In m.loTools
 			With m.loTool
 				lcCategory = Strtran(.Category, '|', ' => ')
-	
+				If Empty(.AppID) And Atc('gofish', .FolderName) # 0
+					.AppID = 'GoFish'
+				Endif
+					
 				Replace	Category		 With  m.lcCategory,				;
 						Link			 With  .Link,						;
 						VideoLink		 With  .VideoLink,					;
@@ -357,6 +361,7 @@ Define Class ThorTools As Custom
 						ToolPrompt		 With  Evl(.Prompt, '')				;
 						ToolDescription	 With  Evl(.Description, '')		;
 						FolderName		 With  Evl(.FolderName, '')			;
+						Project			 With  Evl(.AppID, '')				;
 					For Upper(PRGName) = Upper(.PRGName)
 	
 				If _Tally = 0 And Not m.llExcludeNotUsed
@@ -364,10 +369,10 @@ Define Class ThorTools As Custom
 					lcType = m.lcType + Iif(.PrivateCopy # 0 And Atc('My Tools', .FullFileName) = 0, ' (Path)', '')
 					Insert Into (This.cDestAlias)													;
 						(PRGName, Descript, StatusBar, Type, Category, Link, ;
-							VideoLink, OptionTool, PlugIns, ToolPrompt, ToolDescription, FolderName) ;
+							VideoLink, OptionTool, PlugIns, ToolPrompt, ToolDescription, FolderName, Project) ;
 						Values																		;
 						(.PRGName, .Prompt, .Description, m.lcType, m.lcCategory, .Link, ;
-							.VideoLink, Evl(.OptionTool, ''), Evl(.PlugIns, ''), Evl(.Prompt, ''), Evl(.Description, ''), Evl(.FolderName, ''))
+							.VideoLink, Evl(.OptionTool, ''), Evl(.PlugIns, ''), Evl(.Prompt, ''), Evl(.Description, ''), Evl(.FolderName, ''), Evl(.AppID, ''))
 				Endif
 			Endwith && loTool
 		Endfor
