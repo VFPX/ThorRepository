@@ -29,45 +29,56 @@ Double-click any record to open it for editing, or viewing if "Read-Only" is che
 ![](Images/Thor_SuperBrowse2.jpg)
 #### Filtering the grid:
 
-**Control** |**Description**
+**Radio Button** |**Description**
 ---|---
-Textbox Search Values|Enter what you want to search for
-Option Expression|Searches for the expression you type in. 
-Option Value|Enter what you want to search for
+Expression|For entry of a valid filter expression (SET FILTER TO).
+Value|For entry of text string(s), separated by spaces or commas, to be found in character fields.  
 
-#### Searching in the table
+#### Searching by Expression
 
-The search options are best described by some samples:  
+Enter a value filter expression, that is, one that you would use in SET FILTER TO.  This expression is case sensitive.  
+
+##### Sample Usage for Option Type = 'Expression"
+**Option type** |**Entered value**|**Description**
+|---|---|---|
+Expression|Name='Jim' or Name = 'Tore'|Self explanatory
+Expression|Obsolete|Finds every record where logical field Obsolete is .T.
+Expression|Inlist(CustNo, 10, 20, 30)|Self explanatory
+Expression|'nit' $ Country|Finds every record where 'nit' is inside the field Country
+
+#### Searching by Value
+
+Searching by value allows you to search for text string(s), separated by spaces or commas, in character fields.  Searching is done in the character or memo fields selected in the left panel, if any, else all character or memo fields. **This search is not case sensitive.**
+
+A match is found if **each** of the strings entered are found in any of the character fields.  This is **and** logic.  There are some alternatives, see the samples below.
+
+#### Sample Usage for Option Type = 'Value'
+**Option type** |**Entered value**|**Description**
+|---|---|---|
+Value|USA|Finds every record where the string 'usa' is found in any of the selected fields.
+Value|USA Canada|Finds every record where the strings 'usa' **and** 'canada' are each found in any of the selected fields
+Either|\|USA Canada|Finds every record where either of the strings 'usa' **or** 'canada' are found in any of the selected fields
+Either|$Grand Rapids|Treats "Grand Rapids" as a single entry. Thus, it finds every record where the string 'Grand Rapids' if found in any of the selected fields. 
+
+#### Sample Usage, ignoring the value of "Option Type" selection
+
+You can over-ride the value of "Option Type" by prefixing your entry with these single characters
+
+**Character** |**Description**
+|---|---|
+= | a filter expression
+^ | a value expression, using **and** logic if multiple fields entered
+\| | a value expression, using **or** logic if multiple fields entered
+$ | a value expression where the remainder of the string is treated as a single entry.
 
 **Option type** |**Entered value**|**Description**
 |---|---|---|
-Expression|Name='Jim' or name = 'Tore'|Self explanatory
-Expression|Obsolete|Finds every record where logical field Obsolete is .T.
-Expression|Inlist(custno,10,20,30)|Self explanatory
-Expression|'nit'$country|Finds every record where 'nit' is inside the field Country
-Value|usa|Finds every record where the word 'usa' is inside **any** of the selected fields
-Value|usa canada|Finds every record where the word 'usa' **and** 'canada' is inside **any** of the selected fields
-Value|samsung & 5110|Finds every record where the words 'samsung' **and** '5110' are inside **any** of the selected fields. The **&** implies a logical AND.
-Value|jim & nelson & kong|Finds every record where the words 'jim' and 'nelson' and 'kong' are inside **any** of the selected fields
-Expression|\*jim & nelson & kong|Same as above, the asterisk (*) forces a Value type search **any** of the selected fields
-Value|=price>100|Find all records with price > 100, the equal sign (=) forces an Expression type search **any** of the selected fields
-
-***Note that the case is irrelevant.***
-
-#### Easy access to the right search type
-
-*   Begin the search text with an equal sign (=) to force an Expression type search
-*   Likewise, an asterisk (*) to force a Value type search
-
-#### For Value search, the following rules apply:
-
-*   Each word are separated, and **all** the words must exist in the record (**and** logic)
-*   Exception 1: If the first character is $, the words are **not** separated, exact match of text is found
-*   Exception 2: If the first character is | (vertical bar), each word are separated, and **any** of the words must exist in the record (**or** logic)
-*   Only selected fields are searched
-*   All searches are case insensitive
-*   Memo fields are also searched
-*   Numeric values are searched for inside both character and numeric fields
+Ignored|= Name='Jim' or Name = 'Tore'|A filter expression
+Ignored|=Obsolete|A filter espression
+Ignored|^USA|Finds every record where the string 'usa' is found in any of the selected fields.
+Ignroed|^USA Canada|Finds every record where the strings 'usa' **and** 'canada' are each found in any of the selected fields
+Ignored|\|USA Canada|Finds every record where either of the strings 'usa' **or** 'canada' are found in any of the selected fields
+Ignored|$Grand Rapids|Treats "Grand Rapids" as a single entry. Thus, it finds every record where the string 'Grand Rapids' if found in any of the selected fields.  
 
 #### Other controls on this page:
 

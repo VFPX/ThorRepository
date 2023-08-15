@@ -649,14 +649,14 @@ DEFINE CLASS fp_form AS form
 	ADD OBJECT 'lblContextMenuHelp' AS label WITH ;
 		AutoSize = .T., ;
 		BackStyle = 0, ;
-		Caption = "See right-click context menu for rows in the grid.", ;
+		Caption = "Use right-click context menu in the grid.", ;
 		FontSize = 10, ;
 		Height = 18, ;
 		Left = 808, ;
 		Name = "lblContextMenuHelp", ;
 		TabIndex = 16, ;
 		Top = 14, ;
-		Width = 282
+		Width = 233
 		*< END OBJECT: BaseClass="label" />
 
 	ADD OBJECT 'lblRecountCount' AS label WITH ;
@@ -2367,7 +2367,7 @@ DEFINE CLASS fp_form AS form
 			loObject = m.laEvents[1]
 			If Vartype(m.loObject) = 'O' And Pemstatus(m.loObject.Parent, 'Ismemo', 5) And m.loObject.Parent.IsMemo
 				Text To m.lcFieldList Noshow Textmerge
-				<<m.loObject.Parent.FieldName>>
+				podata.<<m.loObject.Parent.FieldName>>
 				.Width	  = <<Thisform.nPopupFormEditboxWidth>>
 				.Height   = <<Thisform.nPopupFormEditboxHeight>>
 				Endtext
@@ -2594,6 +2594,9 @@ DEFINE CLASS fp_form AS form
 					If Not Isnull(m.lcExtra)
 						lcFieldList		= m.lcFieldList + Iif(Empty(m.lcFieldList), [], Evl(m.tcDelimiter, [,])) + Evl(lcPrefix, '') + Alltrim(Field_Name)
 						lcFieldList		= m.lcFieldList + Nvl(m.lcExtra, '')
+						If FieldType = 'M'
+							lcfieldlist = lcfieldlist + ' .Enabled = .F. ' 
+						EndIf 
 						lcLastFieldType	= FieldType
 					Endif
 				Else
@@ -4725,7 +4728,7 @@ DEFINE CLASS fp_form AS form
 
 	PROCEDURE pgfFieldPicker.PageSettings.Label4.Click
 		Local loLink, lcLink 
-		lcLink = [http://vfpx.codeplex.com/wikipage?title=Thor%20Super%20Browse]
+		lcLink = Thisform.cURL
 		loLink = Newobject ('_ShellExecute', Home() + 'FFC\_Environ.vcx')
 		loLink.ShellExecute (lcLink)
 		

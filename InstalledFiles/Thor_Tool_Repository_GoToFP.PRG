@@ -38,7 +38,7 @@ Opening the table is handled by PEME_OpenTable.PRG, which you can customize.
 		.Author			 = 'Tore Bleken'
 		.Version		 = '1.3'
 		.Sort			 = 10
-		.Link			 = 'https://github.com/VFPX/ThorRepository/blob/master/docs/thor_SuperBrowse.md'
+		.Link			 = 'https://github.com/VFPX/ThorRepository/blob/master/docs/thor_superbrowse.md'
 		.CanRunAtStartUp = .F.
 		.PlugInClasses   = 'clsSpellFieldNamesPlugIn, clsMakeResultStringPlugIn, clsOpenTablePlugIn, clsSuperBrowseBindEventsPlugIn, clsSuperBrowseContextMenuPlugIn, clsSuperBrowseEditOneRecordPlugIn'
 		.PlugIns		 = 'Open Table, Spell Field Names, SB: Format Field Picker, SB: Bind column events, SB: Grid context menu, SB: Field definitions'

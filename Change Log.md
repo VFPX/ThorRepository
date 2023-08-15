@@ -1,4 +1,7 @@
 
+### 2023-08-11, Version 65.11
+* Foundational change to support future use of .AppID
+
 ### 2023-08-05, Version 65.10
 * Various updates to SuperBrowse, including documentation update
 * Correct "Category" property for a few tools

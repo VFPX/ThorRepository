@@ -8,46 +8,56 @@ Lparameters tcFileName
 Local lcClipText, lcFileName, lcFormFileName, lcFullFileName, lcFullFilePath, lcPrivateFile
 Local lcResponse, lcToolFolder, lnMsgBoxAns, loEditorWin, loTools
 
-lcFullFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=' + tcFileName)
-lcFullFilePath = Upper (Addbs (Justpath (lcFullFileName)))
+lcFullFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=' + m.tcFileName)
+
+*** JRN 2023-08-10 : Use context menu for Thor tools
+Do Case
+	Case Empty(m.lcFullFileName)
+		Return
+	Case Atc('thor_tool_', m.tcFileName) # 0
+		Execscript (_Screen.cThorDispatcher, 'thor_proc_toolcontextmenu', m.tcFileName)
+		Return 
+Endcase
+
+lcFullFilePath = Upper (Addbs (Justpath (m.lcFullFileName)))
 lcToolFolder   = Execscript (_Screen.cThorDispatcher, 'Tool Folder=')
 
 * tools home page = http://vfpx.codeplex.com/wikipage?title=thor%20tools%20object
 loTools = Execscript (_Screen.cThorDispatcher, 'Class= tools from pemeditor')
 
 Do Case
-	Case Empty (lcFullFileName)
-		lcFileName = Forceext (tcFileName, 'PRG')
-		lnMsgBoxAns = Messagebox ('Create "' + lcFileName + '" in folder "My Tools"?', 292 ;
-			  , 'File "' + lcFileName + '" not found')
+	Case Empty (m.lcFullFileName)
+		lcFileName = Forceext (m.tcFileName, 'PRG')
+		lnMsgBoxAns = Messagebox ('Create "' + m.lcFileName + '" in folder "My Tools"?', 292	;
+			  , 'File "' + m.lcFileName + '" not found')
 		Do Case
-			Case lnMsgBoxAns = 6
-				lcPrivateFile = Forcepath (lcFileName, lcToolFolder + 'My Tools\')
-				loTools.EditSourceX (lcPrivateFile)
-			Case lnMsgBoxAns = 7
+			Case m.lnMsgBoxAns = 6
+				lcPrivateFile = Forcepath (m.lcFileName, m.lcToolFolder + 'My Tools\')
+				m.loTools.EditSourceX (m.lcPrivateFile)
+			Case m.lnMsgBoxAns = 7
 		Endcase
 
-	Case lcFullFilePath == Upper (lcToolFolder) Or lcFullFilePath == Upper (lcToolFolder + 'Procs\')
+	Case m.lcFullFilePath == Upper (m.lcToolFolder) Or m.lcFullFilePath == Upper (m.lcToolFolder + 'Procs\')
 		lcFormFileName = Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_Proc_EditProc.SCX')
-		Do Form (lcFormFileName) With lcFullFileName To lcResponse
+		Do Form (m.lcFormFileName) With m.lcFullFileName To m.lcResponse
 		Do Case
-			Case lcResponse = 'Read Only'
-				Modify Command (lcFullFileName) Nowait Noedit
+			Case m.lcResponse = 'Read Only'
+				Modify Command (m.lcFullFileName) Nowait Noedit
 
-			Case lcResponse = 'My Tools'
-				lcPrivateFile = Forcepath (lcFullFileName, lcToolFolder + 'My Tools\')
-				loTools.EditSourceX (lcPrivateFile)
+			Case m.lcResponse = 'My Tools'
+				lcPrivateFile = Forcepath (m.lcFullFileName, m.lcToolFolder + 'My Tools\')
+				m.loTools.EditSourceX (m.lcPrivateFile)
 
-				lcClipText = Filetostr (lcFullFileName)
+				lcClipText = Filetostr (m.lcFullFileName)
 				* editorwin home page = http://vfpx.codeplex.com/wikipage?title=thor%20editorwindow%20object
 				loEditorWin = Execscript (_Screen.cThorDispatcher, 'Class= editorwin from pemeditor')
-				loEditorWin.Paste (lcClipText)
-				loEditorWin.SetInsertionPoint(0)
-			Case lcResponse = 'Tools'
-				EditFile (lcFullFileName)
+				m.loEditorWin.Paste (m.lcClipText)
+				m.loEditorWin.SetInsertionPoint(0)
+			Case m.lcResponse = 'Tools'
+				EditFile (m.lcFullFileName)
 		Endcase
 	Otherwise
-		EditFile (lcFullFileName)
+		EditFile (m.lcFullFileName)
 Endcase
 
 
