@@ -1,11 +1,11 @@
 lparameters toUpdateObject
 
-lcDate = '20230815'
+lcDate = '20230817'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.11 - ' + lcDate
+	.VersionNumber    = '65.12 - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.11 - 08627- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.12 - 08629- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,6 +14,8 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
+### 2023-08-17, Version 65.12
+* Add new property .AppID to all tools to identify the project they originate in.
 
 ### 2023-08-11, Version 65.11
 * Foundational change to support future use of .AppID
