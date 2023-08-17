@@ -17,6 +17,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Insert blank lines around control structures'
+		.AppID 		 = 'ThorRepository'
 		Text to .Description NoShow
 Insures that this a blank line before and after each control structure (IF / ENDIF, DO CASE / ENDCASE), etc.
 		EndText

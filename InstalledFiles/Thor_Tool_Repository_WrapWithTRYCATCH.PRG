@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Wrap text with Try / Catch'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Wraps highlighted statement(s) with TRY / CATCH / ENDTRY.
 

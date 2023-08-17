@@ -16,6 +16,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt      = ccTool
+		.AppID       = 'ThorRepository'
 		Text To .Description Noshow
 Extracts the currently highlighted code segment into a new variable.
 

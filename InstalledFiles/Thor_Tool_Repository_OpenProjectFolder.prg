@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Open Directory in Explorer'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Opens Windows Explorer for a selected folder. A popup menu presents choices between the folder for the active project (if any), the current directory, and the 9 most recent MRU directories.
 		Endtext

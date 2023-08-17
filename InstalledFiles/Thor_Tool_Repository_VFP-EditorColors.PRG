@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 	
 		* Required
 		.Prompt	 = 'Enhanced color editor'
+		.AppID 	 = 'ThorRepository'
 		Text To .Description Noshow
 Enhanced editor for colors used in VFP code windows
 		Endtext

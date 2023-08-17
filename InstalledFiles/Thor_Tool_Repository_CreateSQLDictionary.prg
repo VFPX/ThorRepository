@@ -19,6 +19,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Create SQL Data Dictionary' && used in menus
+		.AppID 		   = 'ThorRepository'
 
 		Text To .Description Noshow
 Table of all table and field names in Solomon (updated weekly)

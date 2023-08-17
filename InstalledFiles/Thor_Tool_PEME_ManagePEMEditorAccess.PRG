@@ -14,6 +14,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		   = 'Manage PEM Editor access' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		Text To .Description Noshow
 Manages access to PEM Editor, consistent with versions of PEM Editor before Thor.
     New Property

@@ -16,6 +16,10 @@ If 0 > loEditorWin.FindWindow()
 	Return Execscript(_Screen.cThorDispatcher, 'Result=', '')
 Endif
 
+If loEditorWin.GetFileSize() = 0
+	Return Execscript(_Screen.cThorDispatcher, 'Result=', '')
+EndIf 
+
 lnSelStart = loEditorWin.GetSelStart()
 lnSelEnd   = loEditorWin.GetSelEnd()
 

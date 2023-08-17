@@ -13,6 +13,7 @@ IF PCOUNT() = 1 ;
 	
 		* Required
 		.Prompt		   = 'Convert all binary files to text files'
+		.AppID 		   = 'ThorRepository'
 		
 		* Optional
 		TEXT TO .Description NOSHOW && a description for the tool

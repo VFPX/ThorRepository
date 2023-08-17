@@ -16,6 +16,7 @@ If Pcount() = 1                       ;
 
 		* Required
 		.Prompt      = 'Change IF/ENDIF in highlighted text to DO CASE'
+		.AppID       = 'ThorRepository'
 		Text to .Description NoShow
 Replaces an IF / ENDIF structure with DO CASE.
 

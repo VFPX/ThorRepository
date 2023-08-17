@@ -21,6 +21,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = ccXToolName
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Super-Browse utility: opens the browse window / Field Picker (FP) for both browsing a table and creating code for SQL statements to be pasted into a code window.
 

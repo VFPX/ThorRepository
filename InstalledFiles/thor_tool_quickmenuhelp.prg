@@ -15,6 +15,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt	  = 'Quick Menu Help'
+		.AppID 	  = 'ThorRepository'
 
 		.Category = 'Code'
 		.Author	  = 'JRN'

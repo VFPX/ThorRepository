@@ -13,6 +13,7 @@ If Pcount() = 1                    ;
 
 * Required
       .Prompt         = [Go To 'Find' in PEM Editor] && used when tool appears in a menu
+      .AppID          = 'ThorRepository'
       .Summary       = [Activates PEM Editor and highlights Find]
 
 * Optional

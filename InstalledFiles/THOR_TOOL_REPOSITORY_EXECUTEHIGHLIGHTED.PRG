@@ -14,6 +14,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = ccTool
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Executes the highlighted text.
 

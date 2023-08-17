@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'MRU classes in this project' && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Creates a popup menu of the most recently changed classes in the current project.
 		Endtext

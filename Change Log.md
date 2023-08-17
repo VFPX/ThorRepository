@@ -1,3 +1,5 @@
+### 2023-08-17, Version 65.12
+* Add new property .AppID to all tools to identify the project they originate in.
 
 ### 2023-08-11, Version 65.11
 * Foundational change to support future use of .AppID

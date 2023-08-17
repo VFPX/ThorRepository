@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Move the active window (includes most system windows) home.'
+		.AppID 		   = 'ThorRepository'
 
 		Text To .Description Noshow
 Makes the current window visible by moving it to 0, 0.

@@ -17,6 +17,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Break highlighted text'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Break the currently highlighted code segment out into a separate line (with semi-colons added for line ends).
 

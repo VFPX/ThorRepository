@@ -22,6 +22,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Duplicate and comment highlighted lines'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Duplicates a block of highlighted statements and makes commented.
 

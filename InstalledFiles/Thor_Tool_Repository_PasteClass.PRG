@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Insert reference to class' && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		Text to .Description NoShow
 Inserts a reference to the class that an object belongs to; This.Parent.Parent, etc.
 

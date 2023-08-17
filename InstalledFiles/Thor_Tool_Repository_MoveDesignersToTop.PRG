@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Move all windows to top' && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		.Description = 'Move Form and Class Designers to top of screen and align them horizontally.'  + Chr(13) + Chr(13) + 'Requires PEM Editor 7.'
 
 		* Optional

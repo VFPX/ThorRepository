@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 	
 		* Required
 		.Prompt		   = 'Inspect properties of object under mouse' && used in menus
+		.AppID 		   = 'ThorRepository'
 		
 		* Optional
 		Text to .Description NoShow && a description for the tool

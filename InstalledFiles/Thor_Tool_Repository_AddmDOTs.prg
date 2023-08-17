@@ -17,6 +17,7 @@ If Pcount() = 1								;
 
 * Required
 		.Prompt		 = 'Add MDots to variable names'
+		.AppID 		 = 'ThorRepository'
 		TEXT To .Description Noshow
 Adds MDots to all references to parameters, locals, and other variables assigned values.
 		ENDTEXT

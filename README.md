@@ -1,7 +1,7 @@
 ![](documents/images/ThorRepository.png)
 
 
-Version 65.11 Released 2023-08-15
+Version 65.12 Released 2023-08-17
 
 [What's new in this release](Change%20Log.md)
 

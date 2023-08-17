@@ -20,6 +20,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Insert full name of object under mouse'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Pastes into the current code window the relative path of the object under the mouse.
 

@@ -13,6 +13,7 @@ IF PCOUNT() = 1 ;
 	
 		* Required
 		.Prompt		   = 'Convert files with changed internal timestamps'
+		.AppID 		   = 'ThorRepository'
 		
 		* Optional
 		TEXT TO .Description NOSHOW && a description for the tool

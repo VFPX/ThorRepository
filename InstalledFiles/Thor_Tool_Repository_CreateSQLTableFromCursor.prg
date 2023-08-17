@@ -18,6 +18,7 @@ If Pcount() = 1                              ;
     
            * Required
            .Prompt        = 'Create SQL from cursor' && used when tool appears in a menu
+           .AppID         = 'ThorRepository'
            .Description   = 'Puts a CREATE CURSOR SQL statement on the clipboard from an open cursor' && may be lengthy, including CRs, etc
           
            * For public tools, such as PEM Editor, etc.

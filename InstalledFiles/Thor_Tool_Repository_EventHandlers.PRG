@@ -17,6 +17,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Toggle PEM Editor Event Handler'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow Textmerge
 PEM Editor, if open, provides design time event handing. The most familiar use is evaluating the Anchor properties when resizing controls so that a form or class resizes as it would at run time. See the PEM Editor help file for more on this.    
 		Endtext

@@ -8,6 +8,7 @@ If Pcount() = 1								;
 		And 'thorinfo' = Lower(lxParam1.Class)
 	With lxParam1
 		.Prompt      = [Move line to top of window]
+		.AppID       = 'ThorRepository'
 		Text To .Description Noshow
 Moves the current line to the top of the editor window.
 		Endtext

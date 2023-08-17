@@ -14,6 +14,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Install Quick Access Menu'
+		.AppID 		   = 'ThorRepository'
 
 		.Description =  'See ' + ccHelpURL
 

@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Highlight parameter'
+		.AppID 		 = 'ThorRepository'
 		Text to .Description NoShow
 Highlights a single parameter in a method or function call.
 

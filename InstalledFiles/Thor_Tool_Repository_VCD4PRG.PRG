@@ -23,6 +23,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'Modify Class for PRG-based classes' && used when tool appears in a menu
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Modify Class for PRG-based classes; see home page for details'
 
 		* Optional

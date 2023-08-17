@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'VFP2Text Home Page' && used in menus
+		.AppID 		   = 'ThorRepository'
 
 		Text To .Description Noshow
 Link to the home page for VFP2Text, a plug-in for Beyond Compare versions 3 and 4 for comparing binary files (VCX, SCX, and so on)

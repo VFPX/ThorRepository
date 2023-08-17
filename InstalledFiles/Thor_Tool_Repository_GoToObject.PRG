@@ -13,6 +13,7 @@ If Pcount() = 1                       ;
 
 		* Required
 		.Prompt      = 'Go To Object' && used when tool appears in a menu
+		.AppID       = 'ThorRepository'
 		.Description = 'Go To Object: Select the object which the method belongs to'
 
 		* For public tools, such as PEM Editor, etc.

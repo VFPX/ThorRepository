@@ -22,6 +22,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Comment highlighted lines'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 An enhanced version of the 'Comment' menu item (in the default VFP right-click context menu in a code window) which comments a block of highlighted statements (or, if nothing highlighted, the current statement).  
 

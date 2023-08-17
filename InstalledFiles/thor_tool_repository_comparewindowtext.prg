@@ -16,6 +16,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = ccTool && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Compares the text in two windows.  Steps are:		
   1. Select one text window

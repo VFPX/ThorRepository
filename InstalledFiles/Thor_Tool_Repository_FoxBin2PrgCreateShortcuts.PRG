@@ -13,6 +13,7 @@ IF PCOUNT() = 1 ;
 	
 		* Required
 		.Prompt		   = 'Create/Edit FoxBin2Prg "SendTo" shortcuts' && used in menus
+		.AppID 		   = 'ThorRepository'
 		
 		* Optional
 		TEXT TO .Description NOSHOW && a description for the tool

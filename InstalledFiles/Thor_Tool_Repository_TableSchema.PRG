@@ -14,6 +14,7 @@ If Pcount() = 1                              ;
 
 		* Required
 		.Prompt        = 'Schema' && used when tool appears in a menu
+		.AppID         = 'ThorRepository'
 		.Description   = "Print/View the current table's schema" && may be lengthy, including CRs, etc
 
 		* Optional

@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Compress Parameters List' && used in menus
+		.AppID 		   = 'ThorRepository'
 
 		Text To .Description Noshow
 Compress the list of parameters by removing white space.

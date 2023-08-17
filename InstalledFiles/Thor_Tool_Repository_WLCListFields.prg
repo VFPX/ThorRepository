@@ -92,6 +92,7 @@ IF PCOUNT() = 1 AND 'O' = VARTYPE(m.txParam1) AND 'thorinfo' = LOWER(m.txParam1.
    WITH m.txParam1
       * Required
       .Prompt  = ccUTILNAME
+      .AppID   = 'ThorRepository'
       .Summary = "LIST FIELDS replacement by White Light Computing."
 
       * Optional

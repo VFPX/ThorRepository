@@ -54,7 +54,7 @@ DEFINE CLASS form1 AS form
 	ADD OBJECT 'cmdExit' AS commandbutton WITH ;
 		Anchor = 12, ;
 		Cancel = .T., ;
-		Caption = "Exit", ;
+		Caption = "Close", ;
 		Height = 27, ;
 		Left = 267, ;
 		Name = "cmdExit", ;

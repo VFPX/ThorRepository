@@ -14,6 +14,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		   = 'Enhanced Cut' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		Text to .Description NoShow
 Like normal cut (Ctrl-X), but deletes the current line if nothing is highlighted.
 		EndText

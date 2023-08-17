@@ -14,6 +14,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		   = 'Enhanced Copy' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		Text to .Description NoShow
 Like normal copy (Ctrl-C), but copies the current line if nothing is highlighted                    
 		EndText

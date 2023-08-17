@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Use and Select highlighted table'
+		.AppID 		   = 'ThorRepository'
 
 		Text To .Description Noshow
 Use and Select highlighted table

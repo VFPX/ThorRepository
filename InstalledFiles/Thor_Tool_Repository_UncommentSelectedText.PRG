@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Un-comment highlighted lines'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 An enhanced version of the 'UnComment' menu item (in the default VFP right-click context menu in a code window) which removes comments from a block of highlighted text (or, if nothing highlighted, the current line).  
 
