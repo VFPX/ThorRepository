@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Wrap text with IF / ELSE / ENDIF'
+		.AppID 		 = 'ThorRepository'
 		Text to .Description NoShow
 Wraps highlighted statement(s) with IF / ELSE / ENDIF.
 

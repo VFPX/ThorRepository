@@ -13,6 +13,7 @@ IF PCOUNT() = 1 ;
 	
 		* Required
 		.Prompt		   = 'Generate binary files from all text files' && used in menus
+		.AppID 		   = 'ThorRepository'
 		
 		* Optional
 		TEXT TO .Description NOSHOW && a description for the tool

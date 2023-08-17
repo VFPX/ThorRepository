@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Highlight current procedure'
+		.AppID 		 = 'ThorRepository'
 		.Category = 'Code|Highlighting text'
 		
 		Text To .Description Noshow Textmerge

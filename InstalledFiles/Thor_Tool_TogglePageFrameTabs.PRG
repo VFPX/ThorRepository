@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Toggle visibility of tabs in pageframe' && used in menus
+		.AppID 		   = 'ThorRepository'
 
 		* Optional
 		Text To .Description Noshow && a description for the tool

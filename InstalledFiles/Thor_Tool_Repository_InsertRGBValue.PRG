@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'Insert color ... RGB(x,y,z)' && used when tool appears in a menu
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Prompt for color and insert RGB value'
 		Text to .Description NoShow
 Prompts for color value (using GetColor) and inserts the result as RGB()

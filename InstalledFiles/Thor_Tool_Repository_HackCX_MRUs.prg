@@ -20,6 +20,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt	 = 'HackCX4 for MRU forms or classes' && used when tool appears in a menu
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'HackCX: Pop-up menu to select form or class to be opened with HackCX4'
 		Text To .Description Noshow
 Pop-up menu to select form or class to be opened with HackCX4, using either GetFile or the MRU lists of forms and classes.

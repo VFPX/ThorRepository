@@ -15,6 +15,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		   = 'Display Path' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		.Description   = 'Display current path in a dialog box, one per line.' && may be lengthy, including CRs, etc
 
 		* For public tools, such as PEM Editor, etc.

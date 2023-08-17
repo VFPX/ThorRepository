@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Toggle Debugger'
+		.AppID 		   = 'ThorRepository'
 
 		* Optional
 		Text To .Description Noshow && a description for the tool

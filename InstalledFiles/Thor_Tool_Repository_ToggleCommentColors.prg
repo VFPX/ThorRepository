@@ -16,6 +16,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'Toggle comment colors'
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Toggle color for comments in edit windows'
 		Text To .Description Noshow
 Toggle the color for comments in code windows between bright and dim.

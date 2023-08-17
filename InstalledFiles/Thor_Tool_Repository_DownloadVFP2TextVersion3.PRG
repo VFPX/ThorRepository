@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Download VFP2Text for Beyond Compare v3' && used in menus
+		.AppID 		   = 'ThorRepository'
 
 		Text To .Description Noshow
 Download the installer for VFP2Text for Beyond Compare v3.

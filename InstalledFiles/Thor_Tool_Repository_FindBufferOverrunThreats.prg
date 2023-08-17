@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Find Buffer Overrun Threats'
+		.AppID 		   = 'ThorRepository'
 
 		* Optional
 		Text To .Description Noshow 

@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'BeautifyX Current Procedure'
+		.AppID 		 = 'ThorRepository'
 		
 		Text To .Description Noshow Textmerge
 Runs BeautifyX on the current procedure.

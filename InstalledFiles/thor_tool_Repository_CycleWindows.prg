@@ -14,6 +14,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt             = 'Cycle through code windows.'
+		.AppID              = 'ThorRepository'
 		.Description        = 'Cycle through code windows.'
 
 		.CanRunAtStartup    = .F. 

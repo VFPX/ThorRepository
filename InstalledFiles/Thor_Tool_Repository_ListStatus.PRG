@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'List Status' && used in menus
+		.AppID 		   = 'ThorRepository'
 
 		* Optional
 		Text To .Description Noshow && a description for the tool

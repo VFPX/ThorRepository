@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Remove blank lines'
+		.AppID 		 = 'ThorRepository'
 		.Description = 'Removes all blank lines in code window.'
 
 		* For public tools, such as PEM Editor, etc.

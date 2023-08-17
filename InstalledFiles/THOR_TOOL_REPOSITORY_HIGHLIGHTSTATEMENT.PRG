@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Highlight Current Statement'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Highlights the current (possibly multiple line) statement.
 

@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 * Required
 		.Prompt		 = 'Wrap text with With / EndWith'
+		.AppID 		 = 'ThorRepository'
 		Text to .Description NoShow
 Wraps highlighted lines of text with With / EndWith
 

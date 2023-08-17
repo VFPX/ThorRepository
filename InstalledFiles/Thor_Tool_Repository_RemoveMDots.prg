@@ -17,6 +17,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Remove MDots from variable names'
+		.AppID 		 = 'ThorRepository'
 		Text to .Description NoShow
 Removes MDots from all references to parameters, locals, and other variables.
 		EndText

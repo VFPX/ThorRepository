@@ -8,6 +8,7 @@ If Pcount() = 1								;
 		And 'thorinfo' = Lower(lxParam1.Class)
 	With lxParam1
 		.Prompt      = [Combine REPLACE statements]
+		.AppID       = 'ThorRepository'
 		Text To .Description Noshow
 Replace a highlighted block of simple REPLACE commands, like this:
     Replace Field1 with Value1

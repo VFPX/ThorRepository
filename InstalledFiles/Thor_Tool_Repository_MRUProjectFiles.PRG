@@ -14,6 +14,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'MRU files in this project' && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		.Description = 'Popup menu of MRU lists for files in this project' && may be lengthy, including CRs, etc
 
 		* For public tools, such as PEM Editor, etc.

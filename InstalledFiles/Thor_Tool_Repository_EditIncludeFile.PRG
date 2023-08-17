@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt	 = 'Go To Include file' && used when tool appears in a menu
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Edits the include file for the currently open form/class'
 
 		* Optional

@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Display Classlibs' && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		.Description = 'Display current Classlibs in a dialog box, one per line.' && may be lengthy, including CRs, etc
 
 		* For public tools, such as PEM Editor, etc.

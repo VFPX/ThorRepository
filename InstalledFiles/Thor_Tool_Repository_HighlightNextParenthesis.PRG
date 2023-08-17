@@ -19,6 +19,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = ccTool
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Highlights text between matching parentheses (including the parentheses), starting with the next left parenthesis.
 

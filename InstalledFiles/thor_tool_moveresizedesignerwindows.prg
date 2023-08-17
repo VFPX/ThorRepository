@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Moves focus to the current form or class, moves it to a standard position, and resizes it.'
+		.AppID 		   = 'ThorRepository'
 		
 		.Description = .Prompt
 

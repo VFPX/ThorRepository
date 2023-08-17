@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'Open Messagebox Wizard' && used when tool appears in a menu
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Open Messagebox Wizard'
 
 		* Optional

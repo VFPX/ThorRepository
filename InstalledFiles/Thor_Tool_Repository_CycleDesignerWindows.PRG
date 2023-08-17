@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Cycle Thru'
+		.AppID 		 = 'ThorRepository'
 		.Description = 'Cycle thru Form Designer and Class Designer windows'  + Chr(13) + Chr(13) + 'Requires PEM Editor 7.'
 
 		* Optional

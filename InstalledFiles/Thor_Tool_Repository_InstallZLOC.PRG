@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 	
 		* Required
 		.Prompt		   = 'Install enhanced ZLOC' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		.Summary       = 'Installs enhanced version of ZLOC' 
 		
 		* Optional

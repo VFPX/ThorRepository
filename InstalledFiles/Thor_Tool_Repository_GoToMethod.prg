@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Go To Method' && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		.Summary	 = 'Go To Method' && may be lengthy, including CRs, etc
 		.Description = 'Opens a dialog form to choose available methods to view or edit.' + Chr(13) + Chr(13) + 'Requires PEM Editor 7.'
 

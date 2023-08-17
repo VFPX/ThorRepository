@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Find RETURNs between WITH/ENDWITH and TRY/CATCH' && used in menus
+		.AppID 		   = 'ThorRepository'
 
 		* Optional
 		Text To .Description Noshow && a description for the tool

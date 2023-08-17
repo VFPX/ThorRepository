@@ -14,6 +14,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		   = 'Extract To Method' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		Text to .Description NoShow
 Extracts the currently highlighted block of code into a new method.
 

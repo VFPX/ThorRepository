@@ -19,6 +19,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Resize' && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		.Summary	 = 'Resize current Form / Class Designer window'
 		.Description = 'Resize current Form / Class Designer window to show the entire form or class being edited'  + Chr(13) + Chr(13) + 'Requires PEM Editor 7.'
 

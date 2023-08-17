@@ -14,6 +14,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'Code Mechanic'
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Beautify, add locals and fix m.dot'
 
 		* Optional

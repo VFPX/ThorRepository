@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'Duplicate line(s) and wrap with IF/ELSE/ENDIF'
+		.AppID 		 = 'ThorRepository'
 		Text To .Description Noshow
 Duplicates the highlighted statement(s) and wraps with IF / ELSE / ENDIF.
 

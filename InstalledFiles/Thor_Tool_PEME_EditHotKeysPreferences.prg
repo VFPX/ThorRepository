@@ -14,6 +14,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		   = 'Edit Settings for IDE Tools' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		Text to .Description NoShow
 Edit Preference Settings for PEM Editor with IDE Tools                                              
 		EndText

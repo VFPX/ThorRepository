@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'INSERT INTO from cursor Wizard ' && used when tool appears in a menu
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Creates INSERT INTO from cursor'
 
 		* Optional

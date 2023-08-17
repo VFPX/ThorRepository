@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Duplicate line(s)' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		Text To .Description Noshow
 Creates a duplicate of the current line(s)
 		Endtext

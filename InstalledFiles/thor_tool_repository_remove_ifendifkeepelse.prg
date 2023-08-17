@@ -16,6 +16,7 @@ If Pcount() = 1                       ;
 
 		* Required
 		.Prompt      = 'Remove IF/ENDIF (keeping Else Code)'
+		.AppID       = 'ThorRepository'
 		Text to .Description NoShow
 Collapses an IF/ENDIF control structure, keeping the code between ELSE / ENDIF.
 		EndText

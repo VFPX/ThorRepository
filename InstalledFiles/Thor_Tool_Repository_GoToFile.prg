@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'Go To File' && used when tool appears in a menu
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Dialog to quickly select file to open.'
 
 		* Optional

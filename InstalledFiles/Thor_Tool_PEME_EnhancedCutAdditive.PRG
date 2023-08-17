@@ -14,6 +14,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		   = 'Enhanced Cut / Additive' && used when tool appears in a menu
+		.AppID 		   = 'ThorRepository'
 		Text to .Description NoShow
 Like 'Enhanced Cut', but the cut text is ADDed to the clipboard                                     
 		EndText

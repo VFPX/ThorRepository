@@ -23,6 +23,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = ccTool
+		.AppID 		   = 'ThorRepository'
 		Text To .Description Noshow
 Grabs the "word" at the current cursor position, or any explicitly selected text, and calls the GoFish search tool with that string.
 

@@ -14,6 +14,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		 = 'MRU class libraries' && used when tool appears in a menu
+		.AppID 		 = 'ThorRepository'
 		.Description = 'Popup menu of MRU class libraries' && may be lengthy, including CRs, etc
 
 		* For public tools, such as PEM Editor, etc.

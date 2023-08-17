@@ -71,6 +71,7 @@ IF PCOUNT() = 1 AND 'O' = VARTYPE(m.txParam1) AND 'thorinfo' = LOWER(m.txParam1.
    WITH m.txParam1
       * Required
       .Prompt  = 'WLC Hack IntelliSense (_foxcode) table'
+      .AppID   = 'ThorRepository'
       .Summary = "WLC Hack IntelliSense (_foxcode) table by White Light Computing."
 
       * Optional

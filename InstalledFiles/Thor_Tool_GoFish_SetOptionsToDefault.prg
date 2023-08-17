@@ -13,6 +13,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt             = 'Reset all GoFish options to default' && used when tool appears in a menu
+		.AppID              = 'ThorRepository'
 		Text To .Description Noshow
 Resets all GoFish options to default by removing the GF_*.XML files files Home(7)
 		Endtext

@@ -14,6 +14,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt             = 'Set Object Position and Size' && used when tool appears in a menu
+		.AppID              = 'ThorRepository'
 		Text To .Description Noshow
 Opens the 'Position and Size' form for changing the Position and Size of objects.
 		Endtext

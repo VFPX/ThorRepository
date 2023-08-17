@@ -15,6 +15,7 @@ If Pcount() = 1								;
 
 		* Required
 		.Prompt		   = 'Add current file (SCX/VCX/PRG) to active project'
+		.AppID 		   = 'ThorRepository'
 
 		.Category = 'Code'
 		.Author	  = 'JRN'

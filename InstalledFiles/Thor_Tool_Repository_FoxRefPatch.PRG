@@ -19,6 +19,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt	 = 'Replace code window context menu items'
+		.AppID 	 = 'ThorRepository'
 		.Summary = 'Replace "View Definition" with Go To Definition, "Look up Reference" with "GoFish"'
 
 		* Optional

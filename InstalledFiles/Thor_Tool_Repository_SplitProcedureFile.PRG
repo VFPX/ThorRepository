@@ -13,6 +13,7 @@ If Pcount() = 1                          ;
    
         * Required
         .Prompt           = 'Split a procedure file' && used in menus
+        .AppID            = 'ThorRepository'
        
         * Optional
         Text to .Description NoShow && a description for the tool

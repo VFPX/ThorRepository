@@ -13,6 +13,7 @@ If Pcount() = 1						  ;
 
 		* Required
 		.Prompt		 = 'Highlight parentheses'
+		.AppID 		 = 'ThorRepository'
 		Text to .Description NoShow
 Highlights text between matching parentheses (including the parentheses).
 
