@@ -3,9 +3,9 @@ lparameters toUpdateObject
 lcDate = '20230826'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.13 - ' + lcDate
+	.VersionNumber    = '65.13B - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.13 - 08638- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.13B - 08638- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,7 +14,7 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
-### 2023-08-26, Version 65.13
+### 2023-08-26, Version 65.13B
 * Modified help for hidden context menu tool
 * Some files moved here from Thor
 
