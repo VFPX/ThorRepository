@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -34,24 +36,26 @@ DEFINE CLASS form1 AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BorderStyle = 2
-	Caption = "Call HCX"
-	cclassname = 
-	cfilename = 
-	DoCreate = .T.
-	Height = 165
-	Left = 0
-	Name = "Form1"
-	osettings = .NULL.
-	Top = 0
-	Width = 375
-	_memberdata = <VFPData>
-		<memberdata name="cfilename" display="cFilename"/>
-		<memberdata name="osettings" display="oSettings"/>
-		<memberdata name="cclassname" display="cClassname"/>
-		<memberdata name="callhackcx" display="CallHackCX"/>
-		<memberdata name="reopenoriginal" display="ReOpenOriginal"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BorderStyle = 2
+		Caption = "Call HCX"
+		cclassname = 
+		cfilename = 
+		DoCreate = .T.
+		Height = 165
+		Left = 0
+		Name = "Form1"
+		osettings = .NULL.
+		Top = 0
+		Width = 375
+		_memberdata = <VFPData>
+			<memberdata name="cfilename" display="cFilename"/>
+			<memberdata name="osettings" display="oSettings"/>
+			<memberdata name="cclassname" display="cClassname"/>
+			<memberdata name="callhackcx" display="CallHackCX"/>
+			<memberdata name="reopenoriginal" display="ReOpenOriginal"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Command1' AS commandbutton WITH ;
 		Caption = "OK", ;

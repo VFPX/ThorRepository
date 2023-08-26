@@ -8,10 +8,12 @@
 DEFINE CLASS basecommandbutton AS commandbutton 
  	*< CLASSDATA: Baseclass="commandbutton" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	Caption = "Command1"
-	Height = 27
-	Name = "basecommandbutton"
-	Width = 84
+	*<PropValue>
+		Caption = "Command1"
+		Height = 27
+		Name = "basecommandbutton"
+		Width = 84
+	*</PropValue>
 
 ENDDEFINE
 
@@ -22,12 +24,14 @@ DEFINE CLASS basecontainer AS container
 		*m: enabled_assign
 	*</DefinedPropArrayMethod>
 
-	BackStyle = 0
-	BorderWidth = 0
-	Height = 200
-	Name = "basecontainer"
-	Style = 3
-	Width = 200
+	*<PropValue>
+		BackStyle = 0
+		BorderWidth = 0
+		Height = 200
+		Name = "basecontainer"
+		Style = 3
+		Width = 200
+	*</PropValue>
 	
 	PROCEDURE enabled_assign
 		lparameters tlEnabled
@@ -59,35 +63,37 @@ DEFINE CLASS baseform AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Caption = "Form"
-	cdockwindow = 
-	DoCreate = .T.
-	ldocked = .F.
-	Name = "baseform"
-	ndockable = 2
-	ndockposition = -1
-	nheight = (This.Height)
-	nleft = 0
-	nstartingtop = 0
-	ntop = 0
-	nwidth = (This.Width)
-	osettings = 
-	_memberdata = <VFPData>
-		<memberdata name="osettings" display="oSettings"/>
-		<memberdata name="ntop" display="nTop"/>
-		<memberdata name="nleft" display="nLeft"/>
-		<memberdata name="nheight" display="nHeight"/>
-		<memberdata name="nwidth" display="nWidth"/>
-		<memberdata name="ndockable" display="nDockable"/>
-		<memberdata name="ldocked" display="lDocked"/>
-		<memberdata name="ndockposition" display="nDockPosition"/>
-		<memberdata name="loadsettings" display="LoadSettings"/>
-		<memberdata name="savesettings" display="SaveSettings"/>
-		<memberdata name="savedockinginfo" display="SaveDockingInfo"/>
-		<memberdata name="nstartingtop" display="nStartingTop"/>
-		<memberdata name="insureformvisible" display="InsureFormVisible"/>
-		<memberdata name="cdockwindow" display="cDockWindow"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Caption = "Form"
+		cdockwindow = 
+		DoCreate = .T.
+		ldocked = .F.
+		Name = "baseform"
+		ndockable = 2
+		ndockposition = -1
+		nheight = (This.Height)
+		nleft = 0
+		nstartingtop = 0
+		ntop = 0
+		nwidth = (This.Width)
+		osettings = 
+		_memberdata = <VFPData>
+			<memberdata name="osettings" display="oSettings"/>
+			<memberdata name="ntop" display="nTop"/>
+			<memberdata name="nleft" display="nLeft"/>
+			<memberdata name="nheight" display="nHeight"/>
+			<memberdata name="nwidth" display="nWidth"/>
+			<memberdata name="ndockable" display="nDockable"/>
+			<memberdata name="ldocked" display="lDocked"/>
+			<memberdata name="ndockposition" display="nDockPosition"/>
+			<memberdata name="loadsettings" display="LoadSettings"/>
+			<memberdata name="savesettings" display="SaveSettings"/>
+			<memberdata name="savedockinginfo" display="SaveDockingInfo"/>
+			<memberdata name="nstartingtop" display="nStartingTop"/>
+			<memberdata name="insureformvisible" display="InsureFormVisible"/>
+			<memberdata name="cdockwindow" display="cDockWindow"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE Destroy
 		This.SaveSettings()
@@ -284,13 +290,15 @@ ENDDEFINE
 DEFINE CLASS baselabel AS label 
  	*< CLASSDATA: Baseclass="label" Timestamp="" Scale="Pixels" Uniqueid="" />
 
-	AutoSize = .T.
-	BackStyle = 0
-	Caption = "Label1"
-	FontSize = 8
-	Height = 16
-	Name = "baselabel"
-	Width = 34
+	*<PropValue>
+		AutoSize = .T.
+		BackStyle = 0
+		Caption = "Label1"
+		FontSize = 8
+		Height = 16
+		Name = "baselabel"
+		Width = 34
+	*</PropValue>
 
 ENDDEFINE
 
@@ -301,11 +309,13 @@ DEFINE CLASS basespinner AS spinner
 		*m: updatecontrolsource		&& Updates the ControlSource with the new value
 	*</DefinedPropArrayMethod>
 
-	FontSize = 8
-	Height = 22
-	Name = "basespinner"
-	SelectOnEntry = .T.
-	Width = 121
+	*<PropValue>
+		FontSize = 8
+		Height = 22
+		Name = "basespinner"
+		SelectOnEntry = .T.
+		Width = 121
+	*</PropValue>
 	
 	PROCEDURE KeyPress
 		* Prevent Ctrl-0 from inserting a null value.
@@ -334,17 +344,19 @@ DEFINE CLASS cmdformatmenu AS basecommandbutton OF "thor_proc_formatmenu.vcx"
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	cmethodname = 
-	cparameters = 
-	Name = "cmdformatmenu"
-	nminobjects = 2
-	nshift = 0
-	_memberdata = <VFPData>
-		<memberdata name="cmethodname" display="cMethodName"/>
-		<memberdata name="cparameters" display="cParameters"/>
-		<memberdata name="nminobjects" display="nMinObjects"/>
-		<memberdata name="nshift" display="nShift"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		cmethodname = 
+		cparameters = 
+		Name = "cmdformatmenu"
+		nminobjects = 2
+		nshift = 0
+		_memberdata = <VFPData>
+			<memberdata name="cmethodname" display="cMethodName"/>
+			<memberdata name="cparameters" display="cParameters"/>
+			<memberdata name="nminobjects" display="nMinObjects"/>
+			<memberdata name="nshift" display="nShift"/>
+		</VFPData>
+	*</PropValue>
 	
 	PROCEDURE Click
 		Local lcExec, lcMethodName, lcParameters
@@ -379,13 +391,15 @@ DEFINE CLASS cntformat AS basecontainer OF "thor_proc_formatmenu.vcx"
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Name = "cntformat"
-	_memberdata = <VFPData>
-		<memberdata name="ncol1r" display="nCol1R"/>
-		<memberdata name="nrow2r" display="nRow2R"/>
-		<memberdata name="nrow3r" display="nRow3R"/>
-		<memberdata name="nrow6r" display="nRow6R"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Name = "cntformat"
+		_memberdata = <VFPData>
+			<memberdata name="ncol1r" display="nCol1R"/>
+			<memberdata name="nrow2r" display="nRow2R"/>
+			<memberdata name="nrow3r" display="nRow3R"/>
+			<memberdata name="nrow6r" display="nRow6R"/>
+		</VFPData>
+	*</PropValue>
 
 ENDDEFINE
 
@@ -488,40 +502,42 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		*p: oformat
 	*</DefinedPropArrayMethod>
 
-	BorderStyle = 3
-	Caption = "Size / Position"
-	Dockable = 2
-	DoCreate = .T.
-	Height = 154
-	Left = 0
-	Name = "frmformatmenu"
-	nheightincrement = 8
-	nhorizontalgroup = 1		&& Grouping for horizontal spacing
-	nhorizontalincrement = 8
-	nleftincrement = 8
-	nrowcount = 0
-	nselectedobjects = 0
-	ntopincrement = 8
-	nverticalgroup = 1		&& Grouping for vertical spacing
-	nverticalincrement = 8
-	nwidthincrement = 8
-	oformat = .NULL.
-	ShowTips = .T.
-	Top = 0
-	Visible = .T.
-	Width = 534
-	_memberdata = <VFPData>
-		<memberdata name="nselectedobjects" display="nSelectedObjects"/>
-		<memberdata name="nwidthincrement" display="nWidthIncrement"/>
-		<memberdata name="ntopincrement" display="nTopIncrement"/>
-		<memberdata name="nheightincrement" display="nHeightIncrement"/>
-		<memberdata name="nleftincrement" display="nLeftIncrement"/>
-		<memberdata name="nverticalincrement" display="nVerticalIncrement"/>
-		<memberdata name="nhorizontalincrement" display="nHorizontalIncrement"/>
-		<memberdata name="osettings" display="oSettings"/>
-		<memberdata name="nverticalgroup" display="nVerticalGroup"/>
-		<memberdata name="nhorizontalgroup" display="nHorizontalGroup"/>
+	*<PropValue>
+		BorderStyle = 3
+		Caption = "Size / Position"
+		Dockable = 2
+		DoCreate = .T.
+		Height = 154
+		Left = 0
+		Name = "frmformatmenu"
+		nheightincrement = 8
+		nhorizontalgroup = 1
+		nhorizontalincrement = 8
+		nleftincrement = 8
+		nrowcount = 0
+		nselectedobjects = 0
+		ntopincrement = 8
+		nverticalgroup = 1
+		nverticalincrement = 8
+		nwidthincrement = 8
+		oformat = .NULL.
+		ShowTips = .T.
+		Top = 0
+		Visible = .T.
+		Width = 534
+		_memberdata = <VFPData>
+			<memberdata name="nselectedobjects" display="nSelectedObjects"/>
+			<memberdata name="nwidthincrement" display="nWidthIncrement"/>
+			<memberdata name="ntopincrement" display="nTopIncrement"/>
+			<memberdata name="nheightincrement" display="nHeightIncrement"/>
+			<memberdata name="nleftincrement" display="nLeftIncrement"/>
+			<memberdata name="nverticalincrement" display="nVerticalIncrement"/>
+			<memberdata name="nhorizontalincrement" display="nHorizontalIncrement"/>
+			<memberdata name="osettings" display="oSettings"/>
+			<memberdata name="nverticalgroup" display="nVerticalGroup"/>
+			<memberdata name="nhorizontalgroup" display="nHorizontalGroup"/>
 		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdBringToFront' AS cmdformatmenu WITH ;
 		Caption = "", ;
@@ -598,8 +614,8 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 58, ;
 		Name = "Basespinner3", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		Top = 34, ;
 		Visible = .T., ;
 		Width = 42, ;
@@ -755,8 +771,8 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 96, ;
 		Name = "Basespinner1", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		TabIndex = 5, ;
 		ToolTipText = "Number of items in each vertical group that are moved as one unit (all changed by the same horizontal increment)", ;
 		Top = 39, ;
@@ -772,8 +788,8 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 97, ;
 		Name = "Basespinner4", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		Top = 15, ;
 		Visible = .T., ;
 		Width = 42, ;
@@ -896,8 +912,8 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 89, ;
 		Name = "Basespinner6", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		Top = 34, ;
 		Visible = .T., ;
 		Width = 42, ;
@@ -1082,8 +1098,8 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 89, ;
 		Name = "Basespinner1", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		Top = 34, ;
 		Visible = .T., ;
 		Width = 42, ;
@@ -1277,8 +1293,8 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 95, ;
 		Name = "Basespinner1", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		TabIndex = 5, ;
 		ToolTipText = "Number of items in each horizontal group that are moved as one unit (all changed by the same vertical increment)", ;
 		Top = 40, ;
@@ -1294,8 +1310,8 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 95, ;
 		Name = "Basespinner5", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		Top = 16, ;
 		Visible = .T., ;
 		Width = 42, ;
@@ -1418,8 +1434,8 @@ DEFINE CLASS frmformatmenu AS baseform OF "thor_proc_formatmenu.vcx"
 		KeyboardLowValue = 1, ;
 		Left = 58, ;
 		Name = "Basespinner2", ;
-		SpinnerHighValue = 99.00, ;
-		SpinnerLowValue = 1.00, ;
+		SpinnerHighValue =  99.00, ;
+		SpinnerLowValue =   1.00, ;
 		Top = 34, ;
 		Visible = .T., ;
 		Width = 42, ;

@@ -32,8 +32,10 @@ DEFINE CLASS frmold AS formset
 		*p: __cinspectorkey
 	*</DefinedPropArrayMethod>
 
-	Name = "frmold"
-	__cinspectorkey = 23
+	*<PropValue>
+		Name = "frmold"
+		__cinspectorkey = 23
+	*</PropValue>
 
 	ADD OBJECT 'Form1' AS form WITH ;
 		AutoCenter = .T., ;
@@ -250,29 +252,31 @@ DEFINE CLASS frmsaveasclass AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .T.
-	Caption = "Save As Class"
-	cclass = 
-	cclasslibrary = 
-	Desktop = .T.
-	DoCreate = .T.
-	Height = 230
-	lcreate = .F.
-	MaxHeight = 230
-	MinHeight = 230
-	MinWidth = 375
-	Name = "frmsaveasclass"
-	oobject = .NULL.
-	osettings = .NULL.
-	Width = 375
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="oobject" display="oObject"/>
-		<memberdata name="cclass" display="cClass"/>
-		<memberdata name="lcreate" display="lCreate"/>
-		<memberdata name="cclasslibrary" display="cClassLibrary"/>
-		<memberdata name="osettings" display="oSettings"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AutoCenter = .T.
+		Caption = "Save As Class"
+		cclass = 
+		cclasslibrary = 
+		Desktop = .T.
+		DoCreate = .T.
+		Height = 230
+		lcreate = .F.
+		MaxHeight = 230
+		MinHeight = 230
+		MinWidth = 375
+		Name = "frmsaveasclass"
+		oobject = .NULL.
+		osettings = .NULL.
+		Width = 375
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="oobject" display="oObject"/>
+			<memberdata name="cclass" display="cClass"/>
+			<memberdata name="lcreate" display="lCreate"/>
+			<memberdata name="cclasslibrary" display="cClassLibrary"/>
+			<memberdata name="osettings" display="oSettings"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdCancel' AS commandbutton WITH ;
 		Anchor = 8, ;

@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="2" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -48,30 +50,32 @@ DEFINE CLASS form1 AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	AutoCenter = .T.
-	Caption = "Manage PEM Editor Access"
-	cmenucontextcode = 
-	cmenuhitcode = 
-	DataSession = 2
-	DoCreate = .T.
-	Height = 165
-	Name = "Form1"
-	ofoxcode = .NULL.
-	Width = 700
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="ofoxcode" display="oFoxCode"/>
-		<memberdata name="getnewpropertymenucode" display="GetNewPropertyMenuCode"/>
-		<memberdata name="geteditpropertymenucode" display="GetEditPropertyMenuCode"/>
-		<memberdata name="getpropertywindowcontextmenucode" display="GetPropertyWindowContextMenuCode"/>
-		<memberdata name="updatestatus" display="UpdateStatus"/>
-		<memberdata name="uninstallitem" display="UnInstallItem"/>
-		<memberdata name="installitem" display="InstallItem"/>
-		<memberdata name="cmenuhitcode" display="cMenuHitCode"/>
-		<memberdata name="cmenucontextcode" display="cMenuContextCode"/>
-		<memberdata name="getmenucontextcode" display="GetMenuContextCode"/>
-		<memberdata name="getmenuhitcode" display="GetMenuHitCode"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		AutoCenter = .T.
+		Caption = "Manage PEM Editor Access"
+		cmenucontextcode = 
+		cmenuhitcode = 
+		DataSession = 2
+		DoCreate = .T.
+		Height = 165
+		Name = "Form1"
+		ofoxcode = .NULL.
+		Width = 700
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="ofoxcode" display="oFoxCode"/>
+			<memberdata name="getnewpropertymenucode" display="GetNewPropertyMenuCode"/>
+			<memberdata name="geteditpropertymenucode" display="GetEditPropertyMenuCode"/>
+			<memberdata name="getpropertywindowcontextmenucode" display="GetPropertyWindowContextMenuCode"/>
+			<memberdata name="updatestatus" display="UpdateStatus"/>
+			<memberdata name="uninstallitem" display="UnInstallItem"/>
+			<memberdata name="installitem" display="InstallItem"/>
+			<memberdata name="cmenuhitcode" display="cMenuHitCode"/>
+			<memberdata name="cmenucontextcode" display="cMenuContextCode"/>
+			<memberdata name="getmenucontextcode" display="GetMenuContextCode"/>
+			<memberdata name="getmenuhitcode" display="GetMenuHitCode"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Grid1' AS grid WITH ;
 		ColumnCount = 4, ;

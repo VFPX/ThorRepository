@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -28,15 +30,17 @@ DEFINE CLASS form1 AS form
 		*m: writehtml
 	*</DefinedPropArrayMethod>
 
-	Caption = "Form1"
-	Desktop = .T.
-	DoCreate = .T.
-	Height = 250
-	Left = 0
-	Name = "Form1"
-	Top = 0
-	Visible = .T.
-	Width = 527
+	*<PropValue>
+		Caption = "Form1"
+		Desktop = .T.
+		DoCreate = .T.
+		Height = 250
+		Left = 0
+		Name = "Form1"
+		Top = 0
+		Visible = .T.
+		Width = 527
+	*</PropValue>
 
 	ADD OBJECT 'MyGrid' AS grid WITH ;
 		Height = 250, ;

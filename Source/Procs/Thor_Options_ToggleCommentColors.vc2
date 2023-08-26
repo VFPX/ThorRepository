@@ -37,26 +37,28 @@ DEFINE CLASS togglecolors AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	cthortool = 
-	Height = 260
-	Name = "togglecolors"
-	ndimbackcolor = 16777215		&& *** Color
-	ndimforecolor = 12632256		&& *** Color
-	nnormalbackcolor = 12632256		&& *** Color
-	nnormalforecolor = 0		&& *** Color
-	othor = .NULL.
-	Width = 345
-	_memberdata = <VFPData>
-		<memberdata name="othor" display="oThor"/>
-		<memberdata name="cthortool" display="cThorTool"/>
-		<memberdata name="ndimbackcolor" display="nDimBackColor"/>
-		<memberdata name="ndimforecolor" display="nDimForeColor"/>
-		<memberdata name="nnormalbackcolor" display="nNormalBackColor"/>
-		<memberdata name="nnormalforecolor" display="nNormalForeColor"/>
-		<memberdata name="savecolors" display="SaveColors"/>
-		<memberdata name="rgbvalues" display="RGBValues"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 15
+		cthortool = 
+		Height = 260
+		Name = "togglecolors"
+		ndimbackcolor = 16777215
+		ndimforecolor = 12632256
+		nnormalbackcolor = 12632256
+		nnormalforecolor = 0
+		othor = .NULL.
+		Width = 345
+		_memberdata = <VFPData>
+			<memberdata name="othor" display="oThor"/>
+			<memberdata name="cthortool" display="cThorTool"/>
+			<memberdata name="ndimbackcolor" display="nDimBackColor"/>
+			<memberdata name="ndimforecolor" display="nDimForeColor"/>
+			<memberdata name="nnormalbackcolor" display="nNormalBackColor"/>
+			<memberdata name="nnormalforecolor" display="nNormalForeColor"/>
+			<memberdata name="savecolors" display="SaveColors"/>
+			<memberdata name="rgbvalues" display="RGBValues"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Baselabel1' AS label WITH ;
 		Alignment = 2, ;

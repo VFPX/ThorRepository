@@ -23,13 +23,15 @@ DEFINE CLASS clsvcd4prg AS container
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Anchor = 15
-	Height = 260
-	Name = "clsvcd4prg"
-	Width = 345
-	_memberdata = <VFPData>
-		<memberdata name="forecolor" display="ForeColor"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Anchor = 15
+		Height = 260
+		Name = "clsvcd4prg"
+		Width = 345
+		_memberdata = <VFPData>
+			<memberdata name="forecolor" display="ForeColor"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Basecheckbox1' AS checkbox WITH ;
 		Alignment = 0, ;

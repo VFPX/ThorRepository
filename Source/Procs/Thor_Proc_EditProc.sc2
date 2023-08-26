@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -36,22 +38,24 @@ DEFINE CLASS form1 AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	BorderStyle = 2
-	Caption = "Form1"
-	cfilename = 
-	cresponse = 
-	Desktop = .T.
-	DoCreate = .T.
-	Height = 230
-	Left = 0
-	Name = "Form1"
-	Top = 0
-	Width = 420
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="cfilename" display="cFileName"/>
-		<memberdata name="cresponse" display="cResponse"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		BorderStyle = 2
+		Caption = "Form1"
+		cfilename = 
+		cresponse = 
+		Desktop = .T.
+		DoCreate = .T.
+		Height = 230
+		Left = 0
+		Name = "Form1"
+		Top = 0
+		Width = 420
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="cfilename" display="cFileName"/>
+			<memberdata name="cresponse" display="cResponse"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'Command1' AS commandbutton WITH ;
 		Caption = "View this file in Read-Only mode", ;
