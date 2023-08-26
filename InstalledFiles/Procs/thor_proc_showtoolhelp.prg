@@ -10,7 +10,7 @@ If Not Empty(m.lcLink)
 	m.loThorUtils.GoURL(m.lcLink)
 Else
 	lcDescription = Evl(m.loToolInfo.Description, m.loToolInfo.Prompt)
-	lcFormName	  = Execscript(_Screen.cThorDispatcher, 'Full Path=Thor_Proc_ShowToolHelp.SCX')
+	lcFormName	  = Execscript(_Screen.cThorDispatcher, 'Full Path=Thor_proc_showtoolhelp.SCX')
 	Do Form (m.lcFormName) With m.lcToolName, m.loToolInfo.Prompt, m.lcDescription
 Endif
 

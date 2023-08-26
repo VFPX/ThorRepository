@@ -8,12 +8,14 @@
 DEFINE CLASS dataenvironment AS dataenvironment 
  	*< CLASSDATA: Baseclass="dataenvironment" Timestamp="" Scale="" Uniqueid="" ClassIcon="1" />
 
-	DataSource = .NULL.
-	Height = 0
-	Left = 0
-	Name = "Dataenvironment"
-	Top = 0
-	Width = 0
+	*<PropValue>
+		DataSource = .NULL.
+		Height = 0
+		Left = 0
+		Name = "Dataenvironment"
+		Top = 0
+		Width = 0
+	*</PropValue>
 
 ENDDEFINE
 
@@ -35,22 +37,24 @@ DEFINE CLASS form1 AS form
 		*p: _memberdata		&& XML Metadata for customizable properties
 	*</DefinedPropArrayMethod>
 
-	Caption = "Open class from prg"
-	cclass = 
-	DoCreate = .T.
-	Height = 481
-	Left = -1
-	MinWidth = 270
-	Name = "FORM1"
-	oclasses = .NULL.
-	Top = 0
-	Width = 270
-	WindowType = 1
-	_memberdata = <VFPData>
-		<memberdata name="oclasses" display="oClasses"/>
-		<memberdata name="caption" display="Caption"/>
-		<memberdata name="cclass" display="cClass"/>
-		</VFPData>		&& XML Metadata for customizable properties
+	*<PropValue>
+		Caption = "Open class from prg"
+		cclass = 
+		DoCreate = .T.
+		Height = 481
+		Left = -1
+		MinWidth = 270
+		Name = "FORM1"
+		oclasses = .NULL.
+		Top = 0
+		Width = 270
+		WindowType = 1
+		_memberdata = <VFPData>
+			<memberdata name="oclasses" display="oClasses"/>
+			<memberdata name="caption" display="Caption"/>
+			<memberdata name="cclass" display="cClass"/>
+		</VFPData>
+	*</PropValue>
 
 	ADD OBJECT 'cmdEditAsPrg' AS commandbutton WITH ;
 		Caption = "Edit \<PRG", ;
