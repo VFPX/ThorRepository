@@ -65,6 +65,7 @@ DEFINE CLASS form1 AS form
 	ADD OBJECT 'Edit1' AS editbox WITH ;
 		Anchor = 15, ;
 		ControlSource = "Thisform.cDescription", ;
+		FontSize = 10, ;
 		Height = 167, ;
 		Left = 12, ;
 		Name = "Edit1", ;
@@ -76,7 +77,8 @@ DEFINE CLASS form1 AS form
 	ADD OBJECT 'Label1' AS label WITH ;
 		AutoSize = .T., ;
 		Caption = "Label1", ;
-		Height = 17, ;
+		FontSize = 10, ;
+		Height = 18, ;
 		Left = 12, ;
 		Name = "Label1", ;
 		Top = 12, ;

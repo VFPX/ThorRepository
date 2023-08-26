@@ -17,6 +17,7 @@ If Pcount() = 1								;
 		.AppID 		   = 'ThorRepository'
 
 		.Description =  'See ' + ccHelpURL
+		.Link = 'https://github.com/VFPX/ThorNews/blob/main/NewsItems/Item_52.md'
 
 		.Category = 'Miscellaneous'
 		
@@ -45,7 +46,7 @@ Return
 Procedure ToolCode
 	Lparameters lxParam1
 
-	Local lcDestFolder, lcHotKeyDesc, loCloseTempFiles, loThorUtils
+	Local lcDescription, lcDestFolder, lcFormName, lcHotKeyDesc, loCloseTempFiles, loThorUtils
 
 	loThorUtils = Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
 	* when loCloseTempFiles goes out of scope, it closes any newly opened tables
@@ -78,21 +79,20 @@ Procedure ToolCode
 
 		RefreshThor()
 
-
-		Text To m.lcPrompt Noshow Textmerge
+		Text To m.lcDescription Noshow Textmerge
 Quick Access Menu installed.
 
 It is accessible:
     - From the System Menu ("Quick Access")
     - Or by using hot key   <<Evl(m.lcHotKeyDesc, 'Not assigned')>>.
     
-Note the "Documentation / Settings" menu item: it provides current documentation for all the tools found in the Quick Access menu.
-
 Backup of modified Thor tables saved in
      _Screen.cThorFolder + 'Tables'
-		EndText
-		
-		Messagebox(m.lcPrompt, 64, 'Quick Access Menu installed')
+     
+		Endtext
+
+		lcFormName = Execscript(_Screen.cThorDispatcher, 'Full Path=Thor_proc_showtoolhelp.SCX')
+		Do Form (m.lcFormName) With 'Quick Access Menu', 'Quick Access Menu', m.lcDescription
 
 	Endif
 
