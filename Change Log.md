@@ -1,3 +1,7 @@
+### 2023-08-26, Version 65.13
+* Modified help for hidden context menu tool
+* Some files moved here from Thor
+
 ### 2023-08-17, Version 65.12
 * Add new property .AppID to all tools to identify the project they originate in.
 
