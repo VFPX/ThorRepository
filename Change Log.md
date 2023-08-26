@@ -1,4 +1,4 @@
-### 2023-08-26, Version 65.13
+### 2023-08-26, Version 65.13B
 * Modified help for hidden context menu tool
 * Some files moved here from Thor
 

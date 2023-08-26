@@ -1,4 +1,4 @@
-#Define ccHelpURL 'https://github.com/VFPX/ThorRepository/blob/master/docs/thor_tool_installswfdemomenus.md'
+#Define ccHelpURL 'https://github.com/VFPX/ThorNews/blob/main/NewsItems/Item_52.md'
 Lparameters lxParam1
 
 ****************************************************************
