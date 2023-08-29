@@ -9,7 +9,8 @@ lcControlSource = m.loColumn.FieldName
 * fix some header captions
 Do Case
 	Case m.lcControlSource == Upper('ToolName')
-		ModifyFormProperties(m.loForm)
+		*!* ******** JRN Removed 2023-08-27 ********
+		*!* ModifyFormProperties(m.loForm)
 		loColumn.cHeaderCaption	= 'Tool Name / Menu Caption'
 		loColumn.ControlSource	= 'Trim(' + m.loColumn.ControlSource + ')'
 	Case m.lcControlSource == Upper('MenuHotKey')
@@ -26,13 +27,6 @@ Do Case
 		* hide some columns
 	Case ' ' + m.lcControlSource + ' ' $ Upper(' ID Link VideoLink OptionTool PlugIns ToolPrompt ToolDescription ')
 		loColumn.lVisible = .F.
-
-	*!* ******** JRN Removed 2023-08-07 ******** No longer needed, since grid is read-only
-	*!* *** JRN 2023-08-07 : following
-	*!* Case m.lcControlSource == Upper('Favorite')
-	*!* 	Bindevent(m.loColumn.Text1, 'LostFocus', m.loForm.oCustomBindEvents, 'Favorite_LostFocus')
-	*!* Case m.lcControlSource == Upper('Startup')
-	*!* 	Bindevent(m.loColumn.Text1, 'LostFocus', m.loForm.oCustomBindEvents, 'StartUp_LostFocus')
 
 Endcase
 

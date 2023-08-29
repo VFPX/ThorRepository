@@ -1,3 +1,9 @@
+### 2023-08-29, Version 65.14
+* Fixed bug in proc for "add words to CKL"
+* Updates / corrections, including new context menus, to two tools
+    * Tool Manager
+    * Browse Hot Keys
+
 ### 2023-08-26, Version 65.13B
 * Modified help for hidden context menu tool
 * Some files moved here from Thor

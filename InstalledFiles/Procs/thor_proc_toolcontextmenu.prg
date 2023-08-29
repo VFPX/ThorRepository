@@ -5,8 +5,8 @@ Lparameters lcToolName
 #Define CRLF             	Chr(13)+Chr(10)
 #Define Tab				    Chr(9)
 
-Local laHotKey[1], lcFileName, lcKeyWord, lcToolFolder, lcType, lnSelect, loCloseTemps, loThorUtils
-Local loTool
+Local laHotKey[1], lcFileName, lcKeyWord, lcToolFolder, lcType, llResult, lnSelect, loCloseTemps
+Local loThorUtils, loTool
 
 lnSelect = Select()
 
@@ -15,13 +15,13 @@ loThorUtils  = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Utils')
 loCloseTemps = m.loThorUtils.CloseTempFiles() && will close any tables opened after
 m.loThorUtils.OpenThorTables()
 
-lcToolName   = JustStem(m.lcToolName)
+lcToolName	 = Juststem(m.lcToolName)
 loTool		 = Execscript (_Screen.cThorDispatcher, 'ToolInfo=', m.lcToolName)
 lcToolFolder = Upper(_Screen.cThorFolder + 'Tools')
 lcFileName	 = Execscript(_Screen.cThorDispatcher, 'Full Path=' + m.lcToolName)
 
 Do Case
-	Case Not File(Addbs(m.lcToolFolder) + ForceExt(m.lcToolName, 'prg'))
+	Case Not File(Addbs(m.lcToolFolder) + Forceext(m.lcToolName, 'prg'))
 		lcType = 'Private'
 	Case m.lcToolFolder == Upper(Justpath(m.lcFileName))
 		lcType = 'Published'
@@ -30,18 +30,19 @@ Do Case
 Endcase
 m.loTool.AddProperty('PublishType', m.lcType)
 
-lcKeyWord = RunContextMenu(ForceExt(m.lcToolName, 'prg'), m.loTool)
+lcKeyWord = RunContextMenu(Forceext(m.lcToolName, 'prg'), m.loTool)
 Do Case
 	Case Empty(m.lcKeyWord) && we got nothing to do
 
 	Case m.lcKeyWord = 'Run'
 		loCloseTemps = Null && close all our tables first
 		RunTool(m.lcToolName)
+		llResult = .F.
 	Otherwise
-		ProcessKeyword(m.lcKeyWord, m.lcToolName, m.loTool, m.loThorUtils)
+		llResult = ProcessKeyword(m.lcKeyWord, m.lcToolName, m.loTool, m.loThorUtils)
 Endcase
 
-Return
+Return Execscript(_Screen.cThorDispatcher, 'Result=', m.llResult)
 
 Endproc
 
@@ -192,6 +193,7 @@ Procedure ProcessKeyword(lcKeyWord, lcToolName, loTool, loThorUtils)
 
 		Case m.lcKeyWord == 'Start Up'
 			llNewValue = ToggleStatus('StartupTools', 'StartUp', m.lcToolName)
+			Return .T. && changed, but no need to refresh
 
 		Case m.lcKeyWord == 'Edit'
 			EditTool(m.lcToolName, m.loThorUtils)
@@ -214,6 +216,9 @@ Procedure ProcessKeyword(lcKeyWord, lcToolName, loTool, loThorUtils)
 		m.loThorUtils.WaitWindow('Refreshing Thor hotkeys and menus')
 		RefreshThor()
 		Wait Clear
+		Return .T.
+	Else 
+		Return .F.
 	Endif
 
 Endproc
@@ -334,9 +339,9 @@ Endproc
 Procedure GetStatus(lcTable, lcField, lcPRGName)
 	Local laStatus[1]
 
-	Select  &lcField									;
-		From &lcTable									;
-		Where Upper(PRGName) =  Upper(m.lcPRGName)		;
+	Select  &lcField														;
+		From &lcTable														;
+		Where Upper(PRGName) =  Upper(Forceext(m.lcPRGName, 'PRG'))			;
 		Into Array laStatus
 	Return m.laStatus
 	Return
@@ -366,8 +371,9 @@ Procedure ToggleStatus(lcTable, lcField, lcPRGName)
 
 	Local llNewValue
 
+	lcPRGName = Upper(Forceext(m.lcPRGName, 'prg'))
 	Select &lcTable
-	Locate For Upper(PRGName) =  Upper(m.lcPRGName)
+	Locate For Upper(PRGName) = m.lcPRGName
 	If Found()
 		llNewValue = Not &lcField
 		Replace &lcField With m.llNewValue

@@ -313,7 +313,7 @@ Define Class ThorTools As Custom
 					Insert Into (This.cDestAlias)							;
 						(Source, Descript, HotKey, nKeyCode, NShifts)		;
 						Values												;
-						('On Key Label', m.lcExec, m.lcKey, 111 + m.lnKeyCode, m.lnShifts)
+						('On Key Label', m.lcExec + ' [On Key Label]', m.lcKey, 111 + m.lnKeyCode, m.lnShifts)
 			Endcase
 		Endfor
 
@@ -322,21 +322,36 @@ Define Class ThorTools As Custom
 
 	Procedure AddMacros
 		Local loThorEngine As 'thor_engine' Of 'thor.vcx'
-		Local lcThorAPP, loMacro, loMacros
-
+		Local laKeyCode[2], lcThorAPP, lnKeyCode, lnShifts, loMacro, loMacros
+	
 		lcThorAPP	 = _Screen.cThorFolder + '..\Thor.app'
 		loThorEngine =  Newobject ('thor_engine', 'thor.vcx', m.lcThorAPP, _Screen.cThorFolder)
 		loMacros	 = m.loThorEngine.GetMacroDefinitions ()
 		For Each m.loMacro In m.loMacros FoxObject
 			If Lower (m.loMacro.Name) # 'thor:'
-				Insert Into (This.cDestAlias)					;
-					(Source, Descript, HotKey, StatusBar)		;
-					Values										;
-					('Macro', m.loMacro.Name, m.loMacro.Definition, m.loMacro.Keystrokes)
+				Select  nKeyCode,												;
+						NShifts													;
+					From HotKeyDefinitions										;
+					Where Upper(Descript) = Upper(m.loMacro.Definition)			;
+					Into Array laKeyCode
+				If _Tally > 0
+					lnKeyCode = Evl(m.laKeyCode[1], 0)
+					lnShifts  = Evl(m.laKeyCode[2], 0)
+				Else
+					lnKeyCode = 0
+					lnShifts  = 0
+				Endif
+	
+				Insert Into (This.cDestAlias)													;
+					(Source, Descript, HotKey, StatusBar,										;
+					  nKeyCode, NShifts)														;
+					Values																		;
+					('Macro', m.loMacro.Name + ' [Macro]', m.loMacro.Definition, m.loMacro.Keystrokes,		;
+					  m.lnKeyCode, m.lnShifts)
 			Endif
 		Endfor
 	Endproc
-
+		
 
 	Procedure AddNotUsed(llExcludeNotUsed)
 		Local lcCategory, lcToolFolder, lcType, loThor, loTool, loTools
