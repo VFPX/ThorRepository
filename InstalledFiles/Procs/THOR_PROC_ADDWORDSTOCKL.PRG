@@ -366,11 +366,8 @@ Define Class clsAddWordstoCKL As Custom
 
 	Procedure OpenMyKeywordList
 		Local lcFileName, lcToolFolder, loException
-		*!* ** { JRN -- 03/24/2021 09:03:58 AM - Begin
-		*!* lcToolFolder = Execscript(_Screen.cThorDispatcher, 'Tool Folder=')
-		*!* lcFileName	 = Addbs(lcToolFolder) + 'My Tools\KeywordList.DBF'
-		lcFileName	 = 'Z:\Applications\Data\Late Pays\KeywordList.DBF'
-		*!* ** } JRN -- 03/24/2021 09:03:58 AM - End
+		lcToolFolder = Execscript(_Screen.cThorDispatcher, 'Tool Folder=')
+		lcFileName	 = Addbs(lcToolFolder) + 'My Tools\KeywordList.DBF'
 		If File (lcFileName)
 			Try
 				Use (lcFileName) In 0 Order Keyword Again Shared

@@ -61,45 +61,42 @@ Procedure ToolCode
 
 	lcAlias		  = 'crsr_ThorToolManager'
 
-	If Not Used(m.lcAlias)
+	llExcludeNotUsed = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccTool, ccTool)
 
-		llExcludeNotUsed = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccTool, ccTool)
+	lcSourceAlias = Sys(2015)
+	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_GetHotKeyDefs', m.lcSourceAlias, m.llExcludeNotUsed)
 
-		lcSourceAlias = Sys(2015)
-		Execscript(_Screen.cThorDispatcher, 'Thor_Proc_GetHotKeyDefs', m.lcSourceAlias, m.llExcludeNotUsed)
+	Select  Descript                            As  ToolName,			;
+			StatusBar                           As  Description,		;
+			Category,													;
+			MenuHotKey,													;
+			HotKey,														;
+			Source,														;
+			Type,														;
+			Favorite,													;
+			StartUp,													;
+			Iif(Empty(OptionTool), ' ', 'Y')    As  Options,			;
+			Iif(Empty(PlugIns), ' ', 'Y')       As  HasPlugIns,			;
+			Project,													;
+			Ttod(Timestamp)                     As  Date,				;
+			FolderName,													;
+			PRGName,													;
+			(100 * Evl(nKeyCode, 999)									;
+				+ NShifts)                      As  HotKeySort,			;
+			Id,															;
+			Link,														;
+			VideoLink,													;
+			OptionTool,													;
+			PlugIns,													;
+			ToolPrompt,													;
+			ToolDescription												;
+		From (m.lcSourceAlias)											;
+		Into Cursor (m.lcAlias) Readwrite
 
-		Select  Descript           As  ToolName,			;
-				StatusBar          As  Description,			;
-				Category,									;
-				MenuHotKey,									;
-				HotKey,										;
-				Source,										;
-				Type,										;
-				Favorite,									;
-				StartUp,									;
-				Iif(Empty(OptionTool), ' ', 'Y') as Options,;
-				Iif(Empty(PlugIns), ' ', 'Y') as HasPlugIns,	;
-				Project,									;
-				Ttod(Timestamp)    As  Date,				;
-				FolderName,									;
-				PRGName,									;
-				(100 * Evl(nKeyCode, 999)					;
-					+ NShifts)     As  HotKeySort,			;
-				Id,											;
-				Link,										;
-				VideoLink,									;
-				OptionTool,									;
-				PlugIns,									;
-				ToolPrompt,									;
-				ToolDescription							;
-			From (m.lcSourceAlias)							;
-			Into Cursor (m.lcAlias) Readwrite
-			
-		Replace all Link with '' for Atc('codeplex.com', Link) # 0
-		Goto top 
+	Replace All Link With '' For Atc('codeplex.com', Link) # 0
+	Goto Top
 
-		Use In (m.lcSourceAlias)
-	Endif && not used(m.lcAlias)
+	Use In (m.lcSourceAlias)
 
 	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowse', m.lcAlias, .T., .T.)
 
