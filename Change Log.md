@@ -1,3 +1,6 @@
+### 2023-09-02, Version 65.14B
+* Fixed bug in proc for handling context menu "Run" option
+
 ### 2023-08-29, Version 65.14
 * Fixed bug in proc for "add words to CKL"
 * Updates / corrections, including new context menus, to two tools

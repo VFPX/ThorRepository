@@ -234,8 +234,8 @@ Endproc
 
 * ================================================================================
 * ================================================================================
-Procedure RunTool(loThisTable)
-	Execscript(_Screen.cThorDispatcher, Trim(m.loThisTable.PRGName))
+Procedure RunTool(lcToolName)
+	Execscript(_Screen.cThorDispatcher, m.lcToolName) 
 Endproc
 
 
