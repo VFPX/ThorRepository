@@ -1,8 +1,11 @@
-## ℹ Computer information
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
 
-- VFP version: 
-- ThorRepository version:
-- Last ThorRepository version w/o bug (if available):
+---
 
 ## 📝 Provide detailed reproduction steps (if any)
 
