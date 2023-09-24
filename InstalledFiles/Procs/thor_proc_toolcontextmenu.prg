@@ -451,12 +451,14 @@ Endproc
 
 * ================================================================================
 * ================================================================================
-Procedure SetHotKey(lcToolName, lcAction)
+Procedure SetHotKey(tcToolName, lcAction)
 
 	Local loForm As 'SetHotKeyForm' Of 'Thor_UI.vcx'
-	Local lcAlias, lcHotKey, lcThorAPP, lnSelect
+	Local lcAlias, lcHotKey, lcThorAPP, lcToolName
 
-	lcAlias = 'ToolHotKeyAssignments'
+	lcAlias	   = 'ToolHotKeyAssignments'
+	lcToolName = Forceext(m.lcToolName, 'prg')
+
 	Select (m.lcAlias)
 	Locate For Upper(PRGName) = Upper(m.lcToolName)
 

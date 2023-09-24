@@ -13,52 +13,52 @@ Endproc
 
 Define Class ThorTools As Custom
 
-	cDestAlias	= ''
-	oThorUtils  = Null
+	cDestAlias = ''
+	oThorUtils = Null
 
 
 	Procedure Run(lcDestAlias, llExcludeNotUsed)
-	
+
 		Local loCloseTemps
-	
+
 		This.oThorUtils  = Execscript (_Screen.cThorDispatcher, 'Thor_Proc_Utils')
-	
+
 		With  This.oThorUtils
 			loCloseTemps = .CloseTempFiles(m.lcDestAlias)
 			This.oThorUtils.OpenThorTables()
-		EndWith &&  This.oThorUtils
-	
+		Endwith &&  This.oThorUtils
+
 		This.cDestAlias = m.lcDestAlias
-	
+
 		This.CreateResultCursor()
-	
+
 		This.AddSystemMenuItems()
-	
+
 		This.AddPopupMenus()
-	
+
 		This.AddToolBarItems()
-	
+
 		This.AddMissingHotKeys()
-	
+
 		This.AddHotKeys()
-	
+
 		This.AddOnKeyLabel()
-	
+
 		This.AddMacros()
-	
+
 		This.UpdateFavorites()
-	
+
 		This.UpdateStartUp()
-	
+
 		This.AddNotUsed(m.llExcludeNotUsed)
-	
+
 		This.UpdateType()
-	
+
 		*** JRN 2022-10-15 : KONG special
 		Replace All MenuHotKey With Strtran(MenuHotKey, 'Alt+K', 'Ctrl+K') In (This.cDestAlias)
-	
+
 	Endproc
-	
+
 
 
 	* ================================================================================
@@ -69,7 +69,7 @@ Define Class ThorTools As Custom
 			  Id			I,					;
 			  Source 		C(60),				;
 			  Type			C(20),				;
-			  PRGName  		C(60),				;
+			  PRGName  		C(80),				;
 			  Descript 		C(100),				;
 			  HotKey 		C(20),				;
 			  MenuHotKey	C(20),				;
@@ -78,7 +78,7 @@ Define Class ThorTools As Custom
 			  Favorite 		L,					;
 			  StartUp 		L,					;
 			  StatusBar		C(100),				;
-			  TimeStamp	    T,					;
+			  Timestamp	    T,					;
 			  Category		C(100),				;
 			  Link			C(200),				;
 			  VideoLink		C(200),				;
@@ -99,25 +99,25 @@ Define Class ThorTools As Custom
 		Select  *									;
 			From MenuDefinitions					;
 			Where TopLevel							;
-				And Atc('Thor', popupname) # 1		;
+				And Atc('Thor', PopupName) # 1		;
 				And Not Internal					;
 			Order By SortOrder						;
 			Into Cursor MenuItems
-	
+
 		Scan
 			lcHotKey = This.GetHotKey(Prompt)
 			This.AddMenuItems(MenuItems.Id, Iif(Popup, 'Popup: ', 'SysMenu: ') + MenuItems.Prompt, Iif(Empty(m.lcHotKey), '', 'Alt+' + m.lcHotKey))
 		Endscan
-	
+
 	Endproc
-	
+
 
 	Procedure AddMenuItems(lnMenuID, lcMenuPrompt, lcParentHotKey)
 		Local laHotKeyDesc[1], laHotKeyID[1], laMenuItems[1], lcHotKey, lcNewHotkey, lcPRGName, lcPrompt
 		Local lcStatusBar, llSeparator, lnI, lnID, lnSubMenuID
 
 		Select  Separator,									;
-				SubmenuID,									;
+				SubMenuID,									;
 				Prompt,										;
 				PRGName,									;
 				Cast(StatusBar As M)    As  StatusBar,		;
@@ -153,7 +153,7 @@ Define Class ThorTools As Custom
 					Insert Into (This.cDestAlias)											;
 						(Source, Descript, PRGName, StatusBar, Id, HotKey, MenuHotKey)		;
 						Values																;
-						(Trim(m.lcMenuPrompt), m.lcPrompt, m.lcPRGName, m.lcStatusBar, m.lnID, Iif(Len(m.lcHotKey) > 1, m.lcHotKey, ''), m.lcNewHotkey)
+						(Trim(m.lcMenuPrompt), m.lcPrompt, Forceext(m.lcPRGName, 'prg'), m.lcStatusBar, m.lnID, Iif(Len(m.lcHotKey) > 1, m.lcHotKey, ''), m.lcNewHotkey)
 			Endcase
 		Endfor
 
@@ -179,14 +179,14 @@ Define Class ThorTools As Custom
 
 
 	Procedure AddHotKeys
-		Update  Result																		;
-			Set HotKey = Nvl(HotKeyDefinitions.Descript, ''),								;
-				nKeyCode = Nvl(HotKeyDefinitions.nKeyCode, 999),							;
-				NShifts = Nvl(HotKeyDefinitions.NShifts, 0)									;
-			From (This.cDestAlias)    As  Result											;
-				Join ToolHotKeyAssignments													;
-					On Upper(Result.PRGName) = Upper(ToolHotKeyAssignments.PRGName)			;
-				Join HotKeyDefinitions														;
+		Update  Result																			;
+			Set HotKey = Nvl(HotKeyDefinitions.Descript, ''),									;
+				nKeyCode = Nvl(HotKeyDefinitions.nKeyCode, 999),								;
+				NShifts = Nvl(HotKeyDefinitions.NShifts, 0)										;
+			From (This.cDestAlias)    As  Result												;
+				Join ToolHotKeyAssignments														;
+					On Upper(Result.PRGName) = Upper(Forceext(ToolHotKeyAssignments.PRGName, 'PRG')) ;
+				Join HotKeyDefinitions															;
 					On ToolHotKeyAssignments.HotKeyID = HotKeyDefinitions.Id
 
 		Replace All														;
@@ -201,7 +201,7 @@ Define Class ThorTools As Custom
 
 	Procedure AddPopupMenus
 		Local loPopup
-	
+
 		Select  MenuDefinitions.Id,												;
 				MenuDefinitions.Prompt,											;
 				'Popup Menu'                                As  Source,			;
@@ -212,31 +212,32 @@ Define Class ThorTools As Custom
 			From MenuDefinitions												;
 				Join HotKeyDefinitions											;
 					On MenuDefinitions.HotKeyID = HotKeyDefinitions.Id			;
-			Order By NShifts, Descript											;
+			Order By NShifts,													;
+				Descript														;
 			Into Cursor PopupMenus Readwrite
 		Scan
 			Scatter Name m.loPopup
 			Select (This.cDestAlias)
 			Append Blank
 			Gather Name m.loPopup
-	
-			This.AddMenuItems(m.loPopup.Id, 'Popup: ' + m.loPopup.Prompt, Chrtran(m.loPopup.HotKey, '-', '+')) 
-	
+
+			This.AddMenuItems(m.loPopup.Id, 'Popup: ' + m.loPopup.Prompt, Chrtran(m.loPopup.HotKey, '-', '+'))
+
 		Endscan
-	
+
 	Endproc
-				
+
 
 	Procedure AddMissingHotKeys
 		Insert Into (This.cDestAlias)															;
 			(Source, Descript, PRGName)															;
 			Select  'Hot Key'                                 As  Source,						;
 					Padr(This.GetToolPrompt(PRGName), 100)    As  Descript,						;
-					PRGName																		;
+					Forceext(PRGName, 'prg')                  As  PRGName						;
 				From ToolHotKeyAssignments														;
 				Where HotKeyID # 0																;
-					And Not Lower(ToolHotKeyAssignments.PRGName) In (Select  Lower(PRGName)		;
-																		 From (This.cDestAlias))
+					And Not Lower(Forceext(ToolHotKeyAssignments.PRGName, 'prg')) In (Select  Lower(PRGName) ;
+																						  From (This.cDestAlias))
 	Endproc
 
 
@@ -276,9 +277,9 @@ Define Class ThorTools As Custom
 	Procedure UpdateStartUp
 		Update  Result Set StartUp = .T.														;
 			From (This.cDestAlias)    As  Result												;
-				Join StartUpTools																	;
-					On Upper(StartUpTools.PrgName) = Upper(Evl(Result.PRGName, Result.HotKey))		;
-					And StartUpTools.StartUp
+				Join StartupTools																;
+					On Upper(StartupTools.PRGName) = Upper(Evl(Result.PRGName, Result.HotKey))	;
+					And StartupTools.StartUp
 	Endproc
 
 
@@ -323,7 +324,7 @@ Define Class ThorTools As Custom
 	Procedure AddMacros
 		Local loThorEngine As 'thor_engine' Of 'thor.vcx'
 		Local laKeyCode[2], lcThorAPP, lnKeyCode, lnShifts, loMacro, loMacros
-	
+
 		lcThorAPP	 = _Screen.cThorFolder + '..\Thor.app'
 		loThorEngine =  Newobject ('thor_engine', 'thor.vcx', m.lcThorAPP, _Screen.cThorFolder)
 		loMacros	 = m.loThorEngine.GetMacroDefinitions ()
@@ -341,25 +342,25 @@ Define Class ThorTools As Custom
 					lnKeyCode = 0
 					lnShifts  = 0
 				Endif
-	
+
 				Insert Into (This.cDestAlias)													;
 					(Source, Descript, HotKey, StatusBar,										;
 					  nKeyCode, NShifts)														;
 					Values																		;
-					('Macro', m.loMacro.Name + ' [Macro]', m.loMacro.Definition, m.loMacro.Keystrokes,		;
-					  m.lnKeyCode, m.lnShifts)
+					('Macro', m.loMacro.Name + ' [Macro]', m.loMacro.Definition, m.loMacro.Keystrokes, ;
+					  M.lnKeyCode, m.lnShifts)
 			Endif
 		Endfor
 	Endproc
-		
+
 
 	Procedure AddNotUsed(llExcludeNotUsed)
 		Local lcCategory, lcToolFolder, lcType, loThor, loTool, loTools
-	
+
 		loThor		 = Execscript(_Screen.cThorDispatcher, 'Thor Engine=')
 		lcToolFolder = Execscript(_Screen.cThorDispatcher, 'Tool Folder=')
 		loTools		 = m.loThor.GetToolsCollection(Addbs(m.lcToolFolder))
-	
+
 		Select (This.cDestAlias)
 		For Each m.loTool In m.loTools
 			With m.loTool
@@ -367,7 +368,7 @@ Define Class ThorTools As Custom
 				If Empty(.AppID) And Atc('gofish', .FolderName) # 0
 					.AppID = 'GoFish'
 				Endif
-					
+
 				Replace	Category		 With  m.lcCategory,				;
 						Link			 With  .Link,						;
 						VideoLink		 With  .VideoLink,					;
@@ -378,48 +379,48 @@ Define Class ThorTools As Custom
 						FolderName		 With  Evl(.FolderName, '')			;
 						Project			 With  Evl(.AppID, '')				;
 					For Upper(PRGName) = Upper(.PRGName)
-	
+
 				If _Tally = 0 And Not m.llExcludeNotUsed
 					lcType = Icase(.PrivateCopy = 0, '', .PrivateCopy = -1, 'Custom', .PrivateCopy = 1, 'Private', '')
 					lcType = m.lcType + Iif(.PrivateCopy # 0 And Atc('My Tools', .FullFileName) = 0, ' (Path)', '')
-					Insert Into (This.cDestAlias)													;
-						(PRGName, Descript, StatusBar, Type, Category, Link, ;
-							VideoLink, OptionTool, PlugIns, ToolPrompt, ToolDescription, FolderName, Project) ;
-						Values																		;
-						(.PRGName, .Prompt, .Description, m.lcType, m.lcCategory, .Link, ;
-							.VideoLink, Evl(.OptionTool, ''), Evl(.PlugIns, ''), Evl(.Prompt, ''), Evl(.Description, ''), Evl(.FolderName, ''), Evl(.AppID, ''))
+					Insert Into (This.cDestAlias)												;
+						(PRGName, Descript, StatusBar, Type, Category, Link,					;
+						  VideoLink, OptionTool, PlugIns, ToolPrompt, ToolDescription, FolderName, Project) ;
+						Values																	;
+						(.PRGName, .Prompt, .Description, m.lcType, m.lcCategory, .Link,		;
+						  .VideoLink, Evl(.OptionTool, ''), Evl(.PlugIns, ''), Evl(.Prompt, ''), Evl(.Description, ''), Evl(.FolderName, ''), Evl(.AppID, ''))
 				Endif
 			Endwith && loTool
 		Endfor
 	Endproc
-	
-	
-	Procedure UpdateType
-			
-		This.oThorUtils.ADirCursor(_Screen.cThorFolder + 'Tools\*.prg', 'ThorTools')
-		Update  Result																				;
-			Set Timestamp =  Iif(Isnull(ThorTools.FileName), {}, ThorTools.Datetime)				;
-			From (This.cDestAlias)    As  Result													;
-				Join ThorTools																		;
-					On Upper(Padr(Result.PRGName, 80)) = Upper(Padr(ThorTools.FileName, 80))		;
-			Where (Not Empty(PRGName))
-		
-		This.oThorUtils.ADirCursor(_Screen.cThorFolder + 'Tools\My Tools\*.prg', 'MyThorTools')
-		Update  Result																				;
-			Set Type = Iif(Empty(Timestamp), 'Private (My Tools)', 'Custom (My Tools)'),									;
-				Timestamp =  MyThorTools.Datetime													;
-			From (This.cDestAlias)    As  Result													;
-				Join MyThorTools																	;
-					On Upper(Padr(Result.PRGName, 80)) = Upper(Padr(MyThorTools.FileName, 80))		;
-			Where Not Empty(PRGName)
-		
-		Replace All																						;
-				Type	   With	 Icase(Type = 'Private' Or Empty(Timestamp), 'Private (In Path)', 'Custom (In Path)'), ;
-				Timestamp  With	 Fdate(Trim(PRGName), 1)												;
-			In (This.cDestAlias)																		;
-			For Not Empty(PRGName) and File(Trim(PRGName)) 
 
-		EndProc 
-		
+
+	Procedure UpdateType
+
+		This.oThorUtils.ADirCursor(_Screen.cThorFolder + 'Tools\*.prg', 'ThorTools')
+		Update  Result																			;
+			Set Timestamp =  Iif(Isnull(ThorTools.FileName), {}, ThorTools.Datetime)			;
+			From (This.cDestAlias)    As  Result												;
+				Join ThorTools																	;
+					On Upper(Padr(Result.PRGName, 80)) = Upper(Padr(ThorTools.FileName, 80))	;
+			Where (Not Empty(PRGName))
+
+		This.oThorUtils.ADirCursor(_Screen.cThorFolder + 'Tools\My Tools\*.prg', 'MyThorTools')
+		Update  Result																			;
+			Set Type = Iif(Empty(Timestamp), 'Private (My Tools)', 'Custom (My Tools)'),		;
+				Timestamp =  MyThorTools.Datetime												;
+			From (This.cDestAlias)    As  Result												;
+				Join MyThorTools																;
+					On Upper(Padr(Result.PRGName, 80)) = Upper(Padr(MyThorTools.FileName, 80))	;
+			Where Not Empty(PRGName)
+
+		Replace All																				;
+				Type	   With	 Icase(Type = 'Private' Or Empty(Timestamp), 'Private (In Path)', 'Custom (In Path)'), ;
+				Timestamp  With	 Fdate(Trim(PRGName), 1)										;
+			In (This.cDestAlias)																;
+			For Not Empty(PRGName) And File(Trim(PRGName))
+
+	Endproc
+
 Enddefine
-							
+

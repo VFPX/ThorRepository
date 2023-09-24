@@ -1,11 +1,11 @@
 lparameters toUpdateObject
 
-lcDate = '20230902'
+lcDate = '20230924'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.14B - ' + lcDate
+	.VersionNumber    = '65.14C - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.14B - 08645- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.14C - 08667- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,6 +14,9 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
+### 2023-09-24, Version 65.14C
+* Fixed context menu bugs
+
 ### 2023-09-02, Version 65.14B
 * Fixed bug in proc for handling context menu "Run" option
 

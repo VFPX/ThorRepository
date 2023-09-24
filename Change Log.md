@@ -1,3 +1,6 @@
+### 2023-09-24, Version 65.14C
+* Fixed context menu bugs
+
 ### 2023-09-02, Version 65.14B
 * Fixed bug in proc for handling context menu "Run" option
 
