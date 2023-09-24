@@ -33,11 +33,11 @@ Procedure GetLink(lcLink, lcFileName)
 	lcURLFolder		= 'https://github.com/VFPX/ThorRepository/blob/master/docs/'
 	lcContentFolder	= 'https://raw.githubusercontent.com/VFPX/ThorRepository/master/docs/'
 
-	lcDestFile = Addbs(Sys(2023)) + Sys(2015) + '.Directory.txt'
+	lcDestFile = Addbs(Sys(2023)) + Sys(2015) + '.Directory.txt' 
 	llSuccess  = Download(m.lcContentFolder + 'Directory.txt', m.lcDestFile)
 
 	lcDirectory	= Filetostr(m.lcDestFile)
-	lcTextLine	= Strextract(m.lcDirectory, Juststem(m.lcFileName), LF, 1, 7)
+	lcTextLine	= Strextract(m.lcDirectory, ForceExt(m.lcFileName, 'prg'), LF, 1, 7)
 
 	Do Case
 		Case Not Empty(m.lcTextLine)
