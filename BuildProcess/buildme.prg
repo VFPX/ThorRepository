@@ -22,7 +22,7 @@ Procedure CreateDocumentationDirectory
 	lnFileCount = Adir(laMDFiles, m.lcFolder + 'Thor_Tool_*.md')
 	For lnI = 1 To m.lnFileCount
 		lcFileName = m.laMDFiles[m.lnI, 1]
-		Strtofile(Juststem(m.lcFileName) + Tab + Justext(m.lcFileName) + CRLF, m.lcDirectoryFile, .T.)
+		Strtofile(ForceExt(m.lcFileName, 'PRG') + Tab + Justext(m.lcFileName) + CRLF, m.lcDirectoryFile, .T.)
 	Endfor
 
 	lnFileCount = Adir(laTXTFiles, m.lcFolder + 'Thor_Tool_*.txt')
@@ -30,7 +30,7 @@ Procedure CreateDocumentationDirectory
 		lcFileName = m.laTXTFiles[m.lnI, 1]
 		lcContents = Filetostr(m.lcFolder + m.lcFileName)
 		lcContents = Alltrim(Strtran(m.lcContents, 'Link =', '', 1, 1, 1), ' ', CR, lf)
-		Strtofile(Juststem(m.lcFileName) + Tab + Justext(m.lcFileName) + Tab + m.lcContents + CRLF, m.lcDirectoryFile, .T.)
+		Strtofile(ForceExt(m.lcFileName, 'PRG') + Tab + Justext(m.lcFileName) + Tab + m.lcContents + CRLF, m.lcDirectoryFile, .T.)
 	Endfor
 
 Endproc
