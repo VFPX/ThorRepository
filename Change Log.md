@@ -1,3 +1,6 @@
+### 2023-10-01, Version 65.14D
+* Fixed more context menu bugs
+
 ### 2023-09-24, Version 65.14C
 * Fixed context menu bugs
 

@@ -270,7 +270,7 @@ Procedure CompareTools(lcToolName, loThorUtils)
 	Local lcCustomFileName, lcPublFileName
 
 	lcCustomFileName = ThorFileName(m.lcToolName)
-	lcPublFileName	 = _Screen.cThorFolder + 'Tools\' + Trim(m.lcToolName)
+	lcPublFileName	 = _Screen.cThorFolder + 'Tools\' + ForceExt(Trim(m.lcToolName), 'prg')
 	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_CompareFiles', m.lcCustomFileName, m.lcPublFileName)
 Endproc
 
@@ -457,7 +457,7 @@ Procedure SetHotKey(tcToolName, lcAction)
 	Local lcAlias, lcHotKey, lcThorAPP, lcToolName
 
 	lcAlias	   = 'ToolHotKeyAssignments'
-	lcToolName = Forceext(m.lcToolName, 'prg')
+	lcToolName = Forceext(m.tcToolName, 'prg')
 
 	Select (m.lcAlias)
 	Locate For Upper(PRGName) = Upper(m.lcToolName)

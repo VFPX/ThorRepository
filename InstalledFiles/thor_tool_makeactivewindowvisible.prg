@@ -55,7 +55,7 @@ Procedure ToolCode
 					With _Screen.ActiveForm
 						.Top	= 0
 						.Left	= 0
-						.Height	= Min(.Height, _Screen.Height - 16)
+						.Height	= Min(.Height, _Screen.Height - 16 - Iif(Set("Status Bar")= 'ON', 24, 0))
 						.Width	= Min(.Width, _Screen.Width - 16)
 					Endwith
 				Else
