@@ -49,7 +49,7 @@ Procedure GetLink(lcLink, lcFileName)
 			If Upper(m.lcExt) = 'TXT'
 				Return m.lcURL
 			Else
-				Return m.lcURLFolder + Lower(lcTool + '.MD')
+				Return m.lcURLFolder + Lower(JustStem(lcTool) + '.MD')
 			Endif
 
 		Case Not Empty(m.lcLink)
