@@ -1,3 +1,11 @@
+### 2023-10-07, Version 65.15
+* Enhanced tool "Find Buffer Overrun Threats".
+* Removed option from Tool Manager
+* Fixed issues in SuperBrowse
+    * Bug if IntellisenseX not installed (reported by Phil Sherwood)
+    * Allowed use of Double-Click to view a record in read-only mode.
+    * Took advantage of DynamicForms' memo field editing / editbox
+
 ### 2023-10-01, Version 65.14D
 * Fixed more context menu bugs
 

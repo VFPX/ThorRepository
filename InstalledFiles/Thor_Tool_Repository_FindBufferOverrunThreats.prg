@@ -61,7 +61,7 @@ Procedure ToolCode
 	loOverruns = Newobject('clsFindOverrunThreats')
 	If Execscript(_Screen.cThorDispatcher, 'Thor_Proc_ScopeProcessor', m.loOverruns)
 		Goto top in (m.loOverruns.cAlias)
-		Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowse', m.loOverruns.cAlias)
+		Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowse', m.loOverruns.cAlias, .T., .T.)
 	Else
 		Messagebox('No buffer over-run threats found', 64, 'None found')
 	Endif
@@ -74,7 +74,7 @@ Define Class clsFindOverrunThreats As Custom
 
 	Procedure Init
 		This.cAlias = 'FindOverrunThreats' + Sys(2015)
-		Create Cursor (This.cAlias) (FileName c(100), ObjectName c(100), Lineno N(6), Threat c(200))
+		Create Cursor (This.cAlias) (FileName c(200), ObjectName c(100), Lineno N(6), CharCount I, Threat c(80), MemoThreat M)
 		Index on Upper(FileName) tag FileName
 
 	Procedure Process(toData)
@@ -118,10 +118,11 @@ Define Class clsFindOverrunThreats As Custom
 
 	Procedure FindThreats
 		Lparameters lcCodeBlock
-
+	
 		Local loLinePositions As 'Collection'
-		Local laLines[1], lcFirstWord, lcFullLine, lcLine, lnI, lnLineCount, lnStartIndex
-
+		Local laLines[1], lcAfterKeyWord, lcFirstWord, lcFullLine, lcLine, lcWithinParens, lnI, lnLineCount
+		Local lnStartIndex
+	
 		loLinePositions	= Createobject('Collection')
 		If Len(m.lcCodeBlock) > MaxLength
 			lnLineCount		= Alines(laLines, m.lcCodeBlock)
@@ -134,33 +135,35 @@ Define Class clsFindOverrunThreats As Custom
 					lcLine	   = m.laLines[m.lnI]
 					lcFullLine = m.lcFullLine + CR + LF + m.lcLine
 				Enddo
-
-				lcFirstWord	= Upper(Getwordnum(m.lcFullLine, 1))
+	
+				lcFirstWord	   = Upper(Getwordnum(m.lcFullLine, 1))
+				lcWithinParens = Strextract(m.lcFullLine, '(', ')', 1)
+				lcAfterKeyWord = Substr(m.lcFullLine, Atc(m.lcFirstWord, m.lcFirstWord) + Len(m.lcFirstWord) + 1)
 				Do Case
 					Case Len(m.lcFullLine) <= MaxLength
-
+	
 					Case Len(m.lcFirstWord) < 4
-
-					Case m.lcFirstWord = 'PROCEDURE' And '(' $ m.lcFullLine
-						m.loLinePositions.Add(This.AddItem(m.lnStartIndex, m.lcFullLine))
-
-					Case m.lcFirstWord = 'FUNCTION' And '(' $ m.lcFullLine
-						m.loLinePositions.Add(This.AddItem(m.lnStartIndex, m.lcFullLine))
-
-					Case m.lcFirstWord = 'LPARAMETERS'
-						m.loLinePositions.Add(This.AddItem(m.lnStartIndex, m.lcFullLine))
-
-					Case m.lcFirstWord = 'PARAMETERS'
-						m.loLinePositions.Add(This.AddItem(m.lnStartIndex, m.lcFullLine))
-
+	
+					Case 'PROCEDURE' = m.lcFirstWord And '(' $ m.lcFullLine
+						m.loLinePositions.Add(This.AddItem(m.lnStartIndex, m.lcWithinParens))
+	
+					Case 'FUNCTION' = m.lcFirstWord  And '(' $ m.lcFullLine
+						m.loLinePositions.Add(This.AddItem(m.lnStartIndex, m.lcWithinParens))
+	
+					Case 'LPARAMETERS' = m.lcFirstWord
+						m.loLinePositions.Add(This.AddItem(m.lnStartIndex, m.lcAfterKeyWord))
+	
+					Case 'PARAMETERS' = m.lcFirstWord
+						m.loLinePositions.Add(This.AddItem(m.lnStartIndex, m.lcAfterKeyWord))
+	
 				Endcase
 			Endfor && lnI = 1 to lnLineCount
 		Endif && Len(m.lcCodeBlock) > MaxLength
-
+	
 		Return m.loLinePositions
-
+	
 	Endproc
-
+	
 
 	* ================================================================================ 
 	* ================================================================================ 
@@ -188,14 +191,17 @@ Define Class clsFindOverrunThreats As Custom
 	* ================================================================================ 
 	Procedure AddThreats(loThreats, lcFileName, lcObjectName)
 		Local lcThreatLine, lnI, lnLineNo
+	
 		For lnI = 1 To m.loThreats.Count
 			lnLineNo	 = m.loThreats.Item[m.lnI].Lineno
 			lcThreatLine = m.loThreats.Item[m.lnI].ThreatLine
-			Insert Into (This.cAlias)						;
-				(FileName, Lineno, ObjectName, Threat)		;
-				Values										;
-				(m.lcFileName, m.lnLineNo, Evl(m.lcObjectName, ''), m.lcThreatLine)
+			If Len(m.lcThreatLine) > MaxLength
+				Insert Into (This.cAlias)									;
+					(FileName, Lineno, ObjectName, CharCount, Threat, MemoThreat)		;
+					Values													;
+					(m.lcFileName, m.lnLineNo, Evl(m.lcObjectName, ''), Len(m.lcThreatLine), m.lcThreatLine, m.lcThreatLine)
+			Endif
 		Endfor
 	Endproc
-
+	
 Enddefine

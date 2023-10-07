@@ -31,8 +31,9 @@ Thor Tool Manager
 		.Category = 'Objects and PEMs' && creates categorization of tools; defaults to .Source if empty
 		.Sort	  = 0 && the sort order for all items from the same Category
 
-		.OptionClasses = 'clsExcludeNotAssigned'
-		.OptionTool	   = ccTool
+		*!* ******** JRN Removed 2023-10-03 ********
+		*!* .OptionClasses = 'clsExcludeNotAssigned'
+		*!* .OptionTool	   = ccTool
 
 		* For public tools, such as PEM Editor, etc.
 		.Author        = 'Jim Nelson'
@@ -61,10 +62,11 @@ Procedure ToolCode
 
 	lcAlias		  = 'crsr_ThorToolManager'
 
-	llExcludeNotUsed = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccTool, ccTool)
+	*!* ******** JRN Removed 2023-10-03 ********
+	*!* llExcludeNotUsed = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccTool, ccTool)
 
 	lcSourceAlias = Sys(2015)
-	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_GetHotKeyDefs', m.lcSourceAlias, m.llExcludeNotUsed)
+	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_GetHotKeyDefs', m.lcSourceAlias) && , m.llExcludeNotUsed)
 
 	Select  Descript                            As  ToolName,			;
 			StatusBar                           As  Description,		;

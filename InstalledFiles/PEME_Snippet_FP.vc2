@@ -177,6 +177,7 @@ DEFINE CLASS fp_form AS form
 		*m: togglemarked
 		*m: unselectall
 		*m: updateindexpage
+		*m: useisxoptions
 		*m: zapme
 		*p: calias
 		*p: ccurfilter
@@ -367,6 +368,7 @@ DEFINE CLASS fp_form AS form
 			<memberdata name="custombindevents" display="CustomBindEvents"/>
 			<memberdata name="cversion" display="cVersion"/>
 			<memberdata name="curl" display="cURL"/>
+			<memberdata name="useisxoptions" display="UseISXOptions"/>
 		</VFPData>
 	*</PropValue>
 
@@ -1811,9 +1813,9 @@ DEFINE CLASS fp_form AS form
 	PROCEDURE addcustomkeyword
 		Lparameters lcKeyword
 		
-		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_GetISXOptions')
-		_Screen.oISXOptions.oKeywordList.UpdateWord(Alltrim(lcKeyword), .T., .F., .T.)
-		
+		If This.UseISXOptions()
+			_Screen.oISXOptions.oKeywordList.UpdateWord(Alltrim(lcKeyword), .T., .F., .T.)
+		EndIf 
 	ENDPROC
 
 	PROCEDURE addfieldcursorrecords
@@ -1839,7 +1841,9 @@ DEFINE CLASS fp_form AS form
 			lnRow = Recno()
 			*!* ******************** Removed 2/8/2014 ********************
 			*!* Replace Field_Name with m.laList[lnRow,1]	
-			Replace Field_Name with Evl(_Screen.oISXoptions.oKeywordlist.FixCase(m.laFields[lnRow,1], .F.), This.ChangeCaseOfFieldName(m.laFields[lnRow,1])) 
+			If This.UseISXOptions()
+				Replace Field_Name with Evl(_Screen.oISXoptions.oKeywordlist.FixCase(m.laFields[lnRow,1], .F.), This.ChangeCaseOfFieldName(m.laFields[lnRow,1])) 
+			EndIf 
 			*!* ******************** End of duplicated text ********************
 		EndScan
 		
@@ -2329,10 +2333,6 @@ DEFINE CLASS fp_form AS form
 		Local laEvents[1], lcAlias, lcFieldList, lcSave, lcTitle, lcWindow, lnUseDynamicForm, loException
 		Local loForm, loObject
 		
-		If m.llForceIt = .F. And This.lHandleDblClick = .F.
-			Return
-		Endif
-		
 		Nodefault
 		lcTitle			 = [Edit record in ] + Proper(Thisform.cAlias)
 		lnUseDynamicForm = Execscript(_Screen.cThorDispatcher, 'Get Option=', ccXKey, ccXTool)
@@ -2350,8 +2350,8 @@ DEFINE CLASS fp_form AS form
 		
 				With .oRenderEngine
 					.nVerticalSpacing = -1
-					.nTextBoxWidth	  = 250
-					.nEditBoxWidth	  = 250
+					.nTextBoxWidth	  = 400
+					.nEditBoxWidth	  = 400
 					.cTextBoxClass	  = 'FP_Textbox'
 					.cTextboxClassLib = Thisform.ClassLibrary
 		
@@ -2396,14 +2396,14 @@ DEFINE CLASS fp_form AS form
 				loForm.BorderStyle = 2
 			Endif
 		
-			If Thisform.lReadOnly
+			If Thisform.lReadOnly or This.lHandleDblClick = .F.
 				For Each m.loObject In m.loForm.cntMain.Controls FoxObject
 					Do Case
-						Case Lower(m.loObject.BaseClass) = 'commandbutton' And m.loObject.Caption == '...'
+						Case Lower(m.loObject.BaseClass) # 'commandbutton'
 		
-						Case Lower(m.loObject.BaseClass) = 'commandbutton' And m.loObject.Caption == 'Cancel'
+						Case m.loObject.Caption == '...'
 		
-						Case Lower(m.loObject.BaseClass) = 'label'
+						Case m.loObject.Caption == 'Cancel'
 		
 						Otherwise
 							loObject.Enabled = .F.
@@ -2595,7 +2595,7 @@ DEFINE CLASS fp_form AS form
 						lcFieldList		= m.lcFieldList + Iif(Empty(m.lcFieldList), [], Evl(m.tcDelimiter, [,])) + Evl(lcPrefix, '') + Alltrim(Field_Name)
 						lcFieldList		= m.lcFieldList + Nvl(m.lcExtra, '')
 						If FieldType = 'M'
-							lcfieldlist = lcfieldlist + ' .Enabled = .F. ' 
+							lcfieldlist = lcfieldlist + " .Enabled = .F. .Class = 'DF_MemoFieldEditBox' .CLassLib = ''" 
 						EndIf 
 						lcLastFieldType	= FieldType
 					Endif
@@ -2789,6 +2789,9 @@ DEFINE CLASS fp_form AS form
 		This.cVersion = [1.5.0]
 		This.cURL  = [https://github.com/VFPX/Thor/blob/master/Docs/Thor_superbrowse.md]
 		This.lblVersion.Caption = [Super Browse ] + This.cVersion + [ (Tore Bleken)]
+		
+		Execscript (_Screen.cThorDispatcher, 'Thor_Proc_GetISXOptions')
+		
 		Thisform.SetAlias (This.cAlias)
 		
 		*	This.Caption = This.cAlias
@@ -3403,9 +3406,7 @@ DEFINE CLASS fp_form AS form
 				Bindevent(m.loColumn.Header1, 'RightClick', This, 'BrowseGridHeaderClick')
 				Bindevent(m.loColumn.Header1, 'Click', This, 'BrowseGridHeaderRightClick')
 				*!* ** } JRN -- 10/26/2020 05:22:32 PM - End
-				If This.lHandleDblClick
-					Bindevent(m.loColumn.Text1, 'DblClick', Thisform, 'EditSingleRecord')
-				Endif
+				Bindevent(m.loColumn.Text1, 'DblClick', Thisform, 'EditSingleRecord')
 				Bindevent(m.loColumn.Text1, 'RightClick', Thisform, 'BrowseGridRightClick')
 				Bindevent(m.loColumn, 'Moved', This, 'BrowseGridHeaderMoved')
 		
@@ -3537,6 +3538,10 @@ DEFINE CLASS fp_form AS form
 		*!* thisform.cmdcopytoclipboard.Refresh()
 		thisform.pgfFieldPicker.PageIndexes.Enabled = !Empty(thisform.pgfFieldPicker.PageIndexes.edtIndex.Value)
 		   
+	ENDPROC
+
+	PROCEDURE useisxoptions
+		Return Pemstatus(_Screen, 'oISXoptions', 5) And Vartype(_Screen.oISXOptions) = 'O'
 	ENDPROC
 
 	PROCEDURE zapme

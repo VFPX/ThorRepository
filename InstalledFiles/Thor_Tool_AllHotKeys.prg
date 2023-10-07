@@ -87,7 +87,7 @@ Procedure ToolCode
 	*!* Browse Nowait Name m.loBrowse
 	*!* m.loBrowse.AutoFit()
 	
-	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowse', m.lcAlias)
+	Execscript(_Screen.cThorDispatcher, 'Thor_Proc_SuperBrowse', m.lcAlias, .T., .T.)
 	loBrowse = Null
 
 Endproc
