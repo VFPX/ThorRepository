@@ -122,7 +122,7 @@ Define Class HighlightedText As Session OlePublic
 				This.oEditorWin.Copy()
 				This.cHighLightedText = _Cliptext
 	
-			Case m.lcIfNothingHighlighted = 'Statement'
+			Case m.lcIfNothingHighlighted = 'Statement' And Empty (This.cHighLightedText)
 				* ================================================================================ 
 				lnStartPosition	   = This.oEditorWin.GetSelStart()
 				lnCurrentLineStart = This.oEditorWin.GetLineStart(m.lnStartPosition, 0)

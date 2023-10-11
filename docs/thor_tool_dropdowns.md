@@ -11,7 +11,7 @@ There are a number of Thor tools that are closely related in that they all share
 | Dropdown Table Names | List of all tables in the path|
 | Dropdown Form Names in Active Project | List of all form names in the Active Project|
 | Dropdown Report Names in Active Project | List of all report names in the Active Project|
-| Dropdown Intellisense scripts | List of native Intellisense custom scripts|
+| Dropdown Command Expansions | List of native Intellisense Command Expansions|
 
 #### Initializing the DropDown
 

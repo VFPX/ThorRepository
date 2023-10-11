@@ -1,3 +1,8 @@
+### 2023-10-11, Version 65.15A
+* Fixed issue in SuperBrowse when moving a column
+* Fixed issue with 'Execute highlighted text' (if any is highlighted)
+* Renamed "Dropdown Macros" to "Dropdown Command Expansions"
+
 ### 2023-10-07, Version 65.15
 * Enhanced tool "Find Buffer Overrun Threats".
 * Removed option from Tool Manager

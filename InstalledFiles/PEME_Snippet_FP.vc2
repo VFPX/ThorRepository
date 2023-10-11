@@ -1924,13 +1924,14 @@ DEFINE CLASS fp_form AS form
 	ENDPROC
 
 	PROCEDURE browsegridheadermoved
-		Local laEvents[1], loColumn, loThis
+		Local laEvents[1], loThis
 		
 		= Aevents (laEvents, 0)
-		loThis	 = laEvents[1]
+		loThis	 = m.laEvents[1]
 		
-		Goto (loThis.FieldNumber) in (thisform.ccursor)
-		This.ShiftMarked()
+		Goto (m.loThis.FieldNumber) In (Thisform.cCursor)
+		*!* ******** JRN Removed 2023-10-10 ********
+		*!* This.shiftmarked()
 		
 	ENDPROC
 
