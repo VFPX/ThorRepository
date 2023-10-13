@@ -1,3 +1,7 @@
+### 2023-10-13, Version 65.15B
+* Fixed bug in Quick-Menu help screen
+* Minor enhancement to 'Modify Position and Size' form
+
 ### 2023-10-11, Version 65.15A
 * Fixed issue in SuperBrowse when moving a column
 * Fixed issue with 'Execute highlighted text' (if any is highlighted)

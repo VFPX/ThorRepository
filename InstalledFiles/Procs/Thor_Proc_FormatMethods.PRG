@@ -252,7 +252,7 @@ Define Class FormatMethods As Custom
 
 		Select  *						;
 			From crsr_FormatInfo		;
-			Order By nLeft				;
+			Order By nLeft, nTop		;
 			Into Cursor crsr_FormatInfo Readwrite
 
 		lnIncremented = 0
@@ -290,7 +290,7 @@ Define Class FormatMethods As Custom
 
 		Select  *						;
 			From crsr_FormatInfo		;
-			Order By nLeft				;
+			Order By nLeft, nTop		;
 			Into Cursor crsr_FormatInfo Readwrite
 
 		lnIncremented = 0
@@ -322,7 +322,7 @@ Define Class FormatMethods As Custom
  	
  		Select  *								;
  			From crsr_FormatInfo				;
- 			Order By nLeft, nWidth Desc			;
+ 			Order By nLeft, nTop, nWidth Desc	;
  			Into Cursor crsr_FormatInfo Readwrite
  	
  		Locate
@@ -505,7 +505,7 @@ Define Class FormatMethods As Custom
 
 		Select  *						;
 			From crsr_FormatInfo		;
-			Order By nTop				;
+			Order By nTop, nLeft		;
 			Into Cursor crsr_FormatInfo Readwrite
 
 		lnIncremented = 0
@@ -542,7 +542,7 @@ Define Class FormatMethods As Custom
 
 		Select  *						;
 			From crsr_FormatInfo		;
-			Order By nTop				;
+			Order By nTop, nLeft		;
 			Into Cursor crsr_FormatInfo Readwrite
 
 		lnIncremented = 0
@@ -573,7 +573,7 @@ Define Class FormatMethods As Custom
 
 		Select  *								;
 			From crsr_FormatInfo				;
-			Order By nTop, nHeight Desc			;
+			Order By nTop, nLeft, nHeight Desc	;
 			Into Cursor crsr_FormatInfo Readwrite
 
 		Locate

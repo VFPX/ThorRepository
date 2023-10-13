@@ -60,7 +60,7 @@ Actually, this works for all items in ANY menu created by Thor, including those 
 	Endtext
 
 	lcFormName = Execscript(_Screen.cThorDispatcher, 'Full Path=Thor_proc_showtoolhelp.SCX')
-	Do Form (m.lcFormName) With 'Hidden Context Menu', 'Hidden Context Menu', m.lcDescription
+	Do Form (m.lcFormName) With 'thor_tool_quickmenuhelp', 'Hidden Context Menu', m.lcDescription
 
 Endproc
 
