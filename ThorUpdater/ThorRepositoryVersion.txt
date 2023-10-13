@@ -1,11 +1,11 @@
 lparameters toUpdateObject
 
-lcDate = '20231011'
+lcDate = '20231013'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.15A - ' + lcDate
+	.VersionNumber    = '65.15B - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.15A - 08684- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.15B - 08686- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,6 +14,10 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
+### 2023-10-13, Version 65.15B
+* Fixed bug in Quick-Menu help screen
+* Minor enhancement to 'Modify Position and Size' form
+
 ### 2023-10-11, Version 65.15A
 * Fixed issue in SuperBrowse when moving a column
 * Fixed issue with 'Execute highlighted text' (if any is highlighted)
