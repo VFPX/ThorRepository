@@ -24,7 +24,7 @@ Endproc
 
 Procedure GetLink(lcLink, lcFileName)
 	Local lcContentFolder, lcDestFile, lcDirectory, lcExt, lcTextLine, lcTool, lcURL, lcURLFolder
-	Local llSuccess
+	Local llSuccess, lnFailures
 
 	Private glQuiet
 
@@ -33,11 +33,25 @@ Procedure GetLink(lcLink, lcFileName)
 	lcURLFolder		= 'https://github.com/VFPX/ThorRepository/blob/master/docs/'
 	lcContentFolder	= 'https://raw.githubusercontent.com/VFPX/ThorRepository/master/docs/'
 
-	lcDestFile = Addbs(Sys(2023)) + Sys(2015) + '.Directory.txt' 
-	llSuccess  = Download(m.lcContentFolder + 'Directory.txt', m.lcDestFile)
+	* ================================================================================ 
+	* Repeated attempts to get the directory table; if five failures, give up
+	* and assume it would not be found there anyway.
+	llSuccess  = .F.
+	lnFailures = 0
+	lcTextLine = ''
 
-	lcDirectory	= Filetostr(m.lcDestFile)
-	lcTextLine	= Strextract(m.lcDirectory, ForceExt(m.lcFileName, 'prg'), LF, 1, 7)
+	Do While m.llSuccess = .F. And m.lnFailures < 5
+		lcDestFile = Addbs(Sys(2023)) + Sys(2015) + '.Directory.txt'
+		llSuccess  = Download(m.lcContentFolder + 'Directory.txt', m.lcDestFile)
+
+		If m.llSuccess
+			lcDirectory	= Filetostr(m.lcDestFile)
+			lcTextLine	= Strextract(m.lcDirectory, Forceext(m.lcFileName, 'prg'), LF, 1, 7)
+		Else
+			lnFailures = m.lnFailures + 1
+		EndIf  
+	Enddo
+	* ================================================================================ 
 
 	Do Case
 		Case Not Empty(m.lcTextLine)
@@ -49,7 +63,7 @@ Procedure GetLink(lcLink, lcFileName)
 			If Upper(m.lcExt) = 'TXT'
 				Return m.lcURL
 			Else
-				Return m.lcURLFolder + Lower(JustStem(lcTool) + '.MD')
+				Return m.lcURLFolder + Lower(Juststem(m.lcTool) + '.MD')
 			Endif
 
 		Case Not Empty(m.lcLink)

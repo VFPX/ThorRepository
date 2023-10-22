@@ -1,3 +1,6 @@
+### 2023-10-22, Version 65.15C
+* Fixed handling in Context Help when download of directory table failed.
+
 ### 2023-10-13, Version 65.15B
 * Fixed bug in Quick-Menu help screen
 * Minor enhancement to 'Modify Position and Size' form
