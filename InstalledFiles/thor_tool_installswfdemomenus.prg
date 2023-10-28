@@ -13,14 +13,14 @@ If Pcount() = 1								;
 	With m.lxParam1
 
 		* Required
-		.Prompt		   = 'Install Quick Access Menu'
-		.AppID 		   = 'ThorRepository'
+		.Prompt	= 'Install Quick Access Menu'
+		.AppID	= 'ThorRepository'
 
 		.Description =  'See ' + ccHelpURL
-		.Link = 'https://github.com/VFPX/ThorNews/blob/main/NewsItems/Item_52.md'
+		.Link		 = 'https://github.com/VFPX/ThorNews/blob/main/NewsItems/Item_52.md'
 
 		.Category = 'Miscellaneous'
-		
+
 		.Author	  = 'JRN'
 	Endwith
 
@@ -46,75 +46,79 @@ Return
 Procedure ToolCode
 	Lparameters lxParam1
 
-	Local lcDescription, lcDestFolder, lcFormName, lcHotKeyDesc, loCloseTempFiles, loThorUtils
+	Local lcBackupFolder, lcDestFolder, lcHotKeyDesc, lcInstallType, loCloseTempFiles, loThorUtils
 
-	loThorUtils = Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
 	* when loCloseTempFiles goes out of scope, it closes any newly opened tables
+	loThorUtils		 = Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
 	loCloseTempFiles = m.loThorUtils.CloseTempFiles()
-
 	m.loThorUtils.OpenThorTables()
 
+	* and open all Thor's tables
 	lcDestFolder = _Screen.cThorFolder + 'Tools\Procs\'
 	OpenSourceTables(m.lcDestFolder)
 
-	If ReadyToInstall()
+	If ReviewDocumentation() = .F. && Cancelled
+		Return
+	Endif
 
-		m.loThorUtils.BackupThorTables()
+	lcInstallType = ReadyToInstall()
+
+	If lcInstallType = 'Cancel'
+		Return
+	Endif
+
+	lcBackupFolder = m.loThorUtils.BackupThorTables()
+
+	ReadHotKeysInUse()
+
+	UpdateHotKeyDefinitions()
+
+	If m.lcInstallType = 'Install'
 
 		UpdateMenuDefinitions()
 
 		UpdateMenuTools()
 
-		ReadHotKeysInUse()
-
-		UpdateHotKeyAssignments()
-
 		AddToSystemMenu()
 
 		lcHotKeyDesc =  AssignPopupHotKey()
 
-		loCloseTempFiles = Null
-
-		*	m.loThorUtils.CleanUpThorTables()
-
-		RefreshThor()
-
-		Text To m.lcDescription Noshow Textmerge
-Quick Access Menu installed.
-
-It is accessible:
-    - From the System Menu ("Quick Access")
-    - Or by using hot key   <<Evl(m.lcHotKeyDesc, 'Not assigned')>>.
-    
-Backup of modified Thor tables saved in
-     _Screen.cThorFolder + 'Tables'
-     
-		Endtext
-
-		lcFormName = Execscript(_Screen.cThorDispatcher, 'Full Path=Thor_proc_showtoolhelp.SCX')
-		Do Form (m.lcFormName) With 'Quick Access Menu', 'Quick Access Menu', m.lcDescription
-
 	Endif
 
+	UpdateHotKeyAssignments()
+
+	loCloseTempFiles = Null
+
+	AllDone(m.lcBackupFolder, m.lcHotKeyDesc)
+
+Endproc
+
+
+Procedure ReviewDocumentation
+	Local lcPrompt, lcResponse, lcURL, loThorUtils
+
+	* ================================================================================ 
+	lcPrompt   = 'Review Quick Access Menu documentation before installing?'
+	lcResponse = Execscript(_Screen.cThorDispatcher, 'THOR_Proc_MessageBox', m.lcPrompt, 3)
+
+	Do Case
+		Case m.lcResponse = 'Y'
+			lcURL		= ccHelpURL
+			loThorUtils	= Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
+			m.loThorUtils.GoURL(m.lcURL)
+			Return .T.
+		Case m.lcResponse = 'N'
+			Return .T.
+
+		Otherwise
+			Return .F.
+	Endcase
 Endproc
 
 
 Procedure ReadyToInstall
 
-	Local lcPrompt, lcURL, lnResponse, loThorUtils
-
-	* ================================================================================ 
-	lcPrompt   = 'Review Quick Access Menu documentation before installing?'
-	lnResponse =  Messagebox(m.lcPrompt, 3 + 32)
-
-	Do Case
-		Case m.lnResponse = 6
-			lcURL		= ccHelpURL
-			loThorUtils	= Execscript(_Screen.cThorDispatcher, 'thor_proc_utils')
-			m.loThorUtils.GoURL(m.lcURL)
-		Case m.lnResponse # 7
-			Return .F.
-	Endcase
+	Local lcCaptions, lcPrompt, lcResponse
 
 	* ================================================================================
 
@@ -122,18 +126,66 @@ Procedure ReadyToInstall
 			Cast(Nvl(Current.Id, 0) As I)    As  NewMenuID				;
 		From SWFSessionMenuDefinitions       As  New					;
 			Join MenuDefinitions             As  Current				;
-				On Upper(New.Popupname) = Upper(Current.Popupname)		;
+				On Upper(New.PopupName) = Upper(Current.PopupName)		;
 		Into Cursor NewMenuDefs Readwrite
 
 	If _Tally = 0
-		lcPrompt = 'Ready to install Quick Access Menu?'
+		lcPrompt   = 'Ready to install Quick Access Menu?'
+		lcResponse = Execscript(_Screen.cThorDispatcher, 'THOR_Proc_MessageBox', m.lcPrompt, 3)
+		Return Iif(m.lcResponse = 'Y', 'Install', 'Cancel')
 	Else
-		lcPrompt = 'Quick Access Menu has already been installed.' + ccCR + ccCR + 'Re-install it?'
+		lcPrompt   = 'Quick Access Menu has already been installed.'
+		lcCaptions = [Full re-install == 'Install';Hot Keys Only == 'Hot Keys';|^Cancel == 'Cancel']
+		lcResponse = Execscript(_Screen.cThorDispatcher, 'THOR_Proc_MessageBox', m.lcPrompt, m.lcCaptions)
+		Return lcResponse
 	Endif
 
-	Return Messagebox(m.lcPrompt, 4 + 32) = 6
 Endproc
 
+
+* ================================================================================
+* ================================================================================
+Procedure ReadHotKeysInUse
+	Select  HotKeyID					;
+		From ToolHotKeyAssignments		;
+		Where HotKeyID # 0				;
+	Union All							;
+	Select  HotKeyID					;
+		From MenuDefinitions			;
+		Where HotKeyID # 0				;
+		Into Cursor HotKeysInUse
+Endproc
+
+
+* ================================================================================
+* ================================================================================
+Procedure UpdateHotKeyDefinitions
+	Select  *											;
+		From SWFSessionHotKeyDefinitions				;
+		Where Not (100 * nKeyCode + NShifts)			;
+			In (Select  100 * nKeyCode + NShifts		;
+					From HotKeyDefinitions)				;
+		Into Cursor NewHotKeyDefs
+
+	Insert Into HotKeyDefinitions		;
+		Select  *						;
+			From NewHotKeyDefs
+
+	Select  NewHotKeyDefs.*,															;
+			HotKeyDefinitions.Id    As  NewHotKeyID										;
+		From NewHotKeyDefs																;
+			Join HotKeyDefinitions On													;
+				(100 * NewHotKeyDefs.nKeyCode + NewHotKeyDefs.NShifts)					;
+				= (100 * HotKeyDefinitions.nKeyCode + HotKeyDefinitions.NShifts)		;
+		Into Cursor MapHotKeyIDs
+
+Endproc
+
+
+* ================================================================================
+* ================================================================================
+* ================================================================================
+* ================================================================================
 
 Procedure UpdateMenuDefinitions
 	Local lnNewID, loMenuDef
@@ -142,7 +194,7 @@ Procedure UpdateMenuDefinitions
 			Cast(Nvl(Current.Id, 0) As I)    As  NewMenuID				;
 		From SWFSessionMenuDefinitions       As  New					;
 			Left Join MenuDefinitions        As  Current				;
-				On Upper(New.Popupname) = Upper(Current.Popupname)		;
+				On Upper(New.PopupName) = Upper(Current.PopupName)		;
 		Into Cursor NewMenuDefs Readwrite
 
 	Scan For NewMenuID = 0
@@ -188,54 +240,34 @@ Endproc
 
 Procedure UpdateHotKeyAssignments
 
-	Local lcPrompt
-
-	* pop up menus
-	Update  MenuDefinitions											;
-		Set MenuDefinitions.HotKeyID = NewMenuDefs.HotKeyID			;
-		From MenuDefinitions										;
-			Join NewMenuDefs										;
-				On MenuDefinitions.Id = NewMenuDefs.NewMenuID		;
-				And NewMenuDefs.HotKeyID # 0						;
-		Where Not NewMenuDefs.HotKeyID In (Select  HotKeyID			;
-											   From HotKeysInUse)
+	* menus
+	Update  Current														;
+		Set HotKeyID = MapHotKeyIDs.NewHotKeyID							;
+		From SWFSessionMenuDefinitions    As  New						;
+			Join MenuDefinitions          As  Current					;
+				On Upper(New.PopupName) = Upper(Current.PopupName)		;
+				And Current.HotKeyID = 0								;
+			Join MapHotKeyIDs											;
+				On New.HotKeyID = Evl(MapHotKeyIDs.Id, -1)
 
 	* tools
-	Select  *												;
-		From  SWFSessionToolHotKeyAssignments				;
-		Where Not HotKeyID In (Select  HotKeyID				;
-								   From HotKeysInUse)		;
-		Into Cursor CanAssign
+	Insert Into ToolHotKeyAssignments (PRGName)							;
+		Select  PRGName													;
+			From  SWFSessionToolHotKeyAssignments						;
+			Where Not PRGName In (Select  PRGName						;
+									  From ToolHotKeyAssignments)		
 
-	Update  ToolHotKeyAssignments														;
-		Set ToolHotKeyAssignments.HotKeyID = CanAssign.HotKeyID							;
-		From CanAssign																	;
-			Join ToolHotKeyAssignments													;
-				On Lower(CanAssign.PRGName) = Lower(ToolHotKeyAssignments.PRGName)		;
-				And ToolHotKeyAssignments.HotKeyID = 0
-
-	Insert Into ToolHotKeyAssignments											;
-		(PRGName, HotKeyID)														;
-		Select  *																;
-			From CanAssign														;
-			Where Not Lower(CanAssign.PRGName) In (Select  Lower(PRGName)		;
-													   From ToolHotKeyAssignments)
+	Update  Current														;
+		Set HotKeyID = MapHotKeyIDs.NewHotKeyID							;
+		From SWFSessionToolHotKeyAssignments As  New						;
+			Join ToolHotKeyAssignments As  Current					;
+				On Upper(New.PrgName) = Upper(Current.PrgName)		;
+				And Current.HotKeyID = 0								;
+			Join MapHotKeyIDs											;
+				On New.HotKeyID = Evl(MapHotKeyIDs.Id, -1)
 
 Endproc
 
-
-* ================================================================================
-* ================================================================================
-Procedure ReadHotKeysInUse
-	Select  HotKeyID					;
-		From ToolHotKeyAssignments		;
-		Where HotKeyID # 0				;
-	Union All							;
-	Select  HotKeyID					;
-		From MenuDefinitions			;
-		Where HotKeyID # 0				;
-		Into Cursor HotKeysInUse
-EndProc 
 
 * ================================================================================
 * ================================================================================
@@ -245,21 +277,25 @@ Procedure AssignPopupHotKey
 
 	Local lcAlias
 
-	Select  *											;
-		From SWFSESSIONMainHotKey						;
-		Where Order > 0									;
-			And Not Id In (Select  HotKeyID				;
-							   From HotKeysInUse)		;
-		Order By Order									;
+	Select  *;
+		From HotKeyDefinitions							;
+		Where Not Id In (Select  hotkeyid				;
+							 From hotkeysinuse)			;
+		Into Cursor HotKeysAvailable
+
+	Select  *																		;
+		From SWFSESSIONMainHotKey													;
+		Where (100 * NKeycode + Nshifts) In (Select  100 * NKeycode + Nshifts		;
+												 From HotKeysAvailable)		order by order		;
 		Into Cursor MainHotKeys Readwrite
 	Goto Top
 
 	lcAlias = 'MenuDefinitions'
 	Select (m.lcAlias)
 
-	Locate For Popupname = 'SWF_Top'
-	Replace HotKeyID With MainHotKeys.Id
-	
+	Locate For PopupName = 'SWF_Top'
+	Replace hotkeyid With MainHotKeys.Id
+
 	Return MainHotKeys.Descript
 
 Endproc
@@ -272,7 +308,7 @@ Procedure AddToSystemMenu
 	Select (m.lcAlias)
 	Calculate Max(SortOrder) To m.lnMax For TopLevel
 
-	Locate For Popupname = 'SWF_Top'
+	Locate For PopupName = 'SWF_Top'
 
 	Replace TopLevel With .T., SortOrder With m.lnMax + 1
 
@@ -287,6 +323,53 @@ Procedure GetHotKeyDesc(lnHotKeyID)
 		Where Id = m.lnHotKeyID			;
 		Into Array laHotKey
 	Return Trim(Evl(m.laHotKey, ''))
+Endproc
+
+
+* ================================================================================
+* ================================================================================
+Procedure OpenSourceTables(lcDestFolder)
+	UseIfNotOpen (m.lcDestFolder + 'SWFSessionMenuDefinitions')
+	UseIfNotOpen (m.lcDestFolder + 'SWFSessionMenuTools')
+	UseIfNotOpen (m.lcDestFolder + 'SWFSessionToolHotKeyAssignments')
+	UseIfNotOpen (m.lcDestFolder + 'SWFSessionMainHotKey')
+	UseIfNotOpen (m.lcDestFolder + 'SWFSessionHotKeyDefinitions')
+Endproc
+
+
+Procedure UseIfNotOpen (lcFileName)
+	If Used(m.lcFileName)
+		Return
+	Endif
+	Use (m.lcFileName) Again Shared In 0
+Endproc
+
+
+* ================================================================================
+* ================================================================================
+Procedure AllDone(lcBackupFolder, lcHotKeyDesc)
+
+	Local lcBackup, lcDescription, lcFormName
+
+	RefreshThor()
+
+	lcBackup = Strtran(FullPath(m.lcBackupFolder), FullPath(_Screen.cThorFolder), [_Screen.cThorFolder + '], 1, 1, 1) + [']
+
+	Text To m.lcDescription Noshow Textmerge
+Quick Access Menu installed.
+
+It is accessible:
+    - From the System Menu ("Quick Access")
+    - Or by using hot key   <<Evl(m.lcHotKeyDesc, '(Not assigned)')>>.
+    
+Backup of modified Thor tables saved in
+     <<m.lcBackup>>
+     
+	Endtext
+
+	lcFormName = Execscript(_Screen.cThorDispatcher, 'Full Path=Thor_proc_showtoolhelp.SCX')
+	Do Form (m.lcFormName) With 'Quick Access Menu', 'Quick Access Menu', m.lcDescription
+
 Endproc
 
 
@@ -322,22 +405,5 @@ Define Class clsRunThor As Session
 	Endproc
 
 Enddefine
-
-
-* ================================================================================
-* ================================================================================
-Procedure OpenSourceTables(lcDestFolder)
-	UseIfNotOpen (m.lcDestFolder + 'SWFSessionMenuDefinitions')
-	UseIfNotOpen (m.lcDestFolder + 'SWFSessionMenuTools')
-	UseIfNotOpen (m.lcDestFolder + 'SWFSessionToolHotKeyAssignments')
-	UseIfNotOpen (m.lcDestFolder + 'SWFSESSIONMainHotKey')
-Endproc
-
-Procedure UseIfNotOpen (lcFileName)
-	If Used(m.lcFileName)
-		Return
-	Endif
-	Use (m.lcFileName) Again Shared In 0
-Endproc
 
 
