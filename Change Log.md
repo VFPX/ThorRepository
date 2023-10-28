@@ -1,3 +1,9 @@
+### 2023-10-28, Version 65.16
+* Install Quick Access Menu now reassigns hot keys correctly.
+* If the current window is not a code window, Tool "Cycle Code Windows" goes to the most recent code window.
+* Tool "Open MRUs" moved here from PEMEditor and now respects Thor font size for menus
+* New PROCs added to Thor_Proc_Utils
+
 ### 2023-10-22, Version 65.15C
 * Fixed handling in Context Help when download of directory table failed.
 

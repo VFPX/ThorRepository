@@ -57,6 +57,7 @@ Define Class ThorUtilities As Custom
 
 		lcFolder = _Screen.cThorFolder + 'Tables\'
 		This.ADirCursor(m.lcFolder + '*.dbf', 'ThorFiles')
+		Index on Upper(Filename) DESCENDING tag Order
 
 		Scan
 			If Not Used(Juststem(FileName))
@@ -174,10 +175,175 @@ Define Class ThorUtilities As Custom
 			lcFileName = Trim(FileName)
 			Select (m.lcFileName)
 			Copy To (m.lcDestFolder + '\' + m.lcFileName) CDX
-		Endscan
+		EndScan
+		
+		Return Execscript (_Screen.cThorDispatcher, 'Result=', m.lcDestFolder)
 	
 	Endproc
 		
+
+	Procedure GetMRUList
+		Lparameters lcMRU_ID
+
+		#Define DELIMITERCHAR Chr(0)
+
+		Local loCollection As 'Collection'
+		Local laItems(1), lcData, lcList, lcSourceFile, lnI, lnPos, lnSelect
+
+		loCollection = Createobject ('Collection')
+
+		If 'ON' # Set ('Resource')
+			Return m.loCollection
+		Endif
+
+		lnSelect	 = Select()
+		lcSourceFile = Set ('Resource', 1)
+		Select 0
+		Use (lcSourceFile) Again Shared Alias MRU_Resource
+
+		If lcMRU_ID # 'MRU'
+			lcMRU_ID = This.GetMRUID (lcMRU_ID)
+			If '?' $ lcMRU_ID
+				Return
+			Endif
+		Endif
+
+		Locate For Id = lcMRU_ID
+		If Found()
+			lcData = Data
+			Alines (laItems, Substr (lcData, 3), 0, DELIMITERCHAR)
+			For lnI = 1 To Alen (laItems)
+				If Not Empty (laItems (m.lnI))
+					m.loCollection.Add (laItems (m.lnI))
+				Endif
+			Endfor
+		Endif
+
+		Use
+		Select (lnSelect)
+		Return m.loCollection
+
+	EndProc
+	
+	
+	Procedure GetMRUID
+		Lparameters lcFileName
+	
+		Local lcExt, lcList, lcMRU_ID, lnPos
+	
+		lcExt = Upper (Justext ('.' + m.lcFileName))
+	
+		lcList = ',VCX=MRUI,PRG=MRUB,MPR=MRUB,QPR=MRUB,SCX=MRUH,MNX=MRUE,FRX=MRUG,DBF=MRUS,DBC=???,LBX=???,PJX=MRUL'
+		lnPos  = At (',' + m.lcExt + '=', m.lcList)
+		If m.lnPos = 0
+			lcMRU_ID = 'MRUC'
+		Else
+			lcMRU_ID = Substr (m.lcList, m.lnPos + 5, 4)
+		Endif
+	
+		Return m.lcMRU_ID
+	Endproc
+	
+	
+	
+	Procedure GetDisplayRelativePath
+		Lparameters lcFileName, lcFolder, lcClass
+		* returns the display form of a file name
+		Local lcFName, lcFileDisplayName, lcQuote, lcResult
+	
+		lcFileDisplayName = This.GetRelativePath (This.DiskFileName(m.lcFileName), Evl (m.lcFolder, Curdir()))
+		lcFName			  = Justfname (m.lcFileDisplayName)
+		lcQuote			  = Iif (' ' $ m.lcFName, ['], '')
+		If m.lcFName == m.lcFileDisplayName
+			lcResult = m.lcQuote + m.lcFName + m.lcQuote
+		Else
+			lcResult = m.lcQuote + m.lcFName + m.lcQuote + '  from  ' + Justpath (m.lcFileDisplayName)
+		Endif
+	
+		Return m.lcResult
+	
+	Endproc
+	
+
+	Procedure GetRelativePath
+		Lparameters lcName, lcPath
+		Local lcNew, lnPos, loException
+	
+		Try
+			If Empty (m.lcPath)
+				lcNew = Sys(2014, m.lcName)
+			Else
+				lcNew = Sys(2014, m.lcName, m.lcPath)
+			Endif
+		Catch To m.loException
+			lcNew = m.lcName
+		Endtry
+	
+		If Len (m.lcNew) < Len (m.lcName)
+			lnPos = Rat ('..\', m.lcNew)
+			If m.lnPos # 0
+				lnPos = m.lnPos + 2
+			Endif
+			Return Left (m.lcNew, m.lnPos) + Right (m.lcName, Len (m.lcNew) - m.lnPos)
+		Else
+			Return m.lcName
+		Endif
+	
+	
+	Endproc
+
+
+	Procedure DiskFileName
+		Lparameters lcFileName
+	
+		#Define MAX_PATH 260
+	
+		Local lcXXX, lnFindFileData, lnHandle
+	
+		Declare Integer FindFirstFile In win32api String @, String @
+		Declare Integer FindNextFile In win32api Integer, String @
+		Declare Integer FindClose In win32api Integer
+	
+		Do Case
+			Case ( Right (m.lcFileName, 1) == '\' )
+				Return Addbs (This.DiskFileName (Left (m.lcFileName, Len (m.lcFileName) - 1)))
+	
+			Case Empty (m.lcFileName)
+				Return ''
+	
+			Case ( Len (m.lcFileName) == 2 ) And ( Right (m.lcFileName, 1) == ':' )
+				Return Upper (m.lcFileName)	&& win2k gives curdir() for C:
+		Endcase
+	
+		lnFindFileData = Space(4 + 8 + 8 + 8 + 4 + 4 + 4 + 4 + MAX_PATH + 14)
+		lnHandle	   = FindFirstFile (@m.lcFileName, @m.lnFindFileData)
+	
+		If ( m.lnHandle < 0 )
+			If ( Not Empty (Justfname (m.lcFileName)) )
+				lcXXX = Justfname (m.lcFileName)
+			Else
+				lcXXX = m.lcFileName
+			Endif
+		Else
+			= FindClose (m.lnHandle)
+			lcXXX = Substr (m.lnFindFileData, 45, MAX_PATH)
+			lcXXX = Left (m.lcXXX, At (Chr(0), m.lcXXX) - 1)
+		Endif
+	
+	
+		Do Case
+			Case Empty (Justpath (m.lcFileName))
+				Return m.lcXXX
+			Case ( Justpath (m.lcFileName) == '\' ) Or (Left (m.lcFileName, 2) == '\\')	&& unc
+				Return '\\' + m.lcXXX
+			Otherwise
+				Return Addbs (This.DiskFileName (Justpath (m.lcFileName))) + m.lcXXX
+		Endcase
+	
+		Return
+	
+	Endproc
+
 				
 	****************************************************
 	Function GoURL

@@ -42,12 +42,27 @@ Return
 Procedure ToolCode
 	Lparameters lxParam1
 
-	Local lnI, loEditorWin, loWindow, loWindows
+	Local lnEnd, lnI, lnStart, lnStepSize, lnWindowCount, loEditorWin, loWindow, loWindows
 
 	loEditorWin	= Execscript(_Screen.cThorDispatcher, 'Thor_Proc_EditorWin')
 	loWindows	= m.loEditorWin.GetOpenWindows()
 
-	For lnI = m.loWindows.Count To 1 Step - 1
+	lnWindowCount = m.loWindows.Count
+	loWindow	  = m.loWindows[1]
+
+	If m.loWindow.NWHandleType > 0
+		*** JRN 2023-10-26 : if already on an edit window, go to last one visited
+		lnStart	   = m.lnWindowCount
+		lnEnd	   = 1
+		lnStepSize = -1
+	Else
+		*** JRN 2023-10-26 : else, go to most recent visited
+		lnStart	   = 1
+		lnEnd	   = m.lnWindowCount
+		lnStepSize = 1
+	Endif
+
+	For lnI = m.lnStart To m.lnEnd Step m.lnStepSize
 		loWindow = m.loWindows[m.lnI]
 		If m.loWindow.NWHandleType > 0
 			m.loEditorWin.SelectWindow (m.loWindow.nWHAndle)
@@ -56,3 +71,4 @@ Procedure ToolCode
 	Endfor
 
 Endproc
+   
