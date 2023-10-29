@@ -160,6 +160,12 @@ Endproc
 * ================================================================================
 * ================================================================================
 Procedure UpdateHotKeyDefinitions
+
+	Local lcAutoInc
+
+	lcAutoInc = Set('AutoIncError')
+	Set Autoincerror Off
+
 	Select  *											;
 		From SWFSessionHotKeyDefinitions				;
 		Where Not (100 * nKeyCode + NShifts)			;
@@ -178,6 +184,8 @@ Procedure UpdateHotKeyDefinitions
 				(100 * NewHotKeyDefs.nKeyCode + NewHotKeyDefs.NShifts)					;
 				= (100 * HotKeyDefinitions.nKeyCode + HotKeyDefinitions.NShifts)		;
 		Into Cursor MapHotKeyIDs
+
+	Set Autoincerror &lcAutoInc
 
 Endproc
 
