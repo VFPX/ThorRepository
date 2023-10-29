@@ -1,4 +1,4 @@
-### 2023-10-28, Version 65.16
+### 2023-10-28, Version 65.16B
 * Install Quick Access Menu now reassigns hot keys correctly.
 * If the current window is not a code window, Tool "Cycle Code Windows" goes to the most recent code window.
 * Tool "Open MRUs" moved here from PEMEditor and now respects Thor font size for menus
