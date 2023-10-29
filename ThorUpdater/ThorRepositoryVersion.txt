@@ -3,9 +3,9 @@ lparameters toUpdateObject
 lcDate = '20231029'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.16B - ' + lcDate
+	.VersionNumber    = '65.16C - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.16B - 08702- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.16C - 08702- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,7 +14,7 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
-### 2023-10-28, Version 65.16B
+### 2023-10-29, Version 65.16C
 * Install Quick Access Menu now reassigns hot keys correctly.
 * If the current window is not a code window, Tool "Cycle Code Windows" goes to the most recent code window.
 * Tool "Open MRUs" moved here from PEMEditor and now respects Thor font size for menus
