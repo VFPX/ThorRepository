@@ -81,11 +81,13 @@ Procedure ToolCode
 
 		AddToSystemMenu()
 
-		lcHotKeyDesc =  AssignPopupHotKey()
-
 	Endif
 
 	UpdateHotKeyAssignments()
+
+	ReadHotKeysInUse()
+
+	lcHotKeyDesc = AssignPopupHotKey()
 
 	loCloseTempFiles = Null
 
@@ -146,13 +148,14 @@ Endproc
 * ================================================================================
 * ================================================================================
 Procedure ReadHotKeysInUse
-	Select  HotKeyID					;
-		From ToolHotKeyAssignments		;
-		Where HotKeyID # 0				;
-	Union All							;
-	Select  HotKeyID					;
-		From MenuDefinitions			;
-		Where HotKeyID # 0				;
+	Select  HotKeyID						;
+		From ToolHotKeyAssignments			;
+		Where HotKeyID # 0					;
+	Union All								;
+	Select  HotKeyID						;
+		From MenuDefinitions				;
+		Where HotKeyID # 0					;
+			And PopupName # 'SWF_Top'		;
 		Into Cursor HotKeysInUse
 Endproc
 
@@ -282,16 +285,19 @@ Procedure AssignPopupHotKey
 
 	Local lcAlias
 
-	Select  *;
+	Select  *											;
 		From HotKeyDefinitions							;
-		Where Not Id In (Select  hotkeyid				;
-							 From hotkeysinuse)			;
+		Where Not Id In (Select  HotKeyID				;
+							 From HotKeysInUse)			;
 		Into Cursor HotKeysAvailable
 
-	Select  *																		;
-		From SWFSESSIONMainHotKey													;
-		Where (100 * NKeycode + Nshifts) In (Select  100 * NKeycode + Nshifts		;
-												 From HotKeysAvailable)		order by order		;
+	Select  Main.*,											;
+			HKA.Id                   As  MainHotKey			;
+		From SWFSESSIONMainHotKey    As  Main				;
+			Join HotKeysAvailable    As  HKA				;
+				On 100 * Main.nKeyCode + Main.NShifts		;
+				=  100 * HKA.nKeyCode  + HKA.NShifts		;
+		Order By Main.Order									;
 		Into Cursor MainHotKeys Readwrite
 	Goto Top
 
@@ -299,8 +305,7 @@ Procedure AssignPopupHotKey
 	Select (m.lcAlias)
 
 	Locate For PopupName = 'SWF_Top'
-	Replace hotkeyid With MainHotKeys.Id
-
+	Replace HotKeyID With MainHotKeys.MainHotKey
 	Return MainHotKeys.Descript
 
 Endproc
