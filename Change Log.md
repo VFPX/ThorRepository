@@ -1,3 +1,7 @@
+### 2023-11-03, Version 65.17
+* Some minor refactoring of CleanUpThorTables in Thor_Proc_Utils (Try/Catch)
+* Fix bug in Install Quick Access Menu for hot key for popup menu
+
 ### 2023-10-29, Version 65.16C
 * Install Quick Access Menu now reassigns hot keys correctly.
 * If the current window is not a code window, Tool "Cycle Code Windows" goes to the most recent code window.

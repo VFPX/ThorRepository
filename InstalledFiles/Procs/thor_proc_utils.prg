@@ -102,7 +102,7 @@ Define Class ThorUtilities As Custom
 	
 	
 	Procedure CleanUpThorTables
-		Local laMenuIDs[1], lnCounter, lnI, loCloseTempFiles
+		Local laMenuIDs[1], lnCounter, lnI, loCloseTempFiles, loException
 	
 		* this closes tables left open in oThorEngine; no harm in doing so
 		_Screen.oThorEngine = Null
@@ -112,49 +112,74 @@ Define Class ThorUtilities As Custom
 		* open all the tables in the Thor folder
 		This.OpenThorTables()
 	
-		Select Thor
-		Use (Dbf()) Exclusive Alias (Alias())
-		Pack
+		* Pack Thor
+		Try
+			Select Thor
+			Use (Dbf()) Exclusive Alias (Alias())
+			Pack
+		Catch To m.loException
 	
-		Select ToolHotKeyAssignments
-		Use (Dbf()) Exclusive Alias (Alias())
-		Delete For HotKeyID = 0
-		Pack
+		Endtry
 	
-		Select MenuDefinitions
-		Use (Dbf()) Exclusive Alias (Alias())
-		Pack
+		* Pack ToolHotKeyAssignments
+		Try
+			Select ToolHotKeyAssignments
+			Use (Dbf()) Exclusive Alias (Alias())
+			Delete For HotKeyID <= 0
+			Pack
+		Catch To m.loException
 	
-		Select MenuTools
-		Use (Dbf()) Exclusive Alias (Alias())
-		Delete For MenuID <= 0
-		Pack
+		Endtry
 	
-		Select  Id											;
-			From MenuDefinitions							;
-			Where (Not Internal)							;
-				And Id # 8									;
-				And Not Id In (Select  SubmenuID			;
-								   From MenuTools			;
-								   Where MenuID = 8)		;
-			Into Array laMenuIDs
+		* Pack MenuDefinitions
+		Try
+			Select MenuDefinitions
+			Use (Dbf()) Exclusive Alias (Alias())
+			Pack
+		Catch To m.loException
 	
-		For lnI = 1 To _Tally
+		EndTry
+		
+		* Pack MenuTools	
+		Try
+			Select MenuTools
+			Use (Dbf()) Exclusive Alias (Alias())
+			Delete For MenuID <= 0
+			Pack
+		Catch To m.loException
 	
-			Set Filter To MenuID = m.laMenuIDs[m.lnI]
+		Endtry
 	
-			Set Order To
-			Replace All SortOrder With 1E9 + SortOrder
-			Set Order To SortOrder
+		* For MenuDefinitions, ensure that all MenuTools are numbereded 1, 2, ... with no holes
+		Try
+			Select  Id											;
+				From MenuDefinitions							;
+				Where (Not Internal)							;
+					And Id # 8									;
+					And Not Id In (Select  SubMenuID			;
+									   From MenuTools			;
+									   Where MenuID = 8)		;
+				Into Array laMenuIDs
 	
-			lnCounter = 0
-			Scan
-				lnCounter = m.lnCounter + 1
-				Replace SortOrder With m.lnCounter
-			Endscan
-		Endfor
-	EndProc
+			For lnI = 1 To _Tally
+				Set Filter To MenuID = m.laMenuIDs[m.lnI]
 	
+				Set Order To
+				Replace All SortOrder With 1E9 + SortOrder
+				Set Order To SortOrder
+	
+				lnCounter = 0
+				Scan
+					lnCounter = m.lnCounter + 1
+					Replace SortOrder With m.lnCounter
+				Endscan
+			Endfor
+		Catch To m.loException
+	
+		Endtry
+	
+	Endproc
+		
 	
 	Procedure BackupThorTables
 		* when loCloseTempFiles goes out of scope, it closes any newly opened tables
