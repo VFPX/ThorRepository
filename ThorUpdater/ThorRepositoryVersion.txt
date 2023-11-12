@@ -1,11 +1,11 @@
 lparameters toUpdateObject
 
-lcDate = '20231103'
+lcDate = '20231112'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.17 - ' + lcDate
+	.VersionNumber    = '65.18 - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.17 - 08707- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.18 - 08716- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,6 +14,9 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
+### 2023-11-12, Version 65.18
+* New Thor Proc to un-install deprecated GoFish5; invoked by any update to GoFish
+
 ### 2023-11-03, Version 65.17
 * Some minor refactoring of CleanUpThorTables in Thor_Proc_Utils (Try/Catch)
 * Fix bug in Install Quick Access Menu for hot key for popup menu

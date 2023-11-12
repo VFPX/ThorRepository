@@ -1,3 +1,6 @@
+### 2023-11-12, Version 65.18
+* New Thor Proc to un-install deprecated GoFish5; invoked by any update to GoFish
+
 ### 2023-11-03, Version 65.17
 * Some minor refactoring of CleanUpThorTables in Thor_Proc_Utils (Try/Catch)
 * Fix bug in Install Quick Access Menu for hot key for popup menu
