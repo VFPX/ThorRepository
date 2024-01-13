@@ -179,16 +179,16 @@ Define Class ThorTools As Custom
 
 
 	Procedure AddHotKeys
-		Update  Result																			;
-			Set HotKey = Nvl(HotKeyDefinitions.Descript, ''),									;
-				nKeyCode = Nvl(HotKeyDefinitions.nKeyCode, 999),								;
-				NShifts = Nvl(HotKeyDefinitions.NShifts, 0)										;
-			From (This.cDestAlias)    As  Result												;
-				Join ToolHotKeyAssignments														;
-					On Upper(Result.PRGName) = Upper(Forceext(ToolHotKeyAssignments.PRGName, 'PRG')) ;
-				Join HotKeyDefinitions															;
+		Update  Result																		;
+			Set HotKey = Nvl(HotKeyDefinitions.Descript, ''),								;
+				nKeyCode = Nvl(HotKeyDefinitions.nKeyCode, 999),							;
+				NShifts = Nvl(HotKeyDefinitions.NShifts, 0)									;
+			From (This.cDestAlias)    As  Result											;
+				Join ToolHotKeyAssignments													;
+					On Upper(Result.PRGName) = Upper(ToolHotKeyAssignments.PRGName)			;
+				Join HotKeyDefinitions														;
 					On ToolHotKeyAssignments.HotKeyID = HotKeyDefinitions.Id
-
+		
 		Replace All														;
 				HotKey	  With	Chrtran(Nvl(HotKey, ''), '-', '+')		;
 				Descript  With	Strtran(Descript, '\<', '')				;
