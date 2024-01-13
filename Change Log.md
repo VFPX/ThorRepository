@@ -1,29 +1,33 @@
-### 2023-11-12, Version 65.18
+### Thor Repository 65.19 - Released 2024-01-13
+* Fix bug in Thor Tool Manager (reported in Thor issue #252 )
+* Minor enhancements to tool "Add current file (SCX/VCX/PRG) to active project"
+
+### Thor Repository 65.18 - Released 2023-11-12
 * New Thor Proc to un-install deprecated GoFish5; invoked by any update to GoFish
 
-### 2023-11-03, Version 65.17
+### Thor Repository 65.17 - Released 2023-11-03
 * Some minor refactoring of CleanUpThorTables in Thor_Proc_Utils (Try/Catch)
 * Fix bug in Install Quick Access Menu for hot key for popup menu
 
-### 2023-10-29, Version 65.16C
+### Thor Repository 65.16C - Released 2023-10-29
 * Install Quick Access Menu now reassigns hot keys correctly.
 * If the current window is not a code window, Tool "Cycle Code Windows" goes to the most recent code window.
 * Tool "Open MRUs" moved here from PEMEditor and now respects Thor font size for menus
 * New PROCs added to Thor_Proc_Utils
 
-### 2023-10-22, Version 65.15C
+### Thor Repository 65.15C - Released 2023-10-22
 * Fixed handling in Context Help when download of directory table failed.
 
-### 2023-10-13, Version 65.15B
+### Thor Repository 65.15B - Released 2023-10-13
 * Fixed bug in Quick-Menu help screen
 * Minor enhancement to 'Modify Position and Size' form
 
-### 2023-10-11, Version 65.15A
+### Thor Repository 65.15A - Released 2023-10-11
 * Fixed issue in SuperBrowse when moving a column
 * Fixed issue with 'Execute highlighted text' (if any is highlighted)
 * Renamed "Dropdown Macros" to "Dropdown Command Expansions"
 
-### 2023-10-07, Version 65.15
+### Thor Repository 65.15 - Released 2023-10-07
 * Enhanced tool "Find Buffer Overrun Threats".
 * Removed option from Tool Manager
 * Fixed issues in SuperBrowse

@@ -1,6 +1,7 @@
 Lparameters lxParam1
 
 #Define CR Chr[13]
+#Define TIMEOUT 4 && ... seconds
 
 ****************************************************************
 ****************************************************************
@@ -14,8 +15,8 @@ If Pcount() = 1								;
 	With m.lxParam1
 
 		* Required
-		.Prompt		   = 'Add current file (SCX/VCX/PRG) to active project'
-		.AppID 		   = 'ThorRepository'
+		.Prompt	= 'Add current file (SCX/VCX/PRG) to active project'
+		.AppID	= 'ThorRepository'
 
 		.Category = 'Code'
 		.Author	  = 'JRN'
@@ -39,8 +40,8 @@ Return
 Procedure ToolCode
 	Lparameters lxParam1
 
-	Local laSelObj[1], lcFName, lcFileName, lcFullFileName, lcProjectName, lcPrompt, lnChoice
-	Local loEditorWin, loProject
+	Local laObjects[1], laSelObj[1], lcFName, lcFileName, lcFullFileName, lcProjectName, lcPrompt
+	Local lnChoice, loEditorWin, loProject
 
 	If _vfp.Projects.Count = 0
 		Messagebox('No project open')
@@ -48,41 +49,47 @@ Procedure ToolCode
 	Endif
 	loProject	  = _vfp.ActiveProject
 	lcProjectName = Justfname(m.loProject.Name)
+	If ' ' $ m.lcProjectName 
+		lcProjectName = ['] + lcProjectName + [']
+	EndIf 
 
-	loEditorWin	= Execscript (_Screen.cThorDispatcher, 'class= editorwin from pemeditor')
+	loEditorWin = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_EditorWin')
 	Do Case
-		Case m.loEditorWin.GetEnvironment(25) = 10 && SCX or VCX
-			lcFullFileName = m.laSelObj[2]
 		Case m.loEditorWin.GetEnvironment(25) = 1 && PRG
 			lcFileName	= m.loEditorWin.GetTitle()
 			If File(m.lcFileName)
 				lcFullFileName = Fullpath(m.lcFileName)
 			Else
-				Messagebox('File "' + m.lcfilename + '" not found')
+				Messagebox('File "' + m.lcFileName + '" not found')
 				Return
 			Endif
+		Case Aselobj(laSelObj, 3) # 0 && SCX or VCX
+			lcFullFileName = m.laSelObj[2]
 		Otherwise
 			Messagebox('Nothing to do')
 			Return
 	Endcase
 
 	lcFName = Justfname(m.lcFullFileName)
+	If ' ' $ m.lcFName 
+		lcFname = ['] + lcFname + [']
+	EndIf 
 	If Type([loProject.Files.Item(lcFullFileName)]) # 'O'
-		lcPrompt = [Add "] + m.lcFName + [" to project "] + m.lcProjectName + ["?]
-		lnChoice = Messagebox(m.lcPrompt, 3 + 32)
-		If m.lnChoice = 6
+		lcPrompt = [Add ] + m.lcFName + CR + [     to project ] + m.lcProjectName + [?]
+		lnChoice = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Messagebox', m.lcPrompt, 3)
+		If m.lnChoice = 'Y'
 			m.loProject.Files.Add(m.lcFullFileName)
-			lcPrompt = ["] + m.lcFName + [" added.]
-			Messagebox(m.lcPrompt, 64)
+			lcPrompt = m.lcFName + [ added.]
+			Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Messagebox', m.lcPrompt, 0, 'FYI', TIMEOUT)
 		Endif
 	Else
-		lcPrompt = ["] + m.lcFName + [" already in project "] + m.lcProjectName + ["]
+		lcPrompt = m.lcFName  + CR + [     already in project ] + m.lcProjectName
 		lcPrompt = m.lcPrompt + CR + CR + [Remove it?]
-		lnChoice = Messagebox(m.lcPrompt, 3 + 32)
-		If m.lnChoice = 6
+		lnChoice = Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Messagebox', m.lcPrompt, 13)
+		If m.lnChoice = 'Y'
 			m.loProject.Files(m.lcFullFileName).Remove()
-			lcPrompt = ["] + m.lcFName + [" Removed.]
-			Messagebox(m.lcPrompt, 64)
+			lcPrompt = m.lcFName + [ Removed.]
+			Execscript(_Screen.cThorDispatcher, 'Thor_Proc_Messagebox', m.lcPrompt, 0, 'FYI', TIMEOUT)
 		Endif
 	Endif
 
