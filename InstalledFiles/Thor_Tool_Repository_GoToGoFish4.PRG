@@ -69,10 +69,7 @@ Return
 
 	* Start GoFish
 	Do Case
-		Case Nvl(Execscript(_Screen.cThorDispatcher, 'Get Option=', ccKeyBeta, ccTool), .F.)		;
-				And Not Isnull (Execscript (_Screen.cThorDispatcher, 'Thor_TOOL_GoFish4_Beta'))
-
-		Case Not Isnull (Execscript (_Screen.cThorDispatcher, 'Thor_TOOL_GoFish5'))
+		Case Not Isnull (Execscript (_Screen.cThorDispatcher, 'Thor_TOOL_GoFish'))
 
 		Otherwise
 			Messagebox ('GoFish is not installed; unable to proceed', 16, 'GoFish not installed', 0)

@@ -233,7 +233,7 @@ Define Class ThorTools As Custom
 			(Source, Descript, PRGName)															;
 			Select  'Hot Key'                                 As  Source,						;
 					Padr(This.GetToolPrompt(PRGName), 100)    As  Descript,						;
-					Forceext(PRGName, 'prg')                  As  PRGName						;
+					Padr(Forceext(PRGName, 'prg'), 80)        As  PRGName						;
 				From ToolHotKeyAssignments														;
 				Where HotKeyID # 0																;
 					And Not Lower(Forceext(ToolHotKeyAssignments.PRGName, 'prg')) In (Select  Lower(PRGName) ;
