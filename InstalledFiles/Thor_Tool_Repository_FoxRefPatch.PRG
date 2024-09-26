@@ -66,7 +66,7 @@ Procedure ToolCode
 
 	Local lcMyName
 
-	If Empty (Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_TOOL_GoFish4'))
+	If Empty (Execscript (_Screen.cThorDispatcher, 'Full Path=Thor_TOOL_GoFish'))
 
 		Messagebox ('GoFish is not installed; unable to proceed', 16, 'GoFish not installed', 0)
 

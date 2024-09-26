@@ -1,3 +1,9 @@
+### Thor Repository 65.20 - Released 2024-09-26
+* Update to tool "Replace code window context menu items"
+    - "View Definition" now uses GoToDefinition
+    - "Look up Reference" now uses GoFish
+    - This tool needs to run once in each IDE session, presumably as a StartUp tool. (See the Thor configuration screen)
+
 ### Thor Repository 65.19 - Released 2024-01-13
 * Fix bug in Thor Tool Manager (reported in Thor issue #252 )
 * Minor enhancements to tool "Add current file (SCX/VCX/PRG) to active project"
