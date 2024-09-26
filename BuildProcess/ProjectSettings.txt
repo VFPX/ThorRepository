@@ -1,6 +1,6 @@
 AppName   = Thor Repository
 AppID     = ThorRepository
-Version   = 65.19
+Version   = 65.20
 Component = Yes
 
 ChangeLog      = Change Log.MD
