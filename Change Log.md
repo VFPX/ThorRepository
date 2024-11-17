@@ -1,3 +1,6 @@
+### Thor Repository 65.21 - Released 2024-11-17
+* Fix bug in Thor Tool Manager when Set StrictDate To 2
+
 ### Thor Repository 65.20 - Released 2024-09-26
 * Update to tool "Replace code window context menu items"
     - "View Definition" now uses GoToDefinition
