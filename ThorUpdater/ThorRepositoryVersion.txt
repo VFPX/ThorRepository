@@ -1,11 +1,11 @@
 lparameters toUpdateObject
 
-lcDate = '20240926'
+lcDate = '20241117'
 
 With m.toUpdateObject
-	.VersionNumber    = '65.20 - ' + lcDate
+	.VersionNumber    = '65.21 - ' + lcDate
 
-	.AvailableVersion = 'Thor Repository - 65.20 - 09035- ' + lcDate
+	.AvailableVersion = 'Thor Repository - 65.21 - 09087- ' + lcDate
 	.Notes			  = GetNotes()
 	.InstallInTools	  = .T.
 endwith
@@ -14,6 +14,9 @@ return toUpdateObject
 procedure GetNotes
 local lcNotes
 text to lcNotes noshow
+### Thor Repository 65.21 - Released 2024-11-17
+* Fix bug in Thor Tool Manager when Set StrictDate To 2
+
 ### Thor Repository 65.20 - Released 2024-09-26
 * Update to tool "Replace code window context menu items"
     - "View Definition" now uses GoToDefinition

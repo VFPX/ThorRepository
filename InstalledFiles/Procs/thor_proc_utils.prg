@@ -30,7 +30,7 @@ Define Class ThorUtilities As Custom
 
 		If m.lnNFiles > 0
 			Append From Array m.lcFileList
-			Replace All Datetime With Ctot(Transform(Dtoc(Date, 1), '@R ^9999/99/99') + ' ' + Time)
+			Replace All Datetime With Evaluate(Transform(Dtoc(Date, 1), '@R {^9999-99-99') + ' ' + Time + '}')
 		Endif
 
 		Return m.lnNFiles
